@@ -12,6 +12,8 @@ using System.Windows.Forms;
 //Maximin koodit
 //Lisäsin toisen kommentin t:Lauri
 
+//Matin kommentti
+
 namespace RentCottage
 {
     public partial class Form1 : Form
