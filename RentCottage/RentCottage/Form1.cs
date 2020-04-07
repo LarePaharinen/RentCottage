@@ -13,7 +13,7 @@ using System.Windows.Forms;
 //Lisäsin toisen kommentin t:Lauri
 
 //Matin kommentti
-// Matin 2. kommentti
+// Matin 2. kommentti tassa
 
 namespace RentCottage
 {
