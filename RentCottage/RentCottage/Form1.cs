@@ -13,7 +13,6 @@ using System.Windows.Forms;
 //Lisäsin toisen kommentin t:Lauri
 //Tomin koodia
 //Lisää Tomin koodia
-
 //Matin kommentti
 
 namespace RentCottage
