@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 //Laurin koodit
 //Maximin koodit
+//Lisäsin toisen kommentin t:Lauri
 
 namespace RentCottage
 {
