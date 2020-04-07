@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //Laurin koodit
+//Maximin koodit
+//Tomin koodia
 
 //Tomin koodi
 
