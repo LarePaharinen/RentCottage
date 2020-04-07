@@ -14,6 +14,7 @@ namespace RentCottage
     {
         public Form1()
         {
+            //Matin koodia
             InitializeComponent();
         }
     }
