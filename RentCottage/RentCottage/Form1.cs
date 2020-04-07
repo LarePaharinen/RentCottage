@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Laurin koodit
-//Maximin koodit
-//Tomin koodia
+//Tomin branchiin tehty koodi
 
 namespace RentCottage
 {
