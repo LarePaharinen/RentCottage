@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Tomin koodi
+//Laurin koodit
 
 namespace RentCottage
 {
@@ -16,6 +16,7 @@ namespace RentCottage
     {
         public Form1()
         {
+
             InitializeComponent();
         }
     }
