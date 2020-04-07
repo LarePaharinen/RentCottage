@@ -8,8 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//Tomin branchiin tehty koodi
 //Laurin koodit
 //Maximin koodit
+//Lisäsin toisen kommentin t:Lauri
+//Tomin koodia
+//Lisää Tomin koodia
+//Matin kommentti
+// Matin 2. kommentti tassa
+//Matin 3. kommentti
+
 
 namespace RentCottage
 {
@@ -17,7 +26,6 @@ namespace RentCottage
     {
         public Form1()
         {
-
             InitializeComponent();
         }
     }
