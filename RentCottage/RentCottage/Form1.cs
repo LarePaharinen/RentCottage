@@ -20,6 +20,8 @@ using System.Windows.Forms;
 //Matin 3. kommentti
 
 
+//Matin koodia
+
 namespace RentCottage
 {
     public partial class Form1 : Form
