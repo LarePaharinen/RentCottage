@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 //Laurin koodit
 //Maximin koodit
+//Lisäsin toisen kommentin t:Lauri
 //Tomin koodia
-
-//Tomin koodi
+//Lisää Tomin koodia
 
 namespace RentCottage
 {
