@@ -9,22 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-//Tomin branchiin tehty koodi
-//Laurin koodit
-//Maximin koodit
-//Lisäsin toisen kommentin t:Lauri
-//Tomin koodia
-//Lisää Tomin koodia
-//Matin kommentti
-// Matin 2. kommentti tassa
-//Matin 3. kommentti
-
-
 namespace RentCottage
 {
-    public partial class Form1 : Form
+    public partial class RentCottage : Form
     {
-        public Form1()
+        public RentCottage()
         {
             InitializeComponent();
         }
