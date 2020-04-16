@@ -36,5 +36,15 @@ namespace RentCottage
             adapter.Fill(table);
             dgvRegion.DataSource = table;
         }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
