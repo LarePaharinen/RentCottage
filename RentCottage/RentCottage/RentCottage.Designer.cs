@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -62,6 +62,14 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tRentControl = new System.Windows.Forms.TabPage();
+            this.dgOrder = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btmRemove = new System.Windows.Forms.Button();
+            this.btmChange = new System.Windows.Forms.Button();
+            this.btmShowAll = new System.Windows.Forms.Button();
+            this.btmSearch = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.cmbList = new System.Windows.Forms.ComboBox();
             this.tAreaControl = new System.Windows.Forms.TabPage();
             this.tbRegionName = new System.Windows.Forms.TextBox();
             this.btnRegionDelete = new System.Windows.Forms.Button();
@@ -132,20 +140,15 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tBilling = new System.Windows.Forms.TabPage();
-            this.cmbList = new System.Windows.Forms.ComboBox();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btmSearch = new System.Windows.Forms.Button();
-            this.btmShowAll = new System.Windows.Forms.Button();
-            this.btmChange = new System.Windows.Forms.Button();
-            this.btmRemove = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tRentControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tAreaControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegion)).BeginInit();
             this.tCustomerControl.SuspendLayout();
@@ -156,8 +159,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCottage)).BeginInit();
             this.stService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -510,7 +511,9 @@
             // 
             // tRentControl
             // 
-            this.tRentControl.Controls.Add(this.dataGridView3);
+            this.tRentControl.BackColor = System.Drawing.SystemColors.Control;
+            this.tRentControl.Controls.Add(this.dtp);
+            this.tRentControl.Controls.Add(this.dgOrder);
             this.tRentControl.Controls.Add(this.pictureBox1);
             this.tRentControl.Controls.Add(this.btmRemove);
             this.tRentControl.Controls.Add(this.btmChange);
@@ -525,7 +528,94 @@
             this.tRentControl.Size = new System.Drawing.Size(2676, 1085);
             this.tRentControl.TabIndex = 1;
             this.tRentControl.Text = "Varausten hallinta";
-            this.tRentControl.UseVisualStyleBackColor = true;
+            // 
+            // dgOrder
+            // 
+            this.dgOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgOrder.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgOrder.Location = new System.Drawing.Point(342, 14);
+            this.dgOrder.Name = "dgOrder";
+            this.dgOrder.RowHeadersWidth = 62;
+            this.dgOrder.RowTemplate.Height = 28;
+            this.dgOrder.Size = new System.Drawing.Size(1613, 694);
+            this.dgOrder.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox1.Location = new System.Drawing.Point(-12, 333);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 1);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btmRemove
+            // 
+            this.btmRemove.Location = new System.Drawing.Point(83, 600);
+            this.btmRemove.Name = "btmRemove";
+            this.btmRemove.Size = new System.Drawing.Size(178, 53);
+            this.btmRemove.TabIndex = 5;
+            this.btmRemove.Text = "POISTA";
+            this.btmRemove.UseVisualStyleBackColor = true;
+            // 
+            // btmChange
+            // 
+            this.btmChange.Location = new System.Drawing.Point(83, 489);
+            this.btmChange.Name = "btmChange";
+            this.btmChange.Size = new System.Drawing.Size(178, 53);
+            this.btmChange.TabIndex = 4;
+            this.btmChange.Text = "MUOKKA";
+            this.btmChange.UseVisualStyleBackColor = true;
+            // 
+            // btmShowAll
+            // 
+            this.btmShowAll.Location = new System.Drawing.Point(83, 385);
+            this.btmShowAll.Name = "btmShowAll";
+            this.btmShowAll.Size = new System.Drawing.Size(178, 53);
+            this.btmShowAll.TabIndex = 3;
+            this.btmShowAll.Text = "NÄYTTÄ KAIKKI";
+            this.btmShowAll.UseVisualStyleBackColor = true;
+            this.btmShowAll.Click += new System.EventHandler(this.btmShowAll_Click);
+            // 
+            // btmSearch
+            // 
+            this.btmSearch.Location = new System.Drawing.Point(83, 229);
+            this.btmSearch.Name = "btmSearch";
+            this.btmSearch.Size = new System.Drawing.Size(178, 53);
+            this.btmSearch.TabIndex = 2;
+            this.btmSearch.Text = "HAE";
+            this.btmSearch.UseVisualStyleBackColor = true;
+            this.btmSearch.Click += new System.EventHandler(this.btmSearch_Click);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(41, 143);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(256, 26);
+            this.tbSearch.TabIndex = 1;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
+            this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
+            // 
+            // cmbList
+            // 
+            this.cmbList.FormattingEnabled = true;
+            this.cmbList.Items.AddRange(new object[] {
+            "VARAUS ID",
+            "ASIAKAS ID",
+            "MÖKKI ID",
+            "VARATTU PVM",
+            "VAHVISTUS PVM",
+            "ALKUPVM",
+            "LOPPUPVM"});
+            this.cmbList.Location = new System.Drawing.Point(41, 53);
+            this.cmbList.Name = "cmbList";
+            this.cmbList.Size = new System.Drawing.Size(256, 28);
+            this.cmbList.TabIndex = 0;
+            this.cmbList.DropDown += new System.EventHandler(this.cmbList_DropDown);
+            this.cmbList.SelectedIndexChanged += new System.EventHandler(this.cmbList_SelectedIndexChanged);
+            this.cmbList.DropDownClosed += new System.EventHandler(this.cmbList_DropDownClosed);
             // 
             // tAreaControl
             // 
@@ -590,34 +680,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvRegion.Location = new System.Drawing.Point(489, 9);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1305,84 +1395,14 @@
             this.tBilling.Text = "Laskut";
             this.tBilling.UseVisualStyleBackColor = true;
             // 
-            // cmbList
+            // dtp
             // 
-            this.cmbList.FormattingEnabled = true;
-            this.cmbList.Items.AddRange(new object[] {
-            "VARAUS ID",
-            "ASIAKAS ID",
-            "MÖKKI ID",
-            "VARATTU PVM",
-            "VAHVISTUS PVM",
-            "ALKUPVM",
-            "LOPPUPVM"});
-            this.cmbList.Location = new System.Drawing.Point(41, 53);
-            this.cmbList.Name = "cmbList";
-            this.cmbList.Size = new System.Drawing.Size(311, 28);
-            this.cmbList.TabIndex = 0;
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(41, 143);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(311, 26);
-            this.tbSearch.TabIndex = 1;
-            this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
-            this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
-            // 
-            // btmSearch
-            // 
-            this.btmSearch.Location = new System.Drawing.Point(107, 233);
-            this.btmSearch.Name = "btmSearch";
-            this.btmSearch.Size = new System.Drawing.Size(178, 53);
-            this.btmSearch.TabIndex = 2;
-            this.btmSearch.Text = "HAE";
-            this.btmSearch.UseVisualStyleBackColor = true;
-            // 
-            // btmShowAll
-            // 
-            this.btmShowAll.Location = new System.Drawing.Point(107, 389);
-            this.btmShowAll.Name = "btmShowAll";
-            this.btmShowAll.Size = new System.Drawing.Size(178, 53);
-            this.btmShowAll.TabIndex = 3;
-            this.btmShowAll.Text = "NÄYTTÄ KAIKKI";
-            this.btmShowAll.UseVisualStyleBackColor = true;
-            // 
-            // btmChange
-            // 
-            this.btmChange.Location = new System.Drawing.Point(107, 493);
-            this.btmChange.Name = "btmChange";
-            this.btmChange.Size = new System.Drawing.Size(178, 53);
-            this.btmChange.TabIndex = 4;
-            this.btmChange.Text = "MUOKKA";
-            this.btmChange.UseVisualStyleBackColor = true;
-            // 
-            // btmRemove
-            // 
-            this.btmRemove.Location = new System.Drawing.Point(107, 604);
-            this.btmRemove.Name = "btmRemove";
-            this.btmRemove.Size = new System.Drawing.Size(178, 53);
-            this.btmRemove.TabIndex = 5;
-            this.btmRemove.Text = "POISTA";
-            this.btmRemove.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 334);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(397, 1);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(396, 14);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 62;
-            this.dataGridView3.RowTemplate.Height = 28;
-            this.dataGridView3.Size = new System.Drawing.Size(1613, 694);
-            this.dataGridView3.TabIndex = 8;
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp.Location = new System.Drawing.Point(40, 143);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(257, 26);
+            this.dtp.TabIndex = 9;
+            this.dtp.Visible = false;
             // 
             // RentCottage
             // 
@@ -1402,6 +1422,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tRentControl.ResumeLayout(false);
             this.tRentControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tAreaControl.ResumeLayout(false);
             this.tAreaControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegion)).EndInit();
@@ -1416,8 +1438,6 @@
             this.stService.ResumeLayout(false);
             this.stService.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1532,7 +1552,8 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.ComboBox cmbList;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgOrder;
+        private System.Windows.Forms.DateTimePicker dtp;
     }
 }
 
