@@ -22,6 +22,8 @@ namespace RentCottage
 
         private void RentCottage_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'vnDataSet.varaus' table. You can move, or remove it, as needed.
+            this.varausTableAdapter.Fill(this.vnDataSet.varaus);
             PopulateDGVRegion();
 
         }
