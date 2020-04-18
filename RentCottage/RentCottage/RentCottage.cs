@@ -18,6 +18,8 @@ namespace RentCottage
         public RentCottage()
         {
             InitializeComponent();
+            tbSearch.Tag = tbSearch.Text = "kirjoita hakusana...";
+            tbSearch.ForeColor = Color.Gray;
         }
 
         private void RentCottage_Load(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace RentCottage
             // TODO: This line of code loads data into the 'vnDataSet.varaus' table. You can move, or remove it, as needed.
             this.varausTableAdapter.Fill(this.vnDataSet.varaus);
             PopulateDGVRegion();
-
+            cmbList.ForeColor = Color.Gray;
         }
 
         MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -47,6 +49,29 @@ namespace RentCottage
         private void label29_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbSearch_Enter(object sender, EventArgs e)
+        {
+            if (tbSearch.Text.Equals("kirjoita hakusana..."))
+            {
+                tbSearch.Clear();
+                tbSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbSearch_Leave(object sender, EventArgs e)
+        {
+            if (tbSearch.Text.Equals("kirjoita hakusana..."))
+            {
+                tbSearch.Clear();
+                tbSearch.ForeColor = Color.Black;
+            }
+            else if (tbSearch.TextLength == 0)
+            {
+                tbSearch.Tag = tbSearch.Text = "kirjoita hakusana...";
+                tbSearch.ForeColor = Color.Gray;
+            }
         }
     }
 }

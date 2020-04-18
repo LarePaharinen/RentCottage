@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -143,13 +143,7 @@
             this.vnDataSet = new RentCottage.vnDataSet();
             this.varausBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.varausTableAdapter = new RentCottage.vnDataSetTableAdapters.varausTableAdapter();
-            this.varausidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asiakasidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mokkimokkiidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.varattupvmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vahvistuspvmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.varattualkupvmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.varattuloppupvmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -169,6 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vnDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.varausBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -521,6 +516,7 @@
             // 
             // tRentControl
             // 
+            this.tRentControl.Controls.Add(this.pictureBox1);
             this.tRentControl.Controls.Add(this.dgvVaraus);
             this.tRentControl.Controls.Add(this.btmRemove);
             this.tRentControl.Controls.Add(this.btmChange);
@@ -600,34 +596,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvRegion.Location = new System.Drawing.Point(489, 9);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1337,6 +1333,8 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(311, 26);
             this.tbSearch.TabIndex = 1;
+            this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
+            this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
             // 
             // btmSearch
             // 
@@ -1376,19 +1374,9 @@
             // 
             // dgvVaraus
             // 
-            this.dgvVaraus.AutoGenerateColumns = false;
             this.dgvVaraus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvVaraus.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvVaraus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVaraus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.varausidDataGridViewTextBoxColumn,
-            this.asiakasidDataGridViewTextBoxColumn,
-            this.mokkimokkiidDataGridViewTextBoxColumn,
-            this.varattupvmDataGridViewTextBoxColumn,
-            this.vahvistuspvmDataGridViewTextBoxColumn,
-            this.varattualkupvmDataGridViewTextBoxColumn,
-            this.varattuloppupvmDataGridViewTextBoxColumn});
-            this.dgvVaraus.DataSource = this.varausBindingSource;
             this.dgvVaraus.Location = new System.Drawing.Point(397, 19);
             this.dgvVaraus.Name = "dgvVaraus";
             this.dgvVaraus.RowHeadersWidth = 62;
@@ -1410,61 +1398,13 @@
             // 
             this.varausTableAdapter.ClearBeforeFill = true;
             // 
-            // varausidDataGridViewTextBoxColumn
+            // pictureBox1
             // 
-            this.varausidDataGridViewTextBoxColumn.DataPropertyName = "varaus_id";
-            this.varausidDataGridViewTextBoxColumn.HeaderText = "varaus_id";
-            this.varausidDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.varausidDataGridViewTextBoxColumn.Name = "varausidDataGridViewTextBoxColumn";
-            this.varausidDataGridViewTextBoxColumn.Width = 113;
-            // 
-            // asiakasidDataGridViewTextBoxColumn
-            // 
-            this.asiakasidDataGridViewTextBoxColumn.DataPropertyName = "asiakas_id";
-            this.asiakasidDataGridViewTextBoxColumn.HeaderText = "asiakas_id";
-            this.asiakasidDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.asiakasidDataGridViewTextBoxColumn.Name = "asiakasidDataGridViewTextBoxColumn";
-            this.asiakasidDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // mokkimokkiidDataGridViewTextBoxColumn
-            // 
-            this.mokkimokkiidDataGridViewTextBoxColumn.DataPropertyName = "mokki_mokki_id";
-            this.mokkimokkiidDataGridViewTextBoxColumn.HeaderText = "mokki_mokki_id";
-            this.mokkimokkiidDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.mokkimokkiidDataGridViewTextBoxColumn.Name = "mokkimokkiidDataGridViewTextBoxColumn";
-            this.mokkimokkiidDataGridViewTextBoxColumn.Width = 157;
-            // 
-            // varattupvmDataGridViewTextBoxColumn
-            // 
-            this.varattupvmDataGridViewTextBoxColumn.DataPropertyName = "varattu_pvm";
-            this.varattupvmDataGridViewTextBoxColumn.HeaderText = "varattu_pvm";
-            this.varattupvmDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.varattupvmDataGridViewTextBoxColumn.Name = "varattupvmDataGridViewTextBoxColumn";
-            this.varattupvmDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // vahvistuspvmDataGridViewTextBoxColumn
-            // 
-            this.vahvistuspvmDataGridViewTextBoxColumn.DataPropertyName = "vahvistus_pvm";
-            this.vahvistuspvmDataGridViewTextBoxColumn.HeaderText = "vahvistus_pvm";
-            this.vahvistuspvmDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.vahvistuspvmDataGridViewTextBoxColumn.Name = "vahvistuspvmDataGridViewTextBoxColumn";
-            this.vahvistuspvmDataGridViewTextBoxColumn.Width = 148;
-            // 
-            // varattualkupvmDataGridViewTextBoxColumn
-            // 
-            this.varattualkupvmDataGridViewTextBoxColumn.DataPropertyName = "varattu_alkupvm";
-            this.varattualkupvmDataGridViewTextBoxColumn.HeaderText = "varattu_alkupvm";
-            this.varattualkupvmDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.varattualkupvmDataGridViewTextBoxColumn.Name = "varattualkupvmDataGridViewTextBoxColumn";
-            this.varattualkupvmDataGridViewTextBoxColumn.Width = 161;
-            // 
-            // varattuloppupvmDataGridViewTextBoxColumn
-            // 
-            this.varattuloppupvmDataGridViewTextBoxColumn.DataPropertyName = "varattu_loppupvm";
-            this.varattuloppupvmDataGridViewTextBoxColumn.HeaderText = "varattu_loppupvm";
-            this.varattuloppupvmDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.varattuloppupvmDataGridViewTextBoxColumn.Name = "varattuloppupvmDataGridViewTextBoxColumn";
-            this.varattuloppupvmDataGridViewTextBoxColumn.Width = 171;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 334);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(397, 1);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // RentCottage
             // 
@@ -1501,6 +1441,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vnDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.varausBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1615,16 +1556,10 @@
         private System.Windows.Forms.Button btmSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.ComboBox cmbList;
-        private RentCottage.vnDataSet vnDataSet;
         private System.Windows.Forms.BindingSource varausBindingSource;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private RentCottage.vnDataSet vnDataSet;
         private RentCottage.vnDataSetTableAdapters.varausTableAdapter varausTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn varausidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn asiakasidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mokkimokkiidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn varattupvmDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vahvistuspvmDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn varattualkupvmDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn varattuloppupvmDataGridViewTextBoxColumn;
     }
 }
 
