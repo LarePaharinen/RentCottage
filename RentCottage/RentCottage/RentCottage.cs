@@ -247,5 +247,15 @@ namespace RentCottage
             ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
             MCF.ShowDialog();
         }
+
+        private void btnCustomerModify_Click_1(object sender, EventArgs e)
+        {
+            Customer customer = new Customer(Convert.ToInt32(dgvCustomer.CurrentRow.Cells[0].Value), dgvCustomer.CurrentRow.Cells[1].Value.ToString(),
+                dgvCustomer.CurrentRow.Cells[2].Value.ToString(), dgvCustomer.CurrentRow.Cells[3].Value.ToString(),
+                dgvCustomer.CurrentRow.Cells[4].Value.ToString(), dgvCustomer.CurrentRow.Cells[5].Value.ToString(),
+                dgvCustomer.CurrentRow.Cells[6].Value.ToString());
+            ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
+            MCF.ShowDialog();
+        }
     }
 }

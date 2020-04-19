@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -65,6 +62,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tRentControl = new System.Windows.Forms.TabPage();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.dgOrder = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btmRemove = new System.Windows.Forms.Button();
@@ -143,7 +141,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tBilling = new System.Windows.Forms.TabPage();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.btnCustomerModify = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
@@ -177,7 +174,7 @@
             this.tcMain.Controls.Add(this.tServiceControl);
             this.tcMain.Controls.Add(this.tBilling);
             this.tcMain.Location = new System.Drawing.Point(0, 0);
-            this.tcMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcMain.Margin = new System.Windows.Forms.Padding(4);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
             this.tcMain.Size = new System.Drawing.Size(2684, 1118);
@@ -206,13 +203,11 @@
             this.tSearch.Controls.Add(this.label30);
             this.tSearch.Controls.Add(this.dateTimePicker2);
             this.tSearch.Controls.Add(this.dateTimePicker1);
-            this.tSearch.Location = new System.Drawing.Point(4, 29);
-            this.tSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tSearch.Location = new System.Drawing.Point(4, 25);
-            this.tSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tSearch.Name = "tSearch";
             this.tSearch.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tSearch.Size = new System.Drawing.Size(2676, 1085);
+            this.tSearch.Size = new System.Drawing.Size(2676, 1089);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
             // 
@@ -224,7 +219,7 @@
             this.comboBox3.Location = new System.Drawing.Point(156, 75);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(312, 28);
+            this.comboBox3.Size = new System.Drawing.Size(312, 24);
             this.comboBox3.TabIndex = 40;
             // 
             // label31
@@ -235,7 +230,7 @@
             this.label31.Location = new System.Drawing.Point(26, 83);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 20);
+            this.label31.Size = new System.Drawing.Size(36, 17);
             this.label31.TabIndex = 39;
             this.label31.Text = "Alue";
             // 
@@ -351,7 +346,7 @@
             this.comboBox2.Location = new System.Drawing.Point(156, 326);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(304, 28);
+            this.comboBox2.Size = new System.Drawing.Size(304, 24);
             this.comboBox2.TabIndex = 35;
             this.comboBox2.Text = "Lemmikkit, tupakointipaikat...";
             // 
@@ -363,7 +358,7 @@
             this.label24.Location = new System.Drawing.Point(26, 326);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(89, 20);
+            this.label24.Size = new System.Drawing.Size(78, 17);
             this.label24.TabIndex = 34;
             this.label24.Text = "Rajoitukset";
             // 
@@ -375,7 +370,7 @@
             this.comboBox1.Location = new System.Drawing.Point(156, 274);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(304, 28);
+            this.comboBox1.Size = new System.Drawing.Size(304, 24);
             this.comboBox1.TabIndex = 33;
             this.comboBox1.Text = "sauna, jääkappi, mikro...";
             // 
@@ -387,7 +382,7 @@
             this.label25.Location = new System.Drawing.Point(26, 278);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(77, 20);
+            this.label25.Size = new System.Drawing.Size(68, 17);
             this.label25.TabIndex = 32;
             this.label25.Text = "Varustelu";
             // 
@@ -408,7 +403,7 @@
             this.textBox1.Location = new System.Drawing.Point(156, 28);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 26);
+            this.textBox1.Size = new System.Drawing.Size(134, 22);
             this.textBox1.TabIndex = 30;
             // 
             // label26
@@ -419,7 +414,7 @@
             this.label26.Location = new System.Drawing.Point(26, 35);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(71, 20);
+            this.label26.Size = new System.Drawing.Size(61, 17);
             this.label26.TabIndex = 29;
             this.label26.Text = "Mökki ID";
             // 
@@ -430,7 +425,7 @@
             this.numericUpDown2.Location = new System.Drawing.Point(156, 225);
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(136, 26);
+            this.numericUpDown2.Size = new System.Drawing.Size(136, 22);
             this.numericUpDown2.TabIndex = 28;
             // 
             // label27
@@ -441,7 +436,7 @@
             this.label27.Location = new System.Drawing.Point(26, 225);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(73, 20);
+            this.label27.Size = new System.Drawing.Size(65, 17);
             this.label27.TabIndex = 27;
             this.label27.Text = "Hintaraja";
             // 
@@ -453,7 +448,7 @@
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.numericUpDown1.Size = new System.Drawing.Size(136, 26);
+            this.numericUpDown1.Size = new System.Drawing.Size(136, 22);
             this.numericUpDown1.TabIndex = 26;
             // 
             // label28
@@ -464,7 +459,7 @@
             this.label28.Location = new System.Drawing.Point(26, 175);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(107, 20);
+            this.label28.Size = new System.Drawing.Size(95, 17);
             this.label28.TabIndex = 25;
             this.label28.Text = "Henkilömäärä";
             // 
@@ -476,7 +471,7 @@
             this.label29.Location = new System.Drawing.Point(304, 126);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(18, 20);
+            this.label29.Size = new System.Drawing.Size(16, 17);
             this.label29.TabIndex = 24;
             this.label29.Text = "_";
             this.label29.Click += new System.EventHandler(this.label29_Click);
@@ -489,7 +484,7 @@
             this.label30.Location = new System.Drawing.Point(26, 135);
             this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(40, 20);
+            this.label30.Size = new System.Drawing.Size(35, 17);
             this.label30.TabIndex = 23;
             this.label30.Text = "Aika";
             // 
@@ -501,7 +496,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(333, 126);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(134, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(134, 22);
             this.dateTimePicker2.TabIndex = 22;
             // 
             // dateTimePicker1
@@ -512,7 +507,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(156, 126);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(134, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(134, 22);
             this.dateTimePicker1.TabIndex = 21;
             // 
             // tRentControl
@@ -527,13 +522,22 @@
             this.tRentControl.Controls.Add(this.btmSearch);
             this.tRentControl.Controls.Add(this.tbSearch);
             this.tRentControl.Controls.Add(this.cmbList);
-            this.tRentControl.Location = new System.Drawing.Point(4, 29);
+            this.tRentControl.Location = new System.Drawing.Point(4, 25);
             this.tRentControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tRentControl.Name = "tRentControl";
             this.tRentControl.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tRentControl.Size = new System.Drawing.Size(2676, 1085);
+            this.tRentControl.Size = new System.Drawing.Size(2676, 1089);
             this.tRentControl.TabIndex = 1;
             this.tRentControl.Text = "Varausten hallinta";
+            // 
+            // dtp
+            // 
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp.Location = new System.Drawing.Point(40, 143);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(257, 22);
+            this.dtp.TabIndex = 9;
+            this.dtp.Visible = false;
             // 
             // dgOrder
             // 
@@ -598,7 +602,7 @@
             // 
             this.tbSearch.Location = new System.Drawing.Point(41, 143);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(256, 26);
+            this.tbSearch.Size = new System.Drawing.Size(256, 22);
             this.tbSearch.TabIndex = 1;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
@@ -617,7 +621,7 @@
             "LOPPUPVM"});
             this.cmbList.Location = new System.Drawing.Point(41, 53);
             this.cmbList.Name = "cmbList";
-            this.cmbList.Size = new System.Drawing.Size(256, 28);
+            this.cmbList.Size = new System.Drawing.Size(256, 24);
             this.cmbList.TabIndex = 0;
             this.cmbList.DropDown += new System.EventHandler(this.cmbList_DropDown);
             this.cmbList.SelectedIndexChanged += new System.EventHandler(this.cmbList_SelectedIndexChanged);
@@ -633,10 +637,10 @@
             this.tAreaControl.Controls.Add(this.btnRegionAdd);
             this.tAreaControl.Controls.Add(this.lblRegion);
             this.tAreaControl.Location = new System.Drawing.Point(4, 25);
-            this.tAreaControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tAreaControl.Margin = new System.Windows.Forms.Padding(4);
             this.tAreaControl.Name = "tAreaControl";
             this.tAreaControl.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tAreaControl.Size = new System.Drawing.Size(2676, 1085);
+            this.tAreaControl.Size = new System.Drawing.Size(2676, 1089);
             this.tAreaControl.TabIndex = 2;
             this.tAreaControl.Text = "Toiminta-alueiden hallinta";
             this.tAreaControl.UseVisualStyleBackColor = true;
@@ -644,7 +648,7 @@
             // tbRegionName
             // 
             this.tbRegionName.Location = new System.Drawing.Point(130, 91);
-            this.tbRegionName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRegionName.Margin = new System.Windows.Forms.Padding(4);
             this.tbRegionName.Name = "tbRegionName";
             this.tbRegionName.Size = new System.Drawing.Size(212, 22);
             this.tbRegionName.TabIndex = 10;
@@ -652,7 +656,7 @@
             // btnRegionDelete
             // 
             this.btnRegionDelete.Location = new System.Drawing.Point(78, 138);
-            this.btnRegionDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegionDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegionDelete.Name = "btnRegionDelete";
             this.btnRegionDelete.Size = new System.Drawing.Size(128, 50);
             this.btnRegionDelete.TabIndex = 9;
@@ -675,7 +679,7 @@
             this.label1.Location = new System.Drawing.Point(9, 71);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
+            this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Toiminta-alueID:";
             // 
@@ -686,34 +690,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRegion.Location = new System.Drawing.Point(489, 9);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -723,7 +727,7 @@
             // btnRegionAdd
             // 
             this.btnRegionAdd.Location = new System.Drawing.Point(215, 138);
-            this.btnRegionAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegionAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegionAdd.Name = "btnRegionAdd";
             this.btnRegionAdd.Size = new System.Drawing.Size(128, 50);
             this.btnRegionAdd.TabIndex = 5;
@@ -736,7 +740,7 @@
             this.lblRegion.Location = new System.Drawing.Point(24, 94);
             this.lblRegion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegion.Name = "lblRegion";
-            this.lblRegion.Size = new System.Drawing.Size(108, 20);
+            this.lblRegion.Size = new System.Drawing.Size(98, 17);
             this.lblRegion.TabIndex = 0;
             this.lblRegion.Text = "Toiminta-alue:";
             // 
@@ -763,10 +767,10 @@
             this.tCustomerControl.Controls.Add(this.label15);
             this.tCustomerControl.Controls.Add(this.lblCustomerID);
             this.tCustomerControl.Location = new System.Drawing.Point(4, 25);
-            this.tCustomerControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tCustomerControl.Margin = new System.Windows.Forms.Padding(4);
             this.tCustomerControl.Name = "tCustomerControl";
             this.tCustomerControl.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tCustomerControl.Size = new System.Drawing.Size(2676, 1085);
+            this.tCustomerControl.Size = new System.Drawing.Size(2676, 1089);
             this.tCustomerControl.TabIndex = 4;
             this.tCustomerControl.Text = "Asiakkaiden hallinta";
             // 
@@ -781,7 +785,7 @@
             this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomer.Location = new System.Drawing.Point(440, 7);
-            this.dgvCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCustomer.MultiSelect = false;
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.ReadOnly = true;
@@ -794,7 +798,7 @@
             // btnCustomerDeleteInfo
             // 
             this.btnCustomerDeleteInfo.Location = new System.Drawing.Point(203, 403);
-            this.btnCustomerDeleteInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCustomerDeleteInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnCustomerDeleteInfo.Name = "btnCustomerDeleteInfo";
             this.btnCustomerDeleteInfo.Size = new System.Drawing.Size(140, 57);
             this.btnCustomerDeleteInfo.TabIndex = 10;
@@ -805,7 +809,7 @@
             // btnCustomerAdd
             // 
             this.btnCustomerAdd.Location = new System.Drawing.Point(203, 322);
-            this.btnCustomerAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCustomerAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnCustomerAdd.Name = "btnCustomerAdd";
             this.btnCustomerAdd.Size = new System.Drawing.Size(140, 57);
             this.btnCustomerAdd.TabIndex = 9;
@@ -816,7 +820,7 @@
             // btnCustomerSearch
             // 
             this.btnCustomerSearch.Location = new System.Drawing.Point(243, 274);
-            this.btnCustomerSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCustomerSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnCustomerSearch.Name = "btnCustomerSearch";
             this.btnCustomerSearch.Size = new System.Drawing.Size(100, 28);
             this.btnCustomerSearch.TabIndex = 7;
@@ -827,7 +831,7 @@
             // tbCustomerPhone
             // 
             this.tbCustomerPhone.Location = new System.Drawing.Point(168, 230);
-            this.tbCustomerPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCustomerPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tbCustomerPhone.Name = "tbCustomerPhone";
             this.tbCustomerPhone.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPhone.TabIndex = 6;
@@ -838,14 +842,14 @@
             this.label23.Location = new System.Drawing.Point(53, 234);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(119, 20);
+            this.label23.Size = new System.Drawing.Size(107, 17);
             this.label23.TabIndex = 12;
             this.label23.Text = "Puhelinnumero:";
             // 
             // tbCustomerEmail
             // 
             this.tbCustomerEmail.Location = new System.Drawing.Point(168, 198);
-            this.tbCustomerEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCustomerEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbCustomerEmail.Name = "tbCustomerEmail";
             this.tbCustomerEmail.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerEmail.TabIndex = 5;
@@ -856,14 +860,14 @@
             this.label22.Location = new System.Drawing.Point(76, 202);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(93, 20);
+            this.label22.Size = new System.Drawing.Size(82, 17);
             this.label22.TabIndex = 10;
             this.label22.Text = "Sähköposti:";
             // 
             // tbCustomerAddress
             // 
             this.tbCustomerAddress.Location = new System.Drawing.Point(168, 139);
-            this.tbCustomerAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCustomerAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbCustomerAddress.Name = "tbCustomerAddress";
             this.tbCustomerAddress.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerAddress.TabIndex = 3;
@@ -874,14 +878,14 @@
             this.label21.Location = new System.Drawing.Point(83, 143);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 20);
+            this.label21.Size = new System.Drawing.Size(77, 17);
             this.label21.TabIndex = 8;
             this.label21.Text = "Lähiosoite:";
             // 
             // tbCustomerLName
             // 
             this.tbCustomerLName.Location = new System.Drawing.Point(168, 107);
-            this.tbCustomerLName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCustomerLName.Margin = new System.Windows.Forms.Padding(4);
             this.tbCustomerLName.Name = "tbCustomerLName";
             this.tbCustomerLName.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerLName.TabIndex = 2;
@@ -889,7 +893,7 @@
             // tbCustomerFName
             // 
             this.tbCustomerFName.Location = new System.Drawing.Point(168, 75);
-            this.tbCustomerFName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCustomerFName.Margin = new System.Windows.Forms.Padding(4);
             this.tbCustomerFName.Name = "tbCustomerFName";
             this.tbCustomerFName.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerFName.TabIndex = 1;
@@ -900,7 +904,7 @@
             this.label20.Location = new System.Drawing.Point(89, 111);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(78, 20);
+            this.label20.Size = new System.Drawing.Size(69, 17);
             this.label20.TabIndex = 5;
             this.label20.Text = "Sukunimi:";
             // 
@@ -910,14 +914,14 @@
             this.label19.Location = new System.Drawing.Point(101, 79);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 20);
+            this.label19.Size = new System.Drawing.Size(58, 17);
             this.label19.TabIndex = 4;
             this.label19.Text = "Etunimi:";
             // 
             // tbCustomerPostal
             // 
             this.tbCustomerPostal.Location = new System.Drawing.Point(168, 168);
-            this.tbCustomerPostal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCustomerPostal.Margin = new System.Windows.Forms.Padding(4);
             this.tbCustomerPostal.Name = "tbCustomerPostal";
             this.tbCustomerPostal.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPostal.TabIndex = 4;
@@ -928,7 +932,7 @@
             this.label16.Location = new System.Drawing.Point(69, 172);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 20);
+            this.label16.Size = new System.Drawing.Size(91, 17);
             this.label16.TabIndex = 2;
             this.label16.Text = "Postinumero:";
             // 
@@ -938,7 +942,7 @@
             this.label15.Location = new System.Drawing.Point(83, 54);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(86, 20);
+            this.label15.Size = new System.Drawing.Size(74, 17);
             this.label15.TabIndex = 1;
             this.label15.Text = "AsiakasID:";
             // 
@@ -956,10 +960,10 @@
             // 
             this.tServiceControl.Controls.Add(this.tcServiceSub);
             this.tServiceControl.Location = new System.Drawing.Point(4, 25);
-            this.tServiceControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tServiceControl.Margin = new System.Windows.Forms.Padding(4);
             this.tServiceControl.Name = "tServiceControl";
             this.tServiceControl.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tServiceControl.Size = new System.Drawing.Size(2676, 1085);
+            this.tServiceControl.Size = new System.Drawing.Size(2676, 1089);
             this.tServiceControl.TabIndex = 3;
             this.tServiceControl.Text = "Palveluiden hallinta";
             this.tServiceControl.UseVisualStyleBackColor = true;
@@ -972,7 +976,7 @@
             this.tcServiceSub.Controls.Add(this.stCottageControl);
             this.tcServiceSub.Controls.Add(this.stService);
             this.tcServiceSub.Location = new System.Drawing.Point(0, 0);
-            this.tcServiceSub.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcServiceSub.Margin = new System.Windows.Forms.Padding(4);
             this.tcServiceSub.Name = "tcServiceSub";
             this.tcServiceSub.SelectedIndex = 0;
             this.tcServiceSub.Size = new System.Drawing.Size(2678, 1085);
@@ -1001,10 +1005,10 @@
             this.stCottageControl.Controls.Add(this.label3);
             this.stCottageControl.Controls.Add(this.label2);
             this.stCottageControl.Location = new System.Drawing.Point(4, 25);
-            this.stCottageControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stCottageControl.Margin = new System.Windows.Forms.Padding(4);
             this.stCottageControl.Name = "stCottageControl";
             this.stCottageControl.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.stCottageControl.Size = new System.Drawing.Size(2670, 1052);
+            this.stCottageControl.Size = new System.Drawing.Size(2670, 1056);
             this.stCottageControl.TabIndex = 0;
             this.stCottageControl.Text = "Mökkien hallinta";
             this.stCottageControl.UseVisualStyleBackColor = true;
@@ -1020,7 +1024,7 @@
             "5",
             "6+"});
             this.cbCottageCapacity.Location = new System.Drawing.Point(130, 199);
-            this.cbCottageCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCottageCapacity.Margin = new System.Windows.Forms.Padding(4);
             this.cbCottageCapacity.Name = "cbCottageCapacity";
             this.cbCottageCapacity.Size = new System.Drawing.Size(262, 24);
             this.cbCottageCapacity.TabIndex = 23;
@@ -1029,7 +1033,7 @@
             // 
             this.cbCottagePostal.FormattingEnabled = true;
             this.cbCottagePostal.Location = new System.Drawing.Point(130, 102);
-            this.cbCottagePostal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCottagePostal.Margin = new System.Windows.Forms.Padding(4);
             this.cbCottagePostal.Name = "cbCottagePostal";
             this.cbCottagePostal.Size = new System.Drawing.Size(262, 24);
             this.cbCottagePostal.TabIndex = 22;
@@ -1038,7 +1042,7 @@
             // 
             this.cbCottageRegions.FormattingEnabled = true;
             this.cbCottageRegions.Location = new System.Drawing.Point(130, 69);
-            this.cbCottageRegions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCottageRegions.Margin = new System.Windows.Forms.Padding(4);
             this.cbCottageRegions.Name = "cbCottageRegions";
             this.cbCottageRegions.Size = new System.Drawing.Size(260, 24);
             this.cbCottageRegions.TabIndex = 21;
@@ -1056,7 +1060,7 @@
             // tbCottageDescription
             // 
             this.tbCottageDescription.Location = new System.Drawing.Point(130, 265);
-            this.tbCottageDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCottageDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbCottageDescription.Multiline = true;
             this.tbCottageDescription.Name = "tbCottageDescription";
             this.tbCottageDescription.Size = new System.Drawing.Size(263, 110);
@@ -1065,7 +1069,7 @@
             // tbCottageEqupment
             // 
             this.tbCottageEqupment.Location = new System.Drawing.Point(130, 233);
-            this.tbCottageEqupment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCottageEqupment.Margin = new System.Windows.Forms.Padding(4);
             this.tbCottageEqupment.Name = "tbCottageEqupment";
             this.tbCottageEqupment.Size = new System.Drawing.Size(262, 22);
             this.tbCottageEqupment.TabIndex = 18;
@@ -1073,7 +1077,7 @@
             // tbCottageStreetAddress
             // 
             this.tbCottageStreetAddress.Location = new System.Drawing.Point(130, 167);
-            this.tbCottageStreetAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCottageStreetAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbCottageStreetAddress.Name = "tbCottageStreetAddress";
             this.tbCottageStreetAddress.Size = new System.Drawing.Size(263, 22);
             this.tbCottageStreetAddress.TabIndex = 16;
@@ -1081,7 +1085,7 @@
             // tbCottageName
             // 
             this.tbCottageName.Location = new System.Drawing.Point(130, 135);
-            this.tbCottageName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCottageName.Margin = new System.Windows.Forms.Padding(4);
             this.tbCottageName.Name = "tbCottageName";
             this.tbCottageName.Size = new System.Drawing.Size(263, 22);
             this.tbCottageName.TabIndex = 15;
@@ -1089,7 +1093,7 @@
             // btnCottageDelete
             // 
             this.btnCottageDelete.Location = new System.Drawing.Point(103, 441);
-            this.btnCottageDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCottageDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnCottageDelete.Name = "btnCottageDelete";
             this.btnCottageDelete.Size = new System.Drawing.Size(140, 57);
             this.btnCottageDelete.TabIndex = 11;
@@ -1099,7 +1103,7 @@
             // btnCottageAdd
             // 
             this.btnCottageAdd.Location = new System.Drawing.Point(251, 441);
-            this.btnCottageAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCottageAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnCottageAdd.Name = "btnCottageAdd";
             this.btnCottageAdd.Size = new System.Drawing.Size(140, 57);
             this.btnCottageAdd.TabIndex = 10;
@@ -1109,7 +1113,7 @@
             // btnCottageSearch
             // 
             this.btnCottageSearch.Location = new System.Drawing.Point(291, 396);
-            this.btnCottageSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCottageSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnCottageSearch.Name = "btnCottageSearch";
             this.btnCottageSearch.Size = new System.Drawing.Size(100, 28);
             this.btnCottageSearch.TabIndex = 9;
@@ -1120,7 +1124,7 @@
             // 
             this.dgvCottage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCottage.Location = new System.Drawing.Point(420, 7);
-            this.dgvCottage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCottage.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCottage.Name = "dgvCottage";
             this.dgvCottage.RowHeadersWidth = 51;
             this.dgvCottage.Size = new System.Drawing.Size(1353, 821);
@@ -1132,7 +1136,7 @@
             this.label6.Location = new System.Drawing.Point(50, 236);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 20);
+            this.label6.Size = new System.Drawing.Size(72, 17);
             this.label6.TabIndex = 7;
             this.label6.Text = "Varustelu:";
             // 
@@ -1142,7 +1146,7 @@
             this.label7.Location = new System.Drawing.Point(21, 203);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 20);
+            this.label7.Size = new System.Drawing.Size(99, 17);
             this.label7.TabIndex = 6;
             this.label7.Text = "Henkilömäärä:";
             // 
@@ -1152,7 +1156,7 @@
             this.label8.Location = new System.Drawing.Point(60, 268);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 20);
+            this.label8.Size = new System.Drawing.Size(59, 17);
             this.label8.TabIndex = 5;
             this.label8.Text = "Kuvaus:";
             // 
@@ -1162,7 +1166,7 @@
             this.label9.Location = new System.Drawing.Point(41, 171);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 20);
+            this.label9.Size = new System.Drawing.Size(79, 17);
             this.label9.TabIndex = 4;
             this.label9.Text = "Katuosoite:";
             // 
@@ -1172,7 +1176,7 @@
             this.label4.Location = new System.Drawing.Point(41, 139);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(78, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Mökin nimi:";
             // 
@@ -1182,7 +1186,7 @@
             this.label5.Location = new System.Drawing.Point(30, 106);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 20);
+            this.label5.Size = new System.Drawing.Size(91, 17);
             this.label5.TabIndex = 2;
             this.label5.Text = "Postinumero:";
             // 
@@ -1192,7 +1196,7 @@
             this.label3.Location = new System.Drawing.Point(24, 73);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Toiminta-alue:";
             // 
@@ -1202,7 +1206,7 @@
             this.label2.Location = new System.Drawing.Point(51, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mökki-ID:";
             // 
@@ -1227,10 +1231,10 @@
             this.stService.Controls.Add(this.label17);
             this.stService.Controls.Add(this.label18);
             this.stService.Location = new System.Drawing.Point(4, 25);
-            this.stService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stService.Margin = new System.Windows.Forms.Padding(4);
             this.stService.Name = "stService";
             this.stService.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.stService.Size = new System.Drawing.Size(2670, 1052);
+            this.stService.Size = new System.Drawing.Size(2670, 1056);
             this.stService.TabIndex = 1;
             this.stService.Text = "Palveluiden hallinta";
             this.stService.UseVisualStyleBackColor = true;
@@ -1238,7 +1242,7 @@
             // btnServiceDelete
             // 
             this.btnServiceDelete.Location = new System.Drawing.Point(103, 380);
-            this.btnServiceDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnServiceDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnServiceDelete.Name = "btnServiceDelete";
             this.btnServiceDelete.Size = new System.Drawing.Size(140, 57);
             this.btnServiceDelete.TabIndex = 54;
@@ -1248,7 +1252,7 @@
             // btnServiceAdd
             // 
             this.btnServiceAdd.Location = new System.Drawing.Point(251, 380);
-            this.btnServiceAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnServiceAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnServiceAdd.Name = "btnServiceAdd";
             this.btnServiceAdd.Size = new System.Drawing.Size(140, 57);
             this.btnServiceAdd.TabIndex = 53;
@@ -1258,7 +1262,7 @@
             // btnServiceSearch
             // 
             this.btnServiceSearch.Location = new System.Drawing.Point(291, 345);
-            this.btnServiceSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnServiceSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnServiceSearch.Name = "btnServiceSearch";
             this.btnServiceSearch.Size = new System.Drawing.Size(100, 28);
             this.btnServiceSearch.TabIndex = 52;
@@ -1271,14 +1275,14 @@
             this.label14.Location = new System.Drawing.Point(60, 198);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 20);
+            this.label14.Size = new System.Drawing.Size(59, 17);
             this.label14.TabIndex = 51;
             this.label14.Text = "Kuvaus:";
             // 
             // tbServiceDescription
             // 
             this.tbServiceDescription.Location = new System.Drawing.Point(130, 194);
-            this.tbServiceDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbServiceDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbServiceDescription.Multiline = true;
             this.tbServiceDescription.Name = "tbServiceDescription";
             this.tbServiceDescription.Size = new System.Drawing.Size(260, 142);
@@ -1290,7 +1294,7 @@
             this.label13.Location = new System.Drawing.Point(75, 171);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 20);
+            this.label13.Size = new System.Drawing.Size(45, 17);
             this.label13.TabIndex = 49;
             this.label13.Text = "Hinta:";
             // 
@@ -1300,14 +1304,14 @@
             this.label12.Location = new System.Drawing.Point(238, 171);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 20);
+            this.label12.Size = new System.Drawing.Size(31, 17);
             this.label12.TabIndex = 48;
             this.label12.Text = "Alv:";
             // 
             // tbServicePrice
             // 
             this.tbServicePrice.Location = new System.Drawing.Point(130, 167);
-            this.tbServicePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbServicePrice.Margin = new System.Windows.Forms.Padding(4);
             this.tbServicePrice.Name = "tbServicePrice";
             this.tbServicePrice.Size = new System.Drawing.Size(100, 22);
             this.tbServicePrice.TabIndex = 47;
@@ -1315,7 +1319,7 @@
             // tbServiceVAT
             // 
             this.tbServiceVAT.Location = new System.Drawing.Point(280, 167);
-            this.tbServiceVAT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbServiceVAT.Margin = new System.Windows.Forms.Padding(4);
             this.tbServiceVAT.Name = "tbServiceVAT";
             this.tbServiceVAT.Size = new System.Drawing.Size(109, 22);
             this.tbServiceVAT.TabIndex = 46;
@@ -1323,7 +1327,7 @@
             // tbServiceType
             // 
             this.tbServiceType.Location = new System.Drawing.Point(130, 135);
-            this.tbServiceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbServiceType.Margin = new System.Windows.Forms.Padding(4);
             this.tbServiceType.Name = "tbServiceType";
             this.tbServiceType.Size = new System.Drawing.Size(260, 22);
             this.tbServiceType.TabIndex = 45;
@@ -1334,14 +1338,14 @@
             this.label11.Location = new System.Drawing.Point(67, 139);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 20);
+            this.label11.Size = new System.Drawing.Size(54, 17);
             this.label11.TabIndex = 44;
             this.label11.Text = "Tyyppi:";
             // 
             // tbServiceName
             // 
             this.tbServiceName.Location = new System.Drawing.Point(130, 102);
-            this.tbServiceName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbServiceName.Margin = new System.Windows.Forms.Padding(4);
             this.tbServiceName.Name = "tbServiceName";
             this.tbServiceName.Size = new System.Drawing.Size(260, 22);
             this.tbServiceName.TabIndex = 43;
@@ -1352,7 +1356,7 @@
             this.label10.Location = new System.Drawing.Point(82, 106);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 20);
+            this.label10.Size = new System.Drawing.Size(39, 17);
             this.label10.TabIndex = 42;
             this.label10.Text = "Nimi:";
             // 
@@ -1360,7 +1364,7 @@
             // 
             this.cbServiceRegion.FormattingEnabled = true;
             this.cbServiceRegion.Location = new System.Drawing.Point(130, 69);
-            this.cbServiceRegion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbServiceRegion.Margin = new System.Windows.Forms.Padding(4);
             this.cbServiceRegion.Name = "cbServiceRegion";
             this.cbServiceRegion.Size = new System.Drawing.Size(260, 24);
             this.cbServiceRegion.TabIndex = 41;
@@ -1379,7 +1383,7 @@
             // 
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.Location = new System.Drawing.Point(425, 11);
-            this.dgvService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvService.Margin = new System.Windows.Forms.Padding(4);
             this.dgvService.Name = "dgvService";
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.Size = new System.Drawing.Size(1353, 821);
@@ -1391,7 +1395,7 @@
             this.label17.Location = new System.Drawing.Point(24, 73);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(108, 20);
+            this.label17.Size = new System.Drawing.Size(98, 17);
             this.label17.TabIndex = 25;
             this.label17.Text = "Toiminta-alue:";
             // 
@@ -1401,37 +1405,39 @@
             this.label18.Location = new System.Drawing.Point(43, 50);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(85, 20);
+            this.label18.Size = new System.Drawing.Size(76, 17);
             this.label18.TabIndex = 24;
             this.label18.Text = "Palvelu-ID:";
             // 
             // tBilling
             // 
             this.tBilling.Location = new System.Drawing.Point(4, 25);
-            this.tBilling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBilling.Margin = new System.Windows.Forms.Padding(4);
             this.tBilling.Name = "tBilling";
             this.tBilling.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tBilling.Size = new System.Drawing.Size(2676, 1085);
+            this.tBilling.Size = new System.Drawing.Size(2676, 1089);
             this.tBilling.TabIndex = 5;
             this.tBilling.Text = "Laskut";
             this.tBilling.UseVisualStyleBackColor = true;
             // 
-            // dtp
+            // btnCustomerModify
             // 
-            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp.Location = new System.Drawing.Point(40, 143);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(257, 26);
-            this.dtp.TabIndex = 9;
-            this.dtp.Visible = false;
+            this.btnCustomerModify.Location = new System.Drawing.Point(55, 322);
+            this.btnCustomerModify.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCustomerModify.Name = "btnCustomerModify";
+            this.btnCustomerModify.Size = new System.Drawing.Size(140, 57);
+            this.btnCustomerModify.TabIndex = 57;
+            this.btnCustomerModify.Text = "Muokkaa valitun asiakkaan tietoja";
+            this.btnCustomerModify.UseVisualStyleBackColor = true;
+            this.btnCustomerModify.Click += new System.EventHandler(this.btnCustomerModify_Click_1);
             // 
             // RentCottage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2025, 749);
+            this.ClientSize = new System.Drawing.Size(1924, 749);
             this.Controls.Add(this.tcMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RentCottage";
             this.Text = "RentCottage";
             this.Load += new System.EventHandler(this.RentCottage_Load);
@@ -1575,6 +1581,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgOrder;
         private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.Button btnCustomerModify;
     }
 }
 
