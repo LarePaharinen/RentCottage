@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
+            this.lblHakuLine = new System.Windows.Forms.Label();
             this.lbltest = new System.Windows.Forms.Label();
-            this.dgHakuTable = new System.Windows.Forms.DataGridView();
-            this.cbHakuAlueKaikki = new System.Windows.Forms.CheckBox();
-            this.cbHakuAluet = new System.Windows.Forms.ComboBox();
-            this.lblHakuAlue = new System.Windows.Forms.Label();
-            this.btmHakuMuokka = new System.Windows.Forms.Button();
-            this.btmHakuVarata = new System.Windows.Forms.Button();
-            this.cbHakuRajoitukset = new System.Windows.Forms.ComboBox();
-            this.lblHakuRajoitukset = new System.Windows.Forms.Label();
-            this.cbHakuVarustelu = new System.Windows.Forms.ComboBox();
-            this.lblHakuVarustelu = new System.Windows.Forms.Label();
-            this.btnHakuHae = new System.Windows.Forms.Button();
-            this.tbHakuMokkiid = new System.Windows.Forms.TextBox();
-            this.lblHakuMokkiid = new System.Windows.Forms.Label();
-            this.nudHakuHintaraja = new System.Windows.Forms.NumericUpDown();
-            this.lblHakuHintaraja = new System.Windows.Forms.Label();
-            this.nudHakuMaxhlo = new System.Windows.Forms.NumericUpDown();
-            this.lblHakuMaxhlo = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.lblHakuAika = new System.Windows.Forms.Label();
-            this.dtpHakuTO = new System.Windows.Forms.DateTimePicker();
-            this.dtpHakuFROM = new System.Windows.Forms.DateTimePicker();
+            this.dgSearchTable = new System.Windows.Forms.DataGridView();
+            this.cbSearchAlueKaikki = new System.Windows.Forms.CheckBox();
+            this.cbSearchAluet = new System.Windows.Forms.ComboBox();
+            this.lblSearchAlue = new System.Windows.Forms.Label();
+            this.btmSearchMuokka = new System.Windows.Forms.Button();
+            this.btmSearchVarata = new System.Windows.Forms.Button();
+            this.cbSearchRajoitukset = new System.Windows.Forms.ComboBox();
+            this.lblSearchRajoitukset = new System.Windows.Forms.Label();
+            this.cbSearchVarustelu = new System.Windows.Forms.ComboBox();
+            this.lblSearchVarustelu = new System.Windows.Forms.Label();
+            this.btnSearchHae = new System.Windows.Forms.Button();
+            this.tbSearchMokkiid = new System.Windows.Forms.TextBox();
+            this.lblSearchMokkiid = new System.Windows.Forms.Label();
+            this.nudSearchHintaraja = new System.Windows.Forms.NumericUpDown();
+            this.lblSearchHintaraja = new System.Windows.Forms.Label();
+            this.nudSearchMaxhlo = new System.Windows.Forms.NumericUpDown();
+            this.lblSearchMaxhlo = new System.Windows.Forms.Label();
+            this.lblSearch_ = new System.Windows.Forms.Label();
+            this.lblSearchAika = new System.Windows.Forms.Label();
+            this.dtpSearchTO = new System.Windows.Forms.DateTimePicker();
+            this.dtpSearchFROM = new System.Windows.Forms.DateTimePicker();
             this.tRentControl = new System.Windows.Forms.TabPage();
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.dgOrder = new System.Windows.Forms.DataGridView();
@@ -136,12 +137,11 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tBilling = new System.Windows.Forms.TabPage();
-            this.lblHakuLine = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgHakuTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHakuHintaraja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHakuMaxhlo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSearchHintaraja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSearchMaxhlo)).BeginInit();
             this.tRentControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -179,33 +179,43 @@
             this.tSearch.BackColor = System.Drawing.SystemColors.Control;
             this.tSearch.Controls.Add(this.lblHakuLine);
             this.tSearch.Controls.Add(this.lbltest);
-            this.tSearch.Controls.Add(this.dgHakuTable);
-            this.tSearch.Controls.Add(this.cbHakuAlueKaikki);
-            this.tSearch.Controls.Add(this.cbHakuAluet);
-            this.tSearch.Controls.Add(this.lblHakuAlue);
-            this.tSearch.Controls.Add(this.btmHakuMuokka);
-            this.tSearch.Controls.Add(this.btmHakuVarata);
-            this.tSearch.Controls.Add(this.cbHakuRajoitukset);
-            this.tSearch.Controls.Add(this.lblHakuRajoitukset);
-            this.tSearch.Controls.Add(this.cbHakuVarustelu);
-            this.tSearch.Controls.Add(this.lblHakuVarustelu);
-            this.tSearch.Controls.Add(this.btnHakuHae);
-            this.tSearch.Controls.Add(this.tbHakuMokkiid);
-            this.tSearch.Controls.Add(this.lblHakuMokkiid);
-            this.tSearch.Controls.Add(this.nudHakuHintaraja);
-            this.tSearch.Controls.Add(this.lblHakuHintaraja);
-            this.tSearch.Controls.Add(this.nudHakuMaxhlo);
-            this.tSearch.Controls.Add(this.lblHakuMaxhlo);
-            this.tSearch.Controls.Add(this.label29);
-            this.tSearch.Controls.Add(this.lblHakuAika);
-            this.tSearch.Controls.Add(this.dtpHakuTO);
-            this.tSearch.Controls.Add(this.dtpHakuFROM);
+            this.tSearch.Controls.Add(this.dgSearchTable);
+            this.tSearch.Controls.Add(this.cbSearchAlueKaikki);
+            this.tSearch.Controls.Add(this.cbSearchAluet);
+            this.tSearch.Controls.Add(this.lblSearchAlue);
+            this.tSearch.Controls.Add(this.btmSearchMuokka);
+            this.tSearch.Controls.Add(this.btmSearchVarata);
+            this.tSearch.Controls.Add(this.cbSearchRajoitukset);
+            this.tSearch.Controls.Add(this.lblSearchRajoitukset);
+            this.tSearch.Controls.Add(this.cbSearchVarustelu);
+            this.tSearch.Controls.Add(this.lblSearchVarustelu);
+            this.tSearch.Controls.Add(this.btnSearchHae);
+            this.tSearch.Controls.Add(this.tbSearchMokkiid);
+            this.tSearch.Controls.Add(this.lblSearchMokkiid);
+            this.tSearch.Controls.Add(this.nudSearchHintaraja);
+            this.tSearch.Controls.Add(this.lblSearchHintaraja);
+            this.tSearch.Controls.Add(this.nudSearchMaxhlo);
+            this.tSearch.Controls.Add(this.lblSearchMaxhlo);
+            this.tSearch.Controls.Add(this.lblSearch_);
+            this.tSearch.Controls.Add(this.lblSearchAika);
+            this.tSearch.Controls.Add(this.dtpSearchTO);
+            this.tSearch.Controls.Add(this.dtpSearchFROM);
             this.tSearch.Location = new System.Drawing.Point(4, 22);
             this.tSearch.Name = "tSearch";
             this.tSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tSearch.Size = new System.Drawing.Size(2327, 1002);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
+            // 
+            // lblHakuLine
+            // 
+            this.lblHakuLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblHakuLine.Location = new System.Drawing.Point(0, 55);
+            this.lblHakuLine.MaximumSize = new System.Drawing.Size(371, 2);
+            this.lblHakuLine.MinimumSize = new System.Drawing.Size(371, 2);
+            this.lblHakuLine.Name = "lblHakuLine";
+            this.lblHakuLine.Size = new System.Drawing.Size(371, 2);
+            this.lblHakuLine.TabIndex = 44;
             // 
             // lbltest
             // 
@@ -216,256 +226,255 @@
             this.lbltest.TabIndex = 43;
             this.lbltest.Text = "label24";
             // 
-            // dgHakuTable
+            // dgSearchTable
             // 
-            this.dgHakuTable.AllowUserToAddRows = false;
-            this.dgHakuTable.AllowUserToDeleteRows = false;
-            this.dgHakuTable.AllowUserToResizeRows = false;
-            this.dgHakuTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgSearchTable.AllowUserToAddRows = false;
+            this.dgSearchTable.AllowUserToDeleteRows = false;
+            this.dgSearchTable.AllowUserToResizeRows = false;
+            this.dgSearchTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgHakuTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgHakuTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgHakuTable.Location = new System.Drawing.Point(371, 8);
-            this.dgHakuTable.MultiSelect = false;
-            this.dgHakuTable.Name = "dgHakuTable";
-            this.dgHakuTable.ReadOnly = true;
-            this.dgHakuTable.RowHeadersVisible = false;
-            this.dgHakuTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgHakuTable.Size = new System.Drawing.Size(963, 687);
-            this.dgHakuTable.TabIndex = 42;
+            this.dgSearchTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgSearchTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSearchTable.Location = new System.Drawing.Point(371, 8);
+            this.dgSearchTable.MultiSelect = false;
+            this.dgSearchTable.Name = "dgSearchTable";
+            this.dgSearchTable.ReadOnly = true;
+            this.dgSearchTable.RowHeadersVisible = false;
+            this.dgSearchTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSearchTable.Size = new System.Drawing.Size(963, 687);
+            this.dgSearchTable.TabIndex = 42;
             // 
-            // cbHakuAlueKaikki
+            // cbSearchAlueKaikki
             // 
-            this.cbHakuAlueKaikki.AutoSize = true;
-            this.cbHakuAlueKaikki.Location = new System.Drawing.Point(231, 74);
-            this.cbHakuAlueKaikki.Name = "cbHakuAlueKaikki";
-            this.cbHakuAlueKaikki.Size = new System.Drawing.Size(87, 17);
-            this.cbHakuAlueKaikki.TabIndex = 41;
-            this.cbHakuAlueKaikki.Text = "Kaikki alueet";
-            this.cbHakuAlueKaikki.UseVisualStyleBackColor = true;
-            this.cbHakuAlueKaikki.CheckedChanged += new System.EventHandler(this.cbHakuAlueKaikki_CheckedChanged);
+            this.cbSearchAlueKaikki.AutoSize = true;
+            this.cbSearchAlueKaikki.Location = new System.Drawing.Point(231, 74);
+            this.cbSearchAlueKaikki.Name = "cbSearchAlueKaikki";
+            this.cbSearchAlueKaikki.Size = new System.Drawing.Size(87, 17);
+            this.cbSearchAlueKaikki.TabIndex = 41;
+            this.cbSearchAlueKaikki.Text = "Kaikki alueet";
+            this.cbSearchAlueKaikki.UseVisualStyleBackColor = true;
+            this.cbSearchAlueKaikki.CheckedChanged += new System.EventHandler(this.cbSearchAlueKaikki_CheckedChanged);
             // 
-            // cbHakuAluet
+            // cbSearchAluet
             // 
-            this.cbHakuAluet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cbSearchAluet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbHakuAluet.FormattingEnabled = true;
-            this.cbHakuAluet.Location = new System.Drawing.Point(117, 70);
-            this.cbHakuAluet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbHakuAluet.Name = "cbHakuAluet";
-            this.cbHakuAluet.Size = new System.Drawing.Size(102, 21);
-            this.cbHakuAluet.TabIndex = 40;
+            this.cbSearchAluet.FormattingEnabled = true;
+            this.cbSearchAluet.Location = new System.Drawing.Point(117, 70);
+            this.cbSearchAluet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbSearchAluet.Name = "cbSearchAluet";
+            this.cbSearchAluet.Size = new System.Drawing.Size(102, 21);
+            this.cbSearchAluet.TabIndex = 40;
             // 
-            // lblHakuAlue
+            // lblSearchAlue
             // 
-            this.lblHakuAlue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchAlue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuAlue.AutoSize = true;
-            this.lblHakuAlue.Location = new System.Drawing.Point(20, 76);
-            this.lblHakuAlue.Name = "lblHakuAlue";
-            this.lblHakuAlue.Size = new System.Drawing.Size(28, 13);
-            this.lblHakuAlue.TabIndex = 39;
-            this.lblHakuAlue.Text = "Alue";
+            this.lblSearchAlue.AutoSize = true;
+            this.lblSearchAlue.Location = new System.Drawing.Point(20, 76);
+            this.lblSearchAlue.Name = "lblSearchAlue";
+            this.lblSearchAlue.Size = new System.Drawing.Size(28, 13);
+            this.lblSearchAlue.TabIndex = 39;
+            this.lblSearchAlue.Text = "Alue";
             // 
-            // btmHakuMuokka
+            // btmSearchMuokka
             // 
-            this.btmHakuMuokka.Location = new System.Drawing.Point(237, 376);
-            this.btmHakuMuokka.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btmHakuMuokka.Name = "btmHakuMuokka";
-            this.btmHakuMuokka.Size = new System.Drawing.Size(115, 47);
-            this.btmHakuMuokka.TabIndex = 38;
-            this.btmHakuMuokka.Text = "Muokkaa";
-            this.btmHakuMuokka.UseVisualStyleBackColor = true;
+            this.btmSearchMuokka.Location = new System.Drawing.Point(237, 376);
+            this.btmSearchMuokka.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btmSearchMuokka.Name = "btmSearchMuokka";
+            this.btmSearchMuokka.Size = new System.Drawing.Size(115, 47);
+            this.btmSearchMuokka.TabIndex = 38;
+            this.btmSearchMuokka.Text = "Muokkaa";
+            this.btmSearchMuokka.UseVisualStyleBackColor = true;
             // 
-            // btmHakuVarata
+            // btmSearchVarata
             // 
-            this.btmHakuVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btmHakuVarata.Location = new System.Drawing.Point(237, 452);
-            this.btmHakuVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btmHakuVarata.Name = "btmHakuVarata";
-            this.btmHakuVarata.Size = new System.Drawing.Size(115, 47);
-            this.btmHakuVarata.TabIndex = 37;
-            this.btmHakuVarata.Text = "Varata";
-            this.btmHakuVarata.UseVisualStyleBackColor = true;
+            this.btmSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btmSearchVarata.Location = new System.Drawing.Point(237, 452);
+            this.btmSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btmSearchVarata.Name = "btmSearchVarata";
+            this.btmSearchVarata.Size = new System.Drawing.Size(115, 47);
+            this.btmSearchVarata.TabIndex = 37;
+            this.btmSearchVarata.Text = "Varata";
+            this.btmSearchVarata.UseVisualStyleBackColor = true;
             // 
-            // cbHakuRajoitukset
+            // cbSearchRajoitukset
             // 
-            this.cbHakuRajoitukset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cbSearchRajoitukset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbHakuRajoitukset.Enabled = false;
-            this.cbHakuRajoitukset.FormattingEnabled = true;
-            this.cbHakuRajoitukset.Location = new System.Drawing.Point(117, 274);
-            this.cbHakuRajoitukset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbHakuRajoitukset.Name = "cbHakuRajoitukset";
-            this.cbHakuRajoitukset.Size = new System.Drawing.Size(229, 21);
-            this.cbHakuRajoitukset.TabIndex = 35;
-            this.cbHakuRajoitukset.Text = "Lemmikkit, tupakointipaikat...";
+            this.cbSearchRajoitukset.Enabled = false;
+            this.cbSearchRajoitukset.FormattingEnabled = true;
+            this.cbSearchRajoitukset.Location = new System.Drawing.Point(117, 274);
+            this.cbSearchRajoitukset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbSearchRajoitukset.Name = "cbSearchRajoitukset";
+            this.cbSearchRajoitukset.Size = new System.Drawing.Size(229, 21);
+            this.cbSearchRajoitukset.TabIndex = 35;
+            this.cbSearchRajoitukset.Text = "Lemmikkit, tupakointipaikat...";
             // 
-            // lblHakuRajoitukset
+            // lblSearchRajoitukset
             // 
-            this.lblHakuRajoitukset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchRajoitukset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuRajoitukset.AutoSize = true;
-            this.lblHakuRajoitukset.Enabled = false;
-            this.lblHakuRajoitukset.Location = new System.Drawing.Point(20, 274);
-            this.lblHakuRajoitukset.Name = "lblHakuRajoitukset";
-            this.lblHakuRajoitukset.Size = new System.Drawing.Size(60, 13);
-            this.lblHakuRajoitukset.TabIndex = 34;
-            this.lblHakuRajoitukset.Text = "Rajoitukset";
+            this.lblSearchRajoitukset.AutoSize = true;
+            this.lblSearchRajoitukset.Enabled = false;
+            this.lblSearchRajoitukset.Location = new System.Drawing.Point(20, 274);
+            this.lblSearchRajoitukset.Name = "lblSearchRajoitukset";
+            this.lblSearchRajoitukset.Size = new System.Drawing.Size(60, 13);
+            this.lblSearchRajoitukset.TabIndex = 34;
+            this.lblSearchRajoitukset.Text = "Rajoitukset";
             // 
-            // cbHakuVarustelu
+            // cbSearchVarustelu
             // 
-            this.cbHakuVarustelu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cbSearchVarustelu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbHakuVarustelu.Enabled = false;
-            this.cbHakuVarustelu.FormattingEnabled = true;
-            this.cbHakuVarustelu.Location = new System.Drawing.Point(117, 232);
-            this.cbHakuVarustelu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbHakuVarustelu.Name = "cbHakuVarustelu";
-            this.cbHakuVarustelu.Size = new System.Drawing.Size(229, 21);
-            this.cbHakuVarustelu.TabIndex = 33;
-            this.cbHakuVarustelu.Text = "sauna, jääkappi, mikro...";
+            this.cbSearchVarustelu.Enabled = false;
+            this.cbSearchVarustelu.FormattingEnabled = true;
+            this.cbSearchVarustelu.Location = new System.Drawing.Point(117, 232);
+            this.cbSearchVarustelu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbSearchVarustelu.Name = "cbSearchVarustelu";
+            this.cbSearchVarustelu.Size = new System.Drawing.Size(229, 21);
+            this.cbSearchVarustelu.TabIndex = 33;
+            this.cbSearchVarustelu.Text = "sauna, jääkappi, mikro...";
             // 
-            // lblHakuVarustelu
+            // lblSearchVarustelu
             // 
-            this.lblHakuVarustelu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchVarustelu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuVarustelu.AutoSize = true;
-            this.lblHakuVarustelu.Enabled = false;
-            this.lblHakuVarustelu.Location = new System.Drawing.Point(20, 235);
-            this.lblHakuVarustelu.Name = "lblHakuVarustelu";
-            this.lblHakuVarustelu.Size = new System.Drawing.Size(51, 13);
-            this.lblHakuVarustelu.TabIndex = 32;
-            this.lblHakuVarustelu.Text = "Varustelu";
+            this.lblSearchVarustelu.AutoSize = true;
+            this.lblSearchVarustelu.Enabled = false;
+            this.lblSearchVarustelu.Location = new System.Drawing.Point(20, 235);
+            this.lblSearchVarustelu.Name = "lblSearchVarustelu";
+            this.lblSearchVarustelu.Size = new System.Drawing.Size(51, 13);
+            this.lblSearchVarustelu.TabIndex = 32;
+            this.lblSearchVarustelu.Text = "Varustelu";
             // 
-            // btnHakuHae
+            // btnSearchHae
             // 
-            this.btnHakuHae.Location = new System.Drawing.Point(22, 315);
-            this.btnHakuHae.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnHakuHae.Name = "btnHakuHae";
-            this.btnHakuHae.Size = new System.Drawing.Size(330, 44);
-            this.btnHakuHae.TabIndex = 31;
-            this.btnHakuHae.Text = "HAE";
-            this.btnHakuHae.UseVisualStyleBackColor = true;
-            this.btnHakuHae.Click += new System.EventHandler(this.btnHakuHae_Click);
+            this.btnSearchHae.Location = new System.Drawing.Point(22, 315);
+            this.btnSearchHae.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearchHae.Name = "btnSearchHae";
+            this.btnSearchHae.Size = new System.Drawing.Size(330, 44);
+            this.btnSearchHae.TabIndex = 31;
+            this.btnSearchHae.Text = "HAE";
+            this.btnSearchHae.UseVisualStyleBackColor = true;
+            this.btnSearchHae.Click += new System.EventHandler(this.btnSearchHae_Click);
             // 
-            // tbHakuMokkiid
+            // tbSearchMokkiid
             // 
-            this.tbHakuMokkiid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbSearchMokkiid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbHakuMokkiid.Location = new System.Drawing.Point(117, 23);
-            this.tbHakuMokkiid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbHakuMokkiid.Name = "tbHakuMokkiid";
-            this.tbHakuMokkiid.Size = new System.Drawing.Size(102, 20);
-            this.tbHakuMokkiid.TabIndex = 30;
+            this.tbSearchMokkiid.Location = new System.Drawing.Point(117, 23);
+            this.tbSearchMokkiid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbSearchMokkiid.Name = "tbSearchMokkiid";
+            this.tbSearchMokkiid.Size = new System.Drawing.Size(102, 20);
+            this.tbSearchMokkiid.TabIndex = 30;
             // 
-            // lblHakuMokkiid
+            // lblSearchMokkiid
             // 
-            this.lblHakuMokkiid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchMokkiid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuMokkiid.AutoSize = true;
-            this.lblHakuMokkiid.Location = new System.Drawing.Point(20, 28);
-            this.lblHakuMokkiid.Name = "lblHakuMokkiid";
-            this.lblHakuMokkiid.Size = new System.Drawing.Size(50, 13);
-            this.lblHakuMokkiid.TabIndex = 29;
-            this.lblHakuMokkiid.Text = "Mökki ID";
+            this.lblSearchMokkiid.AutoSize = true;
+            this.lblSearchMokkiid.Location = new System.Drawing.Point(20, 28);
+            this.lblSearchMokkiid.Name = "lblSearchMokkiid";
+            this.lblSearchMokkiid.Size = new System.Drawing.Size(50, 13);
+            this.lblSearchMokkiid.TabIndex = 29;
+            this.lblSearchMokkiid.Text = "Mökki ID";
             // 
-            // nudHakuHintaraja
+            // nudSearchHintaraja
             // 
-            this.nudHakuHintaraja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.nudSearchHintaraja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudHakuHintaraja.DecimalPlaces = 2;
-            this.nudHakuHintaraja.Location = new System.Drawing.Point(117, 192);
-            this.nudHakuHintaraja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.nudHakuHintaraja.Maximum = new decimal(new int[] {
+            this.nudSearchHintaraja.DecimalPlaces = 2;
+            this.nudSearchHintaraja.Location = new System.Drawing.Point(117, 192);
+            this.nudSearchHintaraja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudSearchHintaraja.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
-            this.nudHakuHintaraja.Name = "nudHakuHintaraja";
-            this.nudHakuHintaraja.Size = new System.Drawing.Size(102, 20);
-            this.nudHakuHintaraja.TabIndex = 28;
+            this.nudSearchHintaraja.Name = "nudSearchHintaraja";
+            this.nudSearchHintaraja.Size = new System.Drawing.Size(102, 20);
+            this.nudSearchHintaraja.TabIndex = 28;
             // 
-            // lblHakuHintaraja
+            // lblSearchHintaraja
             // 
-            this.lblHakuHintaraja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchHintaraja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuHintaraja.AutoSize = true;
-            this.lblHakuHintaraja.Location = new System.Drawing.Point(20, 192);
-            this.lblHakuHintaraja.Name = "lblHakuHintaraja";
-            this.lblHakuHintaraja.Size = new System.Drawing.Size(49, 13);
-            this.lblHakuHintaraja.TabIndex = 27;
-            this.lblHakuHintaraja.Text = "Hintaraja";
+            this.lblSearchHintaraja.AutoSize = true;
+            this.lblSearchHintaraja.Location = new System.Drawing.Point(20, 192);
+            this.lblSearchHintaraja.Name = "lblSearchHintaraja";
+            this.lblSearchHintaraja.Size = new System.Drawing.Size(49, 13);
+            this.lblSearchHintaraja.TabIndex = 27;
+            this.lblSearchHintaraja.Text = "Hintaraja";
             // 
-            // nudHakuMaxhlo
+            // nudSearchMaxhlo
             // 
-            this.nudHakuMaxhlo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.nudSearchMaxhlo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudHakuMaxhlo.Location = new System.Drawing.Point(117, 151);
-            this.nudHakuMaxhlo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.nudHakuMaxhlo.Name = "nudHakuMaxhlo";
-            this.nudHakuMaxhlo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nudHakuMaxhlo.Size = new System.Drawing.Size(102, 20);
-            this.nudHakuMaxhlo.TabIndex = 26;
+            this.nudSearchMaxhlo.Location = new System.Drawing.Point(117, 151);
+            this.nudSearchMaxhlo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudSearchMaxhlo.Name = "nudSearchMaxhlo";
+            this.nudSearchMaxhlo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nudSearchMaxhlo.Size = new System.Drawing.Size(102, 20);
+            this.nudSearchMaxhlo.TabIndex = 26;
             // 
-            // lblHakuMaxhlo
+            // lblSearchMaxhlo
             // 
-            this.lblHakuMaxhlo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchMaxhlo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuMaxhlo.AutoSize = true;
-            this.lblHakuMaxhlo.Location = new System.Drawing.Point(20, 151);
-            this.lblHakuMaxhlo.Name = "lblHakuMaxhlo";
-            this.lblHakuMaxhlo.Size = new System.Drawing.Size(72, 13);
-            this.lblHakuMaxhlo.TabIndex = 25;
-            this.lblHakuMaxhlo.Text = "Henkilömäärä";
+            this.lblSearchMaxhlo.AutoSize = true;
+            this.lblSearchMaxhlo.Location = new System.Drawing.Point(20, 151);
+            this.lblSearchMaxhlo.Name = "lblSearchMaxhlo";
+            this.lblSearchMaxhlo.Size = new System.Drawing.Size(72, 13);
+            this.lblSearchMaxhlo.TabIndex = 25;
+            this.lblSearchMaxhlo.Text = "Henkilömäärä";
             // 
-            // label29
+            // lblSearch_
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearch_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(228, 111);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(13, 13);
-            this.label29.TabIndex = 24;
-            this.label29.Text = "_";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
+            this.lblSearch_.AutoSize = true;
+            this.lblSearch_.Location = new System.Drawing.Point(228, 111);
+            this.lblSearch_.Name = "lblSearch_";
+            this.lblSearch_.Size = new System.Drawing.Size(13, 13);
+            this.lblSearch_.TabIndex = 24;
+            this.lblSearch_.Text = "_";
             // 
-            // lblHakuAika
+            // lblSearchAika
             // 
-            this.lblHakuAika.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearchAika.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHakuAika.AutoSize = true;
-            this.lblHakuAika.Location = new System.Drawing.Point(20, 119);
-            this.lblHakuAika.Name = "lblHakuAika";
-            this.lblHakuAika.Size = new System.Drawing.Size(28, 13);
-            this.lblHakuAika.TabIndex = 23;
-            this.lblHakuAika.Text = "Aika";
+            this.lblSearchAika.AutoSize = true;
+            this.lblSearchAika.Location = new System.Drawing.Point(20, 119);
+            this.lblSearchAika.Name = "lblSearchAika";
+            this.lblSearchAika.Size = new System.Drawing.Size(28, 13);
+            this.lblSearchAika.TabIndex = 23;
+            this.lblSearchAika.Text = "Aika";
             // 
-            // dtpHakuTO
+            // dtpSearchTO
             // 
-            this.dtpHakuTO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpSearchTO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpHakuTO.CustomFormat = "dd.MM.yyyy";
-            this.dtpHakuTO.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHakuTO.Location = new System.Drawing.Point(250, 111);
-            this.dtpHakuTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtpHakuTO.Name = "dtpHakuTO";
-            this.dtpHakuTO.Size = new System.Drawing.Size(102, 20);
-            this.dtpHakuTO.TabIndex = 22;
+            this.dtpSearchTO.CustomFormat = "dd.MM.yyyy";
+            this.dtpSearchTO.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSearchTO.Location = new System.Drawing.Point(250, 111);
+            this.dtpSearchTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpSearchTO.Name = "dtpSearchTO";
+            this.dtpSearchTO.Size = new System.Drawing.Size(102, 20);
+            this.dtpSearchTO.TabIndex = 22;
             // 
-            // dtpHakuFROM
+            // dtpSearchFROM
             // 
-            this.dtpHakuFROM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpSearchFROM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpHakuFROM.CustomFormat = "dd.MM.yyyy";
-            this.dtpHakuFROM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHakuFROM.Location = new System.Drawing.Point(117, 111);
-            this.dtpHakuFROM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtpHakuFROM.Name = "dtpHakuFROM";
-            this.dtpHakuFROM.Size = new System.Drawing.Size(102, 20);
-            this.dtpHakuFROM.TabIndex = 21;
+            this.dtpSearchFROM.CustomFormat = "dd.MM.yyyy";
+            this.dtpSearchFROM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSearchFROM.Location = new System.Drawing.Point(117, 111);
+            this.dtpSearchFROM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpSearchFROM.Name = "dtpSearchFROM";
+            this.dtpSearchFROM.Size = new System.Drawing.Size(102, 20);
+            this.dtpSearchFROM.TabIndex = 21;
             // 
             // tRentControl
             // 
@@ -489,6 +498,7 @@
             // 
             // dtp
             // 
+            this.dtp.CustomFormat = "";
             this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp.Location = new System.Drawing.Point(30, 116);
             this.dtp.Margin = new System.Windows.Forms.Padding(2);
@@ -654,34 +664,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvRegion.Location = new System.Drawing.Point(311, 8);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1330,16 +1340,6 @@
             this.tBilling.Text = "Laskut";
             this.tBilling.UseVisualStyleBackColor = true;
             // 
-            // lblHakuLine
-            // 
-            this.lblHakuLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblHakuLine.Location = new System.Drawing.Point(0, 55);
-            this.lblHakuLine.MaximumSize = new System.Drawing.Size(371, 2);
-            this.lblHakuLine.MinimumSize = new System.Drawing.Size(371, 2);
-            this.lblHakuLine.Name = "lblHakuLine";
-            this.lblHakuLine.Size = new System.Drawing.Size(371, 2);
-            this.lblHakuLine.TabIndex = 44;
-            // 
             // RentCottage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1353,9 +1353,9 @@
             this.tcMain.ResumeLayout(false);
             this.tSearch.ResumeLayout(false);
             this.tSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgHakuTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHakuHintaraja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHakuMaxhlo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSearchHintaraja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSearchMaxhlo)).EndInit();
             this.tRentControl.ResumeLayout(false);
             this.tRentControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrder)).EndInit();
@@ -1453,25 +1453,25 @@
         private System.Windows.Forms.DataGridView dgvCustomer;
         private System.Windows.Forms.Button btnCustomerDeleteInfo;
         private System.Windows.Forms.Button btnCustomerAdd;
-        private System.Windows.Forms.Button btmHakuMuokka;
-        private System.Windows.Forms.Button btmHakuVarata;
-        private System.Windows.Forms.ComboBox cbHakuRajoitukset;
-        private System.Windows.Forms.Label lblHakuRajoitukset;
-        private System.Windows.Forms.ComboBox cbHakuVarustelu;
-        private System.Windows.Forms.Label lblHakuVarustelu;
-        private System.Windows.Forms.Button btnHakuHae;
-        private System.Windows.Forms.TextBox tbHakuMokkiid;
-        private System.Windows.Forms.Label lblHakuMokkiid;
-        private System.Windows.Forms.NumericUpDown nudHakuHintaraja;
-        private System.Windows.Forms.Label lblHakuHintaraja;
-        private System.Windows.Forms.NumericUpDown nudHakuMaxhlo;
-        private System.Windows.Forms.Label lblHakuMaxhlo;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label lblHakuAika;
-        private System.Windows.Forms.DateTimePicker dtpHakuTO;
-        private System.Windows.Forms.DateTimePicker dtpHakuFROM;
-        private System.Windows.Forms.ComboBox cbHakuAluet;
-        private System.Windows.Forms.Label lblHakuAlue;
+        private System.Windows.Forms.Button btmSearchMuokka;
+        private System.Windows.Forms.Button btmSearchVarata;
+        private System.Windows.Forms.ComboBox cbSearchRajoitukset;
+        private System.Windows.Forms.Label lblSearchRajoitukset;
+        private System.Windows.Forms.ComboBox cbSearchVarustelu;
+        private System.Windows.Forms.Label lblSearchVarustelu;
+        private System.Windows.Forms.Button btnSearchHae;
+        private System.Windows.Forms.TextBox tbSearchMokkiid;
+        private System.Windows.Forms.Label lblSearchMokkiid;
+        private System.Windows.Forms.NumericUpDown nudSearchHintaraja;
+        private System.Windows.Forms.Label lblSearchHintaraja;
+        private System.Windows.Forms.NumericUpDown nudSearchMaxhlo;
+        private System.Windows.Forms.Label lblSearchMaxhlo;
+        private System.Windows.Forms.Label lblSearch_;
+        private System.Windows.Forms.Label lblSearchAika;
+        private System.Windows.Forms.DateTimePicker dtpSearchTO;
+        private System.Windows.Forms.DateTimePicker dtpSearchFROM;
+        private System.Windows.Forms.ComboBox cbSearchAluet;
+        private System.Windows.Forms.Label lblSearchAlue;
         private System.Windows.Forms.Button btmRemove;
         private System.Windows.Forms.Button btmChange;
         private System.Windows.Forms.Button btmShowAll;
@@ -1482,8 +1482,8 @@
         private System.Windows.Forms.DataGridView dgOrder;
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.Button btnCustomerModify;
-        private System.Windows.Forms.CheckBox cbHakuAlueKaikki;
-        private System.Windows.Forms.DataGridView dgHakuTable;
+        private System.Windows.Forms.CheckBox cbSearchAlueKaikki;
+        private System.Windows.Forms.DataGridView dgSearchTable;
         private System.Windows.Forms.Label lbltest;
         private System.Windows.Forms.Label lblHakuLine;
     }
