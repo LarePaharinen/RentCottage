@@ -32,6 +32,8 @@ namespace RentCottage
             PopulateDGVRegion();
             PopulateDGVOrder();
             PopulateDGVCustomer();
+            haku_alue_Combobox_update();
+            cbHakuAluet.SelectedIndex = 1;
         }
 
         MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -256,6 +258,85 @@ namespace RentCottage
                 dgvCustomer.CurrentRow.Cells[6].Value.ToString());
             ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
             MCF.ShowDialog();
+        }
+        //Haku
+        private void haku_alue_Combobox_update()
+        {
+            string selectQuery = "SELECT * FROM toimintaalue";
+            OpenConnection();
+            MySqlCommand command = new MySqlCommand(selectQuery, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                cbHakuAluet.Items.Add(reader.GetString("nimi"));
+            }
+            CloseConnection();
+        }
+
+        private void cbHakuAlueKaikki_CheckedChanged(object sender, EventArgs e)
+        {
+            //CheckBox checkBox = (CheckBox)sender;
+            if (cbHakuAlueKaikki.Checked == true)
+            {
+                cbHakuAluet.Enabled = false;
+                cbHakuAluet.SelectedItem = null;
+            }
+            else
+            {
+                cbHakuAluet.SelectedIndex = 1;
+                cbHakuAluet.Enabled = true;
+            }
+        }
+
+        private void btnHakuHae_Click(object sender, EventArgs e)
+        {
+            OpenConnection();
+            DataTable data = new DataTable();
+
+            string query = "SELECT * FROM mokki ";
+            string alue_id = null;
+            double hinta;
+
+            if (tbHakuMokkiid.Text != "")
+            {
+                query += "WHERE mokki_id LIKE " + tbHakuMokkiid.Text;
+                MySqlDataAdapter sda = new MySqlDataAdapter(query, connection);
+                sda.Fill(data);
+                dgHakuTable.DataSource = data;
+            }
+            else
+            {
+                if (cbHakuAlueKaikki.Checked == false) 
+                {
+                    MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbHakuAluet.Text + "'", connection);
+                    alue_id = command.ExecuteScalar().ToString();
+                    query += "WHERE toimintaalue_id LIKE '" + alue_id + "' ";
+                }
+                if (nudHakuHintaraja.Value != 0 && cbHakuAlueKaikki.Checked == true) 
+                {
+                    query += "WHERE hinta <= '" + nudHakuHintaraja.Value + "' ";
+                }
+                else if (nudHakuHintaraja.Value != 0 && cbHakuAlueKaikki.Checked == false) 
+                {
+                    query += "AND hinta <= '" + nudHakuHintaraja.Value + "' "; 
+                }
+
+                if(nudHakuMaxhlo.Value != 0)
+                {
+                    if (nudHakuHintaraja.Value != 0 || cbHakuAlueKaikki.Checked == false)
+                        query += "AND ";
+                    else
+                        query += "WHERE ";
+                    query += "henkilomaara >= '" + nudHakuMaxhlo.Value + "' ";
+                }
+
+                lbltest.Text = query;
+                MySqlDataAdapter sda = new MySqlDataAdapter(query, connection);
+                sda.Fill(data);
+                dgHakuTable.DataSource = data;
+            }
+            CloseConnection();
+
         }
     }
 }
