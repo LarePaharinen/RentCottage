@@ -32,6 +32,7 @@ namespace RentCottage
             PopulateDGVRegion();
             PopulateDGVOrder();
             PopulateDGVCustomer();
+            PopulateDGVBilling();
             Search_alue_Combobox_update();
             cbSearchAluet.SelectedIndex = 1;
         }
@@ -70,6 +71,15 @@ namespace RentCottage
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
             adapter.Fill(table);
             dgOrder.DataSource = table;
+        }
+
+        public void PopulateDGVBilling()
+        {
+            string query = "SELECT lasku_id AS laskuID, varaus_id AS varausID, summa, alv, maksettu FROM lasku";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            adapter.Fill(table);
+            dgvBilling.DataSource = table;
         }
 
         private void tbSearch_Enter(object sender, EventArgs e)
