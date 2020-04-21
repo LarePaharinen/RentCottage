@@ -96,14 +96,6 @@ namespace RentCottage
             }
         }
 
-        private void cmbList_DropDown(object sender, EventArgs e)
-        {
-        }
-
-        private void cmbList_DropDownClosed(object sender, EventArgs e)
-        {
-        }
-
         private void btmSearch_Click(object sender, EventArgs e)
         {
 
