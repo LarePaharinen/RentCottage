@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RentCottage
 {
     //Class for modelling and handling different services
-    class Service
+    public class Service
     {
         private int serviceID;
         private int regionID;
