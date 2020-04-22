@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.lblHakuLine = new System.Windows.Forms.Label();
@@ -138,27 +138,28 @@
             this.label18 = new System.Windows.Forms.Label();
             this.tBilling = new System.Windows.Forms.TabPage();
             this.labelBillingBorder = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBillingPoista = new System.Windows.Forms.Button();
-            this.labelBillingMaksettu = new System.Windows.Forms.Label();
-            this.cbBillingMaksettu = new System.Windows.Forms.ComboBox();
-            this.txtboxBillingVarausID = new System.Windows.Forms.TextBox();
-            this.labelBillingVarausID = new System.Windows.Forms.Label();
+            this.btnBillingPaid = new System.Windows.Forms.Button();
+            this.btnBillingDelete = new System.Windows.Forms.Button();
+            this.labelBillingPaid = new System.Windows.Forms.Label();
+            this.cbBillingPaid = new System.Windows.Forms.ComboBox();
+            this.txtboxBillingOrderID = new System.Windows.Forms.TextBox();
+            this.labelBillingOrderID = new System.Windows.Forms.Label();
             this.dgvBilling = new System.Windows.Forms.DataGridView();
             this.btnBillingPDF = new System.Windows.Forms.Button();
-            this.btnBillingHaku = new System.Windows.Forms.Button();
-            this.txtboxBillingPuhelinnro = new System.Windows.Forms.TextBox();
-            this.txtboxBillingSahkoposti = new System.Windows.Forms.TextBox();
-            this.txtboxBillingSukunimi = new System.Windows.Forms.TextBox();
-            this.txtboxBillingEtunimi = new System.Windows.Forms.TextBox();
-            this.txtboxBillingAsiakasID = new System.Windows.Forms.TextBox();
-            this.txtboxBillingLaskuID = new System.Windows.Forms.TextBox();
-            this.labelBillingPuhelinnro = new System.Windows.Forms.Label();
-            this.labelBillingSahkoposti = new System.Windows.Forms.Label();
-            this.labelBillingSukunimi = new System.Windows.Forms.Label();
-            this.labelBillingEtunimi = new System.Windows.Forms.Label();
-            this.labelBillingAsiakasID = new System.Windows.Forms.Label();
-            this.labelBillingLaskuID = new System.Windows.Forms.Label();
+            this.btnBillingSearch = new System.Windows.Forms.Button();
+            this.txtboxBillingPhone = new System.Windows.Forms.TextBox();
+            this.txtboxBillingEmail = new System.Windows.Forms.TextBox();
+            this.txtboxBillingLastname = new System.Windows.Forms.TextBox();
+            this.txtboxBillingSurname = new System.Windows.Forms.TextBox();
+            this.txtboxBillingCustomerID = new System.Windows.Forms.TextBox();
+            this.txtboxBillingInvoiceID = new System.Windows.Forms.TextBox();
+            this.labelBillingPhone = new System.Windows.Forms.Label();
+            this.labelBillingEmail = new System.Windows.Forms.Label();
+            this.labelBillingLastname = new System.Windows.Forms.Label();
+            this.labelBillingSurname = new System.Windows.Forms.Label();
+            this.labelBillingCustomerID = new System.Windows.Forms.Label();
+            this.labelBillingInvoiceID = new System.Windows.Forms.Label();
+            this.btbBillingUnPaid = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -686,34 +687,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRegion.Location = new System.Drawing.Point(311, 8);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1358,28 +1359,29 @@
             // tBilling
             // 
             this.tBilling.BackColor = System.Drawing.Color.Transparent;
+            this.tBilling.Controls.Add(this.btbBillingUnPaid);
             this.tBilling.Controls.Add(this.labelBillingBorder);
-            this.tBilling.Controls.Add(this.button1);
-            this.tBilling.Controls.Add(this.btnBillingPoista);
-            this.tBilling.Controls.Add(this.labelBillingMaksettu);
-            this.tBilling.Controls.Add(this.cbBillingMaksettu);
-            this.tBilling.Controls.Add(this.txtboxBillingVarausID);
-            this.tBilling.Controls.Add(this.labelBillingVarausID);
+            this.tBilling.Controls.Add(this.btnBillingPaid);
+            this.tBilling.Controls.Add(this.btnBillingDelete);
+            this.tBilling.Controls.Add(this.labelBillingPaid);
+            this.tBilling.Controls.Add(this.cbBillingPaid);
+            this.tBilling.Controls.Add(this.txtboxBillingOrderID);
+            this.tBilling.Controls.Add(this.labelBillingOrderID);
             this.tBilling.Controls.Add(this.dgvBilling);
             this.tBilling.Controls.Add(this.btnBillingPDF);
-            this.tBilling.Controls.Add(this.btnBillingHaku);
-            this.tBilling.Controls.Add(this.txtboxBillingPuhelinnro);
-            this.tBilling.Controls.Add(this.txtboxBillingSahkoposti);
-            this.tBilling.Controls.Add(this.txtboxBillingSukunimi);
-            this.tBilling.Controls.Add(this.txtboxBillingEtunimi);
-            this.tBilling.Controls.Add(this.txtboxBillingAsiakasID);
-            this.tBilling.Controls.Add(this.txtboxBillingLaskuID);
-            this.tBilling.Controls.Add(this.labelBillingPuhelinnro);
-            this.tBilling.Controls.Add(this.labelBillingSahkoposti);
-            this.tBilling.Controls.Add(this.labelBillingSukunimi);
-            this.tBilling.Controls.Add(this.labelBillingEtunimi);
-            this.tBilling.Controls.Add(this.labelBillingAsiakasID);
-            this.tBilling.Controls.Add(this.labelBillingLaskuID);
+            this.tBilling.Controls.Add(this.btnBillingSearch);
+            this.tBilling.Controls.Add(this.txtboxBillingPhone);
+            this.tBilling.Controls.Add(this.txtboxBillingEmail);
+            this.tBilling.Controls.Add(this.txtboxBillingLastname);
+            this.tBilling.Controls.Add(this.txtboxBillingSurname);
+            this.tBilling.Controls.Add(this.txtboxBillingCustomerID);
+            this.tBilling.Controls.Add(this.txtboxBillingInvoiceID);
+            this.tBilling.Controls.Add(this.labelBillingPhone);
+            this.tBilling.Controls.Add(this.labelBillingEmail);
+            this.tBilling.Controls.Add(this.labelBillingLastname);
+            this.tBilling.Controls.Add(this.labelBillingSurname);
+            this.tBilling.Controls.Add(this.labelBillingCustomerID);
+            this.tBilling.Controls.Add(this.labelBillingInvoiceID);
             this.tBilling.Location = new System.Drawing.Point(4, 22);
             this.tBilling.Name = "tBilling";
             this.tBilling.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1399,63 +1401,63 @@
             this.labelBillingBorder.Size = new System.Drawing.Size(280, 2);
             this.labelBillingBorder.TabIndex = 23;
             // 
-            // button1
+            // btnBillingPaid
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(65, 490);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 38);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Kuittaa lasku maksetuksi";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBillingPaid.Enabled = false;
+            this.btnBillingPaid.Location = new System.Drawing.Point(65, 427);
+            this.btnBillingPaid.Name = "btnBillingPaid";
+            this.btnBillingPaid.Size = new System.Drawing.Size(157, 38);
+            this.btnBillingPaid.TabIndex = 22;
+            this.btnBillingPaid.Text = "Kuittaa lasku maksetuksi";
+            this.btnBillingPaid.UseVisualStyleBackColor = true;
             // 
-            // btnBillingPoista
+            // btnBillingDelete
             // 
-            this.btnBillingPoista.Enabled = false;
-            this.btnBillingPoista.Location = new System.Drawing.Point(65, 427);
-            this.btnBillingPoista.Name = "btnBillingPoista";
-            this.btnBillingPoista.Size = new System.Drawing.Size(157, 38);
-            this.btnBillingPoista.TabIndex = 21;
-            this.btnBillingPoista.Text = "Poista lasku";
-            this.btnBillingPoista.UseVisualStyleBackColor = true;
+            this.btnBillingDelete.Enabled = false;
+            this.btnBillingDelete.Location = new System.Drawing.Point(65, 515);
+            this.btnBillingDelete.Name = "btnBillingDelete";
+            this.btnBillingDelete.Size = new System.Drawing.Size(157, 38);
+            this.btnBillingDelete.TabIndex = 21;
+            this.btnBillingDelete.Text = "Poista lasku";
+            this.btnBillingDelete.UseVisualStyleBackColor = true;
             // 
-            // labelBillingMaksettu
+            // labelBillingPaid
             // 
-            this.labelBillingMaksettu.AutoSize = true;
-            this.labelBillingMaksettu.Location = new System.Drawing.Point(52, 232);
-            this.labelBillingMaksettu.Name = "labelBillingMaksettu";
-            this.labelBillingMaksettu.Size = new System.Drawing.Size(51, 13);
-            this.labelBillingMaksettu.TabIndex = 20;
-            this.labelBillingMaksettu.Text = "Maksettu";
+            this.labelBillingPaid.AutoSize = true;
+            this.labelBillingPaid.Location = new System.Drawing.Point(52, 232);
+            this.labelBillingPaid.Name = "labelBillingPaid";
+            this.labelBillingPaid.Size = new System.Drawing.Size(51, 13);
+            this.labelBillingPaid.TabIndex = 20;
+            this.labelBillingPaid.Text = "Maksettu";
             // 
-            // cbBillingMaksettu
+            // cbBillingPaid
             // 
-            this.cbBillingMaksettu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBillingMaksettu.FormattingEnabled = true;
-            this.cbBillingMaksettu.Items.AddRange(new object[] {
+            this.cbBillingPaid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBillingPaid.FormattingEnabled = true;
+            this.cbBillingPaid.Items.AddRange(new object[] {
             "Kyllä",
             "Ei",
             "Näytä kaikki"});
-            this.cbBillingMaksettu.Location = new System.Drawing.Point(109, 229);
-            this.cbBillingMaksettu.Name = "cbBillingMaksettu";
-            this.cbBillingMaksettu.Size = new System.Drawing.Size(138, 21);
-            this.cbBillingMaksettu.TabIndex = 19;
+            this.cbBillingPaid.Location = new System.Drawing.Point(109, 229);
+            this.cbBillingPaid.Name = "cbBillingPaid";
+            this.cbBillingPaid.Size = new System.Drawing.Size(138, 21);
+            this.cbBillingPaid.TabIndex = 19;
             // 
-            // txtboxBillingVarausID
+            // txtboxBillingOrderID
             // 
-            this.txtboxBillingVarausID.Location = new System.Drawing.Point(109, 72);
-            this.txtboxBillingVarausID.Name = "txtboxBillingVarausID";
-            this.txtboxBillingVarausID.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingVarausID.TabIndex = 18;
+            this.txtboxBillingOrderID.Location = new System.Drawing.Point(109, 72);
+            this.txtboxBillingOrderID.Name = "txtboxBillingOrderID";
+            this.txtboxBillingOrderID.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingOrderID.TabIndex = 18;
             // 
-            // labelBillingVarausID
+            // labelBillingOrderID
             // 
-            this.labelBillingVarausID.AutoSize = true;
-            this.labelBillingVarausID.Location = new System.Drawing.Point(56, 75);
-            this.labelBillingVarausID.Name = "labelBillingVarausID";
-            this.labelBillingVarausID.Size = new System.Drawing.Size(51, 13);
-            this.labelBillingVarausID.TabIndex = 17;
-            this.labelBillingVarausID.Text = "VarausID";
+            this.labelBillingOrderID.AutoSize = true;
+            this.labelBillingOrderID.Location = new System.Drawing.Point(56, 75);
+            this.labelBillingOrderID.Name = "labelBillingOrderID";
+            this.labelBillingOrderID.Size = new System.Drawing.Size(51, 13);
+            this.labelBillingOrderID.TabIndex = 17;
+            this.labelBillingOrderID.Text = "VarausID";
             // 
             // dgvBilling
             // 
@@ -1477,118 +1479,128 @@
             // btnBillingPDF
             // 
             this.btnBillingPDF.Enabled = false;
-            this.btnBillingPDF.Location = new System.Drawing.Point(65, 372);
+            this.btnBillingPDF.Location = new System.Drawing.Point(65, 383);
             this.btnBillingPDF.Name = "btnBillingPDF";
             this.btnBillingPDF.Size = new System.Drawing.Size(157, 38);
             this.btnBillingPDF.TabIndex = 13;
             this.btnBillingPDF.Text = "Muodosta laskusta PDF";
             this.btnBillingPDF.UseVisualStyleBackColor = true;
             // 
-            // btnBillingHaku
+            // btnBillingSearch
             // 
-            this.btnBillingHaku.Location = new System.Drawing.Point(172, 274);
-            this.btnBillingHaku.Name = "btnBillingHaku";
-            this.btnBillingHaku.Size = new System.Drawing.Size(75, 29);
-            this.btnBillingHaku.TabIndex = 12;
-            this.btnBillingHaku.Text = "Hae laskua";
-            this.btnBillingHaku.UseVisualStyleBackColor = true;
-            this.btnBillingHaku.Click += new System.EventHandler(this.btnBilling_Click);
+            this.btnBillingSearch.Location = new System.Drawing.Point(172, 274);
+            this.btnBillingSearch.Name = "btnBillingSearch";
+            this.btnBillingSearch.Size = new System.Drawing.Size(75, 29);
+            this.btnBillingSearch.TabIndex = 12;
+            this.btnBillingSearch.Text = "Hae laskua";
+            this.btnBillingSearch.UseVisualStyleBackColor = true;
+            this.btnBillingSearch.Click += new System.EventHandler(this.btnBilling_Click);
             // 
-            // txtboxBillingPuhelinnro
+            // txtboxBillingPhone
             // 
-            this.txtboxBillingPuhelinnro.Location = new System.Drawing.Point(109, 202);
-            this.txtboxBillingPuhelinnro.Name = "txtboxBillingPuhelinnro";
-            this.txtboxBillingPuhelinnro.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingPuhelinnro.TabIndex = 11;
+            this.txtboxBillingPhone.Location = new System.Drawing.Point(109, 202);
+            this.txtboxBillingPhone.Name = "txtboxBillingPhone";
+            this.txtboxBillingPhone.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingPhone.TabIndex = 11;
             // 
-            // txtboxBillingSahkoposti
+            // txtboxBillingEmail
             // 
-            this.txtboxBillingSahkoposti.Location = new System.Drawing.Point(109, 176);
-            this.txtboxBillingSahkoposti.Name = "txtboxBillingSahkoposti";
-            this.txtboxBillingSahkoposti.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingSahkoposti.TabIndex = 10;
+            this.txtboxBillingEmail.Location = new System.Drawing.Point(109, 176);
+            this.txtboxBillingEmail.Name = "txtboxBillingEmail";
+            this.txtboxBillingEmail.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingEmail.TabIndex = 10;
             // 
-            // txtboxBillingSukunimi
+            // txtboxBillingLastname
             // 
-            this.txtboxBillingSukunimi.Location = new System.Drawing.Point(109, 150);
-            this.txtboxBillingSukunimi.Name = "txtboxBillingSukunimi";
-            this.txtboxBillingSukunimi.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingSukunimi.TabIndex = 9;
+            this.txtboxBillingLastname.Location = new System.Drawing.Point(109, 150);
+            this.txtboxBillingLastname.Name = "txtboxBillingLastname";
+            this.txtboxBillingLastname.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingLastname.TabIndex = 9;
             // 
-            // txtboxBillingEtunimi
+            // txtboxBillingSurname
             // 
-            this.txtboxBillingEtunimi.Location = new System.Drawing.Point(109, 124);
-            this.txtboxBillingEtunimi.Name = "txtboxBillingEtunimi";
-            this.txtboxBillingEtunimi.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingEtunimi.TabIndex = 8;
+            this.txtboxBillingSurname.Location = new System.Drawing.Point(109, 124);
+            this.txtboxBillingSurname.Name = "txtboxBillingSurname";
+            this.txtboxBillingSurname.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingSurname.TabIndex = 8;
             // 
-            // txtboxBillingAsiakasID
+            // txtboxBillingCustomerID
             // 
-            this.txtboxBillingAsiakasID.Location = new System.Drawing.Point(109, 98);
-            this.txtboxBillingAsiakasID.Name = "txtboxBillingAsiakasID";
-            this.txtboxBillingAsiakasID.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingAsiakasID.TabIndex = 7;
+            this.txtboxBillingCustomerID.Location = new System.Drawing.Point(109, 98);
+            this.txtboxBillingCustomerID.Name = "txtboxBillingCustomerID";
+            this.txtboxBillingCustomerID.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingCustomerID.TabIndex = 7;
             // 
-            // txtboxBillingLaskuID
+            // txtboxBillingInvoiceID
             // 
-            this.txtboxBillingLaskuID.Location = new System.Drawing.Point(109, 46);
-            this.txtboxBillingLaskuID.Name = "txtboxBillingLaskuID";
-            this.txtboxBillingLaskuID.Size = new System.Drawing.Size(138, 20);
-            this.txtboxBillingLaskuID.TabIndex = 6;
+            this.txtboxBillingInvoiceID.Location = new System.Drawing.Point(109, 46);
+            this.txtboxBillingInvoiceID.Name = "txtboxBillingInvoiceID";
+            this.txtboxBillingInvoiceID.Size = new System.Drawing.Size(138, 20);
+            this.txtboxBillingInvoiceID.TabIndex = 6;
             // 
-            // labelBillingPuhelinnro
+            // labelBillingPhone
             // 
-            this.labelBillingPuhelinnro.AutoSize = true;
-            this.labelBillingPuhelinnro.Location = new System.Drawing.Point(26, 205);
-            this.labelBillingPuhelinnro.Name = "labelBillingPuhelinnro";
-            this.labelBillingPuhelinnro.Size = new System.Drawing.Size(77, 13);
-            this.labelBillingPuhelinnro.TabIndex = 5;
-            this.labelBillingPuhelinnro.Text = "Puhelinnumero";
+            this.labelBillingPhone.AutoSize = true;
+            this.labelBillingPhone.Location = new System.Drawing.Point(26, 205);
+            this.labelBillingPhone.Name = "labelBillingPhone";
+            this.labelBillingPhone.Size = new System.Drawing.Size(77, 13);
+            this.labelBillingPhone.TabIndex = 5;
+            this.labelBillingPhone.Text = "Puhelinnumero";
             // 
-            // labelBillingSahkoposti
+            // labelBillingEmail
             // 
-            this.labelBillingSahkoposti.AutoSize = true;
-            this.labelBillingSahkoposti.Location = new System.Drawing.Point(43, 179);
-            this.labelBillingSahkoposti.Name = "labelBillingSahkoposti";
-            this.labelBillingSahkoposti.Size = new System.Drawing.Size(60, 13);
-            this.labelBillingSahkoposti.TabIndex = 4;
-            this.labelBillingSahkoposti.Text = "Sähköposti";
+            this.labelBillingEmail.AutoSize = true;
+            this.labelBillingEmail.Location = new System.Drawing.Point(43, 179);
+            this.labelBillingEmail.Name = "labelBillingEmail";
+            this.labelBillingEmail.Size = new System.Drawing.Size(60, 13);
+            this.labelBillingEmail.TabIndex = 4;
+            this.labelBillingEmail.Text = "Sähköposti";
             // 
-            // labelBillingSukunimi
+            // labelBillingLastname
             // 
-            this.labelBillingSukunimi.AutoSize = true;
-            this.labelBillingSukunimi.Location = new System.Drawing.Point(53, 153);
-            this.labelBillingSukunimi.Name = "labelBillingSukunimi";
-            this.labelBillingSukunimi.Size = new System.Drawing.Size(50, 13);
-            this.labelBillingSukunimi.TabIndex = 3;
-            this.labelBillingSukunimi.Text = "Sukunimi";
+            this.labelBillingLastname.AutoSize = true;
+            this.labelBillingLastname.Location = new System.Drawing.Point(53, 153);
+            this.labelBillingLastname.Name = "labelBillingLastname";
+            this.labelBillingLastname.Size = new System.Drawing.Size(50, 13);
+            this.labelBillingLastname.TabIndex = 3;
+            this.labelBillingLastname.Text = "Sukunimi";
             // 
-            // labelBillingEtunimi
+            // labelBillingSurname
             // 
-            this.labelBillingEtunimi.AutoSize = true;
-            this.labelBillingEtunimi.Location = new System.Drawing.Point(62, 127);
-            this.labelBillingEtunimi.Name = "labelBillingEtunimi";
-            this.labelBillingEtunimi.Size = new System.Drawing.Size(41, 13);
-            this.labelBillingEtunimi.TabIndex = 2;
-            this.labelBillingEtunimi.Text = "Etunimi";
+            this.labelBillingSurname.AutoSize = true;
+            this.labelBillingSurname.Location = new System.Drawing.Point(62, 127);
+            this.labelBillingSurname.Name = "labelBillingSurname";
+            this.labelBillingSurname.Size = new System.Drawing.Size(41, 13);
+            this.labelBillingSurname.TabIndex = 2;
+            this.labelBillingSurname.Text = "Etunimi";
             // 
-            // labelBillingAsiakasID
+            // labelBillingCustomerID
             // 
-            this.labelBillingAsiakasID.AutoSize = true;
-            this.labelBillingAsiakasID.Location = new System.Drawing.Point(48, 101);
-            this.labelBillingAsiakasID.Name = "labelBillingAsiakasID";
-            this.labelBillingAsiakasID.Size = new System.Drawing.Size(55, 13);
-            this.labelBillingAsiakasID.TabIndex = 1;
-            this.labelBillingAsiakasID.Text = "AsiakasID";
+            this.labelBillingCustomerID.AutoSize = true;
+            this.labelBillingCustomerID.Location = new System.Drawing.Point(48, 101);
+            this.labelBillingCustomerID.Name = "labelBillingCustomerID";
+            this.labelBillingCustomerID.Size = new System.Drawing.Size(55, 13);
+            this.labelBillingCustomerID.TabIndex = 1;
+            this.labelBillingCustomerID.Text = "AsiakasID";
             // 
-            // labelBillingLaskuID
+            // labelBillingInvoiceID
             // 
-            this.labelBillingLaskuID.AutoSize = true;
-            this.labelBillingLaskuID.Location = new System.Drawing.Point(56, 49);
-            this.labelBillingLaskuID.Name = "labelBillingLaskuID";
-            this.labelBillingLaskuID.Size = new System.Drawing.Size(47, 13);
-            this.labelBillingLaskuID.TabIndex = 0;
-            this.labelBillingLaskuID.Text = "LaskuID";
+            this.labelBillingInvoiceID.AutoSize = true;
+            this.labelBillingInvoiceID.Location = new System.Drawing.Point(56, 49);
+            this.labelBillingInvoiceID.Name = "labelBillingInvoiceID";
+            this.labelBillingInvoiceID.Size = new System.Drawing.Size(47, 13);
+            this.labelBillingInvoiceID.TabIndex = 0;
+            this.labelBillingInvoiceID.Text = "LaskuID";
+            // 
+            // btbBillingUnPaid
+            // 
+            this.btbBillingUnPaid.Enabled = false;
+            this.btbBillingUnPaid.Location = new System.Drawing.Point(65, 471);
+            this.btbBillingUnPaid.Name = "btbBillingUnPaid";
+            this.btbBillingUnPaid.Size = new System.Drawing.Size(157, 38);
+            this.btbBillingUnPaid.TabIndex = 24;
+            this.btbBillingUnPaid.Text = "Merkitse maksamattomaksi";
+            this.btbBillingUnPaid.UseVisualStyleBackColor = true;
             // 
             // RentCottage
             // 
@@ -1739,28 +1751,29 @@
         private System.Windows.Forms.DataGridView dgSearchTable;
         private System.Windows.Forms.Label lbltest;
         private System.Windows.Forms.Label lblHakuLine;
-        private System.Windows.Forms.TextBox txtboxBillingPuhelinnro;
-        private System.Windows.Forms.TextBox txtboxBillingSahkoposti;
-        private System.Windows.Forms.TextBox txtboxBillingSukunimi;
-        private System.Windows.Forms.TextBox txtboxBillingEtunimi;
-        private System.Windows.Forms.TextBox txtboxBillingAsiakasID;
-        private System.Windows.Forms.TextBox txtboxBillingLaskuID;
-        private System.Windows.Forms.Label labelBillingPuhelinnro;
-        private System.Windows.Forms.Label labelBillingSahkoposti;
-        private System.Windows.Forms.Label labelBillingSukunimi;
-        private System.Windows.Forms.Label labelBillingEtunimi;
-        private System.Windows.Forms.Label labelBillingAsiakasID;
-        private System.Windows.Forms.Label labelBillingLaskuID;
+        private System.Windows.Forms.TextBox txtboxBillingPhone;
+        private System.Windows.Forms.TextBox txtboxBillingEmail;
+        private System.Windows.Forms.TextBox txtboxBillingLastname;
+        private System.Windows.Forms.TextBox txtboxBillingSurname;
+        private System.Windows.Forms.TextBox txtboxBillingCustomerID;
+        private System.Windows.Forms.TextBox txtboxBillingInvoiceID;
+        private System.Windows.Forms.Label labelBillingPhone;
+        private System.Windows.Forms.Label labelBillingEmail;
+        private System.Windows.Forms.Label labelBillingLastname;
+        private System.Windows.Forms.Label labelBillingSurname;
+        private System.Windows.Forms.Label labelBillingCustomerID;
+        private System.Windows.Forms.Label labelBillingInvoiceID;
         private System.Windows.Forms.Button btnBillingPDF;
-        private System.Windows.Forms.Button btnBillingHaku;
+        private System.Windows.Forms.Button btnBillingSearch;
         private System.Windows.Forms.DataGridView dgvBilling;
-        private System.Windows.Forms.TextBox txtboxBillingVarausID;
-        private System.Windows.Forms.Label labelBillingVarausID;
-        private System.Windows.Forms.Label labelBillingMaksettu;
-        private System.Windows.Forms.ComboBox cbBillingMaksettu;
+        private System.Windows.Forms.TextBox txtboxBillingOrderID;
+        private System.Windows.Forms.Label labelBillingOrderID;
+        private System.Windows.Forms.Label labelBillingPaid;
+        private System.Windows.Forms.ComboBox cbBillingPaid;
         private System.Windows.Forms.Label labelBillingBorder;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnBillingPoista;
+        private System.Windows.Forms.Button btnBillingPaid;
+        private System.Windows.Forms.Button btnBillingDelete;
+        private System.Windows.Forms.Button btbBillingUnPaid;
     }
 }
 

@@ -34,7 +34,7 @@ namespace RentCottage
             PopulateDGVCustomer();
             Search_alue_Combobox_update();
             cbSearchAluet.SelectedIndex = 1;
-            cbBillingMaksettu.SelectedIndex = 2;
+            cbBillingPaid.SelectedIndex = 2;
         }
 
         MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -327,92 +327,28 @@ namespace RentCottage
             //All button events occurring on the "Lasku" tab.
 
             Button btn = (Button)sender;
-            string query = "SELECT l.lasku_id AS LaskuID, l.summa as 'Summa (€)', a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' ', a.sukunimi) AS Nimi, " +
-               "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS Sähköposti, l.maksettu AS 'maksu suoritettu' " +
-               "FROM lasku l " +
-               "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-               "JOIN asiakas a ON v.asiakas_id = a.asiakas_id ";
 
-            if (btn == btnBillingHaku) //Search button
+            if (btn == btnBillingSearch) //Search button
             {
-                string laskuID = txtboxBillingLaskuID.Text;
-                string varausID = txtboxBillingVarausID.Text;
-                string asiakasID = txtboxBillingAsiakasID.Text;
-                string etunimi = txtboxBillingEtunimi.Text;
-                string sukunimi = txtboxBillingSukunimi.Text;
-                string email = txtboxBillingSahkoposti.Text;
-                string puhelinnro = txtboxBillingPuhelinnro.Text;
-                string maksettu = "";
-                if (cbBillingMaksettu.SelectedIndex == 0)
-                    maksettu = "TRUE";
-                else if (cbBillingMaksettu.SelectedIndex == 1)
-                    maksettu = "FALSE";
-                else if (cbBillingMaksettu.SelectedIndex == 2)
-                    maksettu = "";
+                string query = "SELECT l.lasku_id AS LaskuID, l.summa as 'Summa (€)', a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' ', a.sukunimi) AS Nimi, " +
+                "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS Sähköposti, l.maksettu AS 'maksu suoritettu' " +
+                "FROM lasku l " +
+                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
+                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
+                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
+                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
+                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
+                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
+                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
 
-                if (laskuID != "" || varausID != "" || asiakasID != "" || etunimi != "" || sukunimi != "" || email != "" || puhelinnro != "" || maksettu != "")
-                    query += " WHERE ";
-
-                if (laskuID != "")
-                {
-                    query += "l.lasku_id = " + laskuID;
-                    query += " AND ";
-                }
-
-                if (varausID != "")
-                {
-                    query += "l.varaus_id = " + varausID;
-                    query += " AND ";
-                }
-
-                if (asiakasID != "")
-                {
-                    query += "a.asiakas_id = " + asiakasID;
-                    query += " AND ";
-                }
-
-                if (etunimi != "")
-                {
-                    query += "a.etunimi = " + "'" + etunimi + "'";
-                    query += " AND ";
-                }
-
-                if (sukunimi != "")
-                {
-                    query += "a.sukunimi = " + "'" + sukunimi + "'";
-                    query += " AND ";
-                }
-
-                if (email != "")
-                {
-                    query += "a.email = " + "'" + email + "'";
-                    query += " AND ";
-                }
-
-                if (puhelinnro != "")
-                {
-                    query += "a.puhelinnro = " + "'" + puhelinnro + "'";
-                    query += " AND ";
-                }
-
-                if (maksettu != "")
-                {
-                    query += "l.maksettu = " + maksettu;
-                    query += " AND ";
-                }
-
-                //Removing the last "AND" from the query and placing the ";" int the end.
-                string find = "AND";
-                int index = query.LastIndexOf(find);
-                string replace = "";
-
-                if (index != -1)
-                {
-                    string result = query.Remove(index, find.Length).Insert(index, replace);
-                    query = result;
-                }
-
-                query += ";";
+                if (cbBillingPaid.SelectedIndex == 0)
+                    query += "AND l.maksettu = TRUE;";
+                else if (cbBillingPaid.SelectedIndex == 1)
+                    query += "AND l.maksettu = FALSE;";
+                else if (cbBillingPaid.SelectedIndex == 2)
+                    query += ";";
 
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
@@ -424,7 +360,7 @@ namespace RentCottage
             {
             }
 
-            else if (btn == btnBillingPoista) //Delete
+            else if (btn == btnBillingDelete) //Delete
             {
             }
 
