@@ -33,9 +33,9 @@ namespace RentCottage
             PopulateDGVRegion();
             PopulateDGVOrder();
             PopulateDGVCustomer();
-            PopulateDGVBilling();
             Search_alue_Combobox_update();
             cbSearchAluet.SelectedIndex = 1;
+            cbBillingPaid.SelectedIndex = 2;
         }
 
         MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -72,15 +72,6 @@ namespace RentCottage
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
             adapter.Fill(table);
             dgOrder.DataSource = table;
-        }
-
-        public void PopulateDGVBilling()
-        {
-            string query = "SELECT lasku_id AS laskuID, varaus_id AS varausID, summa, alv, maksettu FROM lasku";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
-            adapter.Fill(table);
-            dgvBilling.DataSource = table;
         }
 
         private void tbSearch_Enter(object sender, EventArgs e)
@@ -179,8 +170,8 @@ namespace RentCottage
             {
                 dtp.Visible = true;
             }
-            else             
-                dtp.Visible = false;               
+            else
+                dtp.Visible = false;
         }
 
 
@@ -221,7 +212,7 @@ namespace RentCottage
         {
             DialogResult res = MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan tiedot?", "Poista asiakkaan tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
-            {                
+            {
                 string query = "START TRANSACTION; " +
                     "UPDATE asiakas " +
                     "SET postinro='90100',etunimi='',sukunimi='',lahiosoite=''," +
@@ -261,7 +252,7 @@ namespace RentCottage
             OpenConnection();
             MySqlCommand command = new MySqlCommand(selectQuery, connection);
             MySqlDataReader reader = command.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 cbSearchAluet.Items.Add(reader.GetString("nimi"));
             }
@@ -303,22 +294,22 @@ namespace RentCottage
             }
             else
             {
-                if (cbSearchAlueKaikki.Checked == false) 
+                if (cbSearchAlueKaikki.Checked == false)
                 {
                     MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", connection);
                     alue_id = command.ExecuteScalar().ToString();
                     query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
                 }
-                if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true) 
+                if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true)
                 {
                     query += "WHERE m.hinta <= '" + nudSearchHintaraja.Value + "' ";
                 }
-                else if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == false) 
+                else if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == false)
                 {
-                    query += "AND m.hinta <= '" + nudSearchHintaraja.Value + "' "; 
+                    query += "AND m.hinta <= '" + nudSearchHintaraja.Value + "' ";
                 }
 
-                if(nudSearchMaxhlo.Value != 0)
+                if (nudSearchMaxhlo.Value != 0)
                 {
                     if (nudSearchHintaraja.Value != 0 || cbSearchAlueKaikki.Checked == false)
                         query += "AND ";
@@ -332,6 +323,50 @@ namespace RentCottage
                 dgSearchTable.DataSource = data;
             }
             CloseConnection();
+        }
+
+        private void btnBilling_Click(object sender, EventArgs e)
+        {
+            //All button events occurring on the "Lasku" tab.
+
+            Button btn = (Button)sender;
+
+            if (btn == btnBillingSearch) //Search button
+            {
+                string query = "SELECT l.lasku_id AS LaskuID, l.summa as 'Summa (€)', a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' ', a.sukunimi) AS Nimi, " +
+                "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS Sähköposti, l.maksettu AS 'maksu suoritettu' " +
+                "FROM lasku l " +
+                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
+                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
+                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
+                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
+                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
+                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
+                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
+
+                if (cbBillingPaid.SelectedIndex == 0)
+                    query += "AND l.maksettu = TRUE;";
+                else if (cbBillingPaid.SelectedIndex == 1)
+                    query += "AND l.maksettu = FALSE;";
+                else if (cbBillingPaid.SelectedIndex == 2)
+                    query += ";";
+
+                DataTable table = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                adapter.Fill(table);
+                dgvBilling.DataSource = table;
+            }
+
+            else if (btn == btnBillingPDF) //Create PDF
+            {
+            }
+
+            else if (btn == btnBillingDelete) //Delete
+            {
+            }
+
         }
     }
 }
