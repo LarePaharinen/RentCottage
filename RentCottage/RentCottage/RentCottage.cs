@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -184,6 +185,8 @@ namespace RentCottage
 
 
         //codes related to Asiakashallinta
+
+        
         public void PopulateDGVCustomer() //get all data from asiakas-table to datagridview
         {
             string query = "SELECT * FROM asiakas";

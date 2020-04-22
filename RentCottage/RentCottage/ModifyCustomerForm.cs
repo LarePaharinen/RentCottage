@@ -22,13 +22,13 @@ namespace RentCottage
         public ModifyCustomerForm(Customer c)
         {
             InitializeComponent();
-            lblCustomerID.Text = c.CustomerID.ToString();
-            tbCustomerFName.Text = c.Forename;
-            tbCustomerLName.Text = c.Surname;
-            tbCustomerAddress.Text = c.Address;
-            tbCustomerPostal.Text = c.Postal;
-            tbCustomerEmail.Text = c.Email;
-            tbCustomerPhone.Text = c.Phone;
+            lblCustomerIDMod.Text = c.CustomerID.ToString();
+            tbCustomerFNameMod.Text = c.Forename;
+            tbCustomerLNameMod.Text = c.Surname;
+            tbCustomerAddressMod.Text = c.Address;
+            tbCustomerPostalMod.Text = c.Postal;
+            tbCustomerEmailMod.Text = c.Email;
+            tbCustomerPhoneMod.Text = c.Phone;
         }
 
         MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -59,12 +59,13 @@ namespace RentCottage
             DialogResult res = MessageBox.Show("Haluatko varmasti muuttaa valitun asiakkaan tietoja?", "Muuta asiakkaan tietoja", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
+                PostUtils.CheckPostal(tbCustomerPostalMod.Text, tbCustomerPostOfficeMod.Text);
                 string query = "START TRANSACTION; " +
                 "UPDATE asiakas " +
-                "SET postinro='" + tbCustomerPostal.Text + "',etunimi='" + tbCustomerFName.Text +
-                "',sukunimi='" + tbCustomerLName.Text + "',lahiosoite='" + tbCustomerAddress.Text + "'," +
-                "email='" + tbCustomerEmail.Text + "',puhelinnro='" + tbCustomerPhone.Text + "' " +
-                "WHERE asiakas_id=" + lblCustomerID.Text + "; " +
+                "SET postinro='" + tbCustomerPostalMod.Text + "',etunimi='" + tbCustomerFNameMod.Text +
+                "',sukunimi='" + tbCustomerLNameMod.Text + "',lahiosoite='" + tbCustomerAddressMod.Text + "'," +
+                "email='" + tbCustomerEmailMod.Text + "',puhelinnro='" + tbCustomerPhoneMod.Text + "' " +
+                "WHERE asiakas_id=" + lblCustomerIDMod.Text + "; " +
                 "COMMIT;";
                 OpenConnection();
                 MySqlCommand command = new MySqlCommand(query, connection);

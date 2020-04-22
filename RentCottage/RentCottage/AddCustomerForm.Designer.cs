@@ -29,75 +29,77 @@
         private void InitializeComponent()
         {
             this.btnAdd = new System.Windows.Forms.Button();
-            this.tbCustomerPhone = new System.Windows.Forms.TextBox();
+            this.tbCustomerPhoneAdd = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.tbCustomerEmail = new System.Windows.Forms.TextBox();
+            this.tbCustomerEmailAdd = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.tbCustomerAddress = new System.Windows.Forms.TextBox();
+            this.tbCustomerAddressAdd = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.tbCustomerLName = new System.Windows.Forms.TextBox();
-            this.tbCustomerFName = new System.Windows.Forms.TextBox();
+            this.tbCustomerLNameAdd = new System.Windows.Forms.TextBox();
+            this.tbCustomerFNameAdd = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.tbCustomerPostal = new System.Windows.Forms.TextBox();
+            this.tbCustomerPostalAdd = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.tbCustomerPostOfficeAdd = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(81, 250);
+            this.btnAdd.Location = new System.Drawing.Point(81, 280);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
-            this.btnAdd.TabIndex = 7;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Lisää";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // tbCustomerPhone
+            // tbCustomerPhoneAdd
             // 
-            this.tbCustomerPhone.Location = new System.Drawing.Point(145, 202);
-            this.tbCustomerPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerPhone.Name = "tbCustomerPhone";
-            this.tbCustomerPhone.Size = new System.Drawing.Size(173, 22);
-            this.tbCustomerPhone.TabIndex = 6;
+            this.tbCustomerPhoneAdd.Location = new System.Drawing.Point(145, 239);
+            this.tbCustomerPhoneAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPhoneAdd.Name = "tbCustomerPhoneAdd";
+            this.tbCustomerPhoneAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerPhoneAdd.TabIndex = 7;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(30, 206);
+            this.label23.Location = new System.Drawing.Point(30, 243);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(107, 17);
             this.label23.TabIndex = 38;
             this.label23.Text = "Puhelinnumero:";
             // 
-            // tbCustomerEmail
+            // tbCustomerEmailAdd
             // 
-            this.tbCustomerEmail.Location = new System.Drawing.Point(145, 170);
-            this.tbCustomerEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerEmail.Name = "tbCustomerEmail";
-            this.tbCustomerEmail.Size = new System.Drawing.Size(173, 22);
-            this.tbCustomerEmail.TabIndex = 5;
+            this.tbCustomerEmailAdd.Location = new System.Drawing.Point(145, 207);
+            this.tbCustomerEmailAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerEmailAdd.Name = "tbCustomerEmailAdd";
+            this.tbCustomerEmailAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerEmailAdd.TabIndex = 6;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(53, 174);
+            this.label22.Location = new System.Drawing.Point(53, 211);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(82, 17);
             this.label22.TabIndex = 36;
             this.label22.Text = "Sähköposti:";
             // 
-            // tbCustomerAddress
+            // tbCustomerAddressAdd
             // 
-            this.tbCustomerAddress.Location = new System.Drawing.Point(145, 111);
-            this.tbCustomerAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerAddress.Name = "tbCustomerAddress";
-            this.tbCustomerAddress.Size = new System.Drawing.Size(173, 22);
-            this.tbCustomerAddress.TabIndex = 3;
+            this.tbCustomerAddressAdd.Location = new System.Drawing.Point(145, 111);
+            this.tbCustomerAddressAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerAddressAdd.Name = "tbCustomerAddressAdd";
+            this.tbCustomerAddressAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerAddressAdd.TabIndex = 3;
             // 
             // label21
             // 
@@ -109,21 +111,21 @@
             this.label21.TabIndex = 34;
             this.label21.Text = "Lähiosoite:";
             // 
-            // tbCustomerLName
+            // tbCustomerLNameAdd
             // 
-            this.tbCustomerLName.Location = new System.Drawing.Point(145, 79);
-            this.tbCustomerLName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerLName.Name = "tbCustomerLName";
-            this.tbCustomerLName.Size = new System.Drawing.Size(173, 22);
-            this.tbCustomerLName.TabIndex = 2;
+            this.tbCustomerLNameAdd.Location = new System.Drawing.Point(145, 79);
+            this.tbCustomerLNameAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerLNameAdd.Name = "tbCustomerLNameAdd";
+            this.tbCustomerLNameAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerLNameAdd.TabIndex = 2;
             // 
-            // tbCustomerFName
+            // tbCustomerFNameAdd
             // 
-            this.tbCustomerFName.Location = new System.Drawing.Point(145, 47);
-            this.tbCustomerFName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerFName.Name = "tbCustomerFName";
-            this.tbCustomerFName.Size = new System.Drawing.Size(173, 22);
-            this.tbCustomerFName.TabIndex = 1;
+            this.tbCustomerFNameAdd.Location = new System.Drawing.Point(145, 47);
+            this.tbCustomerFNameAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerFNameAdd.Name = "tbCustomerFNameAdd";
+            this.tbCustomerFNameAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerFNameAdd.TabIndex = 1;
             // 
             // label20
             // 
@@ -145,18 +147,18 @@
             this.label19.TabIndex = 30;
             this.label19.Text = "Etunimi:";
             // 
-            // tbCustomerPostal
+            // tbCustomerPostalAdd
             // 
-            this.tbCustomerPostal.Location = new System.Drawing.Point(145, 140);
-            this.tbCustomerPostal.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerPostal.Name = "tbCustomerPostal";
-            this.tbCustomerPostal.Size = new System.Drawing.Size(173, 22);
-            this.tbCustomerPostal.TabIndex = 4;
+            this.tbCustomerPostalAdd.Location = new System.Drawing.Point(145, 143);
+            this.tbCustomerPostalAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPostalAdd.Name = "tbCustomerPostalAdd";
+            this.tbCustomerPostalAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerPostalAdd.TabIndex = 4;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(46, 144);
+            this.label16.Location = new System.Drawing.Point(46, 147);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(91, 17);
@@ -165,32 +167,52 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(218, 250);
+            this.btnCancel.Location = new System.Drawing.Point(218, 280);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Peruuta";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // tbCustomerPostOfficeAdd
+            // 
+            this.tbCustomerPostOfficeAdd.Location = new System.Drawing.Point(145, 175);
+            this.tbCustomerPostOfficeAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPostOfficeAdd.Name = "tbCustomerPostOfficeAdd";
+            this.tbCustomerPostOfficeAdd.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerPostOfficeAdd.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 178);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Postitoimipaikka:";
             // 
             // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 321);
+            this.Controls.Add(this.tbCustomerPostOfficeAdd);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.tbCustomerPhone);
+            this.Controls.Add(this.tbCustomerPhoneAdd);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.tbCustomerEmail);
+            this.Controls.Add(this.tbCustomerEmailAdd);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.tbCustomerAddress);
+            this.Controls.Add(this.tbCustomerAddressAdd);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.tbCustomerLName);
-            this.Controls.Add(this.tbCustomerFName);
+            this.Controls.Add(this.tbCustomerLNameAdd);
+            this.Controls.Add(this.tbCustomerFNameAdd);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.tbCustomerPostal);
+            this.Controls.Add(this.tbCustomerPostalAdd);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnAdd);
             this.Name = "AddCustomerForm";
@@ -204,18 +226,20 @@
         #endregion
 
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox tbCustomerPhone;
+        private System.Windows.Forms.TextBox tbCustomerPhoneAdd;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox tbCustomerEmail;
+        private System.Windows.Forms.TextBox tbCustomerEmailAdd;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox tbCustomerAddress;
+        private System.Windows.Forms.TextBox tbCustomerAddressAdd;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox tbCustomerLName;
-        private System.Windows.Forms.TextBox tbCustomerFName;
+        private System.Windows.Forms.TextBox tbCustomerLNameAdd;
+        private System.Windows.Forms.TextBox tbCustomerFNameAdd;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox tbCustomerPostal;
+        private System.Windows.Forms.TextBox tbCustomerPostalAdd;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox tbCustomerPostOfficeAdd;
+        private System.Windows.Forms.Label label1;
     }
 }

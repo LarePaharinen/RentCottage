@@ -68,6 +68,7 @@
     <Compile Include="ModifyCustomerForm.Designer.cs">
       <DependentUpon>ModifyCustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostUtils.cs" />
     <Compile Include="RentCottage.cs">
       <SubType>Form</SubType>
     </Compile>

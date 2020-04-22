@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,15 +42,16 @@ namespace RentCottage
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string query = "START TRANSACTION; " +
-                "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
-                "VALUES(default,'" + tbCustomerPostal.Text + "','" + tbCustomerFName.Text + 
-                "','" + tbCustomerLName.Text + "','" + tbCustomerAddress.Text +
-                "','" + tbCustomerEmail.Text + "','" + tbCustomerPhone.Text + "'); " +
-                "COMMIT;";
+            PostUtils.CheckPostal(tbCustomerPostalAdd.Text, tbCustomerPostOfficeAdd.Text);
             OpenConnection();
-            MySqlCommand command = new MySqlCommand(query, connection);
-            command.ExecuteNonQuery();
+            string query3 = "START TRANSACTION; " +
+                "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
+                "VALUES(default,'" + tbCustomerPostalAdd.Text + "','" + tbCustomerFNameAdd.Text + 
+                "','" + tbCustomerLNameAdd.Text + "','" + tbCustomerAddressAdd.Text +
+                "','" + tbCustomerEmailAdd.Text + "','" + tbCustomerPhoneAdd.Text + "'); " +
+                "COMMIT;";            
+            MySqlCommand command3 = new MySqlCommand(query3, connection);
+            command3.ExecuteNonQuery();
             CloseConnection();
             this.Close();
         }
