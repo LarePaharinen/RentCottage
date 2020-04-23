@@ -20,39 +20,19 @@ namespace RentCottage
             InitializeComponent();
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
-
-        public void OpenConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
-
-
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PostUtils.CheckPostal(tbCustomerPostalAdd.Text, tbCustomerPostOfficeAdd.Text);
-            OpenConnection();
+            ConnectionUtils.OpenConnection();
             string query3 = "START TRANSACTION; " +
                 "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
                 "VALUES(default,'" + tbCustomerPostalAdd.Text + "','" + tbCustomerFNameAdd.Text + 
                 "','" + tbCustomerLNameAdd.Text + "','" + tbCustomerAddressAdd.Text +
                 "','" + tbCustomerEmailAdd.Text + "','" + tbCustomerPhoneAdd.Text + "'); " +
                 "COMMIT;";            
-            MySqlCommand command3 = new MySqlCommand(query3, connection);
+            MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
             command3.ExecuteNonQuery();
-            CloseConnection();
+            ConnectionUtils.CloseConnection();
             this.Close();
         }
 

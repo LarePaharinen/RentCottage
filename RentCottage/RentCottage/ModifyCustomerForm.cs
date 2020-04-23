@@ -31,24 +31,6 @@ namespace RentCottage
             tbCustomerPhoneMod.Text = c.Phone;
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
-
-        public void OpenConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -67,10 +49,10 @@ namespace RentCottage
                 "email='" + tbCustomerEmailMod.Text + "',puhelinnro='" + tbCustomerPhoneMod.Text + "' " +
                 "WHERE asiakas_id=" + lblCustomerIDMod.Text + "; " +
                 "COMMIT;";
-                OpenConnection();
-                MySqlCommand command = new MySqlCommand(query, connection);
+                ConnectionUtils.OpenConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
-                CloseConnection();
+                ConnectionUtils.CloseConnection();
                 this.Close();
             }
         }

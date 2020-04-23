@@ -38,29 +38,29 @@ namespace RentCottage
             cbBillingPaid.SelectedIndex = 2;
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
+        //MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
 
-        public void OpenConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
+        //public void OpenConnection()
+        //{
+        //    if (connection.State == ConnectionState.Closed)
+        //    {
+        //        connection.Open();
+        //    }
+        //}
 
-        public void CloseConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
+        //public void CloseConnection()
+        //{
+        //    if (connection.State == ConnectionState.Open)
+        //    {
+        //        connection.Close();
+        //    }
+        //}
 
         public void PopulateDGVRegion()
         {
             string query = "SELECT * FROM toimintaalue";
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvRegion.DataSource = table;
         }
@@ -69,7 +69,7 @@ namespace RentCottage
         {
             string query = "SELECT * FROM varaus";
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgOrder.DataSource = table;
         }
@@ -103,49 +103,49 @@ namespace RentCottage
 
             if (cmbList.Text == "VARAUS ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARAUS_ID LIKE '" + tbSearch.Text + "%'", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARAUS_ID LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbList.Text == "ASIAKAS ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE ASIAKAS_ID LIKE '" + tbSearch.Text + "%'", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE ASIAKAS_ID LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbList.Text == "MÖKKI ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE MOKKI_MOKKI_ID LIKE '" + tbSearch.Text + "%'", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE MOKKI_MOKKI_ID LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbList.Text == "VARATTU PVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_PVM LIKE '" + dtp.Text + "')", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_PVM LIKE '" + dtp.Text + "')", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbList.Text == "VAHVISTUS PVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VAHVISTUS_PVM LIKE '" + tbSearch.Text + "%'", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VAHVISTUS_PVM LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbList.Text == "ALKUPVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_ALKUPVM LIKE '" + dtp.Text + "')", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_ALKUPVM LIKE '" + dtp.Text + "')", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbList.Text == "LOPPUPVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARATTU_LOPPUPVM LIKE '" + tbSearch.Text + "%'", connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARATTU_LOPPUPVM LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
@@ -182,7 +182,7 @@ namespace RentCottage
         {
             string query = "SELECT * FROM asiakas";
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvCustomer.DataSource = table;
         }
@@ -197,7 +197,7 @@ namespace RentCottage
                 "AND email LIKE '%" + tbCustomerEmail.Text + "%' " +
                 "AND puhelinnro LIKE '%" + tbCustomerPhone.Text + "%';";
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvCustomer.DataSource = table;
         }
@@ -219,10 +219,10 @@ namespace RentCottage
                     "email='',puhelinnro='' " +
                     "WHERE asiakas_id=" + dgvCustomer.CurrentRow.Cells[0].Value.ToString() + "; " +
                     "COMMIT;";
-                OpenConnection();
-                MySqlCommand command = new MySqlCommand(query, connection);
+                ConnectionUtils.OpenConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
-                CloseConnection();
+                ConnectionUtils.CloseConnection();
             }
         }
 
@@ -249,14 +249,14 @@ namespace RentCottage
         private void Search_alue_Combobox_update()
         {
             string selectQuery = "SELECT * FROM toimintaalue";
-            OpenConnection();
-            MySqlCommand command = new MySqlCommand(selectQuery, connection);
+            ConnectionUtils.OpenConnection();
+            MySqlCommand command = new MySqlCommand(selectQuery, ConnectionUtils.connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 cbSearchAluet.Items.Add(reader.GetString("nimi"));
             }
-            CloseConnection();
+            ConnectionUtils.CloseConnection();
         }
 
         private void cbSearchAlueKaikki_CheckedChanged(object sender, EventArgs e)
@@ -276,7 +276,7 @@ namespace RentCottage
 
         private void btnSearchHae_Click(object sender, EventArgs e)
         {
-            OpenConnection();
+            ConnectionUtils.OpenConnection();
             DataTable data = new DataTable();
 
             string query = "SELECT m.mokki_id, t.nimi as toimintaalue, m.postinro, m.mokkinimi, m.katuosoite, m.kuvaus, m.henkilomaara, m.hinta " +
@@ -288,7 +288,7 @@ namespace RentCottage
             if (tbSearchMokkiid.Text != "")
             {
                 query += "WHERE m.mokki_id LIKE " + tbSearchMokkiid.Text;
-                MySqlDataAdapter sda = new MySqlDataAdapter(query, connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
                 sda.Fill(data);
                 dgSearchTable.DataSource = data;
             }
@@ -296,7 +296,7 @@ namespace RentCottage
             {
                 if (cbSearchAlueKaikki.Checked == false)
                 {
-                    MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", ConnectionUtils.connection);
                     alue_id = command.ExecuteScalar().ToString();
                     query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
                 }
@@ -318,11 +318,11 @@ namespace RentCottage
                     query += "m.henkilomaara >= '" + nudSearchMaxhlo.Value + "' ";
                 }
                 lbltest.Text = query;
-                MySqlDataAdapter sda = new MySqlDataAdapter(query, connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
                 sda.Fill(data);
                 dgSearchTable.DataSource = data;
             }
-            CloseConnection();
+            ConnectionUtils.CloseConnection();
         }
 
         private void btnBilling_Click(object sender, EventArgs e)
@@ -354,7 +354,7 @@ namespace RentCottage
                     query += ";";
 
                 DataTable table = new DataTable();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
                 adapter.Fill(table);
                 dgvBilling.DataSource = table;
             }
