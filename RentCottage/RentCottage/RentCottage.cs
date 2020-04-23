@@ -261,7 +261,6 @@ namespace RentCottage
 
         private void cbSearchAlueKaikki_CheckedChanged(object sender, EventArgs e)
         {
-            //CheckBox checkBox = (CheckBox)sender;
             if (cbSearchAlueKaikki.Checked == true)
             {
                 cbSearchAluet.Enabled = false;
@@ -283,45 +282,36 @@ namespace RentCottage
                 "FROM mokki m INNER JOIN toimintaalue t " +
                 "ON m.toimintaalue_id = t.toimintaalue_id ";
             string alue_id = null;
-            double hinta;
 
-            if (tbSearchMokkiid.Text != "")
+            if (cbSearchAlueKaikki.Checked == false)
             {
-                query += "WHERE m.mokki_id LIKE " + tbSearchMokkiid.Text;
-                MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
-                sda.Fill(data);
-                dgSearchTable.DataSource = data;
+                MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", ConnectionUtils.connection);
+                alue_id = command.ExecuteScalar().ToString();
+                query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
             }
-            else
+            if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true)
             {
-                if (cbSearchAlueKaikki.Checked == false)
-                {
-                    MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", ConnectionUtils.connection);
-                    alue_id = command.ExecuteScalar().ToString();
-                    query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
-                }
-                if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true)
-                {
-                    query += "WHERE m.hinta <= '" + nudSearchHintaraja.Value + "' ";
-                }
-                else if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == false)
-                {
-                    query += "AND m.hinta <= '" + nudSearchHintaraja.Value + "' ";
-                }
+                query += "WHERE m.hinta <= '" + nudSearchHintaraja.Value + "' ";
+            }
+            else if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == false)
+            {
+                query += "AND m.hinta <= '" + nudSearchHintaraja.Value + "' ";
+            }
 
-                if (nudSearchMaxhlo.Value != 0)
-                {
-                    if (nudSearchHintaraja.Value != 0 || cbSearchAlueKaikki.Checked == false)
-                        query += "AND ";
-                    else
-                        query += "WHERE ";
-                    query += "m.henkilomaara >= '" + nudSearchMaxhlo.Value + "' ";
-                }
-                lbltest.Text = query;
-                MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
-                sda.Fill(data);
-                dgSearchTable.DataSource = data;
+            if (nudSearchMaxhlo.Value != 0)
+            {
+                if (nudSearchHintaraja.Value != 0 || cbSearchAlueKaikki.Checked == false)
+                    query += "AND ";
+                else
+                    query += "WHERE ";
+                query += "m.henkilomaara >= '" + nudSearchMaxhlo.Value + "' ";
             }
+            query += "AND m.mokki_id not IN " +
+                     "(SELECT mokki_mokki_id FROM varaus v " +
+                     "WHERE '" + dtpSearchFROM.Text + "%' <= v.varattu_loppupvm and '" + dtpSearchTO.Text + "%' >= v.varattu_alkupvm)";
+            MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            sda.Fill(data);
+            dgSearchTable.DataSource = data;
             ConnectionUtils.CloseConnection();
         }
 
