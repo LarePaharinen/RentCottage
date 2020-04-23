@@ -28,19 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.lblHakuLine = new System.Windows.Forms.Label();
-            this.lbltest = new System.Windows.Forms.Label();
             this.dgSearchTable = new System.Windows.Forms.DataGridView();
             this.cbSearchAlueKaikki = new System.Windows.Forms.CheckBox();
             this.cbSearchAluet = new System.Windows.Forms.ComboBox();
             this.lblSearchAlue = new System.Windows.Forms.Label();
-            this.btmSearchMuokka = new System.Windows.Forms.Button();
-            this.btmSearchVarata = new System.Windows.Forms.Button();
             this.cbSearchRajoitukset = new System.Windows.Forms.ComboBox();
             this.lblSearchRajoitukset = new System.Windows.Forms.Label();
             this.cbSearchVarustelu = new System.Windows.Forms.ComboBox();
@@ -137,6 +134,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tBilling = new System.Windows.Forms.TabPage();
+            this.btbBillingUnPaid = new System.Windows.Forms.Button();
             this.labelBillingBorder = new System.Windows.Forms.Label();
             this.btnBillingPaid = new System.Windows.Forms.Button();
             this.btnBillingDelete = new System.Windows.Forms.Button();
@@ -159,7 +157,7 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
-            this.btbBillingUnPaid = new System.Windows.Forms.Button();
+            this.btmSearchVarata = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -203,12 +201,10 @@
             // 
             this.tSearch.BackColor = System.Drawing.Color.Transparent;
             this.tSearch.Controls.Add(this.lblHakuLine);
-            this.tSearch.Controls.Add(this.lbltest);
             this.tSearch.Controls.Add(this.dgSearchTable);
             this.tSearch.Controls.Add(this.cbSearchAlueKaikki);
             this.tSearch.Controls.Add(this.cbSearchAluet);
             this.tSearch.Controls.Add(this.lblSearchAlue);
-            this.tSearch.Controls.Add(this.btmSearchMuokka);
             this.tSearch.Controls.Add(this.btmSearchVarata);
             this.tSearch.Controls.Add(this.cbSearchRajoitukset);
             this.tSearch.Controls.Add(this.lblSearchRajoitukset);
@@ -241,15 +237,6 @@
             this.lblHakuLine.Name = "lblHakuLine";
             this.lblHakuLine.Size = new System.Drawing.Size(371, 2);
             this.lblHakuLine.TabIndex = 44;
-            // 
-            // lbltest
-            // 
-            this.lbltest.AutoSize = true;
-            this.lbltest.Location = new System.Drawing.Point(20, 558);
-            this.lbltest.Name = "lbltest";
-            this.lbltest.Size = new System.Drawing.Size(41, 13);
-            this.lbltest.TabIndex = 43;
-            this.lbltest.Text = "label24";
             // 
             // dgSearchTable
             // 
@@ -302,27 +289,6 @@
             this.lblSearchAlue.Size = new System.Drawing.Size(28, 13);
             this.lblSearchAlue.TabIndex = 39;
             this.lblSearchAlue.Text = "Alue";
-            // 
-            // btmSearchMuokka
-            // 
-            this.btmSearchMuokka.Location = new System.Drawing.Point(126, 646);
-            this.btmSearchMuokka.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btmSearchMuokka.Name = "btmSearchMuokka";
-            this.btmSearchMuokka.Size = new System.Drawing.Size(115, 47);
-            this.btmSearchMuokka.TabIndex = 38;
-            this.btmSearchMuokka.Text = "Muokkaa";
-            this.btmSearchMuokka.UseVisualStyleBackColor = true;
-            // 
-            // btmSearchVarata
-            // 
-            this.btmSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btmSearchVarata.Location = new System.Drawing.Point(250, 646);
-            this.btmSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btmSearchVarata.Name = "btmSearchVarata";
-            this.btmSearchVarata.Size = new System.Drawing.Size(115, 47);
-            this.btmSearchVarata.TabIndex = 37;
-            this.btmSearchVarata.Text = "Varata";
-            this.btmSearchVarata.UseVisualStyleBackColor = true;
             // 
             // cbSearchRajoitukset
             // 
@@ -481,7 +447,7 @@
             // 
             this.dtpSearchTO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpSearchTO.CustomFormat = "dd.MM.yyyy";
+            this.dtpSearchTO.CustomFormat = "yyyy-MM-dd";
             this.dtpSearchTO.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpSearchTO.Location = new System.Drawing.Point(250, 111);
             this.dtpSearchTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -493,7 +459,7 @@
             // 
             this.dtpSearchFROM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpSearchFROM.CustomFormat = "dd.MM.yyyy";
+            this.dtpSearchFROM.CustomFormat = "yyyy-MM-dd";
             this.dtpSearchFROM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpSearchFROM.Location = new System.Drawing.Point(117, 111);
             this.dtpSearchFROM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -687,34 +653,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRegion.Location = new System.Drawing.Point(311, 8);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1389,6 +1355,16 @@
             this.tBilling.TabIndex = 5;
             this.tBilling.Text = "Laskut";
             // 
+            // btbBillingUnPaid
+            // 
+            this.btbBillingUnPaid.Enabled = false;
+            this.btbBillingUnPaid.Location = new System.Drawing.Point(65, 471);
+            this.btbBillingUnPaid.Name = "btbBillingUnPaid";
+            this.btbBillingUnPaid.Size = new System.Drawing.Size(157, 38);
+            this.btbBillingUnPaid.TabIndex = 24;
+            this.btbBillingUnPaid.Text = "Merkitse maksamattomaksi";
+            this.btbBillingUnPaid.UseVisualStyleBackColor = true;
+            // 
             // labelBillingBorder
             // 
             this.labelBillingBorder.AutoSize = true;
@@ -1592,15 +1568,16 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
-            // btbBillingUnPaid
+            // btmSearchVarata
             // 
-            this.btbBillingUnPaid.Enabled = false;
-            this.btbBillingUnPaid.Location = new System.Drawing.Point(65, 471);
-            this.btbBillingUnPaid.Name = "btbBillingUnPaid";
-            this.btbBillingUnPaid.Size = new System.Drawing.Size(157, 38);
-            this.btbBillingUnPaid.TabIndex = 24;
-            this.btbBillingUnPaid.Text = "Merkitse maksamattomaksi";
-            this.btbBillingUnPaid.UseVisualStyleBackColor = true;
+            this.btmSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btmSearchVarata.Location = new System.Drawing.Point(23, 367);
+            this.btmSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btmSearchVarata.Name = "btmSearchVarata";
+            this.btmSearchVarata.Size = new System.Drawing.Size(329, 47);
+            this.btmSearchVarata.TabIndex = 37;
+            this.btmSearchVarata.Text = "Varata";
+            this.btmSearchVarata.UseVisualStyleBackColor = true;
             // 
             // RentCottage
             // 
@@ -1718,8 +1695,6 @@
         private System.Windows.Forms.DataGridView dgvCustomer;
         private System.Windows.Forms.Button btnCustomerDeleteInfo;
         private System.Windows.Forms.Button btnCustomerAdd;
-        private System.Windows.Forms.Button btmSearchMuokka;
-        private System.Windows.Forms.Button btmSearchVarata;
         private System.Windows.Forms.ComboBox cbSearchRajoitukset;
         private System.Windows.Forms.Label lblSearchRajoitukset;
         private System.Windows.Forms.ComboBox cbSearchVarustelu;
@@ -1749,7 +1724,6 @@
         private System.Windows.Forms.Button btnCustomerModify;
         private System.Windows.Forms.CheckBox cbSearchAlueKaikki;
         private System.Windows.Forms.DataGridView dgSearchTable;
-        private System.Windows.Forms.Label lbltest;
         private System.Windows.Forms.Label lblHakuLine;
         private System.Windows.Forms.TextBox txtboxBillingPhone;
         private System.Windows.Forms.TextBox txtboxBillingEmail;
@@ -1774,6 +1748,7 @@
         private System.Windows.Forms.Button btnBillingPaid;
         private System.Windows.Forms.Button btnBillingDelete;
         private System.Windows.Forms.Button btbBillingUnPaid;
+        private System.Windows.Forms.Button btmSearchVarata;
     }
 }
 

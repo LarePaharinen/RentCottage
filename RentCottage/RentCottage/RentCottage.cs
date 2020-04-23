@@ -261,7 +261,6 @@ namespace RentCottage
 
         private void cbSearchAlueKaikki_CheckedChanged(object sender, EventArgs e)
         {
-            //CheckBox checkBox = (CheckBox)sender;
             if (cbSearchAlueKaikki.Checked == true)
             {
                 cbSearchAluet.Enabled = false;
@@ -283,8 +282,6 @@ namespace RentCottage
                 "FROM mokki m INNER JOIN toimintaalue t " +
                 "ON m.toimintaalue_id = t.toimintaalue_id ";
             string alue_id = null;
-            double hinta;
-
             if (tbSearchMokkiid.Text != "")
             {
                 query += "WHERE m.mokki_id LIKE " + tbSearchMokkiid.Text;
@@ -317,7 +314,9 @@ namespace RentCottage
                         query += "WHERE ";
                     query += "m.henkilomaara >= '" + nudSearchMaxhlo.Value + "' ";
                 }
-                lbltest.Text = query;
+                query += "AND m.mokki_id not IN " +
+                         "(SELECT mokki_mokki_id FROM varaus v " +
+                         "WHERE '" + dtpSearchFROM.Text + "%' <= v.varattu_loppupvm and '" + dtpSearchTO.Text + "%' >= v.varattu_alkupvm)";
                 MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
                 sda.Fill(data);
                 dgSearchTable.DataSource = data;
