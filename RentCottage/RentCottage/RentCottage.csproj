@@ -63,6 +63,12 @@
     </Compile>
     <Compile Include="ConnectionUtils.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="MakeReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakeReservation.Designer.cs">
+      <DependentUpon>MakeReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MakeReservation.resx">
+      <DependentUpon>MakeReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyCustomerForm.resx">
       <DependentUpon>ModifyCustomerForm.cs</DependentUpon>
