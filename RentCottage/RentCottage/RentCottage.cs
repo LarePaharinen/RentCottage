@@ -358,5 +358,23 @@ namespace RentCottage
             }
 
         }
+
+        private void AddRegion(object sender, EventArgs e)
+        {
+            ConnectionUtils.OpenConnection();
+            string query3 = "START TRANSACTION; " +
+                "INSERT INTO toimintaalue(toimintaalue_id,nimi) " +
+                "VALUES(default,'" + tbRegionName.Text + "'); " +
+                "COMMIT;";
+            MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
+            command3.ExecuteNonQuery();
+            ConnectionUtils.CloseConnection();
+            PopulateDGVRegion();
+        }
+
+        private void DeleteSelectedRegion(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
