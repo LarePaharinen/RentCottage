@@ -359,6 +359,7 @@ namespace RentCottage
 
         }
 
+        //Adds region to the database
         private void AddRegion(object sender, EventArgs e)
         {
             ConnectionUtils.OpenConnection();
@@ -370,11 +371,42 @@ namespace RentCottage
             command3.ExecuteNonQuery();
             ConnectionUtils.CloseConnection();
             PopulateDGVRegion();
+            lblRegionID.Text = "0000";
+            tbRegionName.Text = "";
         }
 
+        //Deletes selected region from database
         private void DeleteSelectedRegion(object sender, EventArgs e)
         {
-            
+            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun toiminta-alueen?", "Poista toimialue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                string query = "START TRANSACTION; " +
+                    "DELETE FROM toimintaalue " +
+                    "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
+                    "COMMIT;";
+                ConnectionUtils.OpenConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                command.ExecuteNonQuery();
+                ConnectionUtils.CloseConnection();
+                PopulateDGVRegion();
+                lblRegionID.Text = "0000";
+                tbRegionName.Text = "";
+            }
+        }
+
+        //Updates components on the screen to highlight current row selection
+        private void dgvRegionSelectionChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            lblRegionID.Text = dgvRegion.CurrentRow.Cells[0].Value.ToString();
+            tbRegionName.Text = dgvRegion.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        //Clears textbox and RegionID-label when entering the tbRegionName-component
+        private void tbRegionName_Enter(object sender, EventArgs e)
+        {
+            lblRegionID.Text = "0000";
+            tbRegionName.Text = "";
         }
     }
 }
