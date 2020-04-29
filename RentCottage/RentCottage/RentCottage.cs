@@ -177,7 +177,7 @@ namespace RentCottage
 
         //codes related to Asiakashallinta
 
-        
+
         public void PopulateDGVCustomer() //get all data from asiakas-table to datagridview
         {
             string query = "SELECT * FROM asiakas";
@@ -315,33 +315,34 @@ namespace RentCottage
             ConnectionUtils.closeConnection();
         }
 
+        //All button events occurring on the "Laskut" tab.
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            //All button events occurring on the "Lasku" tab.
-
             Button btn = (Button)sender;
 
-            if (btn == btnBillingSearch) //Search button
+            if (btn == btnBillingSearch) //search button
             {
-                string query = "SELECT l.lasku_id AS LaskuID, l.summa as 'Summa (€)', a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' ', a.sukunimi) AS Nimi, " +
-                "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS Sähköposti, l.maksettu AS 'maksu suoritettu' " +
-                "FROM lasku l " +
-                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
-                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
-                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
-                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
-                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
-                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
-                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
-                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
+                string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
+                                " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
+                                "a.email AS 'Sähköposti', CAST(addtime(v.varattu_loppupvm, '14 0:0:0') AS CHAR(10)) AS 'Eräpäivä', " +
+                                "l.summa as 'Summa (€)', l.maksettu AS 'maksu suoritettu' " +
+                                "FROM lasku l " +
+                                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
+                                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
+                                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
+                                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
+                                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
+                                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
+                                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
 
                 if (cbBillingPaid.SelectedIndex == 0)
-                    query += "AND l.maksettu = TRUE;";
+                    query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
                 else if (cbBillingPaid.SelectedIndex == 1)
-                    query += "AND l.maksettu = FALSE;";
+                    query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
                 else if (cbBillingPaid.SelectedIndex == 2)
-                    query += ";";
+                    query += "ORDER BY l.lasku_id;";
 
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
@@ -349,14 +350,80 @@ namespace RentCottage
                 dgvBilling.DataSource = table;
             }
 
-            else if (btn == btnBillingPDF) //Create PDF
+            else if (btn == btnBillingCreate) //Create new bill for a reservation
             {
+                try
+                {
+                    int varausID = Convert.ToInt32(txtboxBillingVarausID.Text);
+                    BillingUtils.CreateBill(varausID);
+                }
+                catch (Exception ex)
+                { }
+                finally
+                {
+                    txtboxBillingVarausID.Text = "";
+                }
             }
-
-            else if (btn == btnBillingDelete) //Delete
-            {
-            }
-
         }
+
+        private void txtboxBillingVarausID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtboxBillingVarausID.Text != "")
+                btnBillingCreate.Enabled = true;
+            else
+                btnBillingCreate.Enabled = false;
+        }
+
+        //Adds region to the database
+        private void AddRegion(object sender, EventArgs e)
+        {
+            ConnectionUtils.OpenConnection();
+            string query3 = "START TRANSACTION; " +
+                "INSERT INTO toimintaalue(toimintaalue_id,nimi) " +
+                "VALUES(default,'" + tbRegionName.Text + "'); " +
+                "COMMIT;";
+            MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
+            command3.ExecuteNonQuery();
+            ConnectionUtils.CloseConnection();
+            PopulateDGVRegion();
+            lblRegionID.Text = "0000";
+            tbRegionName.Text = "";
+        }
+
+        //Deletes selected region from database
+        private void DeleteSelectedRegion(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun toiminta-alueen?", "Poista toimialue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                string query = "START TRANSACTION; " +
+                    "DELETE FROM toimintaalue " +
+                    "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
+                    "COMMIT;";
+                ConnectionUtils.OpenConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                command.ExecuteNonQuery();
+                ConnectionUtils.CloseConnection();
+                PopulateDGVRegion();
+                lblRegionID.Text = "0000";
+                tbRegionName.Text = "";
+            }
+        }
+
+        //Updates components on the screen to highlight current row selection
+        private void dgvRegionSelectionChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            lblRegionID.Text = dgvRegion.CurrentRow.Cells[0].Value.ToString();
+            tbRegionName.Text = dgvRegion.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        //Clears textbox and RegionID-label when entering the tbRegionName-component
+        private void tbRegionName_Enter(object sender, EventArgs e)
+        {
+            lblRegionID.Text = "0000";
+            tbRegionName.Text = "";
+        }
+
+
     }
 }

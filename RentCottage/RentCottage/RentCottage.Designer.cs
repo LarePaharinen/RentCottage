@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.dgSearchTable = new System.Windows.Forms.DataGridView();
             this.cbSearchAlueKaikki = new System.Windows.Forms.CheckBox();
             this.cbSearchAluet = new System.Windows.Forms.ComboBox();
             this.lblSearchAlue = new System.Windows.Forms.Label();
+            this.btmSearchVarata = new System.Windows.Forms.Button();
             this.cbSearchRajoitukset = new System.Windows.Forms.ComboBox();
             this.lblSearchRajoitukset = new System.Windows.Forms.Label();
             this.cbSearchVarustelu = new System.Windows.Forms.ComboBox();
@@ -154,7 +155,9 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
-            this.btmSearchVarata = new System.Windows.Forms.Button();
+            this.btnBillingCreate = new System.Windows.Forms.Button();
+            this.txtboxBillingVarausID = new System.Windows.Forms.TextBox();
+            this.lblBillingVarausID = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -273,6 +276,17 @@
             this.lblSearchAlue.Size = new System.Drawing.Size(28, 13);
             this.lblSearchAlue.TabIndex = 39;
             this.lblSearchAlue.Text = "Alue";
+            // 
+            // btmSearchVarata
+            // 
+            this.btmSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btmSearchVarata.Location = new System.Drawing.Point(231, 352);
+            this.btmSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btmSearchVarata.Name = "btmSearchVarata";
+            this.btmSearchVarata.Size = new System.Drawing.Size(121, 47);
+            this.btmSearchVarata.TabIndex = 37;
+            this.btmSearchVarata.Text = "Varata";
+            this.btmSearchVarata.UseVisualStyleBackColor = true;
             // 
             // cbSearchRajoitukset
             // 
@@ -581,6 +595,7 @@
             this.tbRegionName.Name = "tbRegionName";
             this.tbRegionName.Size = new System.Drawing.Size(160, 20);
             this.tbRegionName.TabIndex = 10;
+            this.tbRegionName.Enter += new System.EventHandler(this.tbRegionName_Enter);
             // 
             // btnRegionDelete
             // 
@@ -590,6 +605,7 @@
             this.btnRegionDelete.TabIndex = 9;
             this.btnRegionDelete.Text = "Poista valittu alue";
             this.btnRegionDelete.UseVisualStyleBackColor = true;
+            this.btnRegionDelete.Click += new System.EventHandler(this.DeleteSelectedRegion);
             // 
             // lblRegionID
             // 
@@ -611,44 +627,50 @@
             // 
             // dgvRegion
             // 
+            this.dgvRegion.AllowUserToAddRows = false;
+            this.dgvRegion.AllowUserToDeleteRows = false;
             this.dgvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(311, 8);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvRegion.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegion.Size = new System.Drawing.Size(1025, 688);
             this.dgvRegion.TabIndex = 6;
+            this.dgvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegionSelectionChanged);
             // 
             // btnRegionAdd
             // 
@@ -658,6 +680,7 @@
             this.btnRegionAdd.TabIndex = 5;
             this.btnRegionAdd.Text = "Lisää uusi alue";
             this.btnRegionAdd.UseVisualStyleBackColor = true;
+            this.btnRegionAdd.Click += new System.EventHandler(this.AddRegion);
             // 
             // lblRegion
             // 
@@ -1023,6 +1046,9 @@
             // 
             // dgvCottage
             // 
+            this.dgvCottage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCottage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCottage.Location = new System.Drawing.Point(315, 6);
             this.dgvCottage.Name = "dgvCottage";
@@ -1288,6 +1314,9 @@
             // tBilling
             // 
             this.tBilling.BackColor = System.Drawing.Color.Transparent;
+            this.tBilling.Controls.Add(this.lblBillingVarausID);
+            this.tBilling.Controls.Add(this.txtboxBillingVarausID);
+            this.tBilling.Controls.Add(this.btnBillingCreate);
             this.tBilling.Controls.Add(this.btbBillingUnPaid);
             this.tBilling.Controls.Add(this.labelBillingBorder);
             this.tBilling.Controls.Add(this.btnBillingPaid);
@@ -1327,6 +1356,7 @@
             this.btbBillingUnPaid.TabIndex = 24;
             this.btbBillingUnPaid.Text = "Merkitse maksamattomaksi";
             this.btbBillingUnPaid.UseVisualStyleBackColor = true;
+            this.btbBillingUnPaid.Click += new System.EventHandler(this.btnBilling_Click);
             // 
             // labelBillingBorder
             // 
@@ -1349,6 +1379,7 @@
             this.btnBillingPaid.TabIndex = 22;
             this.btnBillingPaid.Text = "Kuittaa lasku maksetuksi";
             this.btnBillingPaid.UseVisualStyleBackColor = true;
+            this.btnBillingPaid.Click += new System.EventHandler(this.btnBilling_Click);
             // 
             // btnBillingDelete
             // 
@@ -1359,6 +1390,7 @@
             this.btnBillingDelete.TabIndex = 21;
             this.btnBillingDelete.Text = "Poista lasku";
             this.btnBillingDelete.UseVisualStyleBackColor = true;
+            this.btnBillingDelete.Click += new System.EventHandler(this.btnBilling_Click);
             // 
             // labelBillingPaid
             // 
@@ -1417,13 +1449,13 @@
             // 
             // btnBillingPDF
             // 
-            this.btnBillingPDF.Enabled = false;
             this.btnBillingPDF.Location = new System.Drawing.Point(65, 383);
             this.btnBillingPDF.Name = "btnBillingPDF";
             this.btnBillingPDF.Size = new System.Drawing.Size(157, 38);
             this.btnBillingPDF.TabIndex = 13;
             this.btnBillingPDF.Text = "Muodosta laskusta PDF";
             this.btnBillingPDF.UseVisualStyleBackColor = true;
+            this.btnBillingPDF.Click += new System.EventHandler(this.btnBilling_Click);
             // 
             // btnBillingSearch
             // 
@@ -1531,16 +1563,33 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
-            // btmSearchVarata
+            // btnBillingCreate
             // 
-            this.btmSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btmSearchVarata.Location = new System.Drawing.Point(231, 352);
-            this.btmSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btmSearchVarata.Name = "btmSearchVarata";
-            this.btmSearchVarata.Size = new System.Drawing.Size(121, 47);
-            this.btmSearchVarata.TabIndex = 37;
-            this.btmSearchVarata.Text = "Varata";
-            this.btmSearchVarata.UseVisualStyleBackColor = true;
+            this.btnBillingCreate.Enabled = false;
+            this.btnBillingCreate.Location = new System.Drawing.Point(113, 605);
+            this.btnBillingCreate.Name = "btnBillingCreate";
+            this.btnBillingCreate.Size = new System.Drawing.Size(109, 38);
+            this.btnBillingCreate.TabIndex = 25;
+            this.btnBillingCreate.Text = "Luo varaukselle lasku";
+            this.btnBillingCreate.UseVisualStyleBackColor = true;
+            this.btnBillingCreate.Click += new System.EventHandler(this.btnBilling_Click);
+            // 
+            // txtboxBillingVarausID
+            // 
+            this.txtboxBillingVarausID.Location = new System.Drawing.Point(63, 623);
+            this.txtboxBillingVarausID.Name = "txtboxBillingVarausID";
+            this.txtboxBillingVarausID.Size = new System.Drawing.Size(44, 20);
+            this.txtboxBillingVarausID.TabIndex = 26;
+            this.txtboxBillingVarausID.TextChanged += new System.EventHandler(this.txtboxBillingVarausID_TextChanged);
+            // 
+            // lblBillingVarausID
+            // 
+            this.lblBillingVarausID.AutoSize = true;
+            this.lblBillingVarausID.Location = new System.Drawing.Point(62, 605);
+            this.lblBillingVarausID.Name = "lblBillingVarausID";
+            this.lblBillingVarausID.Size = new System.Drawing.Size(51, 13);
+            this.lblBillingVarausID.TabIndex = 27;
+            this.lblBillingVarausID.Text = "VarausID";
             // 
             // RentCottage
             // 
@@ -1709,6 +1758,9 @@
         private System.Windows.Forms.Button btnBillingDelete;
         private System.Windows.Forms.Button btbBillingUnPaid;
         private System.Windows.Forms.Button btmSearchVarata;
+        private System.Windows.Forms.Label lblBillingVarausID;
+        private System.Windows.Forms.TextBox txtboxBillingVarausID;
+        private System.Windows.Forms.Button btnBillingCreate;
     }
 }
 
