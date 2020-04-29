@@ -65,6 +65,7 @@
             this.tbCustomerPhoneAdd.Name = "tbCustomerPhoneAdd";
             this.tbCustomerPhoneAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPhoneAdd.TabIndex = 7;
+            this.tbCustomerPhoneAdd.Leave += new System.EventHandler(this.tbCustomerPhoneAdd_Leave);
             // 
             // label23
             // 
@@ -84,6 +85,7 @@
             this.tbCustomerEmailAdd.Name = "tbCustomerEmailAdd";
             this.tbCustomerEmailAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerEmailAdd.TabIndex = 6;
+            this.tbCustomerEmailAdd.Leave += new System.EventHandler(this.tbCustomerEmailAdd_Leave);
             // 
             // label22
             // 
@@ -103,6 +105,7 @@
             this.tbCustomerAddressAdd.Name = "tbCustomerAddressAdd";
             this.tbCustomerAddressAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerAddressAdd.TabIndex = 3;
+            this.tbCustomerAddressAdd.Leave += new System.EventHandler(this.tbCustomerAddressAdd_Leave);
             // 
             // label21
             // 
@@ -122,6 +125,7 @@
             this.tbCustomerLNameAdd.Name = "tbCustomerLNameAdd";
             this.tbCustomerLNameAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerLNameAdd.TabIndex = 2;
+            this.tbCustomerLNameAdd.Leave += new System.EventHandler(this.tbCustomerLNameAdd_Leave);
             // 
             // tbCustomerFNameAdd
             // 
@@ -131,6 +135,7 @@
             this.tbCustomerFNameAdd.Name = "tbCustomerFNameAdd";
             this.tbCustomerFNameAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerFNameAdd.TabIndex = 1;
+            this.tbCustomerFNameAdd.Leave += new System.EventHandler(this.tbCustomerFNameAdd_Leave);
             // 
             // label20
             // 
@@ -160,6 +165,7 @@
             this.tbCustomerPostalAdd.Name = "tbCustomerPostalAdd";
             this.tbCustomerPostalAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPostalAdd.TabIndex = 4;
+            this.tbCustomerPostalAdd.Leave += new System.EventHandler(this.tbCustomerPostalAdd_Leave);
             // 
             // label16
             // 
@@ -190,6 +196,7 @@
             this.tbCustomerPostOfficeAdd.Name = "tbCustomerPostOfficeAdd";
             this.tbCustomerPostOfficeAdd.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPostOfficeAdd.TabIndex = 5;
+            this.tbCustomerPostOfficeAdd.Leave += new System.EventHandler(this.tbCustomerPostOfficeAdd_Leave);
             // 
             // label1
             // 

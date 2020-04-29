@@ -40,5 +40,40 @@ namespace RentCottage
         {
             this.Close();
         }
+
+        private void tbCustomerFNameAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerFNameAdd.Text = TextBoxUtils.modifyInput(tbCustomerFNameAdd.Text, tbCustomerFNameAdd.MaxLength);
+        }
+
+        private void tbCustomerLNameAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerLNameAdd.Text = TextBoxUtils.modifyInput(tbCustomerLNameAdd.Text, tbCustomerLNameAdd.MaxLength);
+        }
+
+        private void tbCustomerAddressAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerAddressAdd.Text = TextBoxUtils.modifyInput(tbCustomerAddressAdd.Text, tbCustomerAddressAdd.MaxLength);
+        }
+
+        private void tbCustomerPostalAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPostalAdd.Text = TextBoxUtils.modifyInput(tbCustomerPostalAdd.Text, tbCustomerPostalAdd.MaxLength);
+        }
+
+        private void tbCustomerPostOfficeAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPostOfficeAdd.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeAdd.Text, tbCustomerPostOfficeAdd.MaxLength);
+        }
+
+        private void tbCustomerEmailAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerEmailAdd.Text = TextBoxUtils.modifyInput(tbCustomerEmailAdd.Text, tbCustomerEmailAdd.MaxLength);
+        }
+
+        private void tbCustomerPhoneAdd_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPhoneAdd.Text = TextBoxUtils.modifyInput(tbCustomerPhoneAdd.Text, tbCustomerPhoneAdd.MaxLength);
+        }
     }
 }

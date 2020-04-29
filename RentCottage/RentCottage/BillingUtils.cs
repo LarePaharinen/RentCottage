@@ -18,20 +18,20 @@ namespace RentCottage
             double summa = calculatePriceTotalSum();
             double alv = 10;
             string maksettu = "false";
-            ConnectionUtils.OpenConnection();
+            ConnectionUtils.openConnection();
             string query =  "START TRANSACTION; " +
                             "INSERT INTO lasku(varaus_id, summa, alv, maksettu) " +
                             "VALUES(" + varaus_id + ", " + summa + ", " + alv + ", " + maksettu + "); " +
                             "COMMIT;";
             MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
             command.ExecuteNonQuery();
-            ConnectionUtils.CloseConnection();
+            ConnectionUtils.closeConnection();
         }
 
         //Calculates the total price for a reservation
         private static double calculatePriceTotalSum()
         {
-            ConnectionUtils.OpenConnection();
+            ConnectionUtils.openConnection();
             string query =  "SELECT((p.hinta * vp.lkm) + (m.hinta * DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm))) as summa " +
                             "FROM varaus v " +
                             "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
@@ -42,7 +42,7 @@ namespace RentCottage
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             double summa = table.Rows[0].Field<double>("summa");
-            ConnectionUtils.CloseConnection();
+            ConnectionUtils.closeConnection();
             return summa;
         }
     }

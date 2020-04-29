@@ -377,14 +377,14 @@ namespace RentCottage
         //Adds region to the database
         private void AddRegion(object sender, EventArgs e)
         {
-            ConnectionUtils.OpenConnection();
+            ConnectionUtils.openConnection();
             string query3 = "START TRANSACTION; " +
                 "INSERT INTO toimintaalue(toimintaalue_id,nimi) " +
                 "VALUES(default,'" + tbRegionName.Text + "'); " +
                 "COMMIT;";
             MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
             command3.ExecuteNonQuery();
-            ConnectionUtils.CloseConnection();
+            ConnectionUtils.closeConnection();
             PopulateDGVRegion();
             lblRegionID.Text = "0000";
             tbRegionName.Text = "";
@@ -400,10 +400,10 @@ namespace RentCottage
                     "DELETE FROM toimintaalue " +
                     "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
                     "COMMIT;";
-                ConnectionUtils.OpenConnection();
+                ConnectionUtils.openConnection();
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
-                ConnectionUtils.CloseConnection();
+                ConnectionUtils.closeConnection();
                 PopulateDGVRegion();
                 lblRegionID.Text = "0000";
                 tbRegionName.Text = "";

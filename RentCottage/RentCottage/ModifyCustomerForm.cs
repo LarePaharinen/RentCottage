@@ -23,13 +23,13 @@ namespace RentCottage
         {
             InitializeComponent();
             lblCustomerIDMod.Text = c.CustomerID.ToString();
-            tbCustomerFNameMod.Text = c.Forename;
-            tbCustomerLNameMod.Text = c.Surname;
-            tbCustomerAddressMod.Text = c.Address;
-            tbCustomerPostalMod.Text = c.Postal;
-            tbCustomerPostOfficeMod.Text = PostUtils.getPostOffice(c.Postal);
-            tbCustomerEmailMod.Text = c.Email;
-            tbCustomerPhoneMod.Text = c.Phone;
+            tbCustomerFNameMod.Text = TextBoxUtils.modifyInput(c.Forename,tbCustomerFNameMod.MaxLength);
+            tbCustomerLNameMod.Text = TextBoxUtils.modifyInput(c.Surname,tbCustomerLNameMod.MaxLength);
+            tbCustomerAddressMod.Text = TextBoxUtils.modifyInput(c.Address,tbCustomerAddressMod.MaxLength);
+            tbCustomerPostalMod.Text = TextBoxUtils.modifyInput(c.Postal,tbCustomerPostalMod.MaxLength);
+            tbCustomerPostOfficeMod.Text = TextBoxUtils.modifyInput(PostUtils.getPostOffice(c.Postal),tbCustomerPostOfficeMod.MaxLength);
+            tbCustomerEmailMod.Text = TextBoxUtils.modifyInput(c.Email,tbCustomerEmailMod.MaxLength);
+            tbCustomerPhoneMod.Text = TextBoxUtils.modifyInput(c.Phone,tbCustomerPhoneMod.MaxLength);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -56,6 +56,41 @@ namespace RentCottage
                 ConnectionUtils.closeConnection();
                 this.Close();
             }
+        }
+
+        private void tbCustomerFNameMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerFNameMod.Text = TextBoxUtils.modifyInput(tbCustomerFNameMod.Text, tbCustomerFNameMod.MaxLength);
+        }
+
+        private void tbCustomerLNameMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerLNameMod.Text = TextBoxUtils.modifyInput(tbCustomerLNameMod.Text, tbCustomerLNameMod.MaxLength);
+        }
+
+        private void tbCustomerAddressMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerAddressMod.Text = TextBoxUtils.modifyInput(tbCustomerAddressMod.Text, tbCustomerAddressMod.MaxLength);
+        }
+
+        private void tbCustomerPostalMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPostalMod.Text = TextBoxUtils.modifyInput(tbCustomerPostalMod.Text, tbCustomerPostalMod.MaxLength);
+        }
+
+        private void tbCustomerPostOfficeMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPostOfficeMod.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeMod.Text, tbCustomerPostOfficeMod.MaxLength);
+        }
+
+        private void tbCustomerEmailMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerEmailMod.Text = TextBoxUtils.modifyInput(tbCustomerEmailMod.Text, tbCustomerEmailMod.MaxLength);
+        }
+
+        private void tbCustomerPhoneMod_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPhoneMod.Text = TextBoxUtils.modifyInput(tbCustomerPhoneMod.Text, tbCustomerPhoneMod.MaxLength);
         }
     }
 }
