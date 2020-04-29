@@ -322,18 +322,20 @@ namespace RentCottage
 
             if (btn == btnBillingSearch) //search button
             {
-                string query = "SELECT l.lasku_id AS LaskuID, l.summa as 'Summa (€)', a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' ', a.sukunimi) AS Nimi, " +
-                "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS 'Sähköposti', CAST(l.erapaiva AS CHAR(10)) AS 'Eräpäivä', l.maksettu AS 'maksu suoritettu' " +
-                "FROM lasku l " +
-                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
-                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
-                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
-                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
-                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
-                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
-                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
-                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
+                string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
+                                " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
+                                "a.email AS 'Sähköposti', CAST(addtime(v.varattu_loppupvm, '14 0:0:0') AS CHAR(10)) AS 'Eräpäivä', " +
+                                "l.summa as 'Summa (€)', l.maksettu AS 'maksu suoritettu' " +
+                                "FROM lasku l " +
+                                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
+                                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
+                                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
+                                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
+                                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
+                                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
+                                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
 
                 if (cbBillingPaid.SelectedIndex == 0)
                     query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
@@ -352,10 +354,12 @@ namespace RentCottage
             {
                 try
                 {
-                    int varausID = Convert.ToInt32(txtboxBillingCustomerID);
+                    int varausID = Convert.ToInt32(txtboxBillingVarausID.Text);
                     BillingUtils.CreateBill(varausID);
                 }
                 catch (Exception ex)
+                { }
+                finally
                 {
                     txtboxBillingVarausID.Text = "";
                 }
