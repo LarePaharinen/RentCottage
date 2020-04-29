@@ -22,8 +22,8 @@ namespace RentCottage
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PostUtils.CheckPostal(tbCustomerPostalAdd.Text, tbCustomerPostOfficeAdd.Text);
-            ConnectionUtils.OpenConnection();
+            PostUtils.checkPostal(tbCustomerPostalAdd.Text, tbCustomerPostOfficeAdd.Text);
+            ConnectionUtils.openConnection();
             string query3 = "START TRANSACTION; " +
                 "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
                 "VALUES(default,'" + tbCustomerPostalAdd.Text + "','" + tbCustomerFNameAdd.Text + 
@@ -32,7 +32,7 @@ namespace RentCottage
                 "COMMIT;";            
             MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
             command3.ExecuteNonQuery();
-            ConnectionUtils.CloseConnection();
+            ConnectionUtils.closeConnection();
             this.Close();
         }
 

@@ -264,6 +264,7 @@
             // 
             this.tbCustomerPhoneMod.Location = new System.Drawing.Point(139, 233);
             this.tbCustomerPhoneMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPhoneMod.MaxLength = 15;
             this.tbCustomerPhoneMod.Name = "tbCustomerPhoneMod";
             this.tbCustomerPhoneMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPhoneMod.TabIndex = 7;
@@ -282,6 +283,7 @@
             // 
             this.tbCustomerEmailMod.Location = new System.Drawing.Point(139, 202);
             this.tbCustomerEmailMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerEmailMod.MaxLength = 50;
             this.tbCustomerEmailMod.Name = "tbCustomerEmailMod";
             this.tbCustomerEmailMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerEmailMod.TabIndex = 6;
@@ -300,6 +302,7 @@
             // 
             this.tbCustomerAddressMod.Location = new System.Drawing.Point(139, 109);
             this.tbCustomerAddressMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerAddressMod.MaxLength = 40;
             this.tbCustomerAddressMod.Name = "tbCustomerAddressMod";
             this.tbCustomerAddressMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerAddressMod.TabIndex = 3;
@@ -318,6 +321,7 @@
             // 
             this.tbCustomerLNameMod.Location = new System.Drawing.Point(139, 78);
             this.tbCustomerLNameMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerLNameMod.MaxLength = 40;
             this.tbCustomerLNameMod.Name = "tbCustomerLNameMod";
             this.tbCustomerLNameMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerLNameMod.TabIndex = 2;
@@ -326,6 +330,7 @@
             // 
             this.tbCustomerFNameMod.Location = new System.Drawing.Point(139, 47);
             this.tbCustomerFNameMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerFNameMod.MaxLength = 20;
             this.tbCustomerFNameMod.Name = "tbCustomerFNameMod";
             this.tbCustomerFNameMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerFNameMod.TabIndex = 1;
@@ -354,6 +359,7 @@
             // 
             this.tbCustomerPostalMod.Location = new System.Drawing.Point(139, 140);
             this.tbCustomerPostalMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPostalMod.MaxLength = 5;
             this.tbCustomerPostalMod.Name = "tbCustomerPostalMod";
             this.tbCustomerPostalMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPostalMod.TabIndex = 4;
@@ -403,6 +409,7 @@
             // 
             this.tbCustomerPostOfficeMod.Location = new System.Drawing.Point(139, 171);
             this.tbCustomerPostOfficeMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPostOfficeMod.MaxLength = 45;
             this.tbCustomerPostOfficeMod.Name = "tbCustomerPostOfficeMod";
             this.tbCustomerPostOfficeMod.Size = new System.Drawing.Size(173, 22);
             this.tbCustomerPostOfficeMod.TabIndex = 5;

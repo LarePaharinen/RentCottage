@@ -215,14 +215,14 @@ namespace RentCottage
             {
                 string query = "START TRANSACTION; " +
                     "UPDATE asiakas " +
-                    "SET postinro='90100',etunimi='',sukunimi='',lahiosoite=''," +
+                    "SET postinro='xxxxx',etunimi='',sukunimi='',lahiosoite=''," +
                     "email='',puhelinnro='' " +
                     "WHERE asiakas_id=" + dgvCustomer.CurrentRow.Cells[0].Value.ToString() + "; " +
                     "COMMIT;";
-                ConnectionUtils.OpenConnection();
+                ConnectionUtils.openConnection();
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
-                ConnectionUtils.CloseConnection();
+                ConnectionUtils.closeConnection();
             }
         }
 
@@ -249,14 +249,14 @@ namespace RentCottage
         private void Search_alue_Combobox_update()
         {
             string selectQuery = "SELECT * FROM toimintaalue";
-            ConnectionUtils.OpenConnection();
+            ConnectionUtils.openConnection();
             MySqlCommand command = new MySqlCommand(selectQuery, ConnectionUtils.connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 cbSearchAluet.Items.Add(reader.GetString("nimi"));
             }
-            ConnectionUtils.CloseConnection();
+            ConnectionUtils.closeConnection();
         }
 
         private void cbSearchAlueKaikki_CheckedChanged(object sender, EventArgs e)
@@ -275,7 +275,7 @@ namespace RentCottage
 
         private void btnSearchHae_Click(object sender, EventArgs e)
         {
-            ConnectionUtils.OpenConnection();
+            ConnectionUtils.openConnection();
             DataTable data = new DataTable();
 
             string query = "SELECT m.mokki_id, t.nimi as toimintaalue, m.postinro, m.mokkinimi, m.katuosoite, m.kuvaus, m.henkilomaara, m.hinta " +
@@ -312,7 +312,7 @@ namespace RentCottage
             MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
             sda.Fill(data);
             dgSearchTable.DataSource = data;
-            ConnectionUtils.CloseConnection();
+            ConnectionUtils.closeConnection();
         }
 
         private void btnBilling_Click(object sender, EventArgs e)
