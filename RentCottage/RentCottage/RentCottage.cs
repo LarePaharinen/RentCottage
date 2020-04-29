@@ -177,7 +177,7 @@ namespace RentCottage
 
         //codes related to Asiakashallinta
 
-        
+
         public void PopulateDGVCustomer() //get all data from asiakas-table to datagridview
         {
             string query = "SELECT * FROM asiakas";
@@ -315,16 +315,15 @@ namespace RentCottage
             ConnectionUtils.CloseConnection();
         }
 
+        //All button events occurring on the "Laskut" tab.
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            //All button events occurring on the "Lasku" tab.
-
             Button btn = (Button)sender;
 
-            if (btn == btnBillingSearch) //Search button
+            if (btn == btnBillingSearch) //search button
             {
                 string query = "SELECT l.lasku_id AS LaskuID, l.summa as 'Summa (€)', a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' ', a.sukunimi) AS Nimi, " +
-                "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS Sähköposti, l.maksettu AS 'maksu suoritettu' " +
+                "a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, a.email AS 'Sähköposti', CAST(l.erapaiva AS CHAR(10)) AS 'Eräpäivä', l.maksettu AS 'maksu suoritettu' " +
                 "FROM lasku l " +
                 "JOIN varaus v ON l.varaus_id = v.varaus_id " +
                 "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
@@ -337,11 +336,11 @@ namespace RentCottage
                 "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
 
                 if (cbBillingPaid.SelectedIndex == 0)
-                    query += "AND l.maksettu = TRUE;";
+                    query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
                 else if (cbBillingPaid.SelectedIndex == 1)
-                    query += "AND l.maksettu = FALSE;";
+                    query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
                 else if (cbBillingPaid.SelectedIndex == 2)
-                    query += ";";
+                    query += "ORDER BY l.lasku_id;";
 
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
@@ -349,14 +348,26 @@ namespace RentCottage
                 dgvBilling.DataSource = table;
             }
 
-            else if (btn == btnBillingPDF) //Create PDF
+            else if (btn == btnBillingCreate) //Create new bill for a reservation
             {
+                try
+                {
+                    int varausID = Convert.ToInt32(txtboxBillingCustomerID);
+                    BillingUtils.CreateBill(varausID);
+                }
+                catch (Exception ex)
+                {
+                    txtboxBillingVarausID.Text = "";
+                }
             }
+        }
 
-            else if (btn == btnBillingDelete) //Delete
-            {
-            }
-
+        private void txtboxBillingVarausID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtboxBillingVarausID.Text != "")
+                btnBillingCreate.Enabled = true;
+            else
+                btnBillingCreate.Enabled = false;
         }
 
         //Adds region to the database
@@ -408,5 +419,7 @@ namespace RentCottage
             lblRegionID.Text = "0000";
             tbRegionName.Text = "";
         }
+
+
     }
 }
