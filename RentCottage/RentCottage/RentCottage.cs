@@ -285,6 +285,11 @@ namespace RentCottage
 
         private void btnSearchHae_Click(object sender, EventArgs e)
         {
+            if (dtpSearchTO.Value.Date < dtpSearchFROM.Value.Date) //Check date
+            {
+                MessageBox.Show("Majoituksen alkupäivä ei voi olla myöhemmin kun viimeinen majoituspäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ConnectionUtils.openConnection();
             DataTable data = new DataTable();
 
@@ -300,13 +305,10 @@ namespace RentCottage
                 query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
             }
             if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true)
-            {
                 query += "WHERE m.hinta <= '" + nudSearchHintaraja.Value + "' ";
-            }
+
             else if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == false)
-            {
                 query += "AND m.hinta <= '" + nudSearchHintaraja.Value + "' ";
-            }
 
             if (nudSearchMaxhlo.Value != 0)
             {
@@ -323,6 +325,30 @@ namespace RentCottage
             sda.Fill(data);
             dgSearchTable.DataSource = data;
             ConnectionUtils.closeConnection();
+        }
+
+        private void btmSearchVarata_Click(object sender, EventArgs e)
+        {
+            if (dgSearchTable.CurrentRow == null)
+                {
+                    MessageBox.Show("Valitse sopiva mökki", "Mäkki ei ole valittu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            ConnectionUtils.openConnection();
+            //SELECT 0m.mokki_id, 1t.nimi as toimintaalue, 2m.postinro, 3m.mokkinimi, 4m.katuosoite, 5m.kuvaus, 6m.henkilomaara, 7m.hinta 
+            //(int 0cottageID, 1int regionID, 2string postal, 3string name, 4string address, 5string description, 6int capacity, 7double price
+            MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + dgSearchTable.CurrentRow.Cells[1].Value.ToString() + "'", ConnectionUtils.connection);
+            int toimintaalueid = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+            Cottage cottage = new Cottage(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), toimintaalueid,
+                dgSearchTable.CurrentRow.Cells[2].Value.ToString(), dgSearchTable.CurrentRow.Cells[3].Value.ToString(),
+                dgSearchTable.CurrentRow.Cells[4].Value.ToString(), dgSearchTable.CurrentRow.Cells[5].Value.ToString(),
+                Convert.ToInt32(dgSearchTable.CurrentRow.Cells[6].Value.ToString()), Convert.ToDouble(dgSearchTable.CurrentRow.Cells[7].Value.ToString()));
+            ConnectionUtils.closeConnection();
+            NewBook newbook = new NewBook(cottage, dtpSearchFROM.Value.Date, dtpSearchTO.Value.Date);
+            Booking booking = new Booking(newbook);
+            booking.ShowDialog();
+
         }
 
         //All button events occurring on the "Laskut" tab.
@@ -433,5 +459,6 @@ namespace RentCottage
             lblRegionID.Text = "0000";
             tbRegionName.Text = "";
         }
+
     }
 }

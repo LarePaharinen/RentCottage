@@ -62,13 +62,14 @@
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BillingUtils.cs" />
+    <Compile Include="NewBook.cs" />
     <Compile Include="ConnectionUtils.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="MakeReservation.cs">
+    <Compile Include="Booking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MakeReservation.Designer.cs">
-      <DependentUpon>MakeReservation.cs</DependentUpon>
+    <Compile Include="Booking.Designer.cs">
+      <DependentUpon>Booking.cs</DependentUpon>
     </Compile>
     <Compile Include="ModifyCustomerForm.cs">
       <SubType>Form</SubType>
@@ -106,8 +107,8 @@
     <EmbeddedResource Include="AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeReservation.resx">
-      <DependentUpon>MakeReservation.cs</DependentUpon>
+    <EmbeddedResource Include="Booking.resx">
+      <DependentUpon>Booking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyCustomerForm.resx">
       <DependentUpon>ModifyCustomerForm.cs</DependentUpon>

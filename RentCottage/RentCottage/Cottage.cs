@@ -38,6 +38,17 @@ namespace RentCottage
             this.equipment = equipment;
             this.price = price;
         }
+        public Cottage(int cottageID, int regionID, string postal, string name, string address, string description, int capacity, double price)
+        {
+            this.cottageID = cottageID;
+            this.regionID = regionID;
+            this.postal = postal;
+            this.name = name;
+            this.address = address;
+            this.description = description;
+            this.capacity = capacity;
+            this.price = price;
+        }
 
         //Functions
         public int CottageID { get => cottageID; set => cottageID = value; }
