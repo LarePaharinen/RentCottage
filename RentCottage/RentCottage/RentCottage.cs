@@ -21,11 +21,7 @@ namespace RentCottage
         public RentCottage()
         {
             InitializeComponent();
-            tbSearch.Tag = tbSearch.Text = "Kirjoita hakusana...";
-            tbSearch.ForeColor = Color.Gray;
-            tbSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Italic);
-            cmbList.Text = "VARAUS ID";
-            //dtp.CustomFormat = "dd.MM.yyyy hh.mm";
+            cmbListOrder.Text = "VARAUS ID";
         }
 
         private void RentCottage_Load(object sender, EventArgs e)
@@ -36,6 +32,9 @@ namespace RentCottage
             Search_alue_Combobox_update();
             cbSearchAluet.SelectedIndex = 1;
             cbBillingPaid.SelectedIndex = 2;
+            tbOrderSearch.Tag = tbOrderSearch.Text = "Kirjoita hakusana...";
+            tbOrderSearch.ForeColor = Color.Gray;
+            tbOrderSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Italic);
         }
 
         //MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -73,105 +72,116 @@ namespace RentCottage
             adapter.Fill(table);
             dgOrder.DataSource = table;
         }
-
-        private void tbSearch_Enter(object sender, EventArgs e)
+        //codes related to Varausten hallinta
+        private void tbOrderSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text.Equals("Kirjoita hakusana..."))
+            if (tbOrderSearch.Text.Equals("Kirjoita hakusana..."))
             {
-                tbSearch.Clear();
-                tbSearch.ForeColor = Color.Black;
+                tbOrderSearch.Clear();
+                tbOrderSearch.ForeColor = Color.Black;
             }
         }
 
-        private void tbSearch_Leave(object sender, EventArgs e)
+        private void tbOrderSearch_Leave(object sender, EventArgs e)
         {
-            if (tbSearch.Text.Equals("Kirjoita hakusana..."))
+            if (tbOrderSearch.Text.Equals("Kirjoita hakusana..."))
             {
-                tbSearch.Clear();
-                tbSearch.ForeColor = Color.Black;
+                tbOrderSearch.Clear();
+                tbOrderSearch.ForeColor = Color.Black;
             }
-            else if (tbSearch.TextLength == 0)
+            else if (tbOrderSearch.TextLength == 0)
             {
-                tbSearch.Tag = tbSearch.Text = "Kirjoita hakusana...";
-                tbSearch.ForeColor = Color.Gray;
-                tbSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Italic);
+                tbOrderSearch.Tag = tbOrderSearch.Text = "Kirjoita hakusana...";
+                tbOrderSearch.ForeColor = Color.Gray;
+                tbOrderSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Italic);
             }
         }
 
-        private void btmSearch_Click(object sender, EventArgs e)
+        private void btmOrderSearch_Click(object sender, EventArgs e)
         {
 
-            if (cmbList.Text == "VARAUS ID")
+            if (cmbListOrder.Text == "VARAUS ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARAUS_ID LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARAUS_ID LIKE '" + tbOrderSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
-            if (cmbList.Text == "ASIAKAS ID")
+            if (cmbListOrder.Text == "ASIAKAS ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE ASIAKAS_ID LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE ASIAKAS_ID LIKE '" + tbOrderSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
-            if (cmbList.Text == "MÖKKI ID")
+            if (cmbListOrder.Text == "MÖKKI ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE MOKKI_MOKKI_ID LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE MOKKI_MOKKI_ID LIKE '" + tbOrderSearch.Text + "%'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
-            if (cmbList.Text == "VARATTU PVM")
+            if (cmbListOrder.Text == "VARATTU PVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_PVM LIKE '" + dtp.Text + "')", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_PVM LIKE '%" + dtpOrder.Text + "%')", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
-            if (cmbList.Text == "VAHVISTUS PVM")
+            if (cmbListOrder.Text == "VAHVISTUS PVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VAHVISTUS_PVM LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VAHVISTUS_PVM LIKE '%" + dtpOrder.Text + "%')", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
-            if (cmbList.Text == "ALKUPVM")
+            if (cmbListOrder.Text == "ALKUPVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_ALKUPVM LIKE '" + dtp.Text + "')", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_ALKUPVM LIKE '%" + dtpOrder.Text + "%')", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
-            if (cmbList.Text == "LOPPUPVM")
+            if (cmbListOrder.Text == "LOPPUPVM")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARATTU_LOPPUPVM LIKE '" + tbSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE (VARATTU_LOPPUPVM LIKE '%" + dtpOrder.Text + "%')", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
         }
 
-        private void btmShowAll_Click(object sender, EventArgs e)
+        private void btmOrderShowAll_Click(object sender, EventArgs e)
         {
             PopulateDGVOrder();
         }
 
-        private void tbSearch_TextChanged(object sender, EventArgs e)
+        private void tbOrderSearch_TextChanged(object sender, EventArgs e)
         {
-            tbSearch.ForeColor = Color.Black;
-            tbSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+            tbOrderSearch.ForeColor = Color.Black;
+            tbOrderSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
-        private void cmbList_SelectedIndexChanged(object sender, EventArgs e)
+        private void btmOrderChange_Click(object sender, EventArgs e)
         {
-            tbSearch.Text = "";
-            if (cmbList.Text == "VARATTU PVM" || cmbList.Text == "ALKUPVM")
+            Order order = new Order(Convert.ToInt32(dgOrder.CurrentRow.Cells[0].Value), Convert.ToInt32(dgOrder.CurrentRow.Cells[1].Value), 
+                Convert.ToInt32(dgOrder.CurrentRow.Cells[2].Value),
+                dgOrder.CurrentRow.Cells[3].Value.ToString(), dgOrder.CurrentRow.Cells[4].Value.ToString(),
+                dgOrder.CurrentRow.Cells[5].Value.ToString(), dgOrder.CurrentRow.Cells[6].Value.ToString());
+            ModifyOrderForm MOF = new ModifyOrderForm(order);
+            MOF.ShowDialog();
+        }
+
+        private void cmbListOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tbOrderSearch.Text == null)
+                tbOrderSearch.Text = "Kirjoita hakusana...";
+            if (cmbListOrder.Text == "VARATTU PVM" || cmbListOrder.Text == "VAHVISTUS PVM" || cmbListOrder.Text == "ALKUPVM" || cmbListOrder.Text == "LOPPUPVM")
             {
-                dtp.Visible = true;
+                dtpOrder.Visible = true;
             }
             else
-                dtp.Visible = false;
+                dtpOrder.Visible = false;
         }
 
 
@@ -423,7 +433,5 @@ namespace RentCottage
             lblRegionID.Text = "0000";
             tbRegionName.Text = "";
         }
-
-
     }
 }
