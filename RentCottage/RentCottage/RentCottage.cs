@@ -392,12 +392,11 @@ namespace RentCottage
                 {
                     int varausID = Convert.ToInt32(txtboxBillingVarausID.Text);
                     BillingUtils.CreateBill(varausID);
+                    txtboxBillingVarausID.Text = "";
                 }
                 catch (Exception ex)
-                { }
-                finally
                 {
-                    txtboxBillingVarausID.Text = "";
+                    txtboxBillingVarausID.Text = "virhe!";
                 }
             }
         }
