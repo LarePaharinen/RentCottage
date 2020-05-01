@@ -395,7 +395,7 @@ namespace RentCottage
                 try
                 {
                     int varausID = Convert.ToInt32(txtboxBillingVarausID.Text);
-                    BillingUtils.CreateInvoice(varausID);
+                    BillingUtils.createInvoice(varausID);
                     txtboxBillingVarausID.Text = "";
                 }
                 catch (Exception ex)
@@ -429,6 +429,11 @@ namespace RentCottage
                 BillingUtils.refreshDataGridView(dgvBilling);
                 dgvBilling.ClearSelection();
             }
+
+            else if (btn == btnBillingPDF)
+            {
+                BillingUtils.createPdfDocument();
+            }
         }
 
         //Checks if there's text in the invoiceID textbox on "Laskut" tab.
@@ -449,7 +454,7 @@ namespace RentCottage
                 btnBillingDelete.Enabled = true;
                 btnBillingNotPaid.Enabled = true;
                 btnBillingPaid.Enabled = true;
-                //btnBillingPDF.Enabled = true;
+                btnBillingPDF.Enabled = true;
             }
             catch (Exception ex)
             {

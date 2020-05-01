@@ -6,12 +6,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Invoicer.Models;
+using Invoicer.Services;
+using System.IO;
 
 namespace RentCottage
 {
     public class BillingUtils
     {
         public static string lastQuery;
+
+        public static void createPdfDocument()
+        {
+            string laskuID = "1";
+            DateTime billingDate = DateTime.Now;
+            string dueDate = DateTime.Now.AddDays(14).ToShortDateString();
+            string[] senderAddress = { "Village Newbies Oy", "Siilokatu 1", "90700 OULU" };
+            string[] receiverAddress = { "Asiakkaan nimi", "Asiakkaan osoite" };
+            string file = Path.Combine("C:\\temp\\invoice.pdf");
+
+            new InvoicerApi(SizeOption.A4, OrientationOption.Portrait, "€")
+            .Reference(laskuID)
+            .BillingDate(billingDate)
+            .Company(Address.Make("Lähettäjä", senderAddress, "", ""))
+            .Client(Address.Make("Vastaanottaja", receiverAddress, "", ""))
+            .TextColor("#CC0000")
+            .BackColor("#FFD6CC")
+            .Image(@"C:\\temp\\vnLogo.png", 200, 65)
+            .Items(new List<ItemRow> {
+            ItemRow.Make("Kesärinne 14", "Mökin vuokraus", (decimal)1, 10, (decimal)195.00, (decimal)195.00),
+            ItemRow.Make("Porotilavierailu", "Palvelu", (decimal)2, 10, (decimal)10, (decimal)20),
+            ItemRow.Make("Kelkka-ajelu", "Palvelu", (decimal)2, 10, (decimal)20, (decimal)40)
+            })
+            .Totals(new List<TotalRow> {
+            TotalRow.Make("Välisumma", (decimal)526.66),
+            TotalRow.Make("ALV 10%", (decimal)105.33),
+            TotalRow.Make("Kokonaishinta", (decimal)631.99, true),
+            })
+            .Details(new List<DetailRow> {
+            DetailRow.Make("MAKSUTIEDOT",   "SAAJAN TILINUMERO", "FI12345678910",
+                                            "BIC", "NDEAFIHH",
+                                            "SAAJA", "VILLAGE NEWBIES OY",
+                                            "VIITENUMERO", "123456789",
+                                            "ERÄPÄIVÄ", dueDate,
+                                            "EURO", "10,34")
+            })
+            .Footer("http://www.villagenewbies.fi")
+            .Save(file);
+
+            System.Diagnostics.Process.Start(file);
+        }
 
         public static void refreshDataGridView(DataGridView dgvBilling)
         {
@@ -24,7 +68,7 @@ namespace RentCottage
         }
 
         //Creates a bill for a reservation
-        public static void CreateInvoice(int varaus_id)
+        public static void createInvoice(int varaus_id)
         {
             //Let's dig up all the information needed to create the bill
             double summa = calculatePriceTotalSum(varaus_id);
