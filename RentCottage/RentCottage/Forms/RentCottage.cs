@@ -11,8 +11,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 using System.Globalization;
-
-
+using RentCottage.Forms;
 
 namespace RentCottage
 {
@@ -479,5 +478,10 @@ namespace RentCottage
             dgvCottage.DataSource = table;
         }
 
+        private void btnServiceAdd_Click(object sender, EventArgs e)
+        {
+            AddServiceForm ASF = new AddServiceForm();
+            ASF.ShowDialog();
+        }
     }
 }
