@@ -29,6 +29,8 @@ namespace RentCottage
             PopulateDGVRegion();
             PopulateDGVOrder();
             PopulateDGVCustomer();
+            PopulateDGVService();
+            PopulateDGVCottage();
             Search_alue_Combobox_update();
             cbSearchAluet.SelectedIndex = 1;
             cbBillingPaid.SelectedIndex = 2;
@@ -457,6 +459,24 @@ namespace RentCottage
         {
             lblRegionID.Text = "0000";
             tbRegionName.Text = "";
+        }
+
+        public void PopulateDGVService()
+        {
+            string query = "SELECT * FROM palvelu";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            dgvService.DataSource = table;
+        }
+
+        public void PopulateDGVCottage()
+        {
+            string query = "SELECT * FROM mokki";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            dgvCottage.DataSource = table;
         }
 
     }
