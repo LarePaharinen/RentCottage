@@ -16,17 +16,79 @@ namespace RentCottage
     {
         public static string lastQuery;
 
-        public static void createPdfDocument()
+        public static void createPdfDocument(int lasku_id)
         {
-            string laskuID = "1";
+            string fileSaveLocation = Path.Combine("C:\\temp\\invoice.pdf");
+
+            ConnectionUtils.openConnection();
+
+            //Customer name
+            string query = "SELECT CONCAT(a.etunimi, ' ', a.sukunimi) AS nimi " +  
+                "FROM lasku l " + 
+                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                "WHERE l.lasku_id = " + lasku_id + ";";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            string customerName = table.Rows[0].Field<string>("nimi");
+
+            //Customer address
+            query = "SELECT a.lahiosoite " +                                        
+                    "FROM lasku l " +
+                    "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                    "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                    "WHERE l.lasku_id = " + lasku_id + ";";
+            table = new DataTable();
+            adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            string customerAddress = table.Rows[0].Field<string>("lahiosoite");
+
+            //Customer zip code
+            query = "SELECT CONCAT(a.postinro, ' ', p.toimipaikka) AS posti " +
+                    "FROM lasku l " +
+                    "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                    "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                    "JOIN posti p ON a.postinro = p.postinro " +
+                    "WHERE l.lasku_id = " + lasku_id + ";";
+            table = new DataTable();
+            adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            string customerPostal = table.Rows[0].Field<string>("posti");
+
+            //Reservation cottage rental price per night
+            query = "SELECT m.hinta AS hinta " +
+                    "FROM lasku l " +
+                    "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                    "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
+                    "WHERE l.lasku_id = " + lasku_id + ";";
+            table = new DataTable();
+            adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            double unitPrice = table.Rows[0].Field<double>("hinta");
+
+            ////Reservation nights stayed
+            //query = "SELECT DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm) AS nights " +
+            //        "FROM lasku l " +
+            //        "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+            //        "WHERE l.lasku_id = " + lasku_id + ";";
+            //table = new DataTable();
+            //adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            //adapter.Fill(table);
+            //double unitCount = table.Rows[0].Field<double>("nights");
+            double unitCount = 2;
+
+            ConnectionUtils.closeConnection();
+
             DateTime billingDate = DateTime.Now;
             string dueDate = DateTime.Now.AddDays(14).ToShortDateString();
             string[] senderAddress = { "Village Newbies Oy", "Siilokatu 1", "90700 OULU" };
-            string[] receiverAddress = { "Asiakkaan nimi", "Asiakkaan osoite" };
-            string file = Path.Combine("C:\\temp\\invoice.pdf");
+            string[] receiverAddress = { customerName, customerAddress, customerPostal};
+            double cottageALV = 10.00;
+            double totalPrice = (unitPrice * unitCount);
 
             new InvoicerApi(SizeOption.A4, OrientationOption.Portrait, "€")
-            .Reference(laskuID)
+            .Reference(lasku_id.ToString())
             .BillingDate(billingDate)
             .Company(Address.Make("Lähettäjä", senderAddress, "", ""))
             .Client(Address.Make("Vastaanottaja", receiverAddress, "", ""))
@@ -34,7 +96,7 @@ namespace RentCottage
             .BackColor("#FFD6CC")
             .Image(@"..\..\images\vnLogo.png", 200, 65)
             .Items(new List<ItemRow> {
-            ItemRow.Make("Kesärinne 14", "Mökin vuokraus", (decimal)1, 10, (decimal)195.00, (decimal)195.00),
+            ItemRow.Make("Kesärinne 14", "Mökin vuokraus", (decimal)unitCount, (decimal)cottageALV, (decimal)unitPrice, (decimal)totalPrice),
             ItemRow.Make("Porotilavierailu", "Palvelu", (decimal)2, 10, (decimal)10, (decimal)20),
             ItemRow.Make("Kelkka-ajelu", "Palvelu", (decimal)2, 10, (decimal)20, (decimal)40)
             })
@@ -52,9 +114,9 @@ namespace RentCottage
                                             "EURO", "10,34")
             })
             .Footer("http://www.villagenewbies.fi")
-            .Save(file);
+            .Save(fileSaveLocation);
 
-            System.Diagnostics.Process.Start(file);
+            System.Diagnostics.Process.Start(fileSaveLocation);
         }
 
         public static void refreshDataGridView(DataGridView dgvBilling)

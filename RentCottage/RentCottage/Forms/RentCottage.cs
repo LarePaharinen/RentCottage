@@ -432,7 +432,17 @@ namespace RentCottage
 
             else if (btn == btnBillingPDF)
             {
-                BillingUtils.createPdfDocument();
+                try
+                {
+                    int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
+                    BillingUtils.createPdfDocument(lasku_id);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show("PDF:n muodostaminen epäonnistui. Onko aiempi lasku vielä auki?", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
