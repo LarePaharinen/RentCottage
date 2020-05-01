@@ -165,7 +165,7 @@ namespace RentCottage
 
         private void btmOrderChange_Click(object sender, EventArgs e)
         {
-            Order order = new Order(Convert.ToInt32(dgOrder.CurrentRow.Cells[0].Value), Convert.ToInt32(dgOrder.CurrentRow.Cells[1].Value), 
+            Order order = new Order(Convert.ToInt32(dgOrder.CurrentRow.Cells[0].Value), Convert.ToInt32(dgOrder.CurrentRow.Cells[1].Value),
                 Convert.ToInt32(dgOrder.CurrentRow.Cells[2].Value),
                 dgOrder.CurrentRow.Cells[3].Value.ToString(), dgOrder.CurrentRow.Cells[4].Value.ToString(),
                 dgOrder.CurrentRow.Cells[5].Value.ToString(), dgOrder.CurrentRow.Cells[6].Value.ToString());
@@ -175,7 +175,7 @@ namespace RentCottage
 
         private void cmbListOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tbOrderSearch.Text == null)
+            if (tbOrderSearch.Text == null)
                 tbOrderSearch.Text = "Kirjoita hakusana...";
             if (cmbListOrder.Text == "VARATTU PVM" || cmbListOrder.Text == "VAHVISTUS PVM" || cmbListOrder.Text == "ALKUPVM" || cmbListOrder.Text == "LOPPUPVM")
             {
@@ -331,10 +331,10 @@ namespace RentCottage
         private void btmSearchVarata_Click(object sender, EventArgs e)
         {
             if (dgSearchTable.CurrentRow == null)
-                {
-                    MessageBox.Show("Valitse sopiva mökki", "Mäkki ei ole valittu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+            {
+                MessageBox.Show("Valitse sopiva mökki", "Mäkki ei ole valittu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ConnectionUtils.openConnection();
             //SELECT 0m.mokki_id, 1t.nimi as toimintaalue, 2m.postinro, 3m.mokkinimi, 4m.katuosoite, 5m.kuvaus, 6m.henkilomaara, 7m.hinta 
             //(int 0cottageID, 1int regionID, 2string postal, 3string name, 4string address, 5string description, 6int capacity, 7double price
@@ -357,8 +357,10 @@ namespace RentCottage
         {
             Button btn = (Button)sender;
 
-            if (btn == btnBillingSearch) //search button
+            //Search for an invoice
+            if (btn == btnBillingSearch) 
             {
+                ConnectionUtils.openConnection();
                 string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
                                 " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
                                 "a.email AS 'Sähköposti', CAST(addtime(v.varattu_loppupvm, '14 0:0:0') AS CHAR(10)) AS 'Eräpäivä', " +
@@ -373,41 +375,89 @@ namespace RentCottage
                                 "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
                                 "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
                                 "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
-
                 if (cbBillingPaid.SelectedIndex == 0)
                     query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
                 else if (cbBillingPaid.SelectedIndex == 1)
                     query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
                 else if (cbBillingPaid.SelectedIndex == 2)
                     query += "ORDER BY l.lasku_id;";
-
+                BillingUtils.lastQuery = query;
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
                 adapter.Fill(table);
                 dgvBilling.DataSource = table;
+                ConnectionUtils.closeConnection();
             }
 
-            else if (btn == btnBillingCreate) //Create new bill for a reservation
+            //Create new bill for a reservation
+            else if (btn == btnBillingCreate) 
             {
                 try
                 {
                     int varausID = Convert.ToInt32(txtboxBillingVarausID.Text);
-                    BillingUtils.CreateBill(varausID);
+                    BillingUtils.CreateInvoice(varausID);
                     txtboxBillingVarausID.Text = "";
                 }
                 catch (Exception ex)
                 {
-                    txtboxBillingVarausID.Text = "virhe!";
+                    MessageBox.Show("Antamaasi varausID:tä ei löytynyt.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+
+            //Update the state of payment of a selected invoice
+            else if (btn == btnBillingPaid || btn == btnBillingNotPaid)
+            {
+                string paymentState = "";
+                if (btn == btnBillingPaid)
+                    paymentState = "TRUE";
+                else if (btn == btnBillingNotPaid)
+                    paymentState = "FALSE";
+
+                int selectedRow = dgvBilling.CurrentCell.RowIndex;
+                int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
+                BillingUtils.setPaymentState(lasku_id, paymentState);
+                BillingUtils.refreshDataGridView(dgvBilling);
+                dgvBilling.ClearSelection();
+                dgvBilling.CurrentCell = dgvBilling.Rows[selectedRow].Cells[0];
+            }
+
+            //Delete a selected invoice
+            else if (btn == btnBillingDelete)
+            {
+                int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
+                BillingUtils.deleteSelectedInvoice(lasku_id);
+                BillingUtils.refreshDataGridView(dgvBilling);
+                dgvBilling.ClearSelection();
             }
         }
 
+        //Checks if there's text in the invoiceID textbox on "Laskut" tab.
         private void txtboxBillingVarausID_TextChanged(object sender, EventArgs e)
         {
             if (txtboxBillingVarausID.Text != "")
                 btnBillingCreate.Enabled = true;
             else
                 btnBillingCreate.Enabled = false;
+        }
+
+        //Checks if the information of selected row in Datagridview is available on "Laskut" tab.
+        private void dgvBilling_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
+                btnBillingDelete.Enabled = true;
+                btnBillingNotPaid.Enabled = true;
+                btnBillingPaid.Enabled = true;
+                //btnBillingPDF.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnBillingDelete.Enabled = false;
+                btnBillingNotPaid.Enabled = false;
+                btnBillingPaid.Enabled = false;
+                btnBillingPDF.Enabled = false;
+            }
         }
 
         //Adds region to the database
@@ -483,5 +533,6 @@ namespace RentCottage
             AddServiceForm ASF = new AddServiceForm();
             ASF.ShowDialog();
         }
+
     }
 }
