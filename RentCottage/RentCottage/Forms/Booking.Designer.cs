@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbBookVillageData = new System.Windows.Forms.GroupBox();
+            this.gbBookCottageData = new System.Windows.Forms.GroupBox();
+            this.lblBookDays = new System.Windows.Forms.Label();
             this.lblBookAlue = new System.Windows.Forms.Label();
             this.lblBookAlueHead = new System.Windows.Forms.Label();
             this.lblBookSeasonPrice = new System.Windows.Forms.Label();
@@ -36,26 +37,31 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblBookBookingDateTo = new System.Windows.Forms.Label();
             this.lblBookBookingDateFrom = new System.Windows.Forms.Label();
-            this.lblBookReservationDatesHead = new System.Windows.Forms.Label();
-            this.lblBookVillagePrice = new System.Windows.Forms.Label();
-            this.lblBookVillagePriceHead = new System.Windows.Forms.Label();
+            this.lblBookCottageReservationDatesHead = new System.Windows.Forms.Label();
+            this.lblBookCottagePrice = new System.Windows.Forms.Label();
+            this.lblBookCottagePriceHead = new System.Windows.Forms.Label();
             this.lblBookMaxPersons = new System.Windows.Forms.Label();
-            this.lblBookVillageAddress = new System.Windows.Forms.Label();
-            this.lblBookVillageName = new System.Windows.Forms.Label();
-            this.lblBookVillageId = new System.Windows.Forms.Label();
+            this.lblBookCottageAddress = new System.Windows.Forms.Label();
+            this.lblBookCottageName = new System.Windows.Forms.Label();
+            this.lblBookCottageId = new System.Windows.Forms.Label();
             this.lblBookMaxPersonsHead = new System.Windows.Forms.Label();
-            this.lblBookVillageAddressHead = new System.Windows.Forms.Label();
-            this.lblBookVillageNameHead = new System.Windows.Forms.Label();
-            this.lblBookVillageIdHead = new System.Windows.Forms.Label();
+            this.lblBookCottageAddressHead = new System.Windows.Forms.Label();
+            this.lblBookCottageNameHead = new System.Windows.Forms.Label();
+            this.lblBookCottageIdHead = new System.Windows.Forms.Label();
             this.gbBookCustomerData = new System.Windows.Forms.GroupBox();
-            this.lblBookCustomerID = new System.Windows.Forms.Label();
-            this.lblBookCustomerExists = new System.Windows.Forms.Label();
+            this.tbBookCustomerPostOffice = new System.Windows.Forms.TextBox();
+            this.lblBookCustomerPostOfficeHead = new System.Windows.Forms.Label();
+            this.lblCustomerOnSame = new System.Windows.Forms.Label();
             this.btnBookSearch = new System.Windows.Forms.Button();
             this.labelBillingBorder = new System.Windows.Forms.Label();
+            this.btnBookNext = new System.Windows.Forms.Button();
             this.tbBookCustomerPhone = new System.Windows.Forms.TextBox();
             this.tbBookCustomerPostnumber = new System.Windows.Forms.TextBox();
+            this.btnBookPrev = new System.Windows.Forms.Button();
             this.tbBookCustomerAddress = new System.Windows.Forms.TextBox();
             this.tbBookCustomerEmail = new System.Windows.Forms.TextBox();
+            this.lblBookCustomerExists = new System.Windows.Forms.Label();
+            this.lblBookCustomerID = new System.Windows.Forms.Label();
             this.tbBookCustomerLastname = new System.Windows.Forms.TextBox();
             this.tbBookCustomerName = new System.Windows.Forms.TextBox();
             this.lblBookCustomerPostnumber = new System.Windows.Forms.Label();
@@ -71,41 +77,48 @@
             this.lblBookPriceFullHead = new System.Windows.Forms.Label();
             this.lblBookPriceFull = new System.Windows.Forms.Label();
             this.btnBookAddResirvation = new System.Windows.Forms.Button();
-            this.btnBookPrev = new System.Windows.Forms.Button();
-            this.btnBookNext = new System.Windows.Forms.Button();
-            this.lblCustomerOnSame = new System.Windows.Forms.Label();
-            this.gbBookVillageData.SuspendLayout();
+            this.gbBookCottageData.SuspendLayout();
             this.gbBookCustomerData.SuspendLayout();
             this.gbBookServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookServices)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbBookVillageData
+            // gbBookCottageData
             // 
-            this.gbBookVillageData.Controls.Add(this.lblBookAlue);
-            this.gbBookVillageData.Controls.Add(this.lblBookAlueHead);
-            this.gbBookVillageData.Controls.Add(this.lblBookSeasonPrice);
-            this.gbBookVillageData.Controls.Add(this.lblBookSeasonPriceHead);
-            this.gbBookVillageData.Controls.Add(this.label1);
-            this.gbBookVillageData.Controls.Add(this.lblBookBookingDateTo);
-            this.gbBookVillageData.Controls.Add(this.lblBookBookingDateFrom);
-            this.gbBookVillageData.Controls.Add(this.lblBookReservationDatesHead);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillagePrice);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillagePriceHead);
-            this.gbBookVillageData.Controls.Add(this.lblBookMaxPersons);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillageAddress);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillageName);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillageId);
-            this.gbBookVillageData.Controls.Add(this.lblBookMaxPersonsHead);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillageAddressHead);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillageNameHead);
-            this.gbBookVillageData.Controls.Add(this.lblBookVillageIdHead);
-            this.gbBookVillageData.Location = new System.Drawing.Point(12, 12);
-            this.gbBookVillageData.Name = "gbBookVillageData";
-            this.gbBookVillageData.Size = new System.Drawing.Size(650, 126);
-            this.gbBookVillageData.TabIndex = 0;
-            this.gbBookVillageData.TabStop = false;
-            this.gbBookVillageData.Text = "Mökki tiedot";
+            this.gbBookCottageData.Controls.Add(this.lblBookDays);
+            this.gbBookCottageData.Controls.Add(this.lblBookAlue);
+            this.gbBookCottageData.Controls.Add(this.lblBookAlueHead);
+            this.gbBookCottageData.Controls.Add(this.lblBookSeasonPrice);
+            this.gbBookCottageData.Controls.Add(this.lblBookSeasonPriceHead);
+            this.gbBookCottageData.Controls.Add(this.label1);
+            this.gbBookCottageData.Controls.Add(this.lblBookBookingDateTo);
+            this.gbBookCottageData.Controls.Add(this.lblBookBookingDateFrom);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageReservationDatesHead);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottagePrice);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottagePriceHead);
+            this.gbBookCottageData.Controls.Add(this.lblBookMaxPersons);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageAddress);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageName);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageId);
+            this.gbBookCottageData.Controls.Add(this.lblBookMaxPersonsHead);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageAddressHead);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageNameHead);
+            this.gbBookCottageData.Controls.Add(this.lblBookCottageIdHead);
+            this.gbBookCottageData.Location = new System.Drawing.Point(12, 12);
+            this.gbBookCottageData.Name = "gbBookCottageData";
+            this.gbBookCottageData.Size = new System.Drawing.Size(650, 126);
+            this.gbBookCottageData.TabIndex = 0;
+            this.gbBookCottageData.TabStop = false;
+            this.gbBookCottageData.Text = "Mökki tiedot";
+            // 
+            // lblBookDays
+            // 
+            this.lblBookDays.AutoSize = true;
+            this.lblBookDays.Location = new System.Drawing.Point(283, 97);
+            this.lblBookDays.Name = "lblBookDays";
+            this.lblBookDays.Size = new System.Drawing.Size(34, 13);
+            this.lblBookDays.TabIndex = 18;
+            this.lblBookDays.Text = "(0 pv)";
             // 
             // lblBookAlue
             // 
@@ -174,32 +187,32 @@
             this.lblBookBookingDateFrom.TabIndex = 11;
             this.lblBookBookingDateFrom.Text = "01.01.2020";
             // 
-            // lblBookReservationDatesHead
+            // lblBookCottageReservationDatesHead
             // 
-            this.lblBookReservationDatesHead.AutoSize = true;
-            this.lblBookReservationDatesHead.Location = new System.Drawing.Point(21, 97);
-            this.lblBookReservationDatesHead.Name = "lblBookReservationDatesHead";
-            this.lblBookReservationDatesHead.Size = new System.Drawing.Size(72, 13);
-            this.lblBookReservationDatesHead.TabIndex = 10;
-            this.lblBookReservationDatesHead.Text = "Majoitus aika:";
+            this.lblBookCottageReservationDatesHead.AutoSize = true;
+            this.lblBookCottageReservationDatesHead.Location = new System.Drawing.Point(21, 97);
+            this.lblBookCottageReservationDatesHead.Name = "lblBookCottageReservationDatesHead";
+            this.lblBookCottageReservationDatesHead.Size = new System.Drawing.Size(72, 13);
+            this.lblBookCottageReservationDatesHead.TabIndex = 10;
+            this.lblBookCottageReservationDatesHead.Text = "Majoitus aika:";
             // 
-            // lblBookVillagePrice
+            // lblBookCottagePrice
             // 
-            this.lblBookVillagePrice.AutoSize = true;
-            this.lblBookVillagePrice.Location = new System.Drawing.Point(442, 69);
-            this.lblBookVillagePrice.Name = "lblBookVillagePrice";
-            this.lblBookVillagePrice.Size = new System.Drawing.Size(38, 13);
-            this.lblBookVillagePrice.TabIndex = 9;
-            this.lblBookVillagePrice.Text = "0 €/yö";
+            this.lblBookCottagePrice.AutoSize = true;
+            this.lblBookCottagePrice.Location = new System.Drawing.Point(442, 69);
+            this.lblBookCottagePrice.Name = "lblBookCottagePrice";
+            this.lblBookCottagePrice.Size = new System.Drawing.Size(38, 13);
+            this.lblBookCottagePrice.TabIndex = 9;
+            this.lblBookCottagePrice.Text = "0 €/yö";
             // 
-            // lblBookVillagePriceHead
+            // lblBookCottagePriceHead
             // 
-            this.lblBookVillagePriceHead.AutoSize = true;
-            this.lblBookVillagePriceHead.Location = new System.Drawing.Point(344, 69);
-            this.lblBookVillagePriceHead.Name = "lblBookVillagePriceHead";
-            this.lblBookVillagePriceHead.Size = new System.Drawing.Size(51, 13);
-            this.lblBookVillagePriceHead.TabIndex = 8;
-            this.lblBookVillagePriceHead.Text = "Hinta/yö:";
+            this.lblBookCottagePriceHead.AutoSize = true;
+            this.lblBookCottagePriceHead.Location = new System.Drawing.Point(344, 69);
+            this.lblBookCottagePriceHead.Name = "lblBookCottagePriceHead";
+            this.lblBookCottagePriceHead.Size = new System.Drawing.Size(51, 13);
+            this.lblBookCottagePriceHead.TabIndex = 8;
+            this.lblBookCottagePriceHead.Text = "Hinta/yö:";
             // 
             // lblBookMaxPersons
             // 
@@ -210,32 +223,32 @@
             this.lblBookMaxPersons.TabIndex = 7;
             this.lblBookMaxPersons.Text = "0";
             // 
-            // lblBookVillageAddress
+            // lblBookCottageAddress
             // 
-            this.lblBookVillageAddress.AutoSize = true;
-            this.lblBookVillageAddress.Location = new System.Drawing.Point(109, 70);
-            this.lblBookVillageAddress.Name = "lblBookVillageAddress";
-            this.lblBookVillageAddress.Size = new System.Drawing.Size(35, 13);
-            this.lblBookVillageAddress.TabIndex = 6;
-            this.lblBookVillageAddress.Text = "osoite";
+            this.lblBookCottageAddress.AutoSize = true;
+            this.lblBookCottageAddress.Location = new System.Drawing.Point(109, 70);
+            this.lblBookCottageAddress.Name = "lblBookCottageAddress";
+            this.lblBookCottageAddress.Size = new System.Drawing.Size(35, 13);
+            this.lblBookCottageAddress.TabIndex = 6;
+            this.lblBookCottageAddress.Text = "osoite";
             // 
-            // lblBookVillageName
+            // lblBookCottageName
             // 
-            this.lblBookVillageName.AutoSize = true;
-            this.lblBookVillageName.Location = new System.Drawing.Point(110, 47);
-            this.lblBookVillageName.Name = "lblBookVillageName";
-            this.lblBookVillageName.Size = new System.Drawing.Size(25, 13);
-            this.lblBookVillageName.TabIndex = 5;
-            this.lblBookVillageName.Text = "nimi";
+            this.lblBookCottageName.AutoSize = true;
+            this.lblBookCottageName.Location = new System.Drawing.Point(110, 47);
+            this.lblBookCottageName.Name = "lblBookCottageName";
+            this.lblBookCottageName.Size = new System.Drawing.Size(25, 13);
+            this.lblBookCottageName.TabIndex = 5;
+            this.lblBookCottageName.Text = "nimi";
             // 
-            // lblBookVillageId
+            // lblBookCottageId
             // 
-            this.lblBookVillageId.AutoSize = true;
-            this.lblBookVillageId.Location = new System.Drawing.Point(110, 25);
-            this.lblBookVillageId.Name = "lblBookVillageId";
-            this.lblBookVillageId.Size = new System.Drawing.Size(18, 13);
-            this.lblBookVillageId.TabIndex = 4;
-            this.lblBookVillageId.Text = "ID";
+            this.lblBookCottageId.AutoSize = true;
+            this.lblBookCottageId.Location = new System.Drawing.Point(110, 25);
+            this.lblBookCottageId.Name = "lblBookCottageId";
+            this.lblBookCottageId.Size = new System.Drawing.Size(18, 13);
+            this.lblBookCottageId.TabIndex = 4;
+            this.lblBookCottageId.Text = "ID";
             // 
             // lblBookMaxPersonsHead
             // 
@@ -246,35 +259,37 @@
             this.lblBookMaxPersonsHead.TabIndex = 3;
             this.lblBookMaxPersonsHead.Text = "Max. hlö:";
             // 
-            // lblBookVillageAddressHead
+            // lblBookCottageAddressHead
             // 
-            this.lblBookVillageAddressHead.AutoSize = true;
-            this.lblBookVillageAddressHead.Location = new System.Drawing.Point(21, 70);
-            this.lblBookVillageAddressHead.Name = "lblBookVillageAddressHead";
-            this.lblBookVillageAddressHead.Size = new System.Drawing.Size(40, 13);
-            this.lblBookVillageAddressHead.TabIndex = 2;
-            this.lblBookVillageAddressHead.Text = "Osoite:";
+            this.lblBookCottageAddressHead.AutoSize = true;
+            this.lblBookCottageAddressHead.Location = new System.Drawing.Point(21, 70);
+            this.lblBookCottageAddressHead.Name = "lblBookCottageAddressHead";
+            this.lblBookCottageAddressHead.Size = new System.Drawing.Size(40, 13);
+            this.lblBookCottageAddressHead.TabIndex = 2;
+            this.lblBookCottageAddressHead.Text = "Osoite:";
             // 
-            // lblBookVillageNameHead
+            // lblBookCottageNameHead
             // 
-            this.lblBookVillageNameHead.AutoSize = true;
-            this.lblBookVillageNameHead.Location = new System.Drawing.Point(21, 47);
-            this.lblBookVillageNameHead.Name = "lblBookVillageNameHead";
-            this.lblBookVillageNameHead.Size = new System.Drawing.Size(60, 13);
-            this.lblBookVillageNameHead.TabIndex = 1;
-            this.lblBookVillageNameHead.Text = "Mökki nimi:";
+            this.lblBookCottageNameHead.AutoSize = true;
+            this.lblBookCottageNameHead.Location = new System.Drawing.Point(21, 47);
+            this.lblBookCottageNameHead.Name = "lblBookCottageNameHead";
+            this.lblBookCottageNameHead.Size = new System.Drawing.Size(60, 13);
+            this.lblBookCottageNameHead.TabIndex = 1;
+            this.lblBookCottageNameHead.Text = "Mökki nimi:";
             // 
-            // lblBookVillageIdHead
+            // lblBookCottageIdHead
             // 
-            this.lblBookVillageIdHead.AutoSize = true;
-            this.lblBookVillageIdHead.Location = new System.Drawing.Point(21, 25);
-            this.lblBookVillageIdHead.Name = "lblBookVillageIdHead";
-            this.lblBookVillageIdHead.Size = new System.Drawing.Size(50, 13);
-            this.lblBookVillageIdHead.TabIndex = 0;
-            this.lblBookVillageIdHead.Text = "MökkiID:";
+            this.lblBookCottageIdHead.AutoSize = true;
+            this.lblBookCottageIdHead.Location = new System.Drawing.Point(21, 25);
+            this.lblBookCottageIdHead.Name = "lblBookCottageIdHead";
+            this.lblBookCottageIdHead.Size = new System.Drawing.Size(50, 13);
+            this.lblBookCottageIdHead.TabIndex = 0;
+            this.lblBookCottageIdHead.Text = "MökkiID:";
             // 
             // gbBookCustomerData
             // 
+            this.gbBookCustomerData.Controls.Add(this.tbBookCustomerPostOffice);
+            this.gbBookCustomerData.Controls.Add(this.lblBookCustomerPostOfficeHead);
             this.gbBookCustomerData.Controls.Add(this.lblCustomerOnSame);
             this.gbBookCustomerData.Controls.Add(this.btnBookSearch);
             this.gbBookCustomerData.Controls.Add(this.labelBillingBorder);
@@ -301,34 +316,38 @@
             this.gbBookCustomerData.TabStop = false;
             this.gbBookCustomerData.Text = "Asiakas tiedot";
             // 
-            // lblBookCustomerID
+            // tbBookCustomerPostOffice
             // 
-            this.lblBookCustomerID.AutoSize = true;
-            this.lblBookCustomerID.Location = new System.Drawing.Point(21, 69);
-            this.lblBookCustomerID.Name = "lblBookCustomerID";
-            this.lblBookCustomerID.Size = new System.Drawing.Size(67, 13);
-            this.lblBookCustomerID.TabIndex = 27;
-            this.lblBookCustomerID.Text = "Asiakas ID: -";
-            this.lblBookCustomerID.Visible = false;
+            this.tbBookCustomerPostOffice.Location = new System.Drawing.Point(515, 127);
+            this.tbBookCustomerPostOffice.Name = "tbBookCustomerPostOffice";
+            this.tbBookCustomerPostOffice.Size = new System.Drawing.Size(116, 20);
+            this.tbBookCustomerPostOffice.TabIndex = 16;
             // 
-            // lblBookCustomerExists
+            // lblBookCustomerPostOfficeHead
             // 
-            this.lblBookCustomerExists.AutoSize = true;
-            this.lblBookCustomerExists.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookCustomerExists.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblBookCustomerExists.Location = new System.Drawing.Point(145, 69);
-            this.lblBookCustomerExists.Name = "lblBookCustomerExists";
-            this.lblBookCustomerExists.Size = new System.Drawing.Size(284, 13);
-            this.lblBookCustomerExists.TabIndex = 26;
-            this.lblBookCustomerExists.Text = "Asiakasta ei löydy, syötä uuden asiakkaan tiedot";
-            this.lblBookCustomerExists.Visible = false;
+            this.lblBookCustomerPostOfficeHead.AutoSize = true;
+            this.lblBookCustomerPostOfficeHead.Location = new System.Drawing.Point(445, 130);
+            this.lblBookCustomerPostOfficeHead.Name = "lblBookCustomerPostOfficeHead";
+            this.lblBookCustomerPostOfficeHead.Size = new System.Drawing.Size(64, 13);
+            this.lblBookCustomerPostOfficeHead.TabIndex = 31;
+            this.lblBookCustomerPostOfficeHead.Text = "Toimipaikka";
+            // 
+            // lblCustomerOnSame
+            // 
+            this.lblCustomerOnSame.AutoSize = true;
+            this.lblCustomerOnSame.Location = new System.Drawing.Point(555, 69);
+            this.lblCustomerOnSame.Name = "lblCustomerOnSame";
+            this.lblCustomerOnSame.Size = new System.Drawing.Size(24, 13);
+            this.lblCustomerOnSame.TabIndex = 30;
+            this.lblCustomerOnSame.Text = "1/2";
+            this.lblCustomerOnSame.Visible = false;
             // 
             // btnBookSearch
             // 
             this.btnBookSearch.Location = new System.Drawing.Point(541, 20);
             this.btnBookSearch.Name = "btnBookSearch";
             this.btnBookSearch.Size = new System.Drawing.Size(90, 23);
-            this.btnBookSearch.TabIndex = 25;
+            this.btnBookSearch.TabIndex = 50;
             this.btnBookSearch.Text = "Hae";
             this.btnBookSearch.UseVisualStyleBackColor = true;
             this.btnBookSearch.Click += new System.EventHandler(this.btnBookSearch_Click);
@@ -345,6 +364,17 @@
             this.labelBillingBorder.Size = new System.Drawing.Size(650, 2);
             this.labelBillingBorder.TabIndex = 24;
             // 
+            // btnBookNext
+            // 
+            this.btnBookNext.Location = new System.Drawing.Point(585, 64);
+            this.btnBookNext.Name = "btnBookNext";
+            this.btnBookNext.Size = new System.Drawing.Size(46, 23);
+            this.btnBookNext.TabIndex = 29;
+            this.btnBookNext.Text = ">";
+            this.btnBookNext.UseVisualStyleBackColor = true;
+            this.btnBookNext.Visible = false;
+            this.btnBookNext.Click += new System.EventHandler(this.btnBookNext_Click);
+            // 
             // tbBookCustomerPhone
             // 
             this.tbBookCustomerPhone.Location = new System.Drawing.Point(387, 22);
@@ -355,17 +385,28 @@
             // 
             // tbBookCustomerPostnumber
             // 
-            this.tbBookCustomerPostnumber.Location = new System.Drawing.Point(457, 127);
+            this.tbBookCustomerPostnumber.Location = new System.Drawing.Point(373, 127);
             this.tbBookCustomerPostnumber.Name = "tbBookCustomerPostnumber";
-            this.tbBookCustomerPostnumber.Size = new System.Drawing.Size(174, 20);
-            this.tbBookCustomerPostnumber.TabIndex = 14;
+            this.tbBookCustomerPostnumber.Size = new System.Drawing.Size(66, 20);
+            this.tbBookCustomerPostnumber.TabIndex = 15;
+            // 
+            // btnBookPrev
+            // 
+            this.btnBookPrev.Location = new System.Drawing.Point(503, 64);
+            this.btnBookPrev.Name = "btnBookPrev";
+            this.btnBookPrev.Size = new System.Drawing.Size(46, 23);
+            this.btnBookPrev.TabIndex = 28;
+            this.btnBookPrev.Text = "<";
+            this.btnBookPrev.UseVisualStyleBackColor = true;
+            this.btnBookPrev.Visible = false;
+            this.btnBookPrev.Click += new System.EventHandler(this.btnBookPrev_Click);
             // 
             // tbBookCustomerAddress
             // 
-            this.tbBookCustomerAddress.Location = new System.Drawing.Point(102, 127);
+            this.tbBookCustomerAddress.Location = new System.Drawing.Point(68, 127);
             this.tbBookCustomerAddress.Name = "tbBookCustomerAddress";
-            this.tbBookCustomerAddress.Size = new System.Drawing.Size(277, 20);
-            this.tbBookCustomerAddress.TabIndex = 13;
+            this.tbBookCustomerAddress.Size = new System.Drawing.Size(221, 20);
+            this.tbBookCustomerAddress.TabIndex = 14;
             // 
             // tbBookCustomerEmail
             // 
@@ -375,24 +416,45 @@
             this.tbBookCustomerEmail.TabIndex = 9;
             this.tbBookCustomerEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbBookCustomerEmail_KeyDown);
             // 
+            // lblBookCustomerExists
+            // 
+            this.lblBookCustomerExists.AutoSize = true;
+            this.lblBookCustomerExists.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookCustomerExists.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblBookCustomerExists.Location = new System.Drawing.Point(145, 69);
+            this.lblBookCustomerExists.Name = "lblBookCustomerExists";
+            this.lblBookCustomerExists.Size = new System.Drawing.Size(283, 13);
+            this.lblBookCustomerExists.TabIndex = 26;
+            this.lblBookCustomerExists.Text = "Hae asiakasta sähköpostilla tai puhelinnumerolla";
+            // 
+            // lblBookCustomerID
+            // 
+            this.lblBookCustomerID.AutoSize = true;
+            this.lblBookCustomerID.Location = new System.Drawing.Point(21, 69);
+            this.lblBookCustomerID.Name = "lblBookCustomerID";
+            this.lblBookCustomerID.Size = new System.Drawing.Size(67, 13);
+            this.lblBookCustomerID.TabIndex = 27;
+            this.lblBookCustomerID.Text = "Asiakas ID: -";
+            this.lblBookCustomerID.Visible = false;
+            // 
             // tbBookCustomerLastname
             // 
-            this.tbBookCustomerLastname.Location = new System.Drawing.Point(387, 98);
+            this.tbBookCustomerLastname.Location = new System.Drawing.Point(373, 101);
             this.tbBookCustomerLastname.Name = "tbBookCustomerLastname";
-            this.tbBookCustomerLastname.Size = new System.Drawing.Size(244, 20);
-            this.tbBookCustomerLastname.TabIndex = 12;
+            this.tbBookCustomerLastname.Size = new System.Drawing.Size(258, 20);
+            this.tbBookCustomerLastname.TabIndex = 13;
             // 
             // tbBookCustomerName
             // 
-            this.tbBookCustomerName.Location = new System.Drawing.Point(102, 98);
+            this.tbBookCustomerName.Location = new System.Drawing.Point(68, 98);
             this.tbBookCustomerName.Name = "tbBookCustomerName";
             this.tbBookCustomerName.Size = new System.Drawing.Size(221, 20);
-            this.tbBookCustomerName.TabIndex = 11;
+            this.tbBookCustomerName.TabIndex = 12;
             // 
             // lblBookCustomerPostnumber
             // 
             this.lblBookCustomerPostnumber.AutoSize = true;
-            this.lblBookCustomerPostnumber.Location = new System.Drawing.Point(384, 130);
+            this.lblBookCustomerPostnumber.Location = new System.Drawing.Point(300, 130);
             this.lblBookCustomerPostnumber.Name = "lblBookCustomerPostnumber";
             this.lblBookCustomerPostnumber.Size = new System.Drawing.Size(65, 13);
             this.lblBookCustomerPostnumber.TabIndex = 6;
@@ -410,7 +472,7 @@
             // lblBookCustomerLastname
             // 
             this.lblBookCustomerLastname.AutoSize = true;
-            this.lblBookCustomerLastname.Location = new System.Drawing.Point(328, 101);
+            this.lblBookCustomerLastname.Location = new System.Drawing.Point(300, 101);
             this.lblBookCustomerLastname.Name = "lblBookCustomerLastname";
             this.lblBookCustomerLastname.Size = new System.Drawing.Size(50, 13);
             this.lblBookCustomerLastname.TabIndex = 4;
@@ -459,6 +521,7 @@
             // 
             this.dgvBookServices.AllowUserToAddRows = false;
             this.dgvBookServices.AllowUserToDeleteRows = false;
+            this.dgvBookServices.AllowUserToResizeRows = false;
             this.dgvBookServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookServices.Location = new System.Drawing.Point(7, 19);
             this.dgvBookServices.Name = "dgvBookServices";
@@ -517,38 +580,6 @@
             this.btnBookAddResirvation.UseVisualStyleBackColor = true;
             this.btnBookAddResirvation.Click += new System.EventHandler(this.btnBookAddResirvation_Click);
             // 
-            // btnBookPrev
-            // 
-            this.btnBookPrev.Location = new System.Drawing.Point(503, 64);
-            this.btnBookPrev.Name = "btnBookPrev";
-            this.btnBookPrev.Size = new System.Drawing.Size(46, 23);
-            this.btnBookPrev.TabIndex = 28;
-            this.btnBookPrev.Text = "<";
-            this.btnBookPrev.UseVisualStyleBackColor = true;
-            this.btnBookPrev.Visible = false;
-            this.btnBookPrev.Click += new System.EventHandler(this.btnBookPrev_Click);
-            // 
-            // btnBookNext
-            // 
-            this.btnBookNext.Location = new System.Drawing.Point(585, 64);
-            this.btnBookNext.Name = "btnBookNext";
-            this.btnBookNext.Size = new System.Drawing.Size(46, 23);
-            this.btnBookNext.TabIndex = 29;
-            this.btnBookNext.Text = ">";
-            this.btnBookNext.UseVisualStyleBackColor = true;
-            this.btnBookNext.Visible = false;
-            this.btnBookNext.Click += new System.EventHandler(this.btnBookNext_Click);
-            // 
-            // lblCustomerOnSame
-            // 
-            this.lblCustomerOnSame.AutoSize = true;
-            this.lblCustomerOnSame.Location = new System.Drawing.Point(555, 69);
-            this.lblCustomerOnSame.Name = "lblCustomerOnSame";
-            this.lblCustomerOnSame.Size = new System.Drawing.Size(24, 13);
-            this.lblCustomerOnSame.TabIndex = 30;
-            this.lblCustomerOnSame.Text = "1/2";
-            this.lblCustomerOnSame.Visible = false;
-            // 
             // Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,12 +590,13 @@
             this.Controls.Add(this.lblBookPriceFullHead);
             this.Controls.Add(this.gbBookServices);
             this.Controls.Add(this.gbBookCustomerData);
-            this.Controls.Add(this.gbBookVillageData);
+            this.Controls.Add(this.gbBookCottageData);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Booking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uusi varaus";
-            this.gbBookVillageData.ResumeLayout(false);
-            this.gbBookVillageData.PerformLayout();
+            this.gbBookCottageData.ResumeLayout(false);
+            this.gbBookCottageData.PerformLayout();
             this.gbBookCustomerData.ResumeLayout(false);
             this.gbBookCustomerData.PerformLayout();
             this.gbBookServices.ResumeLayout(false);
@@ -577,17 +609,17 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbBookVillageData;
+        private System.Windows.Forms.GroupBox gbBookCottageData;
         private System.Windows.Forms.Label lblBookMaxPersonsHead;
-        private System.Windows.Forms.Label lblBookVillageAddressHead;
-        private System.Windows.Forms.Label lblBookVillageNameHead;
-        private System.Windows.Forms.Label lblBookVillageIdHead;
-        private System.Windows.Forms.Label lblBookVillagePrice;
-        private System.Windows.Forms.Label lblBookVillagePriceHead;
+        private System.Windows.Forms.Label lblBookCottageAddressHead;
+        private System.Windows.Forms.Label lblBookCottageNameHead;
+        private System.Windows.Forms.Label lblBookCottageIdHead;
+        private System.Windows.Forms.Label lblBookCottagePrice;
+        private System.Windows.Forms.Label lblBookCottagePriceHead;
         private System.Windows.Forms.Label lblBookMaxPersons;
-        private System.Windows.Forms.Label lblBookVillageAddress;
-        private System.Windows.Forms.Label lblBookVillageName;
-        private System.Windows.Forms.Label lblBookVillageId;
+        private System.Windows.Forms.Label lblBookCottageAddress;
+        private System.Windows.Forms.Label lblBookCottageName;
+        private System.Windows.Forms.Label lblBookCottageId;
         private System.Windows.Forms.GroupBox gbBookCustomerData;
         private System.Windows.Forms.TextBox tbBookCustomerPhone;
         private System.Windows.Forms.TextBox tbBookCustomerEmail;
@@ -601,7 +633,7 @@
         private System.Windows.Forms.Label lblBookCustomerAddress;
         private System.Windows.Forms.Label lblBookCustomerLastname;
         private System.Windows.Forms.Label lblBookCustomerFirstName;
-        private System.Windows.Forms.Label lblBookReservationDatesHead;
+        private System.Windows.Forms.Label lblBookCottageReservationDatesHead;
         private System.Windows.Forms.Label lblBookBookingDateFrom;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblBookBookingDateTo;
@@ -623,5 +655,8 @@
         private System.Windows.Forms.Button btnBookNext;
         private System.Windows.Forms.Button btnBookPrev;
         private System.Windows.Forms.Label lblCustomerOnSame;
+        private System.Windows.Forms.TextBox tbBookCustomerPostOffice;
+        private System.Windows.Forms.Label lblBookCustomerPostOfficeHead;
+        private System.Windows.Forms.Label lblBookDays;
     }
 }

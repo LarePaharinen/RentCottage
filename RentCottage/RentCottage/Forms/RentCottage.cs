@@ -20,6 +20,8 @@ namespace RentCottage
         public RentCottage()
         {
             InitializeComponent();
+            dtpSearchFROM.Value = DateTime.Now;
+            dtpSearchTO.Value = DateTime.Now;
             cmbListOrder.Text = "VARAUS ID";
         }
 
@@ -291,6 +293,11 @@ namespace RentCottage
                 MessageBox.Show("Majoituksen alkupäivä ei voi olla myöhemmin kun viimeinen majoituspäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (dtpSearchTO.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Majoituksen alkupäivä ei voi olla aiemmin kun tämän hetkinen päivämäärä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ConnectionUtils.openConnection();
             DataTable data = new DataTable();
 
@@ -332,7 +339,7 @@ namespace RentCottage
         {
             if (dgSearchTable.CurrentRow == null)
             {
-                MessageBox.Show("Valitse sopiva mökki", "Mäkki ei ole valittu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Valitse sopiva mökki", "Mökki ei ole valittu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             ConnectionUtils.openConnection();
