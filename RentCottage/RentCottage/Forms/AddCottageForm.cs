@@ -11,18 +11,17 @@ using System.Windows.Forms;
 
 namespace RentCottage.Forms
 {
-    public partial class AddServiceForm : Form
+    public partial class AddCottageForm : Form
     {
-        public AddServiceForm()
+        public AddCottageForm()
         {
             InitializeComponent();
             string query = "SELECT * FROM toimintaalue";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);            
-            cbAddServiceRegion.DataSource = table;
-            cbAddServiceRegion.DisplayMember = "nimi";
+            adapter.Fill(table);
+            cbAddCottageRegion.DataSource = table;
+            cbAddCottageRegion.DisplayMember = "nimi";
         }
-        
     }
 }
