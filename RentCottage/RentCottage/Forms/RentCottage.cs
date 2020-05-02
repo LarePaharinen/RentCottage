@@ -549,5 +549,10 @@ namespace RentCottage
             ASF.ShowDialog();
         }
 
+        private void btnCottageAdd_Click(object sender, EventArgs e)
+        {
+            AddCottageForm ACF = new AddCottageForm();
+            ACF.ShowDialog();
+        }
     }
 }

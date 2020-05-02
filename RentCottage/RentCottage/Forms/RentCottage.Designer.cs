@@ -1045,6 +1045,7 @@
             this.btnCottageAdd.TabIndex = 10;
             this.btnCottageAdd.Text = "Lisää uusi mökki";
             this.btnCottageAdd.UseVisualStyleBackColor = true;
+            this.btnCottageAdd.Click += new System.EventHandler(this.btnCottageAdd_Click);
             // 
             // btnCottageSearch
             // 
