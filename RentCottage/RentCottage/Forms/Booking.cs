@@ -86,6 +86,8 @@ namespace RentCottage
                     btnBookNext.Visible = false;
                     btnBookPrev.Visible = false;
                     lblCustomerOnSame.Visible = false;
+                    tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Bold);
+                    tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
                 }
                 else if(dt.Rows.Count > 1) // If finded more than 1 record
                 {
@@ -95,11 +97,15 @@ namespace RentCottage
                     btnBookNext.Visible = true;
                     btnBookPrev.Visible = true;
                     lblCustomerOnSame.Visible = true;
+                    tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Bold);
+                    tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
                 }
                 else
                 {
                     erase_customer_values();
                     lblBookCustomerExists.Text = "Asiakasta ei löydy, syötä uuden asiakkaan tiedot.";
+                    tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
+                    tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
                 }
                 ConnectionUtils.closeConnection();
             }
@@ -118,6 +124,8 @@ namespace RentCottage
                     btnBookNext.Visible = false;
                     btnBookPrev.Visible = false;
                     lblCustomerOnSame.Visible = false;
+                    tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
+                    tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Bold);
                 }
                 else if (dt.Rows.Count > 1)
                 {
@@ -127,11 +135,15 @@ namespace RentCottage
                     btnBookNext.Visible = true;
                     btnBookPrev.Visible = true;
                     lblCustomerOnSame.Visible = true;
+                    tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
+                    tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Bold);
                 }
                 else
                 {
                     erase_customer_values();
                     lblBookCustomerExists.Text = "Asiakasta ei löydy, syötä uuden asiakkaan tiedot.";
+                    tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
+                    tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
                 }
                 ConnectionUtils.closeConnection();
             }
@@ -139,6 +151,8 @@ namespace RentCottage
             {
                 lblBookCustomerExists.Text = "Hae asiakasta sähköpostilla tai puhelinnumerolla";
                 erase_customer_values();
+                tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
+                tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
             }
         }
 
@@ -155,6 +169,13 @@ namespace RentCottage
             if (customerid != 0) //If customer finded, update it
             {
                 PostUtils.checkPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
+
+                ConnectionUtils.openConnection();
+                MySqlCommand command = new MySqlCommand("SELECT toimipaikka FROM posti WHERE postinro='" +
+                    tbBookCustomerPostnumber.Text + "'", ConnectionUtils.connection);
+                tbBookCustomerPostOffice.Text = command.ExecuteScalar().ToString();
+                ConnectionUtils.closeConnection();
+
                 queryCustomer = "START TRANSACTION; " +
                     "UPDATE asiakas SET etunimi='" + tbBookCustomerName.Text + "', sukunimi='" + tbBookCustomerLastname.Text + "', " +
                     "lahiosoite='" + tbBookCustomerAddress.Text + "', postinro='" + tbBookCustomerPostnumber.Text + "', " +

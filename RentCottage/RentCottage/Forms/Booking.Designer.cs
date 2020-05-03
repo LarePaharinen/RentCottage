@@ -378,6 +378,7 @@
             // tbBookCustomerPhone
             // 
             this.tbBookCustomerPhone.Location = new System.Drawing.Point(387, 22);
+            this.tbBookCustomerPhone.MaxLength = 10;
             this.tbBookCustomerPhone.Name = "tbBookCustomerPhone";
             this.tbBookCustomerPhone.Size = new System.Drawing.Size(148, 20);
             this.tbBookCustomerPhone.TabIndex = 10;
@@ -386,6 +387,7 @@
             // tbBookCustomerPostnumber
             // 
             this.tbBookCustomerPostnumber.Location = new System.Drawing.Point(373, 127);
+            this.tbBookCustomerPostnumber.MaxLength = 5;
             this.tbBookCustomerPostnumber.Name = "tbBookCustomerPostnumber";
             this.tbBookCustomerPostnumber.Size = new System.Drawing.Size(66, 20);
             this.tbBookCustomerPostnumber.TabIndex = 15;

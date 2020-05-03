@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.dgSearchTable = new System.Windows.Forms.DataGridView();
             this.cbSearchAlueKaikki = new System.Windows.Forms.CheckBox();
             this.cbSearchAluet = new System.Windows.Forms.ComboBox();
@@ -157,7 +158,6 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -223,6 +223,15 @@
             this.tSearch.Size = new System.Drawing.Size(1344, 705);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
+            // 
+            // label24
+            // 
+            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label24.Location = new System.Drawing.Point(0, 291);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(371, 2);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "label24";
             // 
             // dgSearchTable
             // 
@@ -421,6 +430,7 @@
             this.dtpSearchFROM.Size = new System.Drawing.Size(102, 20);
             this.dtpSearchFROM.TabIndex = 21;
             this.dtpSearchFROM.Value = new System.DateTime(2020, 5, 3, 0, 0, 0, 0);
+            this.dtpSearchFROM.ValueChanged += new System.EventHandler(this.dtpSearchFROM_ValueChanged);
             // 
             // tRentControl
             // 
@@ -1610,15 +1620,6 @@
             this.labelBillingInvoiceID.Size = new System.Drawing.Size(47, 13);
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
-            // 
-            // label24
-            // 
-            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label24.Location = new System.Drawing.Point(0, 291);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(371, 2);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "label24";
             // 
             // RentCottage
             // 

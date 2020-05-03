@@ -21,7 +21,6 @@ namespace RentCottage
         {
             InitializeComponent();
             dtpSearchFROM.Value = DateTime.Now;
-            dtpSearchTO.Value = DateTime.Now;
             cmbListOrder.Text = "VARAUS ID";
         }
 
@@ -567,6 +566,11 @@ namespace RentCottage
         private void btnRefereshCottages_Click(object sender, EventArgs e)
         {
             PopulateDGVCottage();
+        }
+
+        private void dtpSearchFROM_ValueChanged(object sender, EventArgs e)
+        {
+            dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
         }
     }
 }
