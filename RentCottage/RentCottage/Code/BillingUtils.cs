@@ -92,9 +92,9 @@ namespace RentCottage
             .BillingDate(billingDate)
             .Company(Address.Make("Lähettäjä", senderAddress, "", ""))
             .Client(Address.Make("Vastaanottaja", receiverAddress, "", ""))
-            .TextColor("#CC0000")
-            .BackColor("#FFD6CC")
-            .Image(@"..\..\images\vnLogo.png", 200, 65)
+            .TextColor("#2f612f")
+            .BackColor("#ceffba")
+            .Image(@"..\..\images\vnLogo.png", 140, 70)
             .Items(new List<ItemRow> {
             ItemRow.Make("Kesärinne 14", "Mökin vuokraus", (decimal)unitCount, (decimal)cottageALV, (decimal)unitPrice, (decimal)totalPrice),
             ItemRow.Make("Porotilavierailu", "Palvelu", (decimal)2, 10, (decimal)10, (decimal)20),
