@@ -554,7 +554,19 @@ namespace RentCottage
         {
             AddServiceForm ASF = new AddServiceForm();
             ASF.ShowDialog();
+            PopulateDGVService();
         }
 
+        private void btnCottageAdd_Click(object sender, EventArgs e)
+        {
+            AddCottageForm ACF = new AddCottageForm();
+            ACF.ShowDialog();
+            PopulateDGVCottage();
+        }
+
+        private void btnRefereshCottages_Click(object sender, EventArgs e)
+        {
+            PopulateDGVCottage();
+        }
     }
 }

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,6 +41,8 @@
             this.cbSearchAluet = new System.Windows.Forms.ComboBox();
             this.lblSearchAlue = new System.Windows.Forms.Label();
             this.btmSearchVarata = new System.Windows.Forms.Button();
+            this.cbSearchRajoitukset = new System.Windows.Forms.ComboBox();
+            this.lblSearchRajoitukset = new System.Windows.Forms.Label();
             this.cbSearchVarustelu = new System.Windows.Forms.ComboBox();
             this.lblSearchVarustelu = new System.Windows.Forms.Label();
             this.btnSearchHae = new System.Windows.Forms.Button();
@@ -156,7 +161,7 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.btnRefereshCottages = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -205,6 +210,8 @@
             this.tSearch.Controls.Add(this.cbSearchAluet);
             this.tSearch.Controls.Add(this.lblSearchAlue);
             this.tSearch.Controls.Add(this.btmSearchVarata);
+            this.tSearch.Controls.Add(this.cbSearchRajoitukset);
+            this.tSearch.Controls.Add(this.lblSearchRajoitukset);
             this.tSearch.Controls.Add(this.cbSearchVarustelu);
             this.tSearch.Controls.Add(this.lblSearchVarustelu);
             this.tSearch.Controls.Add(this.btnSearchHae);
@@ -618,37 +625,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(311, 8);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -905,6 +912,7 @@
             // stCottageControl
             // 
             this.stCottageControl.BackColor = System.Drawing.Color.Transparent;
+            this.stCottageControl.Controls.Add(this.btnRefereshCottages);
             this.stCottageControl.Controls.Add(this.cbCottageCapacity);
             this.stCottageControl.Controls.Add(this.cbCottagePostal);
             this.stCottageControl.Controls.Add(this.cbCottageRegions);
@@ -1018,25 +1026,35 @@
             this.btnCottageAdd.TabIndex = 10;
             this.btnCottageAdd.Text = "Lisää uusi mökki";
             this.btnCottageAdd.UseVisualStyleBackColor = true;
+            this.btnCottageAdd.Click += new System.EventHandler(this.btnCottageAdd_Click);
             // 
             // btnCottageSearch
             // 
-            this.btnCottageSearch.Location = new System.Drawing.Point(218, 322);
+            this.btnCottageSearch.Location = new System.Drawing.Point(188, 322);
             this.btnCottageSearch.Name = "btnCottageSearch";
-            this.btnCottageSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnCottageSearch.Size = new System.Drawing.Size(105, 23);
             this.btnCottageSearch.TabIndex = 9;
             this.btnCottageSearch.Text = "Etsi mökki";
             this.btnCottageSearch.UseVisualStyleBackColor = true;
             // 
             // dgvCottage
             // 
+            this.dgvCottage.AllowUserToAddRows = false;
+            this.dgvCottage.AllowUserToDeleteRows = false;
             this.dgvCottage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCottage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCottage.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCottage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCottage.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCottage.Location = new System.Drawing.Point(315, 6);
+            this.dgvCottage.MultiSelect = false;
             this.dgvCottage.Name = "dgvCottage";
+            this.dgvCottage.ReadOnly = true;
+            this.dgvCottage.RowHeadersVisible = false;
             this.dgvCottage.RowHeadersWidth = 51;
+            this.dgvCottage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCottage.Size = new System.Drawing.Size(1013, 665);
             this.dgvCottage.TabIndex = 8;
             // 
@@ -1268,13 +1286,22 @@
             // 
             // dgvService
             // 
+            this.dgvService.AllowUserToAddRows = false;
+            this.dgvService.AllowUserToDeleteRows = false;
             this.dgvService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvService.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvService.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvService.Location = new System.Drawing.Point(319, 9);
+            this.dgvService.MultiSelect = false;
             this.dgvService.Name = "dgvService";
+            this.dgvService.ReadOnly = true;
+            this.dgvService.RowHeadersVisible = false;
             this.dgvService.RowHeadersWidth = 51;
+            this.dgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvService.Size = new System.Drawing.Size(1013, 665);
             this.dgvService.TabIndex = 32;
             // 
@@ -1580,14 +1607,15 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
-            // label24
+            // btnRefereshCottages
             // 
-            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label24.Location = new System.Drawing.Point(0, 297);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(371, 2);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "label24";
+            this.btnRefereshCottages.Location = new System.Drawing.Point(77, 322);
+            this.btnRefereshCottages.Name = "btnRefereshCottages";
+            this.btnRefereshCottages.Size = new System.Drawing.Size(105, 23);
+            this.btnRefereshCottages.TabIndex = 24;
+            this.btnRefereshCottages.Text = "Päivitä näkymä";
+            this.btnRefereshCottages.UseVisualStyleBackColor = true;
+            this.btnRefereshCottages.Click += new System.EventHandler(this.btnRefereshCottages_Click);
             // 
             // RentCottage
             // 
@@ -1757,7 +1785,7 @@
         private System.Windows.Forms.Label lblBillingVarausID;
         private System.Windows.Forms.TextBox txtboxBillingVarausID;
         private System.Windows.Forms.Button btnBillingCreate;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnRefereshCottages;
     }
 }
 

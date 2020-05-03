@@ -73,6 +73,12 @@
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddCottageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCottageForm.Designer.cs">
+      <DependentUpon>AddCottageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>vnDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddCottageForm.resx">
+      <DependentUpon>AddCottageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </EmbeddedResource>

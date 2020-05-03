@@ -88,5 +88,32 @@ namespace RentCottage
                 ConnectionUtils.closeConnection();
             }
         }
+
+        public static int RegionNameToIndex(string region)
+        {
+            int index = 0;
+            try
+            {
+                ConnectionUtils.openConnection();
+                MySqlDataReader reader = null;
+                string query = "SELECT * FROM toimintaalue " +
+                    "WHERE nimi = '" + region + "';";
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    index = reader.GetInt32(0);
+                }
+                reader.Close();
+                ConnectionUtils.closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+            return index;
+        }
+
     }
 }

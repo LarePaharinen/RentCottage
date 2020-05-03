@@ -23,13 +23,6 @@ namespace RentCottage.Forms
             cbAddServiceRegion.DataSource = table;
             cbAddServiceRegion.DisplayMember = "nimi";
         }
-
-        /*
-         string query = "SELECT * FROM toimintaalue";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            dgvRegion.DataSource = table;
-         */
+        
     }
 }
