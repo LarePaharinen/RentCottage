@@ -49,7 +49,7 @@ namespace RentCottage
                     "JOIN posti p ON a.postinro = p.postinro " +
                     "WHERE l.lasku_id = " + lasku_id + ";";
             cmd = new MySqlCommand(query, ConnectionUtils.connection);
-            string customerPostal = cmd.ExecuteScalar().ToString();
+            string customerPostal = cmd.ExecuteScalar().ToString().ToUpper();
 
             //varaus_id for calculating the price later
             query = "SELECT varaus_id " +
