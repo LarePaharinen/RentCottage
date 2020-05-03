@@ -369,7 +369,7 @@ namespace RentCottage
                 ConnectionUtils.openConnection();
                 string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
                                 " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
-                                "a.email AS 'Sähköposti', CAST(addtime(v.varattu_loppupvm, '14 0:0:0') AS CHAR(10)) AS 'Eräpäivä', " +
+                                "a.email AS 'Sähköposti', " +
                                 "l.summa as 'Summa (€)', l.maksettu AS 'maksu suoritettu' " +
                                 "FROM lasku l " +
                                 "JOIN varaus v ON l.varaus_id = v.varaus_id " +
@@ -448,7 +448,6 @@ namespace RentCottage
                     MessageBox.Show(ex.Message);
                     //MessageBox.Show("PDF:n muodostaminen epäonnistui. Onko aiempi lasku vielä auki?", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
         }
 

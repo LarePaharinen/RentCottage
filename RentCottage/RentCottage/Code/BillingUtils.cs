@@ -16,11 +16,12 @@ namespace RentCottage
     {
         public static string lastQuery;
 
+        //Creates invoice.pdf file with reservation details, saves it and opens it
         public static void createPdfDocument(int lasku_id)
         {
-            string fileSaveLocation = Path.Combine("C:\\temp\\invoice.pdf");
-
             ConnectionUtils.openConnection();
+
+            string fileSaveLocation = Path.GetDirectoryName(Application.ExecutablePath) + "\\invoice.pdf"; //Next to .exe file
 
             //Customer name
             string query = "SELECT CONCAT(a.etunimi, ' ', a.sukunimi) AS nimi " +  
@@ -28,10 +29,8 @@ namespace RentCottage
                 "JOIN varaus v ON l.varaus_id = v.varaus_id " +
                 "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
                 "WHERE l.lasku_id = " + lasku_id + ";";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            string customerName = table.Rows[0].Field<string>("nimi");
+            MySqlCommand cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            string customerName = cmd.ExecuteScalar().ToString();
 
             //Customer address
             query = "SELECT a.lahiosoite " +                                        
@@ -39,10 +38,8 @@ namespace RentCottage
                     "JOIN varaus v ON l.varaus_id = v.varaus_id " +
                     "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
                     "WHERE l.lasku_id = " + lasku_id + ";";
-            table = new DataTable();
-            adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            string customerAddress = table.Rows[0].Field<string>("lahiosoite");
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            string customerAddress = cmd.ExecuteScalar().ToString();
 
             //Customer zip code
             query = "SELECT CONCAT(a.postinro, ' ', p.toimipaikka) AS posti " +
@@ -51,41 +48,26 @@ namespace RentCottage
                     "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
                     "JOIN posti p ON a.postinro = p.postinro " +
                     "WHERE l.lasku_id = " + lasku_id + ";";
-            table = new DataTable();
-            adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            string customerPostal = table.Rows[0].Field<string>("posti");
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            string customerPostal = cmd.ExecuteScalar().ToString();
 
-            //Reservation cottage rental price per night
-            query = "SELECT m.hinta AS hinta " +
-                    "FROM lasku l " +
-                    "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-                    "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
-                    "WHERE l.lasku_id = " + lasku_id + ";";
-            table = new DataTable();
-            adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            double unitPrice = table.Rows[0].Field<double>("hinta");
-
-            ////Reservation nights stayed
-            //query = "SELECT DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm) AS nights " +
-            //        "FROM lasku l " +
-            //        "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-            //        "WHERE l.lasku_id = " + lasku_id + ";";
-            //table = new DataTable();
-            //adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            //adapter.Fill(table);
-            //double unitCount = table.Rows[0].Field<double>("nights");
-            double unitCount = 2;
-
-            ConnectionUtils.closeConnection();
+            //varaus_id for calculating the price later
+            query = "SELECT varaus_id " +
+                    "FROM lasku " +
+                    "WHERE lasku_id = " + lasku_id + ";";
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            int varaus_id = Convert.ToInt32(cmd.ExecuteScalar());
 
             DateTime billingDate = DateTime.Now;
             string dueDate = DateTime.Now.AddDays(14).ToShortDateString();
             string[] senderAddress = { "Village Newbies Oy", "Siilokatu 1", "90700 OULU" };
             string[] receiverAddress = { customerName, customerAddress, customerPostal};
-            double cottageALV = 10.00;
-            double totalPrice = (unitPrice * unitCount);
+            List<ItemRow> itemsList = generateItemsList(lasku_id);
+            double totalPrice = calculatePriceTotalSum(varaus_id);
+            string totalPriceString = String.Format("{0:0.00}", totalPrice);
+            double AlvPercentage = 10.00;
+            double AlvPortionAmount = totalPrice * (AlvPercentage / 100);
+            double subTotal = totalPrice - AlvPortionAmount;
 
             new InvoicerApi(SizeOption.A4, OrientationOption.Portrait, "€")
             .Reference(lasku_id.ToString())
@@ -93,17 +75,13 @@ namespace RentCottage
             .Company(Address.Make("Lähettäjä", senderAddress, "", ""))
             .Client(Address.Make("Vastaanottaja", receiverAddress, "", ""))
             .TextColor("#2E5902")
-            .BackColor("#d3f58c")
+            .BackColor("#e7fecf")
             .Image(@"..\..\images\vnLogo.png", 175, 60)
-            .Items(new List<ItemRow> {
-            ItemRow.Make("Kesärinne 14", "Mökin vuokraus", (decimal)unitCount, (decimal)cottageALV, (decimal)unitPrice, (decimal)totalPrice),
-            ItemRow.Make("Porotilavierailu", "Palvelu", (decimal)2, 10, (decimal)10, (decimal)20),
-            ItemRow.Make("Kelkka-ajelu", "Palvelu", (decimal)2, 10, (decimal)20, (decimal)40)
-            })
+            .Items(itemsList)
             .Totals(new List<TotalRow> {
-            TotalRow.Make("Välisumma", (decimal)526.66),
-            TotalRow.Make("ALV 10%", (decimal)105.33),
-            TotalRow.Make("Kokonaishinta", (decimal)631.99, true),
+            TotalRow.Make("Välisumma", (decimal)subTotal),
+            TotalRow.Make("ALV 10%", (decimal)AlvPortionAmount),
+            TotalRow.Make("Kokonaishinta", (decimal)totalPrice, true),
             })
             .Details(new List<DetailRow> {
             DetailRow.Make("MAKSUTIEDOT",   "SAAJAN TILINUMERO", "FI12345678910",
@@ -111,12 +89,118 @@ namespace RentCottage
                                             "SAAJA", "VILLAGE NEWBIES OY",
                                             "VIITENUMERO", "123456789",
                                             "ERÄPÄIVÄ", dueDate,
-                                            "EURO", "10,34")
+                                            "EURO", totalPriceString)
             })
             .Footer("http://www.villagenewbies.fi")
             .Save(fileSaveLocation);
 
             System.Diagnostics.Process.Start(fileSaveLocation);
+
+            ConnectionUtils.closeConnection();
+        }
+
+        //Returns a list containing names and prices of all reservation cottages and additional services
+        private static List<ItemRow> generateItemsList(int lasku_id)
+        {
+            //Cottage name
+            string query =  "SELECT m.mokkinimi " +
+                            "FROM lasku l " +
+                            "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                            "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
+                            "WHERE l.lasku_id = " + lasku_id + ";";
+            MySqlCommand cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            string cottageName = cmd.ExecuteScalar().ToString();
+
+            //Cottage price per night
+            query = "SELECT m.hinta AS hinta " +
+                    "FROM lasku l " +
+                    "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                    "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
+                    "WHERE l.lasku_id = " + lasku_id + ";";
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            double cottagePriceForNight = Convert.ToDouble(cmd.ExecuteScalar());
+
+            //Nights stayed
+            query = "SELECT DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm) AS nights " +
+                    "FROM lasku l " +
+                    "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                    "WHERE l.lasku_id = " + lasku_id + ";";
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            double nightsStayed = Convert.ToDouble(cmd.ExecuteScalar());
+
+            double cottageTotalPrice = (cottagePriceForNight * nightsStayed);
+            double cottageALV = 10.00;
+
+            List<ItemRow> itemList = new List<ItemRow>();
+            ItemRow cottage = ItemRow.Make(cottageName, "Mökin vuokraus", (decimal)nightsStayed, (decimal)cottageALV, (decimal)cottagePriceForNight, (decimal)cottageTotalPrice);
+            itemList.Add(cottage);
+
+            //Additional services:
+
+            //varaus_id
+            query = "SELECT varaus_id " +
+                    "FROM lasku " +
+                    "WHERE lasku_id = " + lasku_id + ";";
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            int varaus_id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            //Number of services
+            query = "SELECT COUNT(*) " +
+                            "FROM varauksen_palvelut " +
+                            "WHERE varaus_id = " + varaus_id + ";";
+            cmd = new MySqlCommand(query, ConnectionUtils.connection);
+            int numberOfServices = Convert.ToInt32(cmd.ExecuteScalar());
+
+            //Add all services to the itemList
+            for (int i = 0; i < numberOfServices; i++)
+            {
+                //Name of the service
+                query = "SELECT p.nimi AS nimi " +
+                    "FROM palvelu p " +
+                    "JOIN varauksen_palvelut vp ON vp.palvelu_id = p.palvelu_id " +
+                    "WHERE varaus_id = " + varaus_id +";";
+                DataTable table = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                adapter.Fill(table);
+                string serviceName = table.Rows[i].Field<string>("nimi");
+
+                //Unit price of service
+                query = "SELECT p.hinta AS price " +
+                        "FROM palvelu p " +
+                        "JOIN varauksen_palvelut vp ON vp.palvelu_id = p.palvelu_id " +
+                        "WHERE varaus_id = " + varaus_id + ";";
+                table = new DataTable();
+                adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                adapter.Fill(table);
+                double serviceUnitPrice = table.Rows[i].Field<double>("price");
+
+                //number of orders of service
+                query = "SELECT vp.lkm as unitAmount " +
+                        "FROM palvelu p " +
+                        "JOIN varauksen_palvelut vp ON vp.palvelu_id = p.palvelu_id " +
+                        "WHERE varaus_id = " + varaus_id + ";";
+                table = new DataTable();
+                adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                adapter.Fill(table);
+                int serviceUnitAmount = table.Rows[i].Field<int>("unitAmount");
+
+                //ALV for service
+                query = "SELECT p.alv AS serviceALV " +
+                        "FROM palvelu p " +
+                        "JOIN varauksen_palvelut vp ON vp.palvelu_id = p.palvelu_id " +
+                        "WHERE varaus_id = " + varaus_id + ";";
+                table = new DataTable();
+                adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                adapter.Fill(table);
+                double serviceALV = table.Rows[i].Field<double>("serviceALV");
+
+                double serviceTotalPrice = (serviceUnitPrice * serviceUnitAmount);
+
+                ItemRow service = ItemRow.Make(serviceName, "Palvelu", (decimal)serviceUnitAmount, (decimal)serviceALV, (decimal)serviceUnitPrice, (decimal)serviceTotalPrice);
+                itemList.Add(service);
+            }
+
+            return itemList;
         }
 
         public static void refreshDataGridView(DataGridView dgvBilling)
@@ -132,11 +216,10 @@ namespace RentCottage
         //Creates a bill for a reservation
         public static void createInvoice(int varaus_id)
         {
-            //Let's dig up all the information needed to create the bill
+            ConnectionUtils.openConnection();
             double summa = calculatePriceTotalSum(varaus_id);
             double alv = 10;
             string maksettu = "false";
-            ConnectionUtils.openConnection();
             string query = "START TRANSACTION; " +
                             "INSERT INTO lasku(varaus_id, summa, alv, maksettu) " +
                             "VALUES(" + varaus_id + ", " + summa + ", " + alv + ", " + maksettu + "); " +
@@ -156,19 +239,18 @@ namespace RentCottage
                             "FROM varauksen_palvelut " +
                             "WHERE varaus_id = " + varaus_id + ";";
             MySqlCommand cmd = new MySqlCommand(query, ConnectionUtils.connection);
-            Int32 dataRows = Convert.ToInt32(cmd.ExecuteScalar());
+            int dataRows = Convert.ToInt32(cmd.ExecuteScalar());
 
             double summa = 0;
+
             if (dataRows == 0) //No data -> No services found -> Calculate only cottage rental
             {
                 query = "SELECT (m.hinta * DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm)) AS summa " +
                         "FROM varaus v " +
                         "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
                         "WHERE v.varaus_id = " + varaus_id + ";";
-                DataTable table = new DataTable();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-                adapter.Fill(table);
-                summa = table.Rows[0].Field<double>("summa");
+                cmd = new MySqlCommand(query, ConnectionUtils.connection);
+                summa = Convert.ToInt32(cmd.ExecuteScalar());
             }
 
             else //Data found -> Let's calculate the services also
@@ -179,13 +261,10 @@ namespace RentCottage
                         "JOIN varauksen_palvelut vp ON v.varaus_id = vp.varaus_id " +
                         "JOIN palvelu p ON vp.palvelu_id = p.palvelu_id " +
                         "WHERE v.varaus_id = " + varaus_id + ";";
-                DataTable table = new DataTable();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-                adapter.Fill(table);
-                summa = table.Rows[0].Field<double>("summa");
+                cmd = new MySqlCommand(query, ConnectionUtils.connection);
+                summa = Convert.ToInt32(cmd.ExecuteScalar());
             }
 
-            ConnectionUtils.closeConnection();
             return summa;
         }
 
