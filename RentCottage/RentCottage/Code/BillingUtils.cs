@@ -94,7 +94,7 @@ namespace RentCottage
             .Client(Address.Make("Vastaanottaja", receiverAddress, "", ""))
             .TextColor("#2f612f")
             .BackColor("#ceffba")
-            .Image(@"..\..\images\vnLogo2.png", 140, 70)
+            .Image(@"..\..\images\vnLogo.png", 140, 70)
             .Items(new List<ItemRow> {
             ItemRow.Make("Kesärinne 14", "Mökin vuokraus", (decimal)unitCount, (decimal)cottageALV, (decimal)unitPrice, (decimal)totalPrice),
             ItemRow.Make("Porotilavierailu", "Palvelu", (decimal)2, 10, (decimal)10, (decimal)20),
