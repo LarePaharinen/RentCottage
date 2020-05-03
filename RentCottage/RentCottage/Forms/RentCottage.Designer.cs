@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.cbSearchAlueKaikki = new System.Windows.Forms.CheckBox();
             this.cbSearchAluet = new System.Windows.Forms.ComboBox();
             this.lblSearchAlue = new System.Windows.Forms.Label();
-            this.btmSearchVarata = new System.Windows.Forms.Button();
+            this.btnSearchVarata = new System.Windows.Forms.Button();
             this.cbSearchVarustelu = new System.Windows.Forms.ComboBox();
             this.lblSearchVarustelu = new System.Windows.Forms.Label();
             this.btnSearchHae = new System.Windows.Forms.Button();
@@ -205,7 +205,7 @@
             this.tSearch.Controls.Add(this.cbSearchAlueKaikki);
             this.tSearch.Controls.Add(this.cbSearchAluet);
             this.tSearch.Controls.Add(this.lblSearchAlue);
-            this.tSearch.Controls.Add(this.btmSearchVarata);
+            this.tSearch.Controls.Add(this.btnSearchVarata);
             this.tSearch.Controls.Add(this.cbSearchVarustelu);
             this.tSearch.Controls.Add(this.lblSearchVarustelu);
             this.tSearch.Controls.Add(this.btnSearchHae);
@@ -252,6 +252,7 @@
             this.dgSearchTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgSearchTable.Size = new System.Drawing.Size(967, 690);
             this.dgSearchTable.TabIndex = 42;
+            this.dgSearchTable.SelectionChanged += new System.EventHandler(this.dgSearchTable_SelectionChanged);
             // 
             // cbSearchAlueKaikki
             // 
@@ -286,17 +287,18 @@
             this.lblSearchAlue.TabIndex = 39;
             this.lblSearchAlue.Text = "Alue";
             // 
-            // btmSearchVarata
+            // btnSearchVarata
             // 
-            this.btmSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btmSearchVarata.Location = new System.Drawing.Point(231, 320);
-            this.btmSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btmSearchVarata.Name = "btmSearchVarata";
-            this.btmSearchVarata.Size = new System.Drawing.Size(121, 131);
-            this.btmSearchVarata.TabIndex = 37;
-            this.btmSearchVarata.Text = "Varata";
-            this.btmSearchVarata.UseVisualStyleBackColor = true;
-            this.btmSearchVarata.Click += new System.EventHandler(this.btmSearchVarata_Click);
+            this.btnSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSearchVarata.Enabled = false;
+            this.btnSearchVarata.Location = new System.Drawing.Point(231, 320);
+            this.btnSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearchVarata.Name = "btnSearchVarata";
+            this.btnSearchVarata.Size = new System.Drawing.Size(121, 131);
+            this.btnSearchVarata.TabIndex = 37;
+            this.btnSearchVarata.Text = "Varata";
+            this.btnSearchVarata.UseVisualStyleBackColor = true;
+            this.btnSearchVarata.Click += new System.EventHandler(this.btmSearchVarata_Click);
             // 
             // cbSearchVarustelu
             // 
@@ -629,37 +631,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(311, 8);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1785,7 +1787,7 @@
         private System.Windows.Forms.Button btnBillingPaid;
         private System.Windows.Forms.Button btnBillingDelete;
         private System.Windows.Forms.Button btnBillingNotPaid;
-        private System.Windows.Forms.Button btmSearchVarata;
+        private System.Windows.Forms.Button btnSearchVarata;
         private System.Windows.Forms.Label lblBillingVarausID;
         private System.Windows.Forms.TextBox txtboxBillingVarausID;
         private System.Windows.Forms.Button btnBillingCreate;

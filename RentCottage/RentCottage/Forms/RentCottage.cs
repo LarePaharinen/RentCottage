@@ -258,9 +258,9 @@ namespace RentCottage
             MCF.ShowDialog();
         }
         //Search
-        private void Search_alue_Combobox_update()
+        private void Search_alue_Combobox_update() // Fill regions to combobox
         {
-            string selectQuery = "SELECT * FROM toimintaalue";
+            string selectQuery = "SELECT * FROM toimintaalue"; 
             ConnectionUtils.openConnection();
             MySqlCommand command = new MySqlCommand(selectQuery, ConnectionUtils.connection);
             MySqlDataReader reader = command.ExecuteReader();
@@ -297,18 +297,19 @@ namespace RentCottage
                 MessageBox.Show("Majoituksen alkupäivä ei voi olla aiemmin kun tämän hetkinen päivämäärä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            ConnectionUtils.openConnection();
+
             DataTable data = new DataTable();
 
             string query = "SELECT m.mokki_id, t.nimi as toimintaalue, m.postinro, m.mokkinimi, m.katuosoite, m.kuvaus, m.henkilomaara, m.hinta " +
                 "FROM mokki m INNER JOIN toimintaalue t " +
                 "ON m.toimintaalue_id = t.toimintaalue_id ";
-            string alue_id = null;
 
-            if (cbSearchAlueKaikki.Checked == false)
+            if (cbSearchAlueKaikki.Checked == false) // Get alue_id
             {
+                ConnectionUtils.openConnection();
                 MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", ConnectionUtils.connection);
-                alue_id = command.ExecuteScalar().ToString();
+                string alue_id = command.ExecuteScalar().ToString();
+                ConnectionUtils.closeConnection();
                 query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
             }
             if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true)
@@ -325,28 +326,46 @@ namespace RentCottage
                     query += "WHERE ";
                 query += "m.henkilomaara >= '" + nudSearchMaxhlo.Value + "' ";
             }
-            query += "AND m.mokki_id not IN " +
+            query += "AND m.mokki_id not IN " + // Check is cottage free on dates
                      "(SELECT mokki_mokki_id FROM varaus v " +
-                     "WHERE '" + dtpSearchFROM.Text + "%' <= v.varattu_loppupvm and '" + dtpSearchTO.Text + "%' >= v.varattu_alkupvm)";
+                     "WHERE '" + dtpSearchFROM.Text + " 16:00:00' <= v.varattu_loppupvm and '" + dtpSearchTO.Text + " 12:00:00' >= v.varattu_alkupvm)";
             MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            sda.Fill(data);
-            dgSearchTable.DataSource = data;
-            ConnectionUtils.closeConnection();
+            try
+            {
+                ConnectionUtils.openConnection();
+                sda.Fill(data);
+                dgSearchTable.DataSource = data;
+                ConnectionUtils.closeConnection();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Virhe, yritä uudelleen", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btmSearchVarata_Click(object sender, EventArgs e)
         {
-            if (dgSearchTable.CurrentRow == null)
+            ConnectionUtils.openConnection(); // Check is cottage free on addet times again
+            MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +
+                "WHERE mokki_id = " + Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value).ToString() + " " +
+                "AND mokki_id IN " +
+                "(SELECT mokki_mokki_id FROM varaus v WHERE '" +
+                dtpSearchFROM.Text + " 16:00:00' < v.varattu_loppupvm AND '" + dtpSearchTO.Text + " 12:00:00' > v.varattu_alkupvm);", ConnectionUtils.connection);
+            MySqlDataReader reader = msc.ExecuteReader();
+            
+            if (reader.HasRows)
             {
-                MessageBox.Show("Valitse sopiva mökki", "Mökki ei ole valittu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Valitsemasi mökki on varattu annetuna ajalla, suorita haku uudestaan", "Mökki varattu annetuna ajalla", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ConnectionUtils.closeConnection();
+                btnSearchHae_Click(sender, e);
                 return;
             }
+            ConnectionUtils.closeConnection();
+
             ConnectionUtils.openConnection();
-            //SELECT 0m.mokki_id, 1t.nimi as toimintaalue, 2m.postinro, 3m.mokkinimi, 4m.katuosoite, 5m.kuvaus, 6m.henkilomaara, 7m.hinta 
-            //(int 0cottageID, 1int regionID, 2string postal, 3string name, 4string address, 5string description, 6int capacity, 7double price
             MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + dgSearchTable.CurrentRow.Cells[1].Value.ToString() + "'", ConnectionUtils.connection);
             int toimintaalueid = Convert.ToInt32(command.ExecuteScalar().ToString());
-
+            // Make object to send on Booking window
             Cottage cottage = new Cottage(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), toimintaalueid,
                 dgSearchTable.CurrentRow.Cells[2].Value.ToString(), dgSearchTable.CurrentRow.Cells[3].Value.ToString(),
                 dgSearchTable.CurrentRow.Cells[4].Value.ToString(), dgSearchTable.CurrentRow.Cells[5].Value.ToString(),
@@ -355,7 +374,24 @@ namespace RentCottage
             NewBook newbook = new NewBook(cottage, dtpSearchFROM.Value.Date, dtpSearchTO.Value.Date);
             Booking booking = new Booking(newbook);
             booking.ShowDialog();
+        }
 
+        private void dtpSearchFROM_ValueChanged(object sender, EventArgs e)
+        {
+            dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
+        }
+
+        private void dgSearchTable_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int mokki_id = Convert.ToInt32(dgSearchTable.SelectedCells[0].Value);
+                btnSearchVarata.Enabled = true;
+            }
+            catch
+            {
+                btnSearchVarata.Enabled = false;
+            }
         }
 
         //All button events occurring on the "Laskut" tab.
@@ -568,9 +604,5 @@ namespace RentCottage
             PopulateDGVCottage();
         }
 
-        private void dtpSearchFROM_ValueChanged(object sender, EventArgs e)
-        {
-            dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
-        }
     }
 }
