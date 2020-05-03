@@ -44,8 +44,8 @@ namespace RentCottage
             lblBookCottagePrice.Text = b.Cottage.Price.ToString() + " €/yö";
             lblBookBookingDateFrom.Text = b.Alkupv.ToString("yyyy-MM-dd");
             lblBookBookingDateTo.Text = b.Loppupv.ToString("yyyy-MM-dd");
-            cottagepriodprice = b.Cottage.Price * ((b.Loppupv - b.Alkupv).TotalDays + 1);
-            lblBookDays.Text = "(" + ((b.Loppupv - b.Alkupv).TotalDays + 1).ToString() + " pv)";
+            cottagepriodprice = b.Cottage.Price * ((b.Loppupv - b.Alkupv).TotalDays);
+            lblBookDays.Text = "(" + ((b.Loppupv - b.Alkupv).TotalDays).ToString() + " pv)";
             lblBookSeasonPrice.Text = cottagepriodprice.ToString() + " €";
             lblBookPriceFull.Text = cottagepriodprice.ToString() + " €";
 

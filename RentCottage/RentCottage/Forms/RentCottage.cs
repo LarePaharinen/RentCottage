@@ -288,9 +288,9 @@ namespace RentCottage
 
         private void btnSearchHae_Click(object sender, EventArgs e)
         {
-            if (dtpSearchTO.Value.Date < dtpSearchFROM.Value.Date) //Check date
+            if (dtpSearchTO.Value.Date <= dtpSearchFROM.Value.Date) //Check date
             {
-                MessageBox.Show("Majoituksen alkupäivä ei voi olla myöhemmin kun viimeinen majoituspäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Majoituksen alkupäivä ei voi olla sama tai myöhemmin kun viimeinen majoituspäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (dtpSearchTO.Value.Date < DateTime.Now.Date)
