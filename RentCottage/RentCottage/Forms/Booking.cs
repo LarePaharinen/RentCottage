@@ -14,11 +14,12 @@ namespace RentCottage
 {
     public partial class Booking : Form
     {
-        int customerid;
-        double serviceprice;
-        double cottagepriodprice;
-        DataTable dt = new DataTable();
-        int currentcustomer;
+        private int customerid;
+        private double serviceprice;
+        private double cottagepriodprice;
+        private DataTable dt = new DataTable();
+        private int currentcustomer;
+        private int varausid;
 
         public Booking()
         {
@@ -34,8 +35,8 @@ namespace RentCottage
                 b.Cottage.RegionID.ToString() + "'", ConnectionUtils.connection);
             string region = command.ExecuteScalar().ToString();
             ConnectionUtils.closeConnection();
-
-            lblBookCottageId.Text = b.Cottage.CottageID.ToString();
+            // Fill cottage data and book date
+            lblBookCottageId.Text = b.Cottage.CottageID.ToString(); 
             lblBookCottageName.Text = b.Cottage.Name.ToString();
             lblBookCottageAddress.Text = b.Cottage.Address.ToString() + ", " + b.Cottage.Postal.ToString();
             lblBookAlue.Text = region;
@@ -43,8 +44,8 @@ namespace RentCottage
             lblBookCottagePrice.Text = b.Cottage.Price.ToString() + " €/yö";
             lblBookBookingDateFrom.Text = b.Alkupv.ToString("yyyy-MM-dd");
             lblBookBookingDateTo.Text = b.Loppupv.ToString("yyyy-MM-dd");
-            cottagepriodprice = b.Cottage.Price * ((b.Loppupv - b.Alkupv).TotalDays + 1);
-            lblBookDays.Text = "(" + ((b.Loppupv - b.Alkupv).TotalDays + 1).ToString() + " pv)";
+            cottagepriodprice = b.Cottage.Price * ((b.Loppupv - b.Alkupv).TotalDays);
+            lblBookDays.Text = "(" + ((b.Loppupv - b.Alkupv).TotalDays).ToString() + " pv)";
             lblBookSeasonPrice.Text = cottagepriodprice.ToString() + " €";
             lblBookPriceFull.Text = cottagepriodprice.ToString() + " €";
 
@@ -52,32 +53,33 @@ namespace RentCottage
                 "hinta as 'hinta/kpl', 0 as 'kpl' FROM palvelu WHERE toimintaalue_id LIKE '" + b.Cottage.RegionID + "'", ConnectionUtils.connection);
             DataTable data = new DataTable();
             sda.Fill(data);
+
             dgvBookServices.DataSource = data;
             dgvBookServices.Columns[0].Width = 26;
             dgvBookServices.Columns[1].Width = 200;
             dgvBookServices.Columns[2].Width = 320;
             dgvBookServices.Columns[3].Width = 57;
             dgvBookServices.Columns[4].Width = 30;
-            foreach (DataGridViewColumn dgvc in dgvBookServices.Columns)
+            foreach (DataGridViewColumn dgvc in dgvBookServices.Columns) // Make all rows non editable
             {
-                dgvc.ReadOnly = true;
+                dgvc.ReadOnly = true; 
                 dgvBookServices.Columns[4].DefaultCellStyle.BackColor = Color.PaleGreen;
             }
-            dgvBookServices.Columns[4].ReadOnly = false;
+            dgvBookServices.Columns[4].ReadOnly = false; // Make editable only "kpl" row
         }
 
         private void btnBookSearch_Click(object sender, EventArgs e)
         {
             dt.Clear();
             currentcustomer = 0;
-            if (tbBookCustomerEmail.Text != "") // Search customer on email
+            if (tbBookCustomerEmail.Text != "") // Search by customer on email
             {
                 ConnectionUtils.openConnection();
                 MySqlCommand ckech_is_user_exists = new MySqlCommand("SELECT * FROM asiakas WHERE email like '" + 
                     tbBookCustomerEmail.Text + "'", ConnectionUtils.connection);
                 MySqlDataReader reader = ckech_is_user_exists.ExecuteReader();
                 dt.Load(reader);
-                if (dt.Rows.Count > 0 && dt.Rows.Count < 2)
+                if (dt.Rows.Count == 1) // Fill data if finded one record
                 {
                     fill_customer_values();
                     lblBookCustomerExists.Text = "Sähköpostilla löydetty 1 asiakas";
@@ -85,7 +87,7 @@ namespace RentCottage
                     btnBookPrev.Visible = false;
                     lblCustomerOnSame.Visible = false;
                 }
-                else if(dt.Rows.Count > 1)
+                else if(dt.Rows.Count > 1) // If finded more than 1 record
                 {
                     lblBookCustomerExists.Text = "Sähköpostiosoitella löytyy " + dt.Rows.Count.ToString() + " asiakasta";
                     fill_customer_values();
@@ -101,7 +103,7 @@ namespace RentCottage
                 }
                 ConnectionUtils.closeConnection();
             }
-            else if(tbBookCustomerPhone.Text != "") //Search customer on phonenumber
+            else if(tbBookCustomerPhone.Text != "") //Search by customer phonenumber
             {
                 ConnectionUtils.openConnection();
                 MySqlCommand ckech_is_user_exists = new MySqlCommand("SELECT * FROM asiakas WHERE puhelinnro like '" + 
@@ -140,17 +142,17 @@ namespace RentCottage
             }
         }
 
-        private void btnBookAddResirvation_Click(object sender, EventArgs e)
+        private void btnBookAddResirvation_Click(object sender, EventArgs e) // new book adding
         {
             if(tbBookCustomerEmail.Text == "" || tbBookCustomerPhone.Text == "" ||  tbBookCustomerName.Text == "" || 
                 tbBookCustomerLastname.Text == "" || tbBookCustomerPostnumber.Text == "" || tbBookCustomerPostOffice.Text == "" ||
                 tbBookCustomerAddress.Text == "")
             {
-                MessageBox.Show("Kaikki asiakas tiedot pitäisi olla täyetty.", "Tiedot puuttuu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Kaikki asiakastiedot pitäisi olla täyetty.", "Tiedot puuttuu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // If some customer data not specified, cancel action
             }
             string queryCustomer, services = "\n\nLisäpalvelut:\n";
-            if (customerid != 0)
+            if (customerid != 0) //If customer finded, update it
             {
                 PostUtils.checkPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
                 queryCustomer = "START TRANSACTION; " +
@@ -160,7 +162,7 @@ namespace RentCottage
                     "WHERE asiakas_id='" + customerid + "'; " +
                     "COMMIT;";
             }
-            else 
+            else // if customer not finded, add new
             {
                 PostUtils.checkPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
                 queryCustomer = "START TRANSACTION; " +
@@ -170,15 +172,15 @@ namespace RentCottage
                 "','" + tbBookCustomerEmail.Text + "','" + tbBookCustomerPhone.Text + "'); " +
                 "COMMIT;";
             }
-            foreach (DataGridViewRow row in dgvBookServices.Rows)
+            foreach (DataGridViewRow row in dgvBookServices.Rows) // Get services
             {
                 if (Convert.ToInt32(row.Cells["kpl"].Value) != 0)
                 {
                     services += row.Cells["nimi"].Value.ToString() + " - " + row.Cells["kpl"].Value.ToString() + "kpl\n";
                 }
             }
-            if (services == "\n\nLisäpalvelut:\n")
-                services += "";
+            if (services == "\n\nLisäpalvelut:\n") // If all services are 0, erase services
+                services = "";
 
             DialogResult res = MessageBox.Show("\t\tYhteenveto \n\nMökki tiedot:" +
                 "\nAlue: \t\t" + lblBookAlue.Text + 
@@ -191,40 +193,51 @@ namespace RentCottage
                 "\nPuhelinnumero: \t" + tbBookCustomerPhone.Text + 
                 services + 
                 "\n\nSumma yhteensä: " + lblBookPriceFull.Text, "Yhteenveto", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
             if (res == DialogResult.OK)
             {
                 try
                 {
                     ConnectionUtils.openConnection();
                     MySqlCommand command1 = new MySqlCommand(queryCustomer, ConnectionUtils.connection);
-                    command1.ExecuteNonQuery();
+                    command1.ExecuteNonQuery(); // 1. add/update customer
                     string queryBook = makeQueryBook();
 
                     ConnectionUtils.openConnection();
                     MySqlCommand command2 = new MySqlCommand(queryBook, ConnectionUtils.connection);
-                    command2.ExecuteNonQuery();
+                    command2.ExecuteNonQuery(); // 2. get added/updated customer ID and make book
                     ConnectionUtils.closeConnection();
 
-                    string queryServices = makeQueryServices();
                     ConnectionUtils.openConnection();
-                    MySqlCommand command3 = new MySqlCommand(queryServices, ConnectionUtils.connection);
-                    command3.ExecuteNonQuery();
+                    MySqlCommand command = new MySqlCommand("SELECT varaus_id FROM varaus WHERE asiakas_id LIKE '" +
+                        customerid + "' AND mokki_mokki_id LIKE '" + lblBookCottageId.Text + "' AND varattu_alkupvm LIKE '" +
+                        lblBookBookingDateFrom.Text + "%' AND varattu_loppupvm LIKE '" + lblBookBookingDateTo.Text + "%' ", ConnectionUtils.connection);
+                    varausid = Convert.ToInt32(command.ExecuteScalar()); // get added book ID
                     ConnectionUtils.closeConnection();
-                    this.Close();
-                    MessageBox.Show("Varaus lisätty.", "Prosessi onnistui", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                    if (services != "")
+                    {
+                        string queryServices = makeQueryServices();
+                        ConnectionUtils.openConnection();
+                        MySqlCommand command3 = new MySqlCommand(queryServices, ConnectionUtils.connection);
+                        command3.ExecuteNonQuery(); // 3. get added book ID and add services to data table
+                        ConnectionUtils.closeConnection();
+                        this.Close();
+                    }
+                    BillingUtils.createInvoice(varausid); // Make new billing
+                    MessageBox.Show("Varaus lisätty. Uusi lasku lisätty järjestelmään. Varaus id: " + varausid, "Prosessi onnistui", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Tapahtunut virhe, yritä uudelleen: \n" + ex, "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tapahtunut virhe, yritä uudelleen. Virhe: \n\n\n" + ex, "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (res == DialogResult.Cancel) { }
         }
 
-        private string makeQueryBook()
+        private string makeQueryBook() 
         {
-            if (customerid == 0)
+            if (customerid == 0) // If created new customer, get added cutomer_id
             {
                 ConnectionUtils.openConnection();
                 MySqlCommand command = new MySqlCommand("SELECT asiakas_id FROM asiakas WHERE etunimi LIKE '" +
@@ -238,26 +251,20 @@ namespace RentCottage
                 "INSERT INTO varaus(asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) " +
                 "VALUES('" + customerid + "', '" + lblBookCottageId.Text + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +
                 "', NULL, '" + lblBookBookingDateFrom.Text + " 16:00:00', '" + lblBookBookingDateTo.Text + " 12:00:00'); " +
-                "COMMIT;";
+                "COMMIT;"; // Book start time, always 16:00:00 and end time always 12:00:00
 
             return queryBook;
         }
 
-        private string makeQueryServices()
+        private string makeQueryServices() 
         {
             string query = "START TRANSACTION; ";
-            ConnectionUtils.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT varaus_id FROM varaus WHERE asiakas_id LIKE '" +
-                customerid + "' AND mokki_mokki_id LIKE '" + lblBookCottageId.Text + "' AND varattu_alkupvm LIKE '" +
-                lblBookBookingDateFrom.Text + "%' AND varattu_loppupvm LIKE '" + lblBookBookingDateTo.Text + "%' ", ConnectionUtils.connection);
-            string varausid = command.ExecuteScalar().ToString();
-            ConnectionUtils.closeConnection();
             foreach (DataGridViewRow row in dgvBookServices.Rows)
             {
-                if (Convert.ToInt32(row.Cells["kpl"].Value) != 0)
+                if (Convert.ToInt32(row.Cells["kpl"].Value) != 0) 
                 {
                     query += "INSERT INTO vn.varauksen_palvelut (varaus_id, palvelu_id, lkm) " +
-                    "VALUES(" + varausid + ", " + row.Cells["ID"].Value.ToString() + ", " + row.Cells["kpl"].Value.ToString() + "); ";
+                    "VALUES(" + varausid.ToString() + ", " + row.Cells["ID"].Value.ToString() + ", " + row.Cells["kpl"].Value.ToString() + "); ";
                 }
             }
             query += "COMMIT;";
