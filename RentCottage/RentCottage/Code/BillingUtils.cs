@@ -173,7 +173,7 @@ namespace RentCottage
 
             else //Data found -> Let's calculate the services also
             {
-                query = "SELECT (SUM(p.hinta * vp.lkm) + (m.hinta * DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm)) AS summa " +
+                query = "SELECT ((SUM(p.hinta * vp.lkm)) + (m.hinta * DATEDIFF(v.varattu_loppupvm, v.varattu_alkupvm))) AS summa " +
                         "FROM varaus v " +
                         "JOIN mokki m ON v.mokki_mokki_id = m.mokki_id " +
                         "JOIN varauksen_palvelut vp ON v.varaus_id = vp.varaus_id " +
