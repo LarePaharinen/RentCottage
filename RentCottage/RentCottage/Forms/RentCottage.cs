@@ -650,6 +650,7 @@ namespace RentCottage
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
                 ConnectionUtils.closeConnection();
+                PopulateDGVCottage();
             }
         }
 

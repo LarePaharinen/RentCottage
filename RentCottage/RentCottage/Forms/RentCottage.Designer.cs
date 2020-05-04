@@ -93,7 +93,6 @@
             this.stCottageControl = new System.Windows.Forms.TabPage();
             this.btnModifyCottage = new System.Windows.Forms.Button();
             this.cbCottageCapacity = new System.Windows.Forms.ComboBox();
-            this.cbCottagePostal = new System.Windows.Forms.ComboBox();
             this.cbCottageRegions = new System.Windows.Forms.ComboBox();
             this.lblMokkiID = new System.Windows.Forms.Label();
             this.tbCottageDescription = new System.Windows.Forms.TextBox();
@@ -158,6 +157,12 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
+            this.tbCottagePostNum = new System.Windows.Forms.TextBox();
+            this.btnCottageShowAll = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.nudCottagePrice = new System.Windows.Forms.NumericUpDown();
+            this.btnServiceShowAll = new System.Windows.Forms.Button();
+            this.btnServiceModify = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -178,6 +183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             this.tBilling.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCottagePrice)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -924,9 +930,12 @@
             // stCottageControl
             // 
             this.stCottageControl.BackColor = System.Drawing.Color.Transparent;
+            this.stCottageControl.Controls.Add(this.nudCottagePrice);
+            this.stCottageControl.Controls.Add(this.label25);
+            this.stCottageControl.Controls.Add(this.btnCottageShowAll);
+            this.stCottageControl.Controls.Add(this.tbCottagePostNum);
             this.stCottageControl.Controls.Add(this.btnModifyCottage);
             this.stCottageControl.Controls.Add(this.cbCottageCapacity);
-            this.stCottageControl.Controls.Add(this.cbCottagePostal);
             this.stCottageControl.Controls.Add(this.cbCottageRegions);
             this.stCottageControl.Controls.Add(this.lblMokkiID);
             this.stCottageControl.Controls.Add(this.tbCottageDescription);
@@ -954,7 +963,7 @@
             // 
             // btnModifyCottage
             // 
-            this.btnModifyCottage.Location = new System.Drawing.Point(166, 411);
+            this.btnModifyCottage.Location = new System.Drawing.Point(164, 436);
             this.btnModifyCottage.Name = "btnModifyCottage";
             this.btnModifyCottage.Size = new System.Drawing.Size(105, 46);
             this.btnModifyCottage.TabIndex = 24;
@@ -976,14 +985,6 @@
             this.cbCottageCapacity.Name = "cbCottageCapacity";
             this.cbCottageCapacity.Size = new System.Drawing.Size(173, 21);
             this.cbCottageCapacity.TabIndex = 23;
-            // 
-            // cbCottagePostal
-            // 
-            this.cbCottagePostal.FormattingEnabled = true;
-            this.cbCottagePostal.Location = new System.Drawing.Point(98, 83);
-            this.cbCottagePostal.Name = "cbCottagePostal";
-            this.cbCottagePostal.Size = new System.Drawing.Size(173, 21);
-            this.cbCottagePostal.TabIndex = 22;
             // 
             // cbCottageRegions
             // 
@@ -1033,7 +1034,7 @@
             // 
             // btnCottageDelete
             // 
-            this.btnCottageDelete.Location = new System.Drawing.Point(55, 359);
+            this.btnCottageDelete.Location = new System.Drawing.Point(53, 384);
             this.btnCottageDelete.Name = "btnCottageDelete";
             this.btnCottageDelete.Size = new System.Drawing.Size(105, 46);
             this.btnCottageDelete.TabIndex = 11;
@@ -1043,7 +1044,7 @@
             // 
             // btnCottageAdd
             // 
-            this.btnCottageAdd.Location = new System.Drawing.Point(166, 359);
+            this.btnCottageAdd.Location = new System.Drawing.Point(164, 384);
             this.btnCottageAdd.Name = "btnCottageAdd";
             this.btnCottageAdd.Size = new System.Drawing.Size(105, 46);
             this.btnCottageAdd.TabIndex = 10;
@@ -1053,12 +1054,13 @@
             // 
             // btnCottageSearch
             // 
-            this.btnCottageSearch.Location = new System.Drawing.Point(166, 323);
+            this.btnCottageSearch.Location = new System.Drawing.Point(164, 348);
             this.btnCottageSearch.Name = "btnCottageSearch";
             this.btnCottageSearch.Size = new System.Drawing.Size(105, 23);
             this.btnCottageSearch.TabIndex = 9;
             this.btnCottageSearch.Text = "Etsi mökki";
             this.btnCottageSearch.UseVisualStyleBackColor = true;
+            this.btnCottageSearch.Click += new System.EventHandler(this.btnCottageSearch_Click);
             // 
             // dgvCottage
             // 
@@ -1156,6 +1158,8 @@
             // stService
             // 
             this.stService.BackColor = System.Drawing.Color.Transparent;
+            this.stService.Controls.Add(this.btnServiceModify);
+            this.stService.Controls.Add(this.btnServiceShowAll);
             this.stService.Controls.Add(this.btnServiceDelete);
             this.stService.Controls.Add(this.btnServiceAdd);
             this.stService.Controls.Add(this.btnServiceSearch);
@@ -1183,7 +1187,7 @@
             // 
             // btnServiceDelete
             // 
-            this.btnServiceDelete.Location = new System.Drawing.Point(59, 309);
+            this.btnServiceDelete.Location = new System.Drawing.Point(60, 318);
             this.btnServiceDelete.Name = "btnServiceDelete";
             this.btnServiceDelete.Size = new System.Drawing.Size(105, 46);
             this.btnServiceDelete.TabIndex = 54;
@@ -1192,7 +1196,7 @@
             // 
             // btnServiceAdd
             // 
-            this.btnServiceAdd.Location = new System.Drawing.Point(170, 309);
+            this.btnServiceAdd.Location = new System.Drawing.Point(171, 370);
             this.btnServiceAdd.Name = "btnServiceAdd";
             this.btnServiceAdd.Size = new System.Drawing.Size(105, 46);
             this.btnServiceAdd.TabIndex = 53;
@@ -1202,9 +1206,9 @@
             // 
             // btnServiceSearch
             // 
-            this.btnServiceSearch.Location = new System.Drawing.Point(193, 280);
+            this.btnServiceSearch.Location = new System.Drawing.Point(171, 289);
             this.btnServiceSearch.Name = "btnServiceSearch";
-            this.btnServiceSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnServiceSearch.Size = new System.Drawing.Size(105, 23);
             this.btnServiceSearch.TabIndex = 52;
             this.btnServiceSearch.Text = "Etsi palvelu";
             this.btnServiceSearch.UseVisualStyleBackColor = true;
@@ -1630,6 +1634,66 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
+            // tbCottagePostNum
+            // 
+            this.tbCottagePostNum.Location = new System.Drawing.Point(96, 83);
+            this.tbCottagePostNum.Name = "tbCottagePostNum";
+            this.tbCottagePostNum.Size = new System.Drawing.Size(173, 20);
+            this.tbCottagePostNum.TabIndex = 25;
+            // 
+            // btnCottageShowAll
+            // 
+            this.btnCottageShowAll.Location = new System.Drawing.Point(53, 348);
+            this.btnCottageShowAll.Name = "btnCottageShowAll";
+            this.btnCottageShowAll.Size = new System.Drawing.Size(105, 23);
+            this.btnCottageShowAll.TabIndex = 26;
+            this.btnCottageShowAll.Text = "Näytä kaikki";
+            this.btnCottageShowAll.UseVisualStyleBackColor = true;
+            this.btnCottageShowAll.Click += new System.EventHandler(this.btnRefereshCottages_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(57, 314);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.TabIndex = 27;
+            this.label25.Text = "Hinta:";
+            // 
+            // nudCottagePrice
+            // 
+            this.nudCottagePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudCottagePrice.DecimalPlaces = 2;
+            this.nudCottagePrice.Location = new System.Drawing.Point(98, 312);
+            this.nudCottagePrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudCottagePrice.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.nudCottagePrice.Name = "nudCottagePrice";
+            this.nudCottagePrice.Size = new System.Drawing.Size(171, 20);
+            this.nudCottagePrice.TabIndex = 29;
+            // 
+            // btnServiceShowAll
+            // 
+            this.btnServiceShowAll.Location = new System.Drawing.Point(60, 289);
+            this.btnServiceShowAll.Name = "btnServiceShowAll";
+            this.btnServiceShowAll.Size = new System.Drawing.Size(105, 23);
+            this.btnServiceShowAll.TabIndex = 55;
+            this.btnServiceShowAll.Text = "Näytä kaikki";
+            this.btnServiceShowAll.UseVisualStyleBackColor = true;
+            // 
+            // btnServiceModify
+            // 
+            this.btnServiceModify.Location = new System.Drawing.Point(171, 318);
+            this.btnServiceModify.Name = "btnServiceModify";
+            this.btnServiceModify.Size = new System.Drawing.Size(105, 46);
+            this.btnServiceModify.TabIndex = 56;
+            this.btnServiceModify.Text = "Muokkaa valittua palvelua";
+            this.btnServiceModify.UseVisualStyleBackColor = true;
+            // 
             // RentCottage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1667,6 +1731,7 @@
             this.tBilling.ResumeLayout(false);
             this.tBilling.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCottagePrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1690,7 +1755,6 @@
         private System.Windows.Forms.Label lblRegionID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCottageCapacity;
-        private System.Windows.Forms.ComboBox cbCottagePostal;
         private System.Windows.Forms.ComboBox cbCottageRegions;
         private System.Windows.Forms.Label lblMokkiID;
         private System.Windows.Forms.TextBox tbCottageDescription;
@@ -1800,6 +1864,12 @@
         private System.Windows.Forms.Button btnBillingCreate;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button btnModifyCottage;
+        private System.Windows.Forms.NumericUpDown nudCottagePrice;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btnCottageShowAll;
+        private System.Windows.Forms.TextBox tbCottagePostNum;
+        private System.Windows.Forms.Button btnServiceModify;
+        private System.Windows.Forms.Button btnServiceShowAll;
     }
 }
 
