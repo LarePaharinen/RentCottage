@@ -610,5 +610,16 @@ namespace RentCottage
         {
             PopulateDGVCottage();
         }
+
+        private void btnModifyCottage_Click(object sender, EventArgs e)
+        {
+            Cottage cottage = new Cottage(Convert.ToInt32(dgvCottage.CurrentRow.Cells[0].Value), Convert.ToInt32(dgvCottage.CurrentRow.Cells[1].Value), 
+                dgvCottage.CurrentRow.Cells[2].Value.ToString(), dgvCottage.CurrentRow.Cells[3].Value.ToString(), dgvCottage.CurrentRow.Cells[4].Value.ToString(),
+                dgvCottage.CurrentRow.Cells[5].Value.ToString(), Convert.ToInt32(dgvCottage.CurrentRow.Cells[6].Value),Convert.ToDouble(dgvCottage.CurrentRow.Cells[8].Value),
+                dgvCottage.CurrentRow.Cells[7].Value.ToString());
+            ModifyCottageForm MCF = new ModifyCottageForm(cottage);
+            MCF.ShowDialog();
+            PopulateDGVCottage();
+        }
     }
 }
