@@ -73,6 +73,7 @@
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\OrderUtils.cs" />
     <Compile Include="Forms\AddCottageForm.cs">
       <SubType>Form</SubType>
     </Compile>
