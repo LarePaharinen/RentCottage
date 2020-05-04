@@ -23,7 +23,7 @@ namespace RentCottage.Code
             if (reader.HasRows)
             {
                 ConnectionUtils.closeConnection();
-                MessageBox.Show("Valitsemasi mökki on varattu annetuna ajalla, suorita haku uudestaan", "Mökki varattu annetuna ajalla", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Valitsemasi mökki on varattu annetuna ajalla", "Mökki varattu annetuna ajalla", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
