@@ -45,5 +45,35 @@ namespace RentCottage.Forms
             tbModifyCottagePrice.Text = c.Price.ToString();
             tbModifyCottageDescription.Text = c.Description;
         }
+
+        private void btnModifyCottageModify_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Haluatko varmasti muuttaa valitun mökin tietoja?", "Muuta mökin tietoja", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                string query = "START TRANSACTION; " +
+                "UPDATE mokki " +
+                "SET toimintaalue_id=" + PostUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
+                "',mokkinimi='" + tbModifyCottageName.Text + "',katuosoite='" + tbModifyCottageStreet.Text + "'," +
+                "kuvaus='" + tbModifyCottageDescription.Text + "',henkilomaara=" + Convert.ToInt32(cbModifyCottageCapacity.Text) +
+                " ,varustelu='"+ tbModifyCottageEquipment.Text + "', hinta=" + Convert.ToDouble(tbModifyCottagePrice.Text) + " " +
+                "WHERE mokki_id=" + Convert.ToInt32(lblModifyCottageID.Text) + "; " +
+                "COMMIT;";
+                ConnectionUtils.openConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                command.ExecuteNonQuery();
+                ConnectionUtils.closeConnection();
+                this.Close();
+            }
+        }
+
+        private void btnModifyCottageCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

@@ -55,5 +55,10 @@ namespace RentCottage.Forms
             
             
         }
+
+        private void btnAddCottageCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
