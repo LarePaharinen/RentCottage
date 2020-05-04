@@ -17,12 +17,7 @@ namespace RentCottage.Forms
         public AddCottageForm()
         {
             InitializeComponent();
-            string query = "SELECT * FROM toimintaalue";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            cbAddCottageRegion.DataSource = table;
-            cbAddCottageRegion.DisplayMember = "nimi";
+            RegionUtils.PopulateCBRegion(cbAddCottageRegion);
         }
 
         //Add cottage to the database

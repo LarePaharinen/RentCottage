@@ -150,6 +150,7 @@
             this.btnAddServiceAdd.TabIndex = 7;
             this.btnAddServiceAdd.Text = "Lisää palvelu";
             this.btnAddServiceAdd.UseVisualStyleBackColor = true;
+            this.btnAddServiceAdd.Click += new System.EventHandler(this.btnAddServiceAdd_Click);
             // 
             // btnAddServiceCancel
             // 
@@ -159,6 +160,7 @@
             this.btnAddServiceCancel.TabIndex = 8;
             this.btnAddServiceCancel.Text = "Peruuta";
             this.btnAddServiceCancel.UseVisualStyleBackColor = true;
+            this.btnAddServiceCancel.Click += new System.EventHandler(this.btnAddServiceCancel_Click);
             // 
             // AddServiceForm
             // 
