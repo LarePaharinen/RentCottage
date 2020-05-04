@@ -633,5 +633,21 @@ namespace RentCottage
             MCF.ShowDialog();
             PopulateDGVCottage();
         }
+
+        private void btnCottageDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun mökin tiedot?", "Poista mökin tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                string query = "START TRANSACTION; " +
+                    "DELETE FROM mokki " +
+                    "WHERE mokki_id=" + dgvCottage.CurrentRow.Cells[0].Value.ToString() + "; " +
+                    "COMMIT;";
+                ConnectionUtils.openConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                command.ExecuteNonQuery();
+                ConnectionUtils.closeConnection();
+            }
+        }
     }
 }

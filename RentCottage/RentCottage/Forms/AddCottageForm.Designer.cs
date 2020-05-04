@@ -190,6 +190,7 @@
             this.btnAddCottageCancel.TabIndex = 29;
             this.btnAddCottageCancel.Text = "Peruuta";
             this.btnAddCottageCancel.UseVisualStyleBackColor = true;
+            this.btnAddCottageCancel.Click += new System.EventHandler(this.btnAddCottageCancel_Click);
             // 
             // label8
             // 

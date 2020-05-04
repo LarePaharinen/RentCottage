@@ -75,7 +75,19 @@
             "3",
             "4",
             "5",
-            "6+"});
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"});
             this.cbModifyCottageCapacity.Location = new System.Drawing.Point(91, 149);
             this.cbModifyCottageCapacity.Name = "cbModifyCottageCapacity";
             this.cbModifyCottageCapacity.Size = new System.Drawing.Size(209, 21);
@@ -196,6 +208,7 @@
             this.btnModifyCottageCancel.TabIndex = 53;
             this.btnModifyCottageCancel.Text = "Peruuta";
             this.btnModifyCottageCancel.UseVisualStyleBackColor = true;
+            this.btnModifyCottageCancel.Click += new System.EventHandler(this.btnModifyCottageCancel_Click);
             // 
             // btnModifyCottageModify
             // 
@@ -205,6 +218,7 @@
             this.btnModifyCottageModify.TabIndex = 52;
             this.btnModifyCottageModify.Text = "Muokkaa";
             this.btnModifyCottageModify.UseVisualStyleBackColor = true;
+            this.btnModifyCottageModify.Click += new System.EventHandler(this.btnModifyCottageModify_Click);
             // 
             // label10
             // 
@@ -250,7 +264,7 @@
             this.Controls.Add(this.tbModifyCottagePostNum);
             this.Controls.Add(this.label1);
             this.Name = "ModifyCottageForm";
-            this.Text = "ModifyCottageFrom";
+            this.Text = "Muokkaa mökkiä";
             this.ResumeLayout(false);
             this.PerformLayout();
 
