@@ -176,7 +176,7 @@
             // 
             // dtpOrder_ModifyStartDate
             // 
-            this.dtpOrder_ModifyStartDate.CustomFormat = "dd.MM.yyyy";
+            this.dtpOrder_ModifyStartDate.CustomFormat = "yyyy-MM-dd hh:mm";
             this.dtpOrder_ModifyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(199, 288);
             this.dtpOrder_ModifyStartDate.Name = "dtpOrder_ModifyStartDate";
@@ -185,7 +185,7 @@
             // 
             // dtpOrder_ModifyEndDate
             // 
-            this.dtpOrder_ModifyEndDate.CustomFormat = "dd.MM.yyyy";
+            this.dtpOrder_ModifyEndDate.CustomFormat = "yyyyy-MM-dd hh:mm";
             this.dtpOrder_ModifyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(199, 343);
             this.dtpOrder_ModifyEndDate.Name = "dtpOrder_ModifyEndDate";

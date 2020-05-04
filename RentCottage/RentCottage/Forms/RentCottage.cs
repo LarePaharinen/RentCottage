@@ -104,21 +104,21 @@ namespace RentCottage
 
             if (cmbListOrder.Text == "VARAUS ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARAUS_ID LIKE '" + tbOrderSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE VARAUS_ID = '" + tbOrderSearch.Text + "'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbListOrder.Text == "ASIAKAS ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE ASIAKAS_ID LIKE '" + tbOrderSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE ASIAKAS_ID = '" + tbOrderSearch.Text + "'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
             }
             if (cmbListOrder.Text == "MÖKKI ID")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE MOKKI_MOKKI_ID LIKE '" + tbOrderSearch.Text + "%'", ConnectionUtils.connection);
+                MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Varaus WHERE MOKKI_MOKKI_ID = '" + tbOrderSearch.Text + "'", ConnectionUtils.connection);
                 DataTable data = new DataTable();
                 sda.Fill(data);
                 dgOrder.DataSource = data;
@@ -172,6 +172,7 @@ namespace RentCottage
                 dgOrder.CurrentRow.Cells[5].Value.ToString(), dgOrder.CurrentRow.Cells[6].Value.ToString());
             ModifyOrderForm MOF = new ModifyOrderForm(order);
             MOF.ShowDialog();
+            PopulateDGVOrder();
         }
 
         private void cmbListOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,6 +187,22 @@ namespace RentCottage
                 dtpOrder.Visible = false;
         }
 
+        private void btmOrderRemove_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Haluatko varmasti poistaa varauksen?", "Poista varaus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                string query = "START TRANSACTION; " +
+                    "DELETE FROM varaus " +
+                    "WHERE varaus_id=" + dgOrder.CurrentRow.Cells[0].Value.ToString() + "; " +
+                    "COMMIT;";
+                ConnectionUtils.openConnection();
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                command.ExecuteNonQuery();
+                ConnectionUtils.closeConnection();
+                PopulateDGVOrder();
+            }
+        }
 
         //codes related to Asiakashallinta
 
@@ -602,6 +619,5 @@ namespace RentCottage
         {
             PopulateDGVCottage();
         }
-
     }
 }
