@@ -202,7 +202,7 @@ namespace RentCottage
             }
             if (services == "\n\nLisäpalvelut:\n") // If all services are 0, erase services
                 services = "";
-
+            // Book/order overview window
             DialogResult res = MessageBox.Show("\t\tYhteenveto \n\nMökki tiedot:" +
                 "\nAlue: \t\t" + lblBookAlue.Text + 
                 "\nMökki ID: \t" + lblBookCottageId.Text + 

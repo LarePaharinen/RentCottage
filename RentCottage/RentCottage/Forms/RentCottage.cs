@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using MySql.Data;
 using System.Globalization;
 using RentCottage.Forms;
+using RentCottage.Code;
 
 namespace RentCottage
 {
@@ -362,22 +363,10 @@ namespace RentCottage
 
         private void btmSearchVarata_Click(object sender, EventArgs e)
         {
-            ConnectionUtils.openConnection(); // Check is cottage free on addet times again
-            MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +
-                "WHERE mokki_id = " + Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value).ToString() + " " +
-                "AND mokki_id IN " +
-                "(SELECT mokki_mokki_id FROM varaus v WHERE '" +
-                dtpSearchFROM.Text + " 16:00:00' < v.varattu_loppupvm AND '" + dtpSearchTO.Text + " 12:00:00' > v.varattu_alkupvm);", ConnectionUtils.connection);
-            MySqlDataReader reader = msc.ExecuteReader();
-            
-            if (reader.HasRows)
+            if(!OrderUtils.ChechCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text))
             {
-                MessageBox.Show("Valitsemasi mökki on varattu annetuna ajalla, suorita haku uudestaan", "Mökki varattu annetuna ajalla", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ConnectionUtils.closeConnection();
-                btnSearchHae_Click(sender, e);
                 return;
             }
-            ConnectionUtils.closeConnection();
 
             ConnectionUtils.openConnection();
             MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + dgSearchTable.CurrentRow.Cells[1].Value.ToString() + "'", ConnectionUtils.connection);
