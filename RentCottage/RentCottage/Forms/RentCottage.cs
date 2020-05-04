@@ -586,6 +586,7 @@ namespace RentCottage
 
         private void btnServiceAdd_Click(object sender, EventArgs e)
         {
+            //Opens a form for adding service to the database
             AddServiceForm ASF = new AddServiceForm();
             ASF.ShowDialog();
             PopulateDGVService();
@@ -593,6 +594,7 @@ namespace RentCottage
 
         private void btnCottageAdd_Click(object sender, EventArgs e)
         {
+            //Opens a form for adding a cottage to the database
             AddCottageForm ACF = new AddCottageForm();
             ACF.ShowDialog();
             PopulateDGVCottage();
