@@ -14,7 +14,7 @@ namespace RentCottage
 {
     public class BillingUtils
     {
-        public static string lastQuery;
+        public static string latestQuery;
 
         //Creates invoice.pdf file with reservation details, saves it and opens it
         public static void createPdfDocument(int lasku_id)
@@ -63,12 +63,13 @@ namespace RentCottage
             string[] senderAddress = { "Village Newbies Oy", "Siilokatu 1", "90700 OULU" };
             string[] receiverAddress = { customerName, customerAddress, customerPostal};
             List<ItemRow> itemsList = generateItemsList(lasku_id);
-            double totalPrice = calculatePriceTotalSum(varaus_id);
+            double totalPrice = calculateTotalPrice(varaus_id);
             string totalPriceString = String.Format("{0:0.00}", totalPrice);
             double AlvPercentage = 10.00;
             double AlvPortionAmount = totalPrice * (AlvPercentage / 100);
             double subTotal = totalPrice - AlvPortionAmount;
 
+            //Creating the PDF document
             new InvoicerApi(SizeOption.A4, OrientationOption.Portrait, "€")
             .Reference(lasku_id.ToString())
             .BillingDate(billingDate)
@@ -94,6 +95,7 @@ namespace RentCottage
             .Footer("http://www.villagenewbies.fi")
             .Save(fileSaveLocation);
 
+            //Open the document using default application
             System.Diagnostics.Process.Start(fileSaveLocation);
 
             ConnectionUtils.closeConnection();
@@ -137,7 +139,7 @@ namespace RentCottage
 
             //Additional services:
 
-            //varaus_id
+            //varaus_id for simplifying queries
             query = "SELECT varaus_id " +
                     "FROM lasku " +
                     "WHERE lasku_id = " + lasku_id + ";";
@@ -203,11 +205,12 @@ namespace RentCottage
             return itemList;
         }
 
+        //Uses the latest search query to update the datagridview
         public static void refreshDataGridView(DataGridView dgvBilling)
         {
             ConnectionUtils.openConnection();
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(lastQuery, ConnectionUtils.connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(latestQuery, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvBilling.DataSource = table;
             ConnectionUtils.closeConnection();
@@ -217,7 +220,7 @@ namespace RentCottage
         public static void createInvoice(int varaus_id)
         {
             ConnectionUtils.openConnection();
-            double summa = calculatePriceTotalSum(varaus_id);
+            double summa = calculateTotalPrice(varaus_id);
             double alv = 10;
             string maksettu = "false";
             string query = "START TRANSACTION; " +
@@ -230,7 +233,7 @@ namespace RentCottage
         }
 
         //Calculates the total price for a reservation including additional services
-        private static double calculatePriceTotalSum(int varaus_id)
+        private static double calculateTotalPrice(int varaus_id)
         {
             ConnectionUtils.openConnection();
 
@@ -268,10 +271,9 @@ namespace RentCottage
             return summa;
         }
 
-        public static void setPaymentState(int lasku_id, string paymentState)
+        //Updates the 'maksettu' field of lasku
+        public static void setPaymentState(int lasku_id, bool paymentState)
         {
-            if(paymentState != "")
-            {
                 ConnectionUtils.openConnection();
                 string query1 = "START TRANSACTION; " +
                     "UPDATE lasku " +
@@ -281,13 +283,11 @@ namespace RentCottage
                 MySqlCommand command = new MySqlCommand(query1, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
                 ConnectionUtils.closeConnection();
-            }
         }
 
+        //Deletes a bill
         public static void deleteSelectedInvoice(int lasku_id)
         {
-            try
-            {
                 ConnectionUtils.openConnection();
                 string query1 = "START TRANSACTION; " +
                     "DELETE FROM lasku " +
@@ -296,11 +296,6 @@ namespace RentCottage
                 MySqlCommand command = new MySqlCommand(query1, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
                 ConnectionUtils.closeConnection();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }
