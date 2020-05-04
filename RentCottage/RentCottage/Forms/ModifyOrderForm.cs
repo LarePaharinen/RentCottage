@@ -32,8 +32,8 @@ namespace RentCottage
             {
                 string query = "START TRANSACTION; " +
                 "UPDATE varaus " +
-                "SET varattu_alkupvm='" + dtpOrder_ModifyStartDate.Text + "',varattu_loppupvm='" 
-                + dtpOrder_ModifyEndDate.Text + "'" +
+                "SET varattu_alkupvm='" + dtpOrder_ModifyStartDate.Text + " 16:00:00',varattu_loppupvm='" 
+                + dtpOrder_ModifyEndDate.Text + " 12:00:00'" +
                 "WHERE varaus_id=" + lbOrder_ModifyOrderID.Text + "; " +
                 "COMMIT;";
                 ConnectionUtils.openConnection();
