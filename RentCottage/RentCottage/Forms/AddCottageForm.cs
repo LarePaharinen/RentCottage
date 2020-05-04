@@ -24,6 +24,7 @@ namespace RentCottage.Forms
             cbAddCottageRegion.DisplayMember = "nimi";
         }
 
+        //Add cottage to the database
         private void btnAddCottageAdd_Click(object sender, EventArgs e)
         {   
             PostUtils.checkPostal(tbAddCottagePostNum.Text, tbAddCottagePostRegion.Text);

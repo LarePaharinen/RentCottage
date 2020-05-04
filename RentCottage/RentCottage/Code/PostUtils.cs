@@ -89,6 +89,7 @@ namespace RentCottage
             }
         }
 
+        //Query database on a region name, and return it's index
         public static int RegionNameToIndex(string region)
         {
             int index = 0;
