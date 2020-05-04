@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
@@ -191,11 +191,10 @@
             this.tcMain.Controls.Add(this.tCustomerControl);
             this.tcMain.Controls.Add(this.tServiceControl);
             this.tcMain.Controls.Add(this.tBilling);
-            this.tcMain.Location = new System.Drawing.Point(0, 2);
-            this.tcMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tcMain.Location = new System.Drawing.Point(0, 1);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(2028, 1125);
+            this.tcMain.Size = new System.Drawing.Size(1354, 732);
             this.tcMain.TabIndex = 0;
             // 
             // tSearch
@@ -218,21 +217,19 @@
             this.tSearch.Controls.Add(this.lblSearchAika);
             this.tSearch.Controls.Add(this.dtpSearchTO);
             this.tSearch.Controls.Add(this.dtpSearchFROM);
-            this.tSearch.Location = new System.Drawing.Point(4, 29);
-            this.tSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tSearch.Location = new System.Drawing.Point(4, 22);
             this.tSearch.Name = "tSearch";
-            this.tSearch.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tSearch.Size = new System.Drawing.Size(2020, 1092);
+            this.tSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tSearch.Size = new System.Drawing.Size(1346, 706);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
             // 
             // label24
             // 
             this.label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label24.Location = new System.Drawing.Point(0, 448);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(0, 275);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(556, 3);
+            this.label24.Size = new System.Drawing.Size(298, 2);
             this.label24.TabIndex = 43;
             this.label24.Text = "label24";
             // 
@@ -246,25 +243,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgSearchTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSearchTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSearchTable.Location = new System.Drawing.Point(556, 12);
-            this.dgSearchTable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgSearchTable.Location = new System.Drawing.Point(300, 5);
             this.dgSearchTable.MultiSelect = false;
             this.dgSearchTable.Name = "dgSearchTable";
             this.dgSearchTable.ReadOnly = true;
             this.dgSearchTable.RowHeadersVisible = false;
             this.dgSearchTable.RowHeadersWidth = 62;
             this.dgSearchTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSearchTable.Size = new System.Drawing.Size(1450, 1062);
+            this.dgSearchTable.Size = new System.Drawing.Size(1040, 696);
             this.dgSearchTable.TabIndex = 42;
             this.dgSearchTable.SelectionChanged += new System.EventHandler(this.dgSearchTable_SelectionChanged);
             // 
             // cbSearchAlueKaikki
             // 
             this.cbSearchAlueKaikki.AutoSize = true;
-            this.cbSearchAlueKaikki.Location = new System.Drawing.Point(346, 32);
-            this.cbSearchAlueKaikki.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbSearchAlueKaikki.Location = new System.Drawing.Point(184, 16);
             this.cbSearchAlueKaikki.Name = "cbSearchAlueKaikki";
-            this.cbSearchAlueKaikki.Size = new System.Drawing.Size(124, 24);
+            this.cbSearchAlueKaikki.Size = new System.Drawing.Size(87, 17);
             this.cbSearchAlueKaikki.TabIndex = 41;
             this.cbSearchAlueKaikki.Text = "Kaikki alueet";
             this.cbSearchAlueKaikki.UseVisualStyleBackColor = true;
@@ -275,10 +270,10 @@
             this.cbSearchAluet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbSearchAluet.FormattingEnabled = true;
-            this.cbSearchAluet.Location = new System.Drawing.Point(176, 26);
-            this.cbSearchAluet.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cbSearchAluet.Location = new System.Drawing.Point(83, 14);
+            this.cbSearchAluet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSearchAluet.Name = "cbSearchAluet";
-            this.cbSearchAluet.Size = new System.Drawing.Size(151, 28);
+            this.cbSearchAluet.Size = new System.Drawing.Size(92, 21);
             this.cbSearchAluet.TabIndex = 40;
             // 
             // lblSearchAlue
@@ -286,21 +281,21 @@
             this.lblSearchAlue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearchAlue.AutoSize = true;
-            this.lblSearchAlue.Location = new System.Drawing.Point(30, 35);
-            this.lblSearchAlue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchAlue.Location = new System.Drawing.Point(50, 17);
             this.lblSearchAlue.Name = "lblSearchAlue";
-            this.lblSearchAlue.Size = new System.Drawing.Size(41, 20);
+            this.lblSearchAlue.Size = new System.Drawing.Size(28, 13);
             this.lblSearchAlue.TabIndex = 39;
             this.lblSearchAlue.Text = "Alue";
+            this.lblSearchAlue.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnSearchVarata
             // 
             this.btnSearchVarata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSearchVarata.Enabled = false;
-            this.btnSearchVarata.Location = new System.Drawing.Point(346, 492);
-            this.btnSearchVarata.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSearchVarata.Location = new System.Drawing.Point(9, 293);
+            this.btnSearchVarata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearchVarata.Name = "btnSearchVarata";
-            this.btnSearchVarata.Size = new System.Drawing.Size(182, 202);
+            this.btnSearchVarata.Size = new System.Drawing.Size(288, 44);
             this.btnSearchVarata.TabIndex = 37;
             this.btnSearchVarata.Text = "Varata";
             this.btnSearchVarata.UseVisualStyleBackColor = true;
@@ -312,10 +307,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbSearchVarustelu.Enabled = false;
             this.cbSearchVarustelu.FormattingEnabled = true;
-            this.cbSearchVarustelu.Location = new System.Drawing.Point(176, 275);
-            this.cbSearchVarustelu.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cbSearchVarustelu.Location = new System.Drawing.Point(83, 178);
+            this.cbSearchVarustelu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSearchVarustelu.Name = "cbSearchVarustelu";
-            this.cbSearchVarustelu.Size = new System.Drawing.Size(342, 28);
+            this.cbSearchVarustelu.Size = new System.Drawing.Size(209, 21);
             this.cbSearchVarustelu.TabIndex = 33;
             this.cbSearchVarustelu.Text = "sauna, jääkappi, mikro...";
             // 
@@ -325,19 +320,19 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearchVarustelu.AutoSize = true;
             this.lblSearchVarustelu.Enabled = false;
-            this.lblSearchVarustelu.Location = new System.Drawing.Point(30, 280);
-            this.lblSearchVarustelu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchVarustelu.Location = new System.Drawing.Point(27, 181);
             this.lblSearchVarustelu.Name = "lblSearchVarustelu";
-            this.lblSearchVarustelu.Size = new System.Drawing.Size(77, 20);
+            this.lblSearchVarustelu.Size = new System.Drawing.Size(51, 13);
             this.lblSearchVarustelu.TabIndex = 32;
             this.lblSearchVarustelu.Text = "Varustelu";
+            this.lblSearchVarustelu.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnSearchHae
             // 
-            this.btnSearchHae.Location = new System.Drawing.Point(33, 345);
-            this.btnSearchHae.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSearchHae.Location = new System.Drawing.Point(8, 224);
+            this.btnSearchHae.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearchHae.Name = "btnSearchHae";
-            this.btnSearchHae.Size = new System.Drawing.Size(495, 68);
+            this.btnSearchHae.Size = new System.Drawing.Size(288, 44);
             this.btnSearchHae.TabIndex = 31;
             this.btnSearchHae.Text = "HAE";
             this.btnSearchHae.UseVisualStyleBackColor = true;
@@ -348,15 +343,15 @@
             this.nudSearchHintaraja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.nudSearchHintaraja.DecimalPlaces = 2;
-            this.nudSearchHintaraja.Location = new System.Drawing.Point(176, 214);
-            this.nudSearchHintaraja.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.nudSearchHintaraja.Location = new System.Drawing.Point(83, 136);
+            this.nudSearchHintaraja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudSearchHintaraja.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
             this.nudSearchHintaraja.Name = "nudSearchHintaraja";
-            this.nudSearchHintaraja.Size = new System.Drawing.Size(153, 26);
+            this.nudSearchHintaraja.Size = new System.Drawing.Size(92, 20);
             this.nudSearchHintaraja.TabIndex = 28;
             // 
             // lblSearchHintaraja
@@ -364,22 +359,22 @@
             this.lblSearchHintaraja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearchHintaraja.AutoSize = true;
-            this.lblSearchHintaraja.Location = new System.Drawing.Point(30, 214);
-            this.lblSearchHintaraja.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchHintaraja.Location = new System.Drawing.Point(29, 138);
             this.lblSearchHintaraja.Name = "lblSearchHintaraja";
-            this.lblSearchHintaraja.Size = new System.Drawing.Size(73, 20);
+            this.lblSearchHintaraja.Size = new System.Drawing.Size(49, 13);
             this.lblSearchHintaraja.TabIndex = 27;
             this.lblSearchHintaraja.Text = "Hintaraja";
+            this.lblSearchHintaraja.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // nudSearchMaxhlo
             // 
             this.nudSearchMaxhlo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudSearchMaxhlo.Location = new System.Drawing.Point(176, 151);
-            this.nudSearchMaxhlo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.nudSearchMaxhlo.Location = new System.Drawing.Point(83, 95);
+            this.nudSearchMaxhlo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudSearchMaxhlo.Name = "nudSearchMaxhlo";
             this.nudSearchMaxhlo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nudSearchMaxhlo.Size = new System.Drawing.Size(153, 26);
+            this.nudSearchMaxhlo.Size = new System.Drawing.Size(92, 20);
             this.nudSearchMaxhlo.TabIndex = 26;
             // 
             // lblSearchMaxhlo
@@ -387,22 +382,21 @@
             this.lblSearchMaxhlo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearchMaxhlo.AutoSize = true;
-            this.lblSearchMaxhlo.Location = new System.Drawing.Point(30, 151);
-            this.lblSearchMaxhlo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchMaxhlo.Location = new System.Drawing.Point(6, 97);
             this.lblSearchMaxhlo.Name = "lblSearchMaxhlo";
-            this.lblSearchMaxhlo.Size = new System.Drawing.Size(107, 20);
+            this.lblSearchMaxhlo.Size = new System.Drawing.Size(72, 13);
             this.lblSearchMaxhlo.TabIndex = 25;
             this.lblSearchMaxhlo.Text = "Henkilömäärä";
+            this.lblSearchMaxhlo.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblSearch_
             // 
             this.lblSearch_.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearch_.AutoSize = true;
-            this.lblSearch_.Location = new System.Drawing.Point(342, 89);
-            this.lblSearch_.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearch_.Location = new System.Drawing.Point(181, 55);
             this.lblSearch_.Name = "lblSearch_";
-            this.lblSearch_.Size = new System.Drawing.Size(18, 20);
+            this.lblSearch_.Size = new System.Drawing.Size(13, 13);
             this.lblSearch_.TabIndex = 24;
             this.lblSearch_.Text = "_";
             // 
@@ -411,12 +405,12 @@
             this.lblSearchAika.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSearchAika.AutoSize = true;
-            this.lblSearchAika.Location = new System.Drawing.Point(30, 102);
-            this.lblSearchAika.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchAika.Location = new System.Drawing.Point(50, 63);
             this.lblSearchAika.Name = "lblSearchAika";
-            this.lblSearchAika.Size = new System.Drawing.Size(40, 20);
+            this.lblSearchAika.Size = new System.Drawing.Size(28, 13);
             this.lblSearchAika.TabIndex = 23;
             this.lblSearchAika.Text = "Aika";
+            this.lblSearchAika.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dtpSearchTO
             // 
@@ -424,10 +418,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpSearchTO.CustomFormat = "yyyy-MM-dd";
             this.dtpSearchTO.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchTO.Location = new System.Drawing.Point(375, 89);
-            this.dtpSearchTO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.dtpSearchTO.Location = new System.Drawing.Point(200, 57);
+            this.dtpSearchTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpSearchTO.Name = "dtpSearchTO";
-            this.dtpSearchTO.Size = new System.Drawing.Size(151, 26);
+            this.dtpSearchTO.Size = new System.Drawing.Size(92, 20);
             this.dtpSearchTO.TabIndex = 22;
             this.dtpSearchTO.Value = new System.DateTime(2020, 5, 3, 0, 0, 0, 0);
             // 
@@ -437,10 +431,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpSearchFROM.CustomFormat = "yyyy-MM-dd";
             this.dtpSearchFROM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchFROM.Location = new System.Drawing.Point(176, 89);
-            this.dtpSearchFROM.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.dtpSearchFROM.Location = new System.Drawing.Point(83, 57);
+            this.dtpSearchFROM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpSearchFROM.Name = "dtpSearchFROM";
-            this.dtpSearchFROM.Size = new System.Drawing.Size(151, 26);
+            this.dtpSearchFROM.Size = new System.Drawing.Size(92, 20);
             this.dtpSearchFROM.TabIndex = 21;
             this.dtpSearchFROM.Value = new System.DateTime(2020, 5, 3, 0, 0, 0, 0);
             this.dtpSearchFROM.ValueChanged += new System.EventHandler(this.dtpSearchFROM_ValueChanged);
@@ -457,11 +451,11 @@
             this.tRentControl.Controls.Add(this.btmOrderSearch);
             this.tRentControl.Controls.Add(this.tbOrderSearch);
             this.tRentControl.Controls.Add(this.cmbListOrder);
-            this.tRentControl.Location = new System.Drawing.Point(4, 29);
-            this.tRentControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.tRentControl.Location = new System.Drawing.Point(4, 22);
+            this.tRentControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tRentControl.Name = "tRentControl";
-            this.tRentControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tRentControl.Size = new System.Drawing.Size(2020, 1092);
+            this.tRentControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tRentControl.Size = new System.Drawing.Size(1346, 706);
             this.tRentControl.TabIndex = 1;
             this.tRentControl.Text = "Varausten hallinta";
             // 
@@ -469,9 +463,10 @@
             // 
             this.dtpOrder.CustomFormat = "yyyy-MM-dd";
             this.dtpOrder.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpOrder.Location = new System.Drawing.Point(45, 178);
+            this.dtpOrder.Location = new System.Drawing.Point(50, 112);
+            this.dtpOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpOrder.Name = "dtpOrder";
-            this.dtpOrder.Size = new System.Drawing.Size(289, 26);
+            this.dtpOrder.Size = new System.Drawing.Size(194, 20);
             this.dtpOrder.TabIndex = 9;
             this.dtpOrder.Visible = false;
             // 
@@ -486,30 +481,33 @@
             this.dgOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgOrder.EnableHeadersVisualStyles = false;
-            this.dgOrder.Location = new System.Drawing.Point(384, 17);
+            this.dgOrder.Location = new System.Drawing.Point(300, 5);
+            this.dgOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgOrder.MultiSelect = false;
             this.dgOrder.Name = "dgOrder";
             this.dgOrder.ReadOnly = true;
             this.dgOrder.RowHeadersWidth = 62;
             this.dgOrder.RowTemplate.Height = 28;
             this.dgOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgOrder.Size = new System.Drawing.Size(1618, 1058);
+            this.dgOrder.Size = new System.Drawing.Size(1040, 696);
             this.dgOrder.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
-            this.pictureBox1.Location = new System.Drawing.Point(-6, 418);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 273);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 2);
+            this.pictureBox1.Size = new System.Drawing.Size(297, 1);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // btmOrderRemove
             // 
-            this.btmOrderRemove.Location = new System.Drawing.Point(93, 751);
+            this.btmOrderRemove.Location = new System.Drawing.Point(82, 491);
+            this.btmOrderRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btmOrderRemove.Name = "btmOrderRemove";
-            this.btmOrderRemove.Size = new System.Drawing.Size(201, 66);
+            this.btmOrderRemove.Size = new System.Drawing.Size(134, 43);
             this.btmOrderRemove.TabIndex = 5;
             this.btmOrderRemove.Text = "POISTA";
             this.btmOrderRemove.UseVisualStyleBackColor = true;
@@ -517,9 +515,10 @@
             // 
             // btmOrderChange
             // 
-            this.btmOrderChange.Location = new System.Drawing.Point(93, 611);
+            this.btmOrderChange.Location = new System.Drawing.Point(82, 400);
+            this.btmOrderChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btmOrderChange.Name = "btmOrderChange";
-            this.btmOrderChange.Size = new System.Drawing.Size(201, 66);
+            this.btmOrderChange.Size = new System.Drawing.Size(134, 43);
             this.btmOrderChange.TabIndex = 4;
             this.btmOrderChange.Text = "MUOKKAA";
             this.btmOrderChange.UseVisualStyleBackColor = true;
@@ -527,9 +526,10 @@
             // 
             // btmOrderShowAll
             // 
-            this.btmOrderShowAll.Location = new System.Drawing.Point(93, 482);
+            this.btmOrderShowAll.Location = new System.Drawing.Point(82, 308);
+            this.btmOrderShowAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btmOrderShowAll.Name = "btmOrderShowAll";
-            this.btmOrderShowAll.Size = new System.Drawing.Size(201, 66);
+            this.btmOrderShowAll.Size = new System.Drawing.Size(134, 43);
             this.btmOrderShowAll.TabIndex = 3;
             this.btmOrderShowAll.Text = "NÄYTTÄÄ KAIKKI";
             this.btmOrderShowAll.UseVisualStyleBackColor = true;
@@ -537,9 +537,10 @@
             // 
             // btmOrderSearch
             // 
-            this.btmOrderSearch.Location = new System.Drawing.Point(93, 286);
+            this.btmOrderSearch.Location = new System.Drawing.Point(82, 182);
+            this.btmOrderSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btmOrderSearch.Name = "btmOrderSearch";
-            this.btmOrderSearch.Size = new System.Drawing.Size(201, 66);
+            this.btmOrderSearch.Size = new System.Drawing.Size(134, 43);
             this.btmOrderSearch.TabIndex = 2;
             this.btmOrderSearch.Text = "HAE";
             this.btmOrderSearch.UseVisualStyleBackColor = true;
@@ -547,9 +548,10 @@
             // 
             // tbOrderSearch
             // 
-            this.tbOrderSearch.Location = new System.Drawing.Point(46, 178);
+            this.tbOrderSearch.Location = new System.Drawing.Point(51, 112);
+            this.tbOrderSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbOrderSearch.Name = "tbOrderSearch";
-            this.tbOrderSearch.Size = new System.Drawing.Size(288, 26);
+            this.tbOrderSearch.Size = new System.Drawing.Size(193, 20);
             this.tbOrderSearch.TabIndex = 1;
             this.tbOrderSearch.TextChanged += new System.EventHandler(this.tbOrderSearch_TextChanged);
             this.tbOrderSearch.Enter += new System.EventHandler(this.tbOrderSearch_Enter);
@@ -566,9 +568,10 @@
             "VAHVISTUS PVM",
             "ALKUPVM",
             "LOPPUPVM"});
-            this.cmbListOrder.Location = new System.Drawing.Point(46, 66);
+            this.cmbListOrder.Location = new System.Drawing.Point(51, 52);
+            this.cmbListOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbListOrder.Name = "cmbListOrder";
-            this.cmbListOrder.Size = new System.Drawing.Size(288, 28);
+            this.cmbListOrder.Size = new System.Drawing.Size(193, 21);
             this.cmbListOrder.TabIndex = 0;
             this.cmbListOrder.SelectedIndexChanged += new System.EventHandler(this.cmbListOrder_SelectedIndexChanged);
             // 
@@ -582,29 +585,26 @@
             this.tAreaControl.Controls.Add(this.dgvRegion);
             this.tAreaControl.Controls.Add(this.btnRegionAdd);
             this.tAreaControl.Controls.Add(this.lblRegion);
-            this.tAreaControl.Location = new System.Drawing.Point(4, 29);
-            this.tAreaControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tAreaControl.Location = new System.Drawing.Point(4, 22);
             this.tAreaControl.Name = "tAreaControl";
-            this.tAreaControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tAreaControl.Size = new System.Drawing.Size(2020, 1092);
+            this.tAreaControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tAreaControl.Size = new System.Drawing.Size(1346, 706);
             this.tAreaControl.TabIndex = 2;
             this.tAreaControl.Text = "Toiminta-alueiden hallinta";
             // 
             // tbRegionName
             // 
-            this.tbRegionName.Location = new System.Drawing.Point(147, 114);
-            this.tbRegionName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbRegionName.Location = new System.Drawing.Point(115, 74);
             this.tbRegionName.Name = "tbRegionName";
-            this.tbRegionName.Size = new System.Drawing.Size(238, 26);
+            this.tbRegionName.Size = new System.Drawing.Size(160, 20);
             this.tbRegionName.TabIndex = 10;
             this.tbRegionName.Enter += new System.EventHandler(this.tbRegionName_Enter);
             // 
             // btnRegionDelete
             // 
-            this.btnRegionDelete.Location = new System.Drawing.Point(87, 172);
-            this.btnRegionDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRegionDelete.Location = new System.Drawing.Point(62, 117);
             this.btnRegionDelete.Name = "btnRegionDelete";
-            this.btnRegionDelete.Size = new System.Drawing.Size(144, 63);
+            this.btnRegionDelete.Size = new System.Drawing.Size(96, 41);
             this.btnRegionDelete.TabIndex = 9;
             this.btnRegionDelete.Text = "Poista valittu alue";
             this.btnRegionDelete.UseVisualStyleBackColor = true;
@@ -613,20 +613,18 @@
             // lblRegionID
             // 
             this.lblRegionID.AutoSize = true;
-            this.lblRegionID.Location = new System.Drawing.Point(147, 89);
-            this.lblRegionID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegionID.Location = new System.Drawing.Point(115, 58);
             this.lblRegionID.Name = "lblRegionID";
-            this.lblRegionID.Size = new System.Drawing.Size(45, 20);
+            this.lblRegionID.Size = new System.Drawing.Size(31, 13);
             this.lblRegionID.TabIndex = 8;
             this.lblRegionID.Text = "0000";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 89);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(24, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Toiminta-alueID:";
             // 
@@ -639,50 +637,49 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvRegion.Location = new System.Drawing.Point(466, 12);
-            this.dgvRegion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.dgvRegion.Location = new System.Drawing.Point(300, 5);
+            this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegion.Size = new System.Drawing.Size(1534, 1060);
+            this.dgvRegion.Size = new System.Drawing.Size(1040, 696);
             this.dgvRegion.TabIndex = 6;
             this.dgvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegionSelectionChanged);
             // 
             // btnRegionAdd
             // 
-            this.btnRegionAdd.Location = new System.Drawing.Point(242, 172);
-            this.btnRegionAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRegionAdd.Location = new System.Drawing.Point(165, 117);
             this.btnRegionAdd.Name = "btnRegionAdd";
-            this.btnRegionAdd.Size = new System.Drawing.Size(144, 63);
+            this.btnRegionAdd.Size = new System.Drawing.Size(96, 41);
             this.btnRegionAdd.TabIndex = 5;
             this.btnRegionAdd.Text = "Lisää uusi alue";
             this.btnRegionAdd.UseVisualStyleBackColor = true;
@@ -691,10 +688,9 @@
             // lblRegion
             // 
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(27, 117);
-            this.lblRegion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegion.Location = new System.Drawing.Point(35, 76);
             this.lblRegion.Name = "lblRegion";
-            this.lblRegion.Size = new System.Drawing.Size(108, 20);
+            this.lblRegion.Size = new System.Drawing.Size(73, 13);
             this.lblRegion.TabIndex = 0;
             this.lblRegion.Text = "Toiminta-alue:";
             // 
@@ -720,20 +716,18 @@
             this.tCustomerControl.Controls.Add(this.label16);
             this.tCustomerControl.Controls.Add(this.label15);
             this.tCustomerControl.Controls.Add(this.lblCustomerID);
-            this.tCustomerControl.Location = new System.Drawing.Point(4, 29);
-            this.tCustomerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tCustomerControl.Location = new System.Drawing.Point(4, 22);
             this.tCustomerControl.Name = "tCustomerControl";
-            this.tCustomerControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tCustomerControl.Size = new System.Drawing.Size(2020, 1092);
+            this.tCustomerControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tCustomerControl.Size = new System.Drawing.Size(1346, 706);
             this.tCustomerControl.TabIndex = 4;
             this.tCustomerControl.Text = "Asiakkaiden hallinta";
             // 
             // btnCustomerModify
             // 
-            this.btnCustomerModify.Location = new System.Drawing.Point(62, 403);
-            this.btnCustomerModify.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCustomerModify.Location = new System.Drawing.Point(41, 262);
             this.btnCustomerModify.Name = "btnCustomerModify";
-            this.btnCustomerModify.Size = new System.Drawing.Size(158, 71);
+            this.btnCustomerModify.Size = new System.Drawing.Size(105, 46);
             this.btnCustomerModify.TabIndex = 57;
             this.btnCustomerModify.Text = "Muokkaa valitun asiakkaan tietoja";
             this.btnCustomerModify.UseVisualStyleBackColor = true;
@@ -749,23 +743,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomer.Location = new System.Drawing.Point(435, 11);
-            this.dgvCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCustomer.Location = new System.Drawing.Point(300, 5);
             this.dgvCustomer.MultiSelect = false;
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.ReadOnly = true;
             this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 51;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomer.Size = new System.Drawing.Size(1572, 1063);
+            this.dgvCustomer.Size = new System.Drawing.Size(1040, 696);
             this.dgvCustomer.TabIndex = 56;
             // 
             // btnCustomerDeleteInfo
             // 
-            this.btnCustomerDeleteInfo.Location = new System.Drawing.Point(228, 503);
-            this.btnCustomerDeleteInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCustomerDeleteInfo.Location = new System.Drawing.Point(152, 327);
             this.btnCustomerDeleteInfo.Name = "btnCustomerDeleteInfo";
-            this.btnCustomerDeleteInfo.Size = new System.Drawing.Size(158, 71);
+            this.btnCustomerDeleteInfo.Size = new System.Drawing.Size(105, 46);
             this.btnCustomerDeleteInfo.TabIndex = 10;
             this.btnCustomerDeleteInfo.Text = "Poista valitun asiakkaan tiedot";
             this.btnCustomerDeleteInfo.UseVisualStyleBackColor = true;
@@ -773,10 +765,9 @@
             // 
             // btnCustomerAdd
             // 
-            this.btnCustomerAdd.Location = new System.Drawing.Point(228, 403);
-            this.btnCustomerAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCustomerAdd.Location = new System.Drawing.Point(152, 262);
             this.btnCustomerAdd.Name = "btnCustomerAdd";
-            this.btnCustomerAdd.Size = new System.Drawing.Size(158, 71);
+            this.btnCustomerAdd.Size = new System.Drawing.Size(105, 46);
             this.btnCustomerAdd.TabIndex = 9;
             this.btnCustomerAdd.Text = "Lisää uusi asiakas";
             this.btnCustomerAdd.UseVisualStyleBackColor = true;
@@ -784,10 +775,9 @@
             // 
             // btnCustomerSearch
             // 
-            this.btnCustomerSearch.Location = new System.Drawing.Point(273, 343);
-            this.btnCustomerSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCustomerSearch.Location = new System.Drawing.Point(182, 223);
             this.btnCustomerSearch.Name = "btnCustomerSearch";
-            this.btnCustomerSearch.Size = new System.Drawing.Size(112, 35);
+            this.btnCustomerSearch.Size = new System.Drawing.Size(75, 23);
             this.btnCustomerSearch.TabIndex = 7;
             this.btnCustomerSearch.Text = "Etsi";
             this.btnCustomerSearch.UseVisualStyleBackColor = true;
@@ -795,140 +785,125 @@
             // 
             // tbCustomerPhone
             // 
-            this.tbCustomerPhone.Location = new System.Drawing.Point(189, 288);
-            this.tbCustomerPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerPhone.Location = new System.Drawing.Point(126, 187);
             this.tbCustomerPhone.Name = "tbCustomerPhone";
-            this.tbCustomerPhone.Size = new System.Drawing.Size(194, 26);
+            this.tbCustomerPhone.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPhone.TabIndex = 6;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(60, 292);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(40, 190);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(119, 20);
+            this.label23.Size = new System.Drawing.Size(80, 13);
             this.label23.TabIndex = 12;
             this.label23.Text = "Puhelinnumero:";
             // 
             // tbCustomerEmail
             // 
-            this.tbCustomerEmail.Location = new System.Drawing.Point(189, 248);
-            this.tbCustomerEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerEmail.Location = new System.Drawing.Point(126, 161);
             this.tbCustomerEmail.Name = "tbCustomerEmail";
-            this.tbCustomerEmail.Size = new System.Drawing.Size(194, 26);
+            this.tbCustomerEmail.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerEmail.TabIndex = 5;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(86, 252);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(57, 164);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(93, 20);
+            this.label22.Size = new System.Drawing.Size(63, 13);
             this.label22.TabIndex = 10;
             this.label22.Text = "Sähköposti:";
             // 
             // tbCustomerAddress
             // 
-            this.tbCustomerAddress.Location = new System.Drawing.Point(189, 174);
-            this.tbCustomerAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerAddress.Location = new System.Drawing.Point(126, 113);
             this.tbCustomerAddress.Name = "tbCustomerAddress";
-            this.tbCustomerAddress.Size = new System.Drawing.Size(194, 26);
+            this.tbCustomerAddress.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerAddress.TabIndex = 3;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(93, 178);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(62, 116);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 20);
+            this.label21.Size = new System.Drawing.Size(58, 13);
             this.label21.TabIndex = 8;
             this.label21.Text = "Lähiosoite:";
             // 
             // tbCustomerLName
             // 
-            this.tbCustomerLName.Location = new System.Drawing.Point(189, 134);
-            this.tbCustomerLName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerLName.Location = new System.Drawing.Point(126, 87);
             this.tbCustomerLName.Name = "tbCustomerLName";
-            this.tbCustomerLName.Size = new System.Drawing.Size(194, 26);
+            this.tbCustomerLName.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerLName.TabIndex = 2;
             // 
             // tbCustomerFName
             // 
-            this.tbCustomerFName.Location = new System.Drawing.Point(189, 94);
-            this.tbCustomerFName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerFName.Location = new System.Drawing.Point(126, 61);
             this.tbCustomerFName.Name = "tbCustomerFName";
-            this.tbCustomerFName.Size = new System.Drawing.Size(194, 26);
+            this.tbCustomerFName.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerFName.TabIndex = 1;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(100, 138);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(67, 90);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(78, 20);
+            this.label20.Size = new System.Drawing.Size(53, 13);
             this.label20.TabIndex = 5;
             this.label20.Text = "Sukunimi:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(114, 98);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(76, 64);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 20);
+            this.label19.Size = new System.Drawing.Size(44, 13);
             this.label19.TabIndex = 4;
             this.label19.Text = "Etunimi:";
             // 
             // tbCustomerPostal
             // 
-            this.tbCustomerPostal.Location = new System.Drawing.Point(189, 209);
-            this.tbCustomerPostal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerPostal.Location = new System.Drawing.Point(126, 136);
             this.tbCustomerPostal.Name = "tbCustomerPostal";
-            this.tbCustomerPostal.Size = new System.Drawing.Size(194, 26);
+            this.tbCustomerPostal.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPostal.TabIndex = 4;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(78, 215);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(52, 140);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 20);
+            this.label16.Size = new System.Drawing.Size(68, 13);
             this.label16.TabIndex = 2;
             this.label16.Text = "Postinumero:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(93, 68);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(62, 44);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(86, 20);
+            this.label15.Size = new System.Drawing.Size(58, 13);
             this.label15.TabIndex = 1;
             this.label15.Text = "AsiakasID:";
             // 
             // lblCustomerID
             // 
             this.lblCustomerID.AutoSize = true;
-            this.lblCustomerID.Location = new System.Drawing.Point(189, 68);
-            this.lblCustomerID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCustomerID.Location = new System.Drawing.Point(126, 44);
             this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.Size = new System.Drawing.Size(45, 20);
+            this.lblCustomerID.Size = new System.Drawing.Size(31, 13);
             this.lblCustomerID.TabIndex = 0;
             this.lblCustomerID.Text = "0000";
             // 
             // tServiceControl
             // 
             this.tServiceControl.Controls.Add(this.tcServiceSub);
-            this.tServiceControl.Location = new System.Drawing.Point(4, 29);
-            this.tServiceControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tServiceControl.Location = new System.Drawing.Point(4, 22);
             this.tServiceControl.Name = "tServiceControl";
-            this.tServiceControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tServiceControl.Size = new System.Drawing.Size(2020, 1092);
+            this.tServiceControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tServiceControl.Size = new System.Drawing.Size(1346, 706);
             this.tServiceControl.TabIndex = 3;
             this.tServiceControl.Text = "Palveluiden hallinta";
             this.tServiceControl.UseVisualStyleBackColor = true;
@@ -941,10 +916,9 @@
             this.tcServiceSub.Controls.Add(this.stCottageControl);
             this.tcServiceSub.Controls.Add(this.stService);
             this.tcServiceSub.Location = new System.Drawing.Point(0, 0);
-            this.tcServiceSub.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcServiceSub.Name = "tcServiceSub";
             this.tcServiceSub.SelectedIndex = 0;
-            this.tcServiceSub.Size = new System.Drawing.Size(2022, 1091);
+            this.tcServiceSub.Size = new System.Drawing.Size(1350, 710);
             this.tcServiceSub.TabIndex = 0;
             // 
             // stCottageControl
@@ -971,20 +945,18 @@
             this.stCottageControl.Controls.Add(this.label5);
             this.stCottageControl.Controls.Add(this.label3);
             this.stCottageControl.Controls.Add(this.label2);
-            this.stCottageControl.Location = new System.Drawing.Point(4, 29);
-            this.stCottageControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.stCottageControl.Location = new System.Drawing.Point(4, 22);
             this.stCottageControl.Name = "stCottageControl";
-            this.stCottageControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.stCottageControl.Size = new System.Drawing.Size(2014, 1058);
+            this.stCottageControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.stCottageControl.Size = new System.Drawing.Size(1342, 684);
             this.stCottageControl.TabIndex = 0;
             this.stCottageControl.Text = "Mökkien hallinta";
             // 
             // btnRefereshCottages
             // 
-            this.btnRefereshCottages.Location = new System.Drawing.Point(116, 495);
-            this.btnRefereshCottages.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRefereshCottages.Location = new System.Drawing.Point(55, 323);
             this.btnRefereshCottages.Name = "btnRefereshCottages";
-            this.btnRefereshCottages.Size = new System.Drawing.Size(158, 35);
+            this.btnRefereshCottages.Size = new System.Drawing.Size(105, 23);
             this.btnRefereshCottages.TabIndex = 24;
             this.btnRefereshCottages.Text = "Päivitä näkymä";
             this.btnRefereshCottages.UseVisualStyleBackColor = true;
@@ -1000,89 +972,79 @@
             "4",
             "5",
             "6+"});
-            this.cbCottageCapacity.Location = new System.Drawing.Point(147, 249);
-            this.cbCottageCapacity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbCottageCapacity.Location = new System.Drawing.Point(98, 162);
             this.cbCottageCapacity.Name = "cbCottageCapacity";
-            this.cbCottageCapacity.Size = new System.Drawing.Size(295, 28);
+            this.cbCottageCapacity.Size = new System.Drawing.Size(173, 21);
             this.cbCottageCapacity.TabIndex = 23;
             // 
             // cbCottagePostal
             // 
             this.cbCottagePostal.FormattingEnabled = true;
-            this.cbCottagePostal.Location = new System.Drawing.Point(147, 128);
-            this.cbCottagePostal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbCottagePostal.Location = new System.Drawing.Point(98, 83);
             this.cbCottagePostal.Name = "cbCottagePostal";
-            this.cbCottagePostal.Size = new System.Drawing.Size(295, 28);
+            this.cbCottagePostal.Size = new System.Drawing.Size(173, 21);
             this.cbCottagePostal.TabIndex = 22;
             // 
             // cbCottageRegions
             // 
             this.cbCottageRegions.FormattingEnabled = true;
-            this.cbCottageRegions.Location = new System.Drawing.Point(147, 86);
-            this.cbCottageRegions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbCottageRegions.Location = new System.Drawing.Point(98, 56);
             this.cbCottageRegions.Name = "cbCottageRegions";
-            this.cbCottageRegions.Size = new System.Drawing.Size(292, 28);
+            this.cbCottageRegions.Size = new System.Drawing.Size(173, 21);
             this.cbCottageRegions.TabIndex = 21;
             // 
             // lblMokkiID
             // 
             this.lblMokkiID.AutoSize = true;
-            this.lblMokkiID.Location = new System.Drawing.Point(147, 63);
-            this.lblMokkiID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMokkiID.Location = new System.Drawing.Point(98, 41);
             this.lblMokkiID.Name = "lblMokkiID";
-            this.lblMokkiID.Size = new System.Drawing.Size(45, 20);
+            this.lblMokkiID.Size = new System.Drawing.Size(31, 13);
             this.lblMokkiID.TabIndex = 20;
             this.lblMokkiID.Text = "0000";
             // 
             // tbCottageDescription
             // 
-            this.tbCottageDescription.Location = new System.Drawing.Point(147, 331);
-            this.tbCottageDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCottageDescription.Location = new System.Drawing.Point(98, 215);
             this.tbCottageDescription.Multiline = true;
             this.tbCottageDescription.Name = "tbCottageDescription";
-            this.tbCottageDescription.Size = new System.Drawing.Size(295, 136);
+            this.tbCottageDescription.Size = new System.Drawing.Size(173, 90);
             this.tbCottageDescription.TabIndex = 19;
             // 
             // tbCottageEqupment
             // 
-            this.tbCottageEqupment.Location = new System.Drawing.Point(147, 291);
-            this.tbCottageEqupment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCottageEqupment.Location = new System.Drawing.Point(98, 189);
             this.tbCottageEqupment.Name = "tbCottageEqupment";
-            this.tbCottageEqupment.Size = new System.Drawing.Size(295, 26);
+            this.tbCottageEqupment.Size = new System.Drawing.Size(173, 20);
             this.tbCottageEqupment.TabIndex = 18;
             // 
             // tbCottageStreetAddress
             // 
-            this.tbCottageStreetAddress.Location = new System.Drawing.Point(147, 209);
-            this.tbCottageStreetAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCottageStreetAddress.Location = new System.Drawing.Point(98, 136);
             this.tbCottageStreetAddress.Name = "tbCottageStreetAddress";
-            this.tbCottageStreetAddress.Size = new System.Drawing.Size(295, 26);
+            this.tbCottageStreetAddress.Size = new System.Drawing.Size(173, 20);
             this.tbCottageStreetAddress.TabIndex = 16;
             // 
             // tbCottageName
             // 
-            this.tbCottageName.Location = new System.Drawing.Point(147, 169);
-            this.tbCottageName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCottageName.Location = new System.Drawing.Point(98, 110);
             this.tbCottageName.Name = "tbCottageName";
-            this.tbCottageName.Size = new System.Drawing.Size(295, 26);
+            this.tbCottageName.Size = new System.Drawing.Size(173, 20);
             this.tbCottageName.TabIndex = 15;
             // 
             // btnCottageDelete
             // 
-            this.btnCottageDelete.Location = new System.Drawing.Point(116, 551);
-            this.btnCottageDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCottageDelete.Location = new System.Drawing.Point(55, 359);
             this.btnCottageDelete.Name = "btnCottageDelete";
-            this.btnCottageDelete.Size = new System.Drawing.Size(158, 71);
+            this.btnCottageDelete.Size = new System.Drawing.Size(105, 46);
             this.btnCottageDelete.TabIndex = 11;
             this.btnCottageDelete.Text = "Poista valittu mökki";
             this.btnCottageDelete.UseVisualStyleBackColor = true;
             // 
             // btnCottageAdd
             // 
-            this.btnCottageAdd.Location = new System.Drawing.Point(282, 551);
-            this.btnCottageAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCottageAdd.Location = new System.Drawing.Point(166, 359);
             this.btnCottageAdd.Name = "btnCottageAdd";
-            this.btnCottageAdd.Size = new System.Drawing.Size(158, 71);
+            this.btnCottageAdd.Size = new System.Drawing.Size(105, 46);
             this.btnCottageAdd.TabIndex = 10;
             this.btnCottageAdd.Text = "Lisää uusi mökki";
             this.btnCottageAdd.UseVisualStyleBackColor = true;
@@ -1090,10 +1052,9 @@
             // 
             // btnCottageSearch
             // 
-            this.btnCottageSearch.Location = new System.Drawing.Point(282, 495);
-            this.btnCottageSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCottageSearch.Location = new System.Drawing.Point(166, 323);
             this.btnCottageSearch.Name = "btnCottageSearch";
-            this.btnCottageSearch.Size = new System.Drawing.Size(158, 35);
+            this.btnCottageSearch.Size = new System.Drawing.Size(105, 23);
             this.btnCottageSearch.TabIndex = 9;
             this.btnCottageSearch.Text = "Etsi mökki";
             this.btnCottageSearch.UseVisualStyleBackColor = true;
@@ -1109,94 +1070,85 @@
             this.dgvCottage.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCottage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCottage.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCottage.Location = new System.Drawing.Point(472, 9);
-            this.dgvCottage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCottage.Location = new System.Drawing.Point(300, 5);
             this.dgvCottage.MultiSelect = false;
             this.dgvCottage.Name = "dgvCottage";
             this.dgvCottage.ReadOnly = true;
             this.dgvCottage.RowHeadersVisible = false;
             this.dgvCottage.RowHeadersWidth = 51;
             this.dgvCottage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCottage.Size = new System.Drawing.Size(1520, 1012);
+            this.dgvCottage.Size = new System.Drawing.Size(1036, 676);
             this.dgvCottage.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 295);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(38, 192);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 20);
+            this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Varustelu:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 254);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(16, 165);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 20);
+            this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "Henkilömäärä:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(68, 335);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(45, 218);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 20);
+            this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Kuvaus:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(46, 214);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(31, 139);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 20);
+            this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "Katuosoite:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 174);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(31, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Mökin nimi:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 132);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(22, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 20);
+            this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 2;
             this.label5.Text = "Postinumero:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 91);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(18, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Toiminta-alue:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 63);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(38, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mökki-ID:";
             // 
@@ -1221,30 +1173,27 @@
             this.stService.Controls.Add(this.dgvService);
             this.stService.Controls.Add(this.label17);
             this.stService.Controls.Add(this.label18);
-            this.stService.Location = new System.Drawing.Point(4, 29);
-            this.stService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.stService.Location = new System.Drawing.Point(4, 22);
             this.stService.Name = "stService";
-            this.stService.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.stService.Size = new System.Drawing.Size(2014, 1058);
+            this.stService.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.stService.Size = new System.Drawing.Size(1342, 684);
             this.stService.TabIndex = 1;
             this.stService.Text = "Palveluiden hallinta";
             // 
             // btnServiceDelete
             // 
-            this.btnServiceDelete.Location = new System.Drawing.Point(116, 475);
-            this.btnServiceDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnServiceDelete.Location = new System.Drawing.Point(59, 309);
             this.btnServiceDelete.Name = "btnServiceDelete";
-            this.btnServiceDelete.Size = new System.Drawing.Size(158, 71);
+            this.btnServiceDelete.Size = new System.Drawing.Size(105, 46);
             this.btnServiceDelete.TabIndex = 54;
             this.btnServiceDelete.Text = "Poista valittu palvelu";
             this.btnServiceDelete.UseVisualStyleBackColor = true;
             // 
             // btnServiceAdd
             // 
-            this.btnServiceAdd.Location = new System.Drawing.Point(282, 475);
-            this.btnServiceAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnServiceAdd.Location = new System.Drawing.Point(170, 309);
             this.btnServiceAdd.Name = "btnServiceAdd";
-            this.btnServiceAdd.Size = new System.Drawing.Size(158, 71);
+            this.btnServiceAdd.Size = new System.Drawing.Size(105, 46);
             this.btnServiceAdd.TabIndex = 53;
             this.btnServiceAdd.Text = "Lisää uusi palvelu";
             this.btnServiceAdd.UseVisualStyleBackColor = true;
@@ -1252,10 +1201,9 @@
             // 
             // btnServiceSearch
             // 
-            this.btnServiceSearch.Location = new System.Drawing.Point(327, 431);
-            this.btnServiceSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnServiceSearch.Location = new System.Drawing.Point(193, 280);
             this.btnServiceSearch.Name = "btnServiceSearch";
-            this.btnServiceSearch.Size = new System.Drawing.Size(112, 35);
+            this.btnServiceSearch.Size = new System.Drawing.Size(75, 23);
             this.btnServiceSearch.TabIndex = 52;
             this.btnServiceSearch.Text = "Etsi palvelu";
             this.btnServiceSearch.UseVisualStyleBackColor = true;
@@ -1263,110 +1211,98 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(68, 248);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(29, 161);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 20);
+            this.label14.Size = new System.Drawing.Size(46, 13);
             this.label14.TabIndex = 51;
             this.label14.Text = "Kuvaus:";
             // 
             // tbServiceDescription
             // 
-            this.tbServiceDescription.Location = new System.Drawing.Point(147, 243);
-            this.tbServiceDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbServiceDescription.Location = new System.Drawing.Point(81, 158);
             this.tbServiceDescription.Multiline = true;
             this.tbServiceDescription.Name = "tbServiceDescription";
-            this.tbServiceDescription.Size = new System.Drawing.Size(292, 176);
+            this.tbServiceDescription.Size = new System.Drawing.Size(196, 116);
             this.tbServiceDescription.TabIndex = 50;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(84, 214);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(40, 139);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 20);
+            this.label13.Size = new System.Drawing.Size(35, 13);
             this.label13.TabIndex = 49;
             this.label13.Text = "Hinta:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(267, 214);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(161, 139);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 20);
+            this.label12.Size = new System.Drawing.Size(25, 13);
             this.label12.TabIndex = 48;
             this.label12.Text = "Alv:";
             // 
             // tbServicePrice
             // 
-            this.tbServicePrice.Location = new System.Drawing.Point(147, 209);
-            this.tbServicePrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbServicePrice.Location = new System.Drawing.Point(81, 136);
             this.tbServicePrice.Name = "tbServicePrice";
-            this.tbServicePrice.Size = new System.Drawing.Size(112, 26);
+            this.tbServicePrice.Size = new System.Drawing.Size(76, 20);
             this.tbServicePrice.TabIndex = 47;
             // 
             // tbServiceVAT
             // 
-            this.tbServiceVAT.Location = new System.Drawing.Point(315, 209);
-            this.tbServiceVAT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbServiceVAT.Location = new System.Drawing.Point(193, 136);
             this.tbServiceVAT.Name = "tbServiceVAT";
-            this.tbServiceVAT.Size = new System.Drawing.Size(122, 26);
+            this.tbServiceVAT.Size = new System.Drawing.Size(83, 20);
             this.tbServiceVAT.TabIndex = 46;
             // 
             // tbServiceType
             // 
-            this.tbServiceType.Location = new System.Drawing.Point(147, 169);
-            this.tbServiceType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbServiceType.Location = new System.Drawing.Point(81, 110);
             this.tbServiceType.Name = "tbServiceType";
-            this.tbServiceType.Size = new System.Drawing.Size(292, 26);
+            this.tbServiceType.Size = new System.Drawing.Size(168, 20);
             this.tbServiceType.TabIndex = 45;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(75, 174);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(34, 113);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 20);
+            this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 44;
             this.label11.Text = "Tyyppi:";
             // 
             // tbServiceName
             // 
-            this.tbServiceName.Location = new System.Drawing.Point(147, 128);
-            this.tbServiceName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbServiceName.Location = new System.Drawing.Point(81, 83);
             this.tbServiceName.Name = "tbServiceName";
-            this.tbServiceName.Size = new System.Drawing.Size(292, 26);
+            this.tbServiceName.Size = new System.Drawing.Size(168, 20);
             this.tbServiceName.TabIndex = 43;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(93, 132);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(46, 86);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 20);
+            this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 42;
             this.label10.Text = "Nimi:";
             // 
             // cbServiceRegion
             // 
             this.cbServiceRegion.FormattingEnabled = true;
-            this.cbServiceRegion.Location = new System.Drawing.Point(147, 86);
-            this.cbServiceRegion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbServiceRegion.Location = new System.Drawing.Point(81, 59);
             this.cbServiceRegion.Name = "cbServiceRegion";
-            this.cbServiceRegion.Size = new System.Drawing.Size(292, 28);
+            this.cbServiceRegion.Size = new System.Drawing.Size(168, 21);
             this.cbServiceRegion.TabIndex = 41;
             // 
             // lblServiceID
             // 
             this.lblServiceID.AutoSize = true;
-            this.lblServiceID.Location = new System.Drawing.Point(147, 63);
-            this.lblServiceID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblServiceID.Location = new System.Drawing.Point(81, 41);
             this.lblServiceID.Name = "lblServiceID";
-            this.lblServiceID.Size = new System.Drawing.Size(45, 20);
+            this.lblServiceID.Size = new System.Drawing.Size(31, 13);
             this.lblServiceID.TabIndex = 40;
             this.lblServiceID.Text = "0000";
             // 
@@ -1381,34 +1317,31 @@
             this.dgvService.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvService.Location = new System.Drawing.Point(478, 14);
-            this.dgvService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvService.Location = new System.Drawing.Point(300, 5);
             this.dgvService.MultiSelect = false;
             this.dgvService.Name = "dgvService";
             this.dgvService.ReadOnly = true;
             this.dgvService.RowHeadersVisible = false;
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvService.Size = new System.Drawing.Size(1520, 1012);
+            this.dgvService.Size = new System.Drawing.Size(1036, 676);
             this.dgvService.TabIndex = 32;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(27, 91);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(2, 59);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(108, 20);
+            this.label17.Size = new System.Drawing.Size(73, 13);
             this.label17.TabIndex = 25;
             this.label17.Text = "Toiminta-alue:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(48, 63);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(16, 41);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(85, 20);
+            this.label18.Size = new System.Drawing.Size(59, 13);
             this.label18.TabIndex = 24;
             this.label18.Text = "Palvelu-ID:";
             // 
@@ -1441,40 +1374,36 @@
             this.tBilling.Controls.Add(this.labelBillingSurname);
             this.tBilling.Controls.Add(this.labelBillingCustomerID);
             this.tBilling.Controls.Add(this.labelBillingInvoiceID);
-            this.tBilling.Location = new System.Drawing.Point(4, 29);
-            this.tBilling.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tBilling.Location = new System.Drawing.Point(4, 22);
             this.tBilling.Name = "tBilling";
-            this.tBilling.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tBilling.Size = new System.Drawing.Size(2020, 1092);
+            this.tBilling.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tBilling.Size = new System.Drawing.Size(1346, 706);
             this.tBilling.TabIndex = 5;
             this.tBilling.Text = "Laskut";
             // 
             // lblBillingVarausID
             // 
             this.lblBillingVarausID.AutoSize = true;
-            this.lblBillingVarausID.Location = new System.Drawing.Point(93, 860);
-            this.lblBillingVarausID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBillingVarausID.Location = new System.Drawing.Point(62, 559);
             this.lblBillingVarausID.Name = "lblBillingVarausID";
-            this.lblBillingVarausID.Size = new System.Drawing.Size(77, 20);
+            this.lblBillingVarausID.Size = new System.Drawing.Size(51, 13);
             this.lblBillingVarausID.TabIndex = 27;
             this.lblBillingVarausID.Text = "VarausID";
             // 
             // txtboxBillingVarausID
             // 
-            this.txtboxBillingVarausID.Location = new System.Drawing.Point(94, 888);
-            this.txtboxBillingVarausID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingVarausID.Location = new System.Drawing.Point(63, 577);
             this.txtboxBillingVarausID.Name = "txtboxBillingVarausID";
-            this.txtboxBillingVarausID.Size = new System.Drawing.Size(64, 26);
+            this.txtboxBillingVarausID.Size = new System.Drawing.Size(44, 20);
             this.txtboxBillingVarausID.TabIndex = 26;
             this.txtboxBillingVarausID.TextChanged += new System.EventHandler(this.txtboxBillingVarausID_TextChanged);
             // 
             // btnBillingCreate
             // 
             this.btnBillingCreate.Enabled = false;
-            this.btnBillingCreate.Location = new System.Drawing.Point(170, 860);
-            this.btnBillingCreate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillingCreate.Location = new System.Drawing.Point(113, 559);
             this.btnBillingCreate.Name = "btnBillingCreate";
-            this.btnBillingCreate.Size = new System.Drawing.Size(164, 58);
+            this.btnBillingCreate.Size = new System.Drawing.Size(109, 38);
             this.btnBillingCreate.TabIndex = 25;
             this.btnBillingCreate.Text = "Luo varaukselle lasku";
             this.btnBillingCreate.UseVisualStyleBackColor = true;
@@ -1483,10 +1412,9 @@
             // btnBillingNotPaid
             // 
             this.btnBillingNotPaid.Enabled = false;
-            this.btnBillingNotPaid.Location = new System.Drawing.Point(98, 725);
-            this.btnBillingNotPaid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillingNotPaid.Location = new System.Drawing.Point(65, 471);
             this.btnBillingNotPaid.Name = "btnBillingNotPaid";
-            this.btnBillingNotPaid.Size = new System.Drawing.Size(236, 58);
+            this.btnBillingNotPaid.Size = new System.Drawing.Size(157, 38);
             this.btnBillingNotPaid.TabIndex = 24;
             this.btnBillingNotPaid.Text = "Merkitse maksamattomaksi";
             this.btnBillingNotPaid.UseVisualStyleBackColor = true;
@@ -1497,21 +1425,19 @@
             this.labelBillingBorder.AutoSize = true;
             this.labelBillingBorder.BackColor = System.Drawing.Color.Transparent;
             this.labelBillingBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelBillingBorder.Location = new System.Drawing.Point(4, 502);
-            this.labelBillingBorder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelBillingBorder.MaximumSize = new System.Drawing.Size(420, 3);
-            this.labelBillingBorder.MinimumSize = new System.Drawing.Size(420, 3);
+            this.labelBillingBorder.Location = new System.Drawing.Point(3, 326);
+            this.labelBillingBorder.MaximumSize = new System.Drawing.Size(297, 2);
+            this.labelBillingBorder.MinimumSize = new System.Drawing.Size(297, 2);
             this.labelBillingBorder.Name = "labelBillingBorder";
-            this.labelBillingBorder.Size = new System.Drawing.Size(420, 3);
+            this.labelBillingBorder.Size = new System.Drawing.Size(297, 2);
             this.labelBillingBorder.TabIndex = 23;
             // 
             // btnBillingPaid
             // 
             this.btnBillingPaid.Enabled = false;
-            this.btnBillingPaid.Location = new System.Drawing.Point(98, 657);
-            this.btnBillingPaid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillingPaid.Location = new System.Drawing.Point(65, 427);
             this.btnBillingPaid.Name = "btnBillingPaid";
-            this.btnBillingPaid.Size = new System.Drawing.Size(236, 58);
+            this.btnBillingPaid.Size = new System.Drawing.Size(157, 38);
             this.btnBillingPaid.TabIndex = 22;
             this.btnBillingPaid.Text = "Kuittaa lasku maksetuksi";
             this.btnBillingPaid.UseVisualStyleBackColor = true;
@@ -1520,10 +1446,9 @@
             // btnBillingDelete
             // 
             this.btnBillingDelete.Enabled = false;
-            this.btnBillingDelete.Location = new System.Drawing.Point(98, 792);
-            this.btnBillingDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillingDelete.Location = new System.Drawing.Point(65, 515);
             this.btnBillingDelete.Name = "btnBillingDelete";
-            this.btnBillingDelete.Size = new System.Drawing.Size(236, 58);
+            this.btnBillingDelete.Size = new System.Drawing.Size(157, 38);
             this.btnBillingDelete.TabIndex = 21;
             this.btnBillingDelete.Text = "Poista lasku";
             this.btnBillingDelete.UseVisualStyleBackColor = true;
@@ -1532,10 +1457,9 @@
             // labelBillingPaid
             // 
             this.labelBillingPaid.AutoSize = true;
-            this.labelBillingPaid.Location = new System.Drawing.Point(78, 357);
-            this.labelBillingPaid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingPaid.Location = new System.Drawing.Point(52, 232);
             this.labelBillingPaid.Name = "labelBillingPaid";
-            this.labelBillingPaid.Size = new System.Drawing.Size(75, 20);
+            this.labelBillingPaid.Size = new System.Drawing.Size(51, 13);
             this.labelBillingPaid.TabIndex = 20;
             this.labelBillingPaid.Text = "Maksettu";
             // 
@@ -1547,27 +1471,24 @@
             "Kyllä",
             "Ei",
             "Näytä kaikki"});
-            this.cbBillingPaid.Location = new System.Drawing.Point(164, 352);
-            this.cbBillingPaid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbBillingPaid.Location = new System.Drawing.Point(109, 229);
             this.cbBillingPaid.Name = "cbBillingPaid";
-            this.cbBillingPaid.Size = new System.Drawing.Size(205, 28);
+            this.cbBillingPaid.Size = new System.Drawing.Size(138, 21);
             this.cbBillingPaid.TabIndex = 19;
             // 
             // txtboxBillingOrderID
             // 
-            this.txtboxBillingOrderID.Location = new System.Drawing.Point(164, 111);
-            this.txtboxBillingOrderID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingOrderID.Location = new System.Drawing.Point(109, 72);
             this.txtboxBillingOrderID.Name = "txtboxBillingOrderID";
-            this.txtboxBillingOrderID.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingOrderID.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingOrderID.TabIndex = 18;
             // 
             // labelBillingOrderID
             // 
             this.labelBillingOrderID.AutoSize = true;
-            this.labelBillingOrderID.Location = new System.Drawing.Point(84, 115);
-            this.labelBillingOrderID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingOrderID.Location = new System.Drawing.Point(56, 75);
             this.labelBillingOrderID.Name = "labelBillingOrderID";
-            this.labelBillingOrderID.Size = new System.Drawing.Size(77, 20);
+            this.labelBillingOrderID.Size = new System.Drawing.Size(51, 13);
             this.labelBillingOrderID.TabIndex = 17;
             this.labelBillingOrderID.Text = "VarausID";
             // 
@@ -1580,25 +1501,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBilling.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBilling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBilling.Location = new System.Drawing.Point(434, 11);
-            this.dgvBilling.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvBilling.Location = new System.Drawing.Point(300, 5);
             this.dgvBilling.MultiSelect = false;
             this.dgvBilling.Name = "dgvBilling";
             this.dgvBilling.ReadOnly = true;
             this.dgvBilling.RowHeadersVisible = false;
             this.dgvBilling.RowHeadersWidth = 62;
             this.dgvBilling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBilling.Size = new System.Drawing.Size(1574, 1063);
+            this.dgvBilling.Size = new System.Drawing.Size(1040, 696);
             this.dgvBilling.TabIndex = 14;
             this.dgvBilling.SelectionChanged += new System.EventHandler(this.dgvBilling_SelectionChanged);
             // 
             // btnBillingPDF
             // 
             this.btnBillingPDF.Enabled = false;
-            this.btnBillingPDF.Location = new System.Drawing.Point(98, 589);
-            this.btnBillingPDF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillingPDF.Location = new System.Drawing.Point(65, 383);
             this.btnBillingPDF.Name = "btnBillingPDF";
-            this.btnBillingPDF.Size = new System.Drawing.Size(236, 58);
+            this.btnBillingPDF.Size = new System.Drawing.Size(157, 38);
             this.btnBillingPDF.TabIndex = 13;
             this.btnBillingPDF.Text = "Muodosta laskusta PDF";
             this.btnBillingPDF.UseVisualStyleBackColor = true;
@@ -1606,10 +1525,9 @@
             // 
             // btnBillingSearch
             // 
-            this.btnBillingSearch.Location = new System.Drawing.Point(258, 422);
-            this.btnBillingSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillingSearch.Location = new System.Drawing.Point(172, 274);
             this.btnBillingSearch.Name = "btnBillingSearch";
-            this.btnBillingSearch.Size = new System.Drawing.Size(112, 45);
+            this.btnBillingSearch.Size = new System.Drawing.Size(75, 29);
             this.btnBillingSearch.TabIndex = 12;
             this.btnBillingSearch.Text = "Hae laskua";
             this.btnBillingSearch.UseVisualStyleBackColor = true;
@@ -1617,119 +1535,106 @@
             // 
             // txtboxBillingPhone
             // 
-            this.txtboxBillingPhone.Location = new System.Drawing.Point(164, 311);
-            this.txtboxBillingPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingPhone.Location = new System.Drawing.Point(109, 202);
             this.txtboxBillingPhone.Name = "txtboxBillingPhone";
-            this.txtboxBillingPhone.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingPhone.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingPhone.TabIndex = 11;
             // 
             // txtboxBillingEmail
             // 
-            this.txtboxBillingEmail.Location = new System.Drawing.Point(164, 271);
-            this.txtboxBillingEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingEmail.Location = new System.Drawing.Point(109, 176);
             this.txtboxBillingEmail.Name = "txtboxBillingEmail";
-            this.txtboxBillingEmail.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingEmail.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingEmail.TabIndex = 10;
             // 
             // txtboxBillingLastname
             // 
-            this.txtboxBillingLastname.Location = new System.Drawing.Point(164, 231);
-            this.txtboxBillingLastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingLastname.Location = new System.Drawing.Point(109, 150);
             this.txtboxBillingLastname.Name = "txtboxBillingLastname";
-            this.txtboxBillingLastname.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingLastname.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingLastname.TabIndex = 9;
             // 
             // txtboxBillingSurname
             // 
-            this.txtboxBillingSurname.Location = new System.Drawing.Point(164, 191);
-            this.txtboxBillingSurname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingSurname.Location = new System.Drawing.Point(109, 124);
             this.txtboxBillingSurname.Name = "txtboxBillingSurname";
-            this.txtboxBillingSurname.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingSurname.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingSurname.TabIndex = 8;
             // 
             // txtboxBillingCustomerID
             // 
-            this.txtboxBillingCustomerID.Location = new System.Drawing.Point(164, 151);
-            this.txtboxBillingCustomerID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingCustomerID.Location = new System.Drawing.Point(109, 98);
             this.txtboxBillingCustomerID.Name = "txtboxBillingCustomerID";
-            this.txtboxBillingCustomerID.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingCustomerID.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingCustomerID.TabIndex = 7;
             // 
             // txtboxBillingInvoiceID
             // 
-            this.txtboxBillingInvoiceID.Location = new System.Drawing.Point(164, 71);
-            this.txtboxBillingInvoiceID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtboxBillingInvoiceID.Location = new System.Drawing.Point(109, 46);
             this.txtboxBillingInvoiceID.Name = "txtboxBillingInvoiceID";
-            this.txtboxBillingInvoiceID.Size = new System.Drawing.Size(205, 26);
+            this.txtboxBillingInvoiceID.Size = new System.Drawing.Size(138, 20);
             this.txtboxBillingInvoiceID.TabIndex = 6;
             // 
             // labelBillingPhone
             // 
             this.labelBillingPhone.AutoSize = true;
-            this.labelBillingPhone.Location = new System.Drawing.Point(39, 315);
-            this.labelBillingPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingPhone.Location = new System.Drawing.Point(26, 205);
             this.labelBillingPhone.Name = "labelBillingPhone";
-            this.labelBillingPhone.Size = new System.Drawing.Size(115, 20);
+            this.labelBillingPhone.Size = new System.Drawing.Size(77, 13);
             this.labelBillingPhone.TabIndex = 5;
             this.labelBillingPhone.Text = "Puhelinnumero";
             // 
             // labelBillingEmail
             // 
             this.labelBillingEmail.AutoSize = true;
-            this.labelBillingEmail.Location = new System.Drawing.Point(64, 275);
-            this.labelBillingEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingEmail.Location = new System.Drawing.Point(43, 179);
             this.labelBillingEmail.Name = "labelBillingEmail";
-            this.labelBillingEmail.Size = new System.Drawing.Size(89, 20);
+            this.labelBillingEmail.Size = new System.Drawing.Size(60, 13);
             this.labelBillingEmail.TabIndex = 4;
             this.labelBillingEmail.Text = "Sähköposti";
             // 
             // labelBillingLastname
             // 
             this.labelBillingLastname.AutoSize = true;
-            this.labelBillingLastname.Location = new System.Drawing.Point(80, 235);
-            this.labelBillingLastname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingLastname.Location = new System.Drawing.Point(53, 153);
             this.labelBillingLastname.Name = "labelBillingLastname";
-            this.labelBillingLastname.Size = new System.Drawing.Size(74, 20);
+            this.labelBillingLastname.Size = new System.Drawing.Size(50, 13);
             this.labelBillingLastname.TabIndex = 3;
             this.labelBillingLastname.Text = "Sukunimi";
             // 
             // labelBillingSurname
             // 
             this.labelBillingSurname.AutoSize = true;
-            this.labelBillingSurname.Location = new System.Drawing.Point(93, 195);
-            this.labelBillingSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingSurname.Location = new System.Drawing.Point(62, 127);
             this.labelBillingSurname.Name = "labelBillingSurname";
-            this.labelBillingSurname.Size = new System.Drawing.Size(62, 20);
+            this.labelBillingSurname.Size = new System.Drawing.Size(41, 13);
             this.labelBillingSurname.TabIndex = 2;
             this.labelBillingSurname.Text = "Etunimi";
             // 
             // labelBillingCustomerID
             // 
             this.labelBillingCustomerID.AutoSize = true;
-            this.labelBillingCustomerID.Location = new System.Drawing.Point(72, 155);
-            this.labelBillingCustomerID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingCustomerID.Location = new System.Drawing.Point(48, 101);
             this.labelBillingCustomerID.Name = "labelBillingCustomerID";
-            this.labelBillingCustomerID.Size = new System.Drawing.Size(82, 20);
+            this.labelBillingCustomerID.Size = new System.Drawing.Size(55, 13);
             this.labelBillingCustomerID.TabIndex = 1;
             this.labelBillingCustomerID.Text = "AsiakasID";
             // 
             // labelBillingInvoiceID
             // 
             this.labelBillingInvoiceID.AutoSize = true;
-            this.labelBillingInvoiceID.Location = new System.Drawing.Point(84, 75);
-            this.labelBillingInvoiceID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBillingInvoiceID.Location = new System.Drawing.Point(56, 49);
             this.labelBillingInvoiceID.Name = "labelBillingInvoiceID";
-            this.labelBillingInvoiceID.Size = new System.Drawing.Size(69, 20);
+            this.labelBillingInvoiceID.Size = new System.Drawing.Size(47, 13);
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
             // RentCottage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2025, 1122);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.tcMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RentCottage";
             this.Text = "RentCottage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

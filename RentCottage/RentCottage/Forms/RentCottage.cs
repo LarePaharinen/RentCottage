@@ -365,6 +365,7 @@ namespace RentCottage
         {
             if(!OrderUtils.ChechCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text))
             {
+                btnSearchHae_Click(sender, e);
                 return;
             }
 
