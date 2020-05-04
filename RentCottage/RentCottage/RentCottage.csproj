@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\OrderUtils.cs" />
+    <Compile Include="Code\RegionUtils.cs" />
     <Compile Include="Forms\AddCottageForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -56,7 +56,7 @@
             this.cbAddCottageRegion.Location = new System.Drawing.Point(91, 17);
             this.cbAddCottageRegion.Name = "cbAddCottageRegion";
             this.cbAddCottageRegion.Size = new System.Drawing.Size(209, 21);
-            this.cbAddCottageRegion.TabIndex = 14;
+            this.cbAddCottageRegion.TabIndex = 1;
             // 
             // label6
             // 
@@ -108,28 +108,28 @@
             this.tbAddCottageEquipment.Location = new System.Drawing.Point(91, 174);
             this.tbAddCottageEquipment.Name = "tbAddCottageEquipment";
             this.tbAddCottageEquipment.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottageEquipment.TabIndex = 19;
+            this.tbAddCottageEquipment.TabIndex = 7;
             // 
             // tbAddCottageStreet
             // 
             this.tbAddCottageStreet.Location = new System.Drawing.Point(91, 122);
             this.tbAddCottageStreet.Name = "tbAddCottageStreet";
             this.tbAddCottageStreet.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottageStreet.TabIndex = 17;
+            this.tbAddCottageStreet.TabIndex = 5;
             // 
             // tbAddCottageName
             // 
             this.tbAddCottageName.Location = new System.Drawing.Point(91, 96);
             this.tbAddCottageName.Name = "tbAddCottageName";
             this.tbAddCottageName.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottageName.TabIndex = 16;
+            this.tbAddCottageName.TabIndex = 4;
             // 
             // tbAddCottagePostNum
             // 
             this.tbAddCottagePostNum.Location = new System.Drawing.Point(91, 44);
             this.tbAddCottagePostNum.Name = "tbAddCottagePostNum";
             this.tbAddCottagePostNum.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottagePostNum.TabIndex = 15;
+            this.tbAddCottagePostNum.TabIndex = 2;
             // 
             // label1
             // 
@@ -155,7 +155,7 @@
             this.tbAddCottageDescription.Multiline = true;
             this.tbAddCottageDescription.Name = "tbAddCottageDescription";
             this.tbAddCottageDescription.Size = new System.Drawing.Size(209, 94);
-            this.tbAddCottageDescription.TabIndex = 25;
+            this.tbAddCottageDescription.TabIndex = 9;
             // 
             // cbAddCottageCapacity
             // 
@@ -170,14 +170,14 @@
             this.cbAddCottageCapacity.Location = new System.Drawing.Point(91, 148);
             this.cbAddCottageCapacity.Name = "cbAddCottageCapacity";
             this.cbAddCottageCapacity.Size = new System.Drawing.Size(209, 21);
-            this.cbAddCottageCapacity.TabIndex = 27;
+            this.cbAddCottageCapacity.TabIndex = 6;
             // 
             // btnAddCottageAdd
             // 
             this.btnAddCottageAdd.Location = new System.Drawing.Point(225, 326);
             this.btnAddCottageAdd.Name = "btnAddCottageAdd";
             this.btnAddCottageAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCottageAdd.TabIndex = 28;
+            this.btnAddCottageAdd.TabIndex = 10;
             this.btnAddCottageAdd.Text = "Lisää";
             this.btnAddCottageAdd.UseVisualStyleBackColor = true;
             this.btnAddCottageAdd.Click += new System.EventHandler(this.btnAddCottageAdd_Click);
@@ -187,7 +187,7 @@
             this.btnAddCottageCancel.Location = new System.Drawing.Point(144, 326);
             this.btnAddCottageCancel.Name = "btnAddCottageCancel";
             this.btnAddCottageCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCottageCancel.TabIndex = 29;
+            this.btnAddCottageCancel.TabIndex = 11;
             this.btnAddCottageCancel.Text = "Peruuta";
             this.btnAddCottageCancel.UseVisualStyleBackColor = true;
             this.btnAddCottageCancel.Click += new System.EventHandler(this.btnAddCottageCancel_Click);
@@ -206,7 +206,7 @@
             this.tbAddCottagePostRegion.Location = new System.Drawing.Point(91, 70);
             this.tbAddCottagePostRegion.Name = "tbAddCottagePostRegion";
             this.tbAddCottagePostRegion.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottagePostRegion.TabIndex = 30;
+            this.tbAddCottagePostRegion.TabIndex = 3;
             // 
             // label9
             // 
@@ -222,7 +222,7 @@
             this.tbAddCottagePrice.Location = new System.Drawing.Point(91, 200);
             this.tbAddCottagePrice.Name = "tbAddCottagePrice";
             this.tbAddCottagePrice.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottagePrice.TabIndex = 33;
+            this.tbAddCottagePrice.TabIndex = 8;
             // 
             // AddCottageForm
             // 
@@ -250,7 +250,7 @@
             this.Controls.Add(this.tbAddCottagePostNum);
             this.Controls.Add(this.label1);
             this.Name = "AddCottageForm";
-            this.Text = "AddCottageForm";
+            this.Text = "Lisää mökki";
             this.ResumeLayout(false);
             this.PerformLayout();
 

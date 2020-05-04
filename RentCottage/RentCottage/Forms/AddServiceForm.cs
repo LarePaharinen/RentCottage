@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using RentCottage.Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,7 @@ namespace RentCottage.Forms
         public AddServiceForm()
         {
             InitializeComponent();
-            string query = "SELECT * FROM toimintaalue";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);            
-            cbAddServiceRegion.DataSource = table;
-            cbAddServiceRegion.DisplayMember = "nimi";
+            RegionUtils.PopulateCBRegion(cbAddServiceRegion);
         }
         
     }

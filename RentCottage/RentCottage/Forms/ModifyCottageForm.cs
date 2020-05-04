@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using RentCottage.Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace RentCottage.Forms
         public ModifyCottageForm()
         {
             InitializeComponent();
+
             string query = "SELECT * FROM toimintaalue";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
@@ -28,15 +30,10 @@ namespace RentCottage.Forms
         {
             InitializeComponent();
 
-            string query = "SELECT * FROM toimintaalue";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            cbModifyCottageRegion.DataSource = table;
-            cbModifyCottageRegion.DisplayMember = "nimi";
+            RegionUtils.PopulateCBRegion(cbModifyCottageRegion);            
 
             lblModifyCottageID.Text = c.CottageID.ToString();
-            cbModifyCottageRegion.SelectedItem = PostUtils.RegionIndexToName(c.RegionID);
+            cbModifyCottageRegion.SelectedItem = RegionUtils.RegionIndexToName(c.RegionID);
             tbModifyCottagePostNum.Text = c.Postal;
             tbModifyCottageName.Text = c.Name;
             tbModifyCottageStreet.Text = c.Address;
@@ -55,7 +52,7 @@ namespace RentCottage.Forms
             {
                 string query = "START TRANSACTION; " +
                 "UPDATE mokki " +
-                "SET toimintaalue_id=" + PostUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
+                "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
                 "',mokkinimi='" + tbModifyCottageName.Text + "',katuosoite='" + tbModifyCottageStreet.Text + "'," +
                 "kuvaus='" + tbModifyCottageDescription.Text + "',henkilomaara=" + Convert.ToInt32(cbModifyCottageCapacity.Text) +
                 " ,varustelu='"+ tbModifyCottageEquipment.Text + "', hinta=" + Convert.ToDouble(tbModifyCottagePrice.Text) + " " +

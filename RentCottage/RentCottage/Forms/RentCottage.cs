@@ -34,6 +34,8 @@ namespace RentCottage
             PopulateDGVCottage();
             populateDGVBilling();
             Search_alue_Combobox_update();
+            RegionUtils.PopulateCBRegion(cbCottageRegions);
+            RegionUtils.PopulateCBRegion(cbServiceRegion);
             cbSearchAluet.SelectedIndex = 1;
             cbBillingPaid.SelectedIndex = 2;
             tbOrderSearch.Tag = tbOrderSearch.Text = "Kirjoita hakusana...";
@@ -648,6 +650,23 @@ namespace RentCottage
                 command.ExecuteNonQuery();
                 ConnectionUtils.closeConnection();
             }
+        }
+
+        private void btnCottageSearch_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM mokki " +
+                "WHERE toimintaalue_id LIKE '%" + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + "%' " +
+                "AND postinro LIKE '%" + tbCottagePostNum.Text + "%' " +
+                "AND mokkinimi LIKE '%" + tbCottageName.Text + "%' " +
+                "AND katuosoite LIKE '%" + tbCottageStreetAddress.Text + "%' " +
+                "AND kuvaus LIKE '%" + tbCottageDescription.Text + "%' " +
+                "AND henkilomaara LIKE '%" + cbCottageCapacity.Text + "%' " + 
+                "AND varustelu LIKE '%" + tbCottageEqupment.Text + "%' " +
+                "AND hinta <(" + (nudCottagePrice.Value + 1) + ");";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            dgvCottage.DataSource = table;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using RentCottage.Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace RentCottage.Forms
             string query = "START TRANSACTION; " +
                 "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
                 "VALUES(default," + 
-                PostUtils.RegionNameToIndex(cbAddCottageRegion.Text) + "," + 
+                RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + "," + 
                 int.Parse(tbAddCottagePostNum.Text) +",'" + 
                 tbAddCottageName.Text + "','" + 
                 tbAddCottageStreet.Text + "','" + 
