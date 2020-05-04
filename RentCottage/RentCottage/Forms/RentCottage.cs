@@ -78,7 +78,11 @@ namespace RentCottage
             adapter.Fill(table);
             dgOrder.DataSource = table;
         }
+
+
         //codes related to Varausten hallinta
+
+
         private void tbOrderSearch_Enter(object sender, EventArgs e)
         {
             if (tbOrderSearch.Text.Equals("Kirjoita hakusana..."))
@@ -208,6 +212,7 @@ namespace RentCottage
             }
         }
 
+
         //codes related to Asiakashallinta
 
 
@@ -278,8 +283,12 @@ namespace RentCottage
             ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
             MCF.ShowDialog();
         }
+
+
         //Search
-        private void Search_alue_Combobox_update() // Fill regions to combobox
+
+        // Fill regions to combobox
+        private void Search_alue_Combobox_update() 
         {
             string selectQuery = "SELECT * FROM toimintaalue"; 
             ConnectionUtils.openConnection();
@@ -308,12 +317,12 @@ namespace RentCottage
 
         private void btnSearchHae_Click(object sender, EventArgs e)
         {
-            if (dtpSearchTO.Value.Date <= dtpSearchFROM.Value.Date) //Check date
+            if (dtpSearchTO.Value.Date <= dtpSearchFROM.Value.Date) // Date check
             {
                 MessageBox.Show("Majoituksen alkupäivä ei voi olla sama tai myöhemmin kun viimeinen majoituspäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dtpSearchTO.Value.Date < DateTime.Now.Date)
+            if (dtpSearchTO.Value.Date < DateTime.Now.Date) 
             {
                 MessageBox.Show("Majoituksen alkupäivä ei voi olla aiemmin kun tämän hetkinen päivämäärä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -333,13 +342,13 @@ namespace RentCottage
                 ConnectionUtils.closeConnection();
                 query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
             }
-            if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true)
+            if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true) // Set price limit
                 query += "WHERE m.hinta <= '" + nudSearchHintaraja.Value + "' ";
 
             else if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == false)
                 query += "AND m.hinta <= '" + nudSearchHintaraja.Value + "' ";
 
-            if (nudSearchMaxhlo.Value != 0)
+            if (nudSearchMaxhlo.Value != 0) // Set customer quantity
             {
                 if (nudSearchHintaraja.Value != 0 || cbSearchAlueKaikki.Checked == false)
                     query += "AND ";
@@ -360,13 +369,14 @@ namespace RentCottage
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Virhe, yritä uudelleen", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Virhe, yritä uudelleen\n\n" + ex, "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btmSearchVarata_Click(object sender, EventArgs e)
+        private void btmSearchVarata_Click(object sender, EventArgs e) // New order
         {
-            if(!OrderUtils.ChechCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text))
+            // Check date again, if user change data, and no do search
+            if (!OrderUtils.ChechCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text)) 
             {
                 btnSearchHae_Click(sender, e);
                 return;
@@ -385,13 +395,13 @@ namespace RentCottage
             Booking booking = new Booking(newbook);
             booking.ShowDialog();
         }
-
-        private void dtpSearchFROM_ValueChanged(object sender, EventArgs e)
+        
+        private void dtpSearchFROM_ValueChanged(object sender, EventArgs e) // 'Date to' change close to 'date to'
         {
             dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
         }
 
-        private void dgSearchTable_SelectionChanged(object sender, EventArgs e)
+        private void dgSearchTable_SelectionChanged(object sender, EventArgs e) // Set button active when choose cottage
         {
             try
             {

@@ -319,9 +319,11 @@
             // tbBookCustomerPostOffice
             // 
             this.tbBookCustomerPostOffice.Location = new System.Drawing.Point(515, 127);
+            this.tbBookCustomerPostOffice.MaxLength = 45;
             this.tbBookCustomerPostOffice.Name = "tbBookCustomerPostOffice";
             this.tbBookCustomerPostOffice.Size = new System.Drawing.Size(116, 20);
             this.tbBookCustomerPostOffice.TabIndex = 16;
+            this.tbBookCustomerPostOffice.Leave += new System.EventHandler(this.tbBookCustomerPostOffice_Leave);
             // 
             // lblBookCustomerPostOfficeHead
             // 
@@ -378,11 +380,12 @@
             // tbBookCustomerPhone
             // 
             this.tbBookCustomerPhone.Location = new System.Drawing.Point(387, 22);
-            this.tbBookCustomerPhone.MaxLength = 10;
+            this.tbBookCustomerPhone.MaxLength = 15;
             this.tbBookCustomerPhone.Name = "tbBookCustomerPhone";
             this.tbBookCustomerPhone.Size = new System.Drawing.Size(148, 20);
             this.tbBookCustomerPhone.TabIndex = 10;
             this.tbBookCustomerPhone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbBookCustomerEmail_KeyDown);
+            this.tbBookCustomerPhone.Leave += new System.EventHandler(this.tbBookCustomerPhone_Leave);
             // 
             // tbBookCustomerPostnumber
             // 
@@ -391,6 +394,7 @@
             this.tbBookCustomerPostnumber.Name = "tbBookCustomerPostnumber";
             this.tbBookCustomerPostnumber.Size = new System.Drawing.Size(66, 20);
             this.tbBookCustomerPostnumber.TabIndex = 15;
+            this.tbBookCustomerPostnumber.Leave += new System.EventHandler(this.tbBookCustomerPostnumber_Leave);
             // 
             // btnBookPrev
             // 
@@ -406,17 +410,21 @@
             // tbBookCustomerAddress
             // 
             this.tbBookCustomerAddress.Location = new System.Drawing.Point(68, 127);
+            this.tbBookCustomerAddress.MaxLength = 40;
             this.tbBookCustomerAddress.Name = "tbBookCustomerAddress";
             this.tbBookCustomerAddress.Size = new System.Drawing.Size(221, 20);
             this.tbBookCustomerAddress.TabIndex = 14;
+            this.tbBookCustomerAddress.Leave += new System.EventHandler(this.tbBookCustomerAddress_Leave);
             // 
             // tbBookCustomerEmail
             // 
             this.tbBookCustomerEmail.Location = new System.Drawing.Point(102, 22);
+            this.tbBookCustomerEmail.MaxLength = 50;
             this.tbBookCustomerEmail.Name = "tbBookCustomerEmail";
             this.tbBookCustomerEmail.Size = new System.Drawing.Size(221, 20);
             this.tbBookCustomerEmail.TabIndex = 9;
             this.tbBookCustomerEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbBookCustomerEmail_KeyDown);
+            this.tbBookCustomerEmail.Leave += new System.EventHandler(this.tbBookCustomerEmail_Leave);
             // 
             // lblBookCustomerExists
             // 
@@ -442,16 +450,20 @@
             // tbBookCustomerLastname
             // 
             this.tbBookCustomerLastname.Location = new System.Drawing.Point(373, 101);
+            this.tbBookCustomerLastname.MaxLength = 40;
             this.tbBookCustomerLastname.Name = "tbBookCustomerLastname";
             this.tbBookCustomerLastname.Size = new System.Drawing.Size(258, 20);
             this.tbBookCustomerLastname.TabIndex = 13;
+            this.tbBookCustomerLastname.Leave += new System.EventHandler(this.tbBookCustomerLastname_Leave);
             // 
             // tbBookCustomerName
             // 
             this.tbBookCustomerName.Location = new System.Drawing.Point(68, 98);
+            this.tbBookCustomerName.MaxLength = 20;
             this.tbBookCustomerName.Name = "tbBookCustomerName";
             this.tbBookCustomerName.Size = new System.Drawing.Size(221, 20);
             this.tbBookCustomerName.TabIndex = 12;
+            this.tbBookCustomerName.Leave += new System.EventHandler(this.tbBookCustomerName_Leave);
             // 
             // lblBookCustomerPostnumber
             // 

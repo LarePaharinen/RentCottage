@@ -72,7 +72,7 @@ namespace RentCottage
         {
             dt.Clear();
             currentcustomer = 0;
-            if (tbBookCustomerEmail.Text != "") // Search by customer on email
+            if (tbBookCustomerEmail.Text != "") // Search customer by email
             {
                 ConnectionUtils.openConnection();
                 MySqlCommand ckech_is_user_exists = new MySqlCommand("SELECT * FROM asiakas WHERE email like '" + 
@@ -109,7 +109,7 @@ namespace RentCottage
                 }
                 ConnectionUtils.closeConnection();
             }
-            else if(tbBookCustomerPhone.Text != "") //Search by customer phonenumber
+            else if(tbBookCustomerPhone.Text != "") //Search customer by phonenumber
             {
                 ConnectionUtils.openConnection();
                 MySqlCommand ckech_is_user_exists = new MySqlCommand("SELECT * FROM asiakas WHERE puhelinnro like '" + 
@@ -233,15 +233,15 @@ namespace RentCottage
                     MySqlCommand command = new MySqlCommand("SELECT varaus_id FROM varaus WHERE asiakas_id LIKE '" +
                         customerid + "' AND mokki_mokki_id LIKE '" + lblBookCottageId.Text + "' AND varattu_alkupvm LIKE '" +
                         lblBookBookingDateFrom.Text + "%' AND varattu_loppupvm LIKE '" + lblBookBookingDateTo.Text + "%' ", ConnectionUtils.connection);
-                    varausid = Convert.ToInt32(command.ExecuteScalar()); // get added book ID
+                    varausid = Convert.ToInt32(command.ExecuteScalar()); // get just added order ID
                     ConnectionUtils.closeConnection();
 
-                    if (services != "")
+                    if (services != "") // if services exists
                     {
                         string queryServices = makeQueryServices();
                         ConnectionUtils.openConnection();
                         MySqlCommand command3 = new MySqlCommand(queryServices, ConnectionUtils.connection);
-                        command3.ExecuteNonQuery(); // 3. get added book ID and add services to data table
+                        command3.ExecuteNonQuery(); // 3. get added order ID and add services to data table
                         ConnectionUtils.closeConnection();
                         this.Close();
                     }
@@ -272,12 +272,12 @@ namespace RentCottage
                 "INSERT INTO varaus(asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) " +
                 "VALUES('" + customerid + "', '" + lblBookCottageId.Text + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +
                 "', NULL, '" + lblBookBookingDateFrom.Text + " 16:00:00', '" + lblBookBookingDateTo.Text + " 12:00:00'); " +
-                "COMMIT;"; // Book start time, always 16:00:00 and end time always 12:00:00
+                "COMMIT;"; // Book start time always 16:00:00 and end time always 12:00:00
 
             return queryBook;
         }
 
-        private string makeQueryServices() 
+        private string makeQueryServices() // Design query string from services
         {
             string query = "START TRANSACTION; ";
             foreach (DataGridViewRow row in dgvBookServices.Rows)
@@ -292,7 +292,7 @@ namespace RentCottage
             return query;
         }
 
-        private void btnBookNext_Click(object sender, EventArgs e)
+        private void btnBookNext_Click(object sender, EventArgs e) // Next customer
         {
             if(currentcustomer < (dt.Rows.Count - 1))
             {
@@ -303,7 +303,7 @@ namespace RentCottage
             }
         }
 
-        private void btnBookPrev_Click(object sender, EventArgs e)
+        private void btnBookPrev_Click(object sender, EventArgs e) // Previous customer
         {
             if (currentcustomer <= (dt.Rows.Count - 1) && currentcustomer > 0)
             {
@@ -314,23 +314,23 @@ namespace RentCottage
             }
         }
 
-        private void fill_customer_values()
+        private void fill_customer_values() // Fill customer data function
         {
             if (tbBookCustomerEmail.Text == "")
-                tbBookCustomerEmail.Text = dt.Rows[currentcustomer].Field<string>("email").ToString();
+                tbBookCustomerEmail.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("email").ToString(), tbBookCustomerEmail.MaxLength);
             else if (tbBookCustomerPhone.Text == "")
-                tbBookCustomerPhone.Text = dt.Rows[currentcustomer].Field<string>("puhelinnro");
+                tbBookCustomerPhone.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("puhelinnro"), tbBookCustomerPhone.MaxLength);
 
-            tbBookCustomerName.Text = dt.Rows[currentcustomer].Field<string>("etunimi").ToString();
-            tbBookCustomerLastname.Text = dt.Rows[currentcustomer].Field<string>("sukunimi").ToString();
-            tbBookCustomerAddress.Text = dt.Rows[currentcustomer].Field<string>("lahiosoite").ToString();
-            tbBookCustomerPostnumber.Text = dt.Rows[currentcustomer].Field<string>("postinro").ToString();
-            tbBookCustomerPostOffice.Text = PostUtils.getPostOffice(dt.Rows[currentcustomer].Field<string>("postinro").ToString());
+            tbBookCustomerName.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("etunimi").ToString(), tbBookCustomerName.MaxLength);
+            tbBookCustomerLastname.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("sukunimi").ToString(), tbBookCustomerLastname.MaxLength);
+            tbBookCustomerAddress.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("lahiosoite").ToString(), tbBookCustomerAddress.MaxLength);
+            tbBookCustomerPostnumber.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("postinro").ToString(), tbBookCustomerPostnumber.MaxLength);
+            tbBookCustomerPostOffice.Text = TextBoxUtils.modifyInput(PostUtils.getPostOffice(dt.Rows[currentcustomer].Field<string>("postinro").ToString()), tbBookCustomerPostOffice.MaxLength);
             customerid = dt.Rows[currentcustomer].Field<int>("asiakas_id");
             lblBookCustomerID.Visible = true;
             lblBookCustomerID.Text = "Asiakas ID: " + customerid.ToString();
         }
-        private void erase_customer_values()
+        private void erase_customer_values() // Erase customer data function
         {
             tbBookCustomerName.Text = "";
             tbBookCustomerLastname.Text = "";
@@ -344,7 +344,7 @@ namespace RentCottage
             lblCustomerOnSame.Visible = false;
         }
 
-        private void tbBookCustomerEmail_KeyDown(object sender, KeyEventArgs e)
+        private void tbBookCustomerEmail_KeyDown(object sender, KeyEventArgs e) // Press button on 'Enter'
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -365,9 +365,45 @@ namespace RentCottage
                 }
             }
         }
+
         private void lblBookServicePrice_TextChanged(object sender, EventArgs e)
         {
             lblBookPriceFull.Text = (cottagepriodprice + serviceprice).ToString() + " €";
+        }
+
+        private void tbBookCustomerEmail_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerEmail.Text = TextBoxUtils.modifyInput(tbBookCustomerEmail.Text, tbBookCustomerEmail.MaxLength);
+        }
+
+        private void tbBookCustomerPhone_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerPhone.Text = TextBoxUtils.modifyInput(tbBookCustomerPhone.Text, tbBookCustomerPhone.MaxLength);
+        }
+
+        private void tbBookCustomerName_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerName.Text = TextBoxUtils.modifyInput(tbBookCustomerName.Text, tbBookCustomerName.MaxLength);
+        }
+
+        private void tbBookCustomerLastname_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerLastname.Text = TextBoxUtils.modifyInput(tbBookCustomerLastname.Text, tbBookCustomerLastname.MaxLength);
+        }
+
+        private void tbBookCustomerAddress_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerAddress.Text = TextBoxUtils.modifyInput(tbBookCustomerAddress.Text, tbBookCustomerAddress.MaxLength);
+        }
+
+        private void tbBookCustomerPostnumber_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerPostnumber.Text = TextBoxUtils.modifyInput(tbBookCustomerPostnumber.Text, tbBookCustomerPostnumber.MaxLength);
+        }
+
+        private void tbBookCustomerPostOffice_Leave(object sender, EventArgs e)
+        {
+            tbBookCustomerPostOffice.Text = TextBoxUtils.modifyInput(tbBookCustomerPostOffice.Text, tbBookCustomerPostOffice.MaxLength);
         }
     }
 }
