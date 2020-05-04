@@ -27,6 +27,7 @@ namespace RentCottage.Forms
 
         private void btnAddServiceAdd_Click(object sender, EventArgs e)
         {
+            
             string query = "START TRANSACTION; " +
                 "INSERT INTO palvelu(palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv) " +
                 "VALUES(default," +
@@ -39,6 +40,7 @@ namespace RentCottage.Forms
                 "COMMIT;";
             try
             {
+                //Adds service to the DB
                 ConnectionUtils.openConnection();
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();

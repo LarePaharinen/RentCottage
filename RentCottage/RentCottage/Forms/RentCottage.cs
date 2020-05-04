@@ -670,5 +670,15 @@ namespace RentCottage
             adapter.Fill(table);
             dgvCottage.DataSource = table;
         }
+
+        private void btnServiceModify_Click(object sender, EventArgs e)
+        {
+            Service service = new Service(Convert.ToInt32(dgvService.CurrentRow.Cells[0].Value),Convert.ToInt32(dgvService.CurrentRow.Cells[1].Value),
+                dgvService.CurrentRow.Cells[2].Value.ToString(), Convert.ToInt32(dgvService.CurrentRow.Cells[3].Value), dgvService.CurrentRow.Cells[4].Value.ToString(),
+                Convert.ToDouble(dgvService.CurrentRow.Cells[5].Value), Convert.ToDouble(dgvService.CurrentRow.Cells[6].Value));
+            ModifyServiceForm MSF = new ModifyServiceForm(service);
+            MSF.ShowDialog();
+            PopulateDGVService();
+        }
     }
 }

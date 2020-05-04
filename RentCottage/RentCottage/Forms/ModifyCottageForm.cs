@@ -18,16 +18,12 @@ namespace RentCottage.Forms
         {
             InitializeComponent();
 
-            string query = "SELECT * FROM toimintaalue";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            cbModifyCottageRegion.DataSource = table;
-            cbModifyCottageRegion.DisplayMember = "nimi";
+            RegionUtils.PopulateCBRegion(cbModifyCottageRegion);
         }
 
         public ModifyCottageForm(Cottage c)
         {
+            //Used to import cottage data to form
             InitializeComponent();
 
             RegionUtils.PopulateCBRegion(cbModifyCottageRegion);            
@@ -45,11 +41,13 @@ namespace RentCottage.Forms
 
         private void btnModifyCottageModify_Click(object sender, EventArgs e)
         {
+            //Make sure the data should be modified
             DialogResult result = MessageBox.Show("Haluatko varmasti muuttaa valitun mökin tietoja?", "Muuta mökin tietoja", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (result == DialogResult.Yes)
             {
+                //Modifies the data
                 string query = "START TRANSACTION; " +
                 "UPDATE mokki " +
                 "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
