@@ -32,6 +32,7 @@ namespace RentCottage
             PopulateDGVCustomer();
             PopulateDGVService();
             PopulateDGVCottage();
+            populateDGVBilling();
             Search_alue_Combobox_update();
             cbSearchAluet.SelectedIndex = 1;
             cbBillingPaid.SelectedIndex = 2;
@@ -405,40 +406,14 @@ namespace RentCottage
         private void btnBilling_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-
             //Search for an invoice
+
             if (btn == btnBillingSearch) 
             {
-                ConnectionUtils.openConnection();
-                string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
-                                " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
-                                "a.email AS 'Sähköposti', " +
-                                "l.summa as 'Summa (€)', l.maksettu AS 'maksu suoritettu' " +
-                                "FROM lasku l " +
-                                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-                                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
-                                "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
-                                "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
-                                "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
-                                "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
-                                "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
-                                "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
-                                "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
-                if (cbBillingPaid.SelectedIndex == 0)
-                    query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
-                else if (cbBillingPaid.SelectedIndex == 1)
-                    query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
-                else if (cbBillingPaid.SelectedIndex == 2)
-                    query += "ORDER BY l.lasku_id;";
-                BillingUtils.lastQuery = query;
-                DataTable table = new DataTable();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-                adapter.Fill(table);
-                dgvBilling.DataSource = table;
-                ConnectionUtils.closeConnection();
+                billingSearch();
             }
 
-            //Create new bill for a reservation
+            //Create a new bill for a reservation
             else if (btn == btnBillingCreate) 
             {
                 try
@@ -456,11 +431,11 @@ namespace RentCottage
             //Update the state of payment of a selected invoice
             else if (btn == btnBillingPaid || btn == btnBillingNotPaid)
             {
-                string paymentState = "";
+                bool paymentState;
                 if (btn == btnBillingPaid)
-                    paymentState = "TRUE";
-                else if (btn == btnBillingNotPaid)
-                    paymentState = "FALSE";
+                    paymentState = true;
+                else
+                    paymentState = false;
 
                 int selectedRow = dgvBilling.CurrentCell.RowIndex;
                 int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
@@ -479,6 +454,7 @@ namespace RentCottage
                 dgvBilling.ClearSelection();
             }
 
+            //Create a PDF document of a selected bill
             else if (btn == btnBillingPDF)
             {
                 try
@@ -488,8 +464,7 @@ namespace RentCottage
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                    //MessageBox.Show("PDF:n muodostaminen epäonnistui. Onko aiempi lasku vielä auki?", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("PDF:n muodostaminen epäonnistui. Onko aiempi lasku vielä auki?", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -503,7 +478,7 @@ namespace RentCottage
                 btnBillingCreate.Enabled = false;
         }
 
-        //Checks if the information of selected row in Datagridview is available on "Laskut" tab.
+        //Checks if the information of a selected row in Datagridview is available on "Laskut" tab. Restricts button press if not available
         private void dgvBilling_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -521,6 +496,43 @@ namespace RentCottage
                 btnBillingPaid.Enabled = false;
                 btnBillingPDF.Enabled = false;
             }
+        }
+
+        //Executes a standard search query at "laskut" tab
+        private void billingSearch()
+        {
+            ConnectionUtils.openConnection();
+            string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
+                            " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
+                            "a.email AS 'Sähköposti', " +
+                            "l.summa as 'Summa (€)', l.maksettu AS 'maksu suoritettu' " +
+                            "FROM lasku l " +
+                            "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                            "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                            "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
+                            "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
+                            "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
+                            "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
+                            "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
+                            "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
+                            "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
+            if (cbBillingPaid.SelectedIndex == 0)
+                query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
+            else if (cbBillingPaid.SelectedIndex == 1)
+                query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
+            else if (cbBillingPaid.SelectedIndex == 2)
+                query += "ORDER BY l.lasku_id;";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            dgvBilling.DataSource = table;
+            BillingUtils.latestQuery = query;
+            ConnectionUtils.closeConnection();
+        }
+
+        private void populateDGVBilling()
+        {
+            billingSearch();
         }
 
         //Adds region to the database
@@ -609,6 +621,17 @@ namespace RentCottage
 
         private void btnRefereshCottages_Click(object sender, EventArgs e)
         {
+            PopulateDGVCottage();
+        }
+
+        private void btnModifyCottage_Click(object sender, EventArgs e)
+        {
+            Cottage cottage = new Cottage(Convert.ToInt32(dgvCottage.CurrentRow.Cells[0].Value), Convert.ToInt32(dgvCottage.CurrentRow.Cells[1].Value), 
+                dgvCottage.CurrentRow.Cells[2].Value.ToString(), dgvCottage.CurrentRow.Cells[3].Value.ToString(), dgvCottage.CurrentRow.Cells[4].Value.ToString(),
+                dgvCottage.CurrentRow.Cells[5].Value.ToString(), Convert.ToInt32(dgvCottage.CurrentRow.Cells[6].Value),Convert.ToDouble(dgvCottage.CurrentRow.Cells[8].Value),
+                dgvCottage.CurrentRow.Cells[7].Value.ToString());
+            ModifyCottageForm MCF = new ModifyCottageForm(cottage);
+            MCF.ShowDialog();
             PopulateDGVCottage();
         }
     }

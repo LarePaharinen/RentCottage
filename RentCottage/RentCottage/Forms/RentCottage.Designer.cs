@@ -91,7 +91,6 @@
             this.tServiceControl = new System.Windows.Forms.TabPage();
             this.tcServiceSub = new System.Windows.Forms.TabControl();
             this.stCottageControl = new System.Windows.Forms.TabPage();
-            this.btnRefereshCottages = new System.Windows.Forms.Button();
             this.cbCottageCapacity = new System.Windows.Forms.ComboBox();
             this.cbCottagePostal = new System.Windows.Forms.ComboBox();
             this.cbCottageRegions = new System.Windows.Forms.ComboBox();
@@ -158,6 +157,7 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
+            this.btnModifyCottage = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -924,7 +924,7 @@
             // stCottageControl
             // 
             this.stCottageControl.BackColor = System.Drawing.Color.Transparent;
-            this.stCottageControl.Controls.Add(this.btnRefereshCottages);
+            this.stCottageControl.Controls.Add(this.btnModifyCottage);
             this.stCottageControl.Controls.Add(this.cbCottageCapacity);
             this.stCottageControl.Controls.Add(this.cbCottagePostal);
             this.stCottageControl.Controls.Add(this.cbCottageRegions);
@@ -951,16 +951,6 @@
             this.stCottageControl.Size = new System.Drawing.Size(1342, 684);
             this.stCottageControl.TabIndex = 0;
             this.stCottageControl.Text = "Mökkien hallinta";
-            // 
-            // btnRefereshCottages
-            // 
-            this.btnRefereshCottages.Location = new System.Drawing.Point(55, 323);
-            this.btnRefereshCottages.Name = "btnRefereshCottages";
-            this.btnRefereshCottages.Size = new System.Drawing.Size(105, 23);
-            this.btnRefereshCottages.TabIndex = 24;
-            this.btnRefereshCottages.Text = "Päivitä näkymä";
-            this.btnRefereshCottages.UseVisualStyleBackColor = true;
-            this.btnRefereshCottages.Click += new System.EventHandler(this.btnRefereshCottages_Click);
             // 
             // cbCottageCapacity
             // 
@@ -1629,6 +1619,16 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
+            // btnModifyCottage
+            // 
+            this.btnModifyCottage.Location = new System.Drawing.Point(188, 358);
+            this.btnModifyCottage.Name = "btnModifyCottage";
+            this.btnModifyCottage.Size = new System.Drawing.Size(105, 46);
+            this.btnModifyCottage.TabIndex = 24;
+            this.btnModifyCottage.Text = "Muokkaa valittua mökkiä";
+            this.btnModifyCottage.UseVisualStyleBackColor = true;
+            this.btnModifyCottage.Click += new System.EventHandler(this.btnModifyCottage_Click);
+            // 
             // RentCottage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1797,8 +1797,8 @@
         private System.Windows.Forms.Label lblBillingVarausID;
         private System.Windows.Forms.TextBox txtboxBillingVarausID;
         private System.Windows.Forms.Button btnBillingCreate;
-        private System.Windows.Forms.Button btnRefereshCottages;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnModifyCottage;
     }
 }
 

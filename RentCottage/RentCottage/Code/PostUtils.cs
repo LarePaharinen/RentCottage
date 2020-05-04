@@ -116,5 +116,32 @@ namespace RentCottage
             return index;
         }
 
+        //Query databe on a region index, return it's name in string
+        public static string RegionIndexToName(int index)
+        {
+            string region = "Haku ei onnistunut";
+            try
+            {
+                ConnectionUtils.openConnection();
+                MySqlDataReader reader = null;
+                string query = "SELECT * FROM toimintaalue " +
+                    "WHERE toimintaalue_id = " + index + ";";
+                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    region = (string)reader["nimi"];
+                }
+                reader.Close();
+                ConnectionUtils.closeConnection();
+                return region;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return region;
+            }            
+        }
+
     }
 }
