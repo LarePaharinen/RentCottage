@@ -1751,7 +1751,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcMain;
+        public System.Windows.Forms.TabControl tcMain;
         private System.Windows.Forms.TabPage tSearch;
         private System.Windows.Forms.TabPage tRentControl;
         private System.Windows.Forms.TabPage tAreaControl;
@@ -1862,7 +1862,7 @@
         private System.Windows.Forms.Label labelBillingInvoiceID;
         private System.Windows.Forms.Button btnBillingPDF;
         private System.Windows.Forms.Button btnBillingSearch;
-        private System.Windows.Forms.DataGridView dgvBilling;
+        public System.Windows.Forms.DataGridView dgvBilling;
         private System.Windows.Forms.TextBox txtboxBillingOrderID;
         private System.Windows.Forms.Label labelBillingOrderID;
         private System.Windows.Forms.Label labelBillingPaid;

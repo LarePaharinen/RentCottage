@@ -32,7 +32,7 @@ namespace RentCottage
             PopulateDGVCustomer();
             PopulateDGVService();
             PopulateDGVCottage();
-            populateDGVBilling();
+            billingSearch(); //Populates the dgvBilling
             Search_alue_Combobox_update();
             RegionUtils.PopulateCBRegion(cbCottageRegions);
             RegionUtils.PopulateCBRegion(cbServiceRegion);
@@ -41,6 +41,7 @@ namespace RentCottage
             tbOrderSearch.Tag = tbOrderSearch.Text = "Kirjoita hakusana...";
             tbOrderSearch.ForeColor = Color.Gray;
             tbOrderSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Italic);
+            BillingUtils.rentCottage = this;
         }
 
         //MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
@@ -264,15 +265,16 @@ namespace RentCottage
             }
         }
 
-        private void btnCustomerModify_Click(object sender, EventArgs e)
-        {
-            Customer customer = new Customer(Convert.ToInt32(dgvCustomer.CurrentRow.Cells[0].Value), dgvCustomer.CurrentRow.Cells[1].Value.ToString(),
-                dgvCustomer.CurrentRow.Cells[2].Value.ToString(), dgvCustomer.CurrentRow.Cells[3].Value.ToString(),
-                dgvCustomer.CurrentRow.Cells[4].Value.ToString(), dgvCustomer.CurrentRow.Cells[5].Value.ToString(),
-                dgvCustomer.CurrentRow.Cells[6].Value.ToString());
-            ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
-            MCF.ShowDialog();
-        }
+        //private void btnCustomerModify_Click(object sender, EventArgs e)
+        //{
+        //    Customer customer = new Customer(Convert.ToInt32(dgvCustomer.CurrentRow.Cells[0].Value), dgvCustomer.CurrentRow.Cells[1].Value.ToString(),
+        //        dgvCustomer.CurrentRow.Cells[2].Value.ToString(), dgvCustomer.CurrentRow.Cells[3].Value.ToString(),
+        //        dgvCustomer.CurrentRow.Cells[4].Value.ToString(), dgvCustomer.CurrentRow.Cells[5].Value.ToString(),
+        //        dgvCustomer.CurrentRow.Cells[6].Value.ToString());
+        //    ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
+        //    MCF.ShowDialog();
+        //}
+        //^^ EIKÖS TÄMÄN VOI POISTAA? SITTEN VOISI VAIKKA UUDELLEEN NIMETÄ TUON ALEMMAN TAKAISIN _Click()
 
         private void btnCustomerModify_Click_1(object sender, EventArgs e)
         {
@@ -433,10 +435,12 @@ namespace RentCottage
                     int varausID = Convert.ToInt32(txtboxBillingVarausID.Text);
                     BillingUtils.createInvoice(varausID);
                     txtboxBillingVarausID.Text = "";
+                    BillingUtils.refreshDataGridView(dgvBilling);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Antamaasi varausID:tä ei löytynyt.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Antamaasi varausID:tä ei löytynyt.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message);
                 }
             }
 
@@ -532,7 +536,7 @@ namespace RentCottage
                 query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
             else if (cbBillingPaid.SelectedIndex == 1)
                 query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
-            else if (cbBillingPaid.SelectedIndex == 2)
+            else
                 query += "ORDER BY l.lasku_id;";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
@@ -542,10 +546,8 @@ namespace RentCottage
             ConnectionUtils.closeConnection();
         }
 
-        private void populateDGVBilling()
-        {
-            billingSearch();
-        }
+
+
 
         //Adds region to the database
         private void AddRegion(object sender, EventArgs e)
