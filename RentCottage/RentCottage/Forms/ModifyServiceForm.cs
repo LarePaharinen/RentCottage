@@ -30,8 +30,8 @@ namespace RentCottage.Forms
             cbModifyServiceRegion.SelectedItem = RegionUtils.RegionIndexToName(s.RegionID);
             tbModifyServiceName.Text = s.Name;
             tbModifyServiceType.Text = s.Type.ToString();
-            tbModifyServicePrice.Text = s.Price.ToString();
-            tbModifyServiceVAT.Text = s.Vat.ToString();
+            nudModifyServicePrice.Value = (int)s.Price;
+            nudModifyServiceVAT.Value = (int)s.Vat;
             tbModifyServiceDescription.Text = s.Description;
 
         }
@@ -56,7 +56,7 @@ namespace RentCottage.Forms
                     "UPDATE palvelu " +
                     "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyServiceRegion.Text) + ",nimi='" + tbModifyServiceName.Text +
                     "',tyyppi=" + Convert.ToInt32(tbModifyServiceType.Text) + ",kuvaus='" + tbModifyServiceDescription.Text + "'," +
-                    "hinta=" + Convert.ToDouble(tbModifyServicePrice.Text) + ",alv=" + Convert.ToDouble(tbModifyServiceVAT.Text) + " " +
+                    "hinta=" + Convert.ToDouble(nudModifyServicePrice.Value) + ",alv=" + Convert.ToDouble(nudModifyServiceVAT.Value) + " " +
                     "WHERE palvelu_id=" + Convert.ToInt32(lblModifyServiceID.Text) + "; " +
                     "COMMIT;";
                     try

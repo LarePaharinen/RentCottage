@@ -13,6 +13,7 @@ using MySql.Data;
 using System.Globalization;
 using RentCottage.Forms;
 using RentCottage.Code;
+using Renci.SshNet.Messages;
 
 namespace RentCottage
 {
@@ -668,19 +669,36 @@ namespace RentCottage
 
         private void btnCottageSearch_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM mokki " +
-                "WHERE toimintaalue_id LIKE '%" + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + "%' " +
+            try
+            {
+                //Get's data from form components, and does a query to the DB. Updates CottageDataGridView-component so show search results
+                string query = "SELECT * FROM mokki " +
+                "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + " " +
                 "AND postinro LIKE '%" + tbCottagePostNum.Text + "%' " +
                 "AND mokkinimi LIKE '%" + tbCottageName.Text + "%' " +
                 "AND katuosoite LIKE '%" + tbCottageStreetAddress.Text + "%' " +
                 "AND kuvaus LIKE '%" + tbCottageDescription.Text + "%' " +
-                "AND henkilomaara LIKE '%" + cbCottageCapacity.Text + "%' " + 
+                "AND henkilomaara > '" + nudCottageCapacity.Value + "' " +
                 "AND varustelu LIKE '%" + tbCottageEqupment.Text + "%' " +
                 "AND hinta <(" + (nudCottagePrice.Value + 1) + ");";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            dgvCottage.DataSource = table;
+                try
+                {
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                    adapter.Fill(table);
+                    dgvCottage.DataSource = table;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Virhe tietojen hakemisessa. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message); 
+            }
+            
         }
 
         private void btnServiceModify_Click(object sender, EventArgs e)

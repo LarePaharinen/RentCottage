@@ -41,9 +41,11 @@
             this.cbModifyServiceRegion = new System.Windows.Forms.ComboBox();
             this.tbModifyServiceName = new System.Windows.Forms.TextBox();
             this.tbModifyServiceType = new System.Windows.Forms.TextBox();
-            this.tbModifyServicePrice = new System.Windows.Forms.TextBox();
-            this.tbModifyServiceVAT = new System.Windows.Forms.TextBox();
             this.tbModifyServiceDescription = new System.Windows.Forms.TextBox();
+            this.nudModifyServicePrice = new System.Windows.Forms.NumericUpDown();
+            this.nudModifyServiceVAT = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyServicePrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyServiceVAT)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModifyServiceCancel
@@ -160,20 +162,6 @@
             this.tbModifyServiceType.Size = new System.Drawing.Size(209, 20);
             this.tbModifyServiceType.TabIndex = 32;
             // 
-            // tbModifyServicePrice
-            // 
-            this.tbModifyServicePrice.Location = new System.Drawing.Point(87, 123);
-            this.tbModifyServicePrice.Name = "tbModifyServicePrice";
-            this.tbModifyServicePrice.Size = new System.Drawing.Size(209, 20);
-            this.tbModifyServicePrice.TabIndex = 33;
-            // 
-            // tbModifyServiceVAT
-            // 
-            this.tbModifyServiceVAT.Location = new System.Drawing.Point(87, 149);
-            this.tbModifyServiceVAT.Name = "tbModifyServiceVAT";
-            this.tbModifyServiceVAT.Size = new System.Drawing.Size(209, 20);
-            this.tbModifyServiceVAT.TabIndex = 34;
-            // 
             // tbModifyServiceDescription
             // 
             this.tbModifyServiceDescription.Location = new System.Drawing.Point(87, 175);
@@ -182,14 +170,38 @@
             this.tbModifyServiceDescription.Size = new System.Drawing.Size(209, 94);
             this.tbModifyServiceDescription.TabIndex = 35;
             // 
+            // nudModifyServicePrice
+            // 
+            this.nudModifyServicePrice.Location = new System.Drawing.Point(87, 124);
+            this.nudModifyServicePrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudModifyServicePrice.Name = "nudModifyServicePrice";
+            this.nudModifyServicePrice.Size = new System.Drawing.Size(209, 20);
+            this.nudModifyServicePrice.TabIndex = 36;
+            // 
+            // nudModifyServiceVAT
+            // 
+            this.nudModifyServiceVAT.Location = new System.Drawing.Point(87, 150);
+            this.nudModifyServiceVAT.Name = "nudModifyServiceVAT";
+            this.nudModifyServiceVAT.Size = new System.Drawing.Size(209, 20);
+            this.nudModifyServiceVAT.TabIndex = 37;
+            this.nudModifyServiceVAT.Value = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            // 
             // ModifyServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 322);
+            this.Controls.Add(this.nudModifyServiceVAT);
+            this.Controls.Add(this.nudModifyServicePrice);
             this.Controls.Add(this.tbModifyServiceDescription);
-            this.Controls.Add(this.tbModifyServiceVAT);
-            this.Controls.Add(this.tbModifyServicePrice);
             this.Controls.Add(this.tbModifyServiceType);
             this.Controls.Add(this.tbModifyServiceName);
             this.Controls.Add(this.cbModifyServiceRegion);
@@ -205,6 +217,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ModifyServiceForm";
             this.Text = "Muokkaa palvelua";
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyServicePrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyServiceVAT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,8 +239,8 @@
         private System.Windows.Forms.ComboBox cbModifyServiceRegion;
         private System.Windows.Forms.TextBox tbModifyServiceName;
         private System.Windows.Forms.TextBox tbModifyServiceType;
-        private System.Windows.Forms.TextBox tbModifyServicePrice;
-        private System.Windows.Forms.TextBox tbModifyServiceVAT;
         private System.Windows.Forms.TextBox tbModifyServiceDescription;
+        private System.Windows.Forms.NumericUpDown nudModifyServicePrice;
+        private System.Windows.Forms.NumericUpDown nudModifyServiceVAT;
     }
 }

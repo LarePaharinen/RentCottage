@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
+            this.lblSearchEuro = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.dgSearchTable = new System.Windows.Forms.DataGridView();
             this.cbSearchAlueKaikki = new System.Windows.Forms.CheckBox();
@@ -96,7 +97,6 @@
             this.btnCottageShowAll = new System.Windows.Forms.Button();
             this.tbCottagePostNum = new System.Windows.Forms.TextBox();
             this.btnModifyCottage = new System.Windows.Forms.Button();
-            this.cbCottageCapacity = new System.Windows.Forms.ComboBox();
             this.cbCottageRegions = new System.Windows.Forms.ComboBox();
             this.lblMokkiID = new System.Windows.Forms.Label();
             this.tbCottageDescription = new System.Windows.Forms.TextBox();
@@ -163,7 +163,7 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
-            this.lblSearchEuro = new System.Windows.Forms.Label();
+            this.nudCottageCapacity = new System.Windows.Forms.NumericUpDown();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -185,6 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             this.tBilling.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCottageCapacity)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -231,6 +232,16 @@
             this.tSearch.Size = new System.Drawing.Size(1346, 706);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
+            // 
+            // lblSearchEuro
+            // 
+            this.lblSearchEuro.AutoSize = true;
+            this.lblSearchEuro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchEuro.Location = new System.Drawing.Point(179, 136);
+            this.lblSearchEuro.Name = "lblSearchEuro";
+            this.lblSearchEuro.Size = new System.Drawing.Size(15, 16);
+            this.lblSearchEuro.TabIndex = 44;
+            this.lblSearchEuro.Text = "€";
             // 
             // label24
             // 
@@ -932,12 +943,12 @@
             // stCottageControl
             // 
             this.stCottageControl.BackColor = System.Drawing.Color.Transparent;
+            this.stCottageControl.Controls.Add(this.nudCottageCapacity);
             this.stCottageControl.Controls.Add(this.nudCottagePrice);
             this.stCottageControl.Controls.Add(this.label25);
             this.stCottageControl.Controls.Add(this.btnCottageShowAll);
             this.stCottageControl.Controls.Add(this.tbCottagePostNum);
             this.stCottageControl.Controls.Add(this.btnModifyCottage);
-            this.stCottageControl.Controls.Add(this.cbCottageCapacity);
             this.stCottageControl.Controls.Add(this.cbCottageRegions);
             this.stCottageControl.Controls.Add(this.lblMokkiID);
             this.stCottageControl.Controls.Add(this.tbCottageDescription);
@@ -968,7 +979,7 @@
             this.nudCottagePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.nudCottagePrice.DecimalPlaces = 2;
-            this.nudCottagePrice.Location = new System.Drawing.Point(98, 312);
+            this.nudCottagePrice.Location = new System.Drawing.Point(110, 312);
             this.nudCottagePrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudCottagePrice.Maximum = new decimal(new int[] {
             99999,
@@ -976,72 +987,62 @@
             0,
             0});
             this.nudCottagePrice.Name = "nudCottagePrice";
-            this.nudCottagePrice.Size = new System.Drawing.Size(171, 20);
-            this.nudCottagePrice.TabIndex = 29;
+            this.nudCottagePrice.Size = new System.Drawing.Size(173, 20);
+            this.nudCottagePrice.TabIndex = 8;
+            this.nudCottagePrice.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(57, 314);
+            this.label25.Location = new System.Drawing.Point(45, 314);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.Size = new System.Drawing.Size(63, 13);
             this.label25.TabIndex = 27;
-            this.label25.Text = "Hinta:";
+            this.label25.Text = "Hinta (max):";
             // 
             // btnCottageShowAll
             // 
             this.btnCottageShowAll.Location = new System.Drawing.Point(53, 348);
             this.btnCottageShowAll.Name = "btnCottageShowAll";
             this.btnCottageShowAll.Size = new System.Drawing.Size(105, 23);
-            this.btnCottageShowAll.TabIndex = 26;
+            this.btnCottageShowAll.TabIndex = 13;
             this.btnCottageShowAll.Text = "Näytä kaikki";
             this.btnCottageShowAll.UseVisualStyleBackColor = true;
             this.btnCottageShowAll.Click += new System.EventHandler(this.btnRefereshCottages_Click);
             // 
             // tbCottagePostNum
             // 
-            this.tbCottagePostNum.Location = new System.Drawing.Point(96, 83);
+            this.tbCottagePostNum.Location = new System.Drawing.Point(110, 83);
             this.tbCottagePostNum.Name = "tbCottagePostNum";
             this.tbCottagePostNum.Size = new System.Drawing.Size(173, 20);
-            this.tbCottagePostNum.TabIndex = 25;
+            this.tbCottagePostNum.TabIndex = 2;
             // 
             // btnModifyCottage
             // 
-            this.btnModifyCottage.Location = new System.Drawing.Point(164, 436);
+            this.btnModifyCottage.Location = new System.Drawing.Point(164, 384);
             this.btnModifyCottage.Name = "btnModifyCottage";
             this.btnModifyCottage.Size = new System.Drawing.Size(105, 46);
-            this.btnModifyCottage.TabIndex = 24;
+            this.btnModifyCottage.TabIndex = 10;
             this.btnModifyCottage.Text = "Muokkaa valittua mökkiä";
             this.btnModifyCottage.UseVisualStyleBackColor = true;
             this.btnModifyCottage.Click += new System.EventHandler(this.btnModifyCottage_Click);
             // 
-            // cbCottageCapacity
-            // 
-            this.cbCottageCapacity.FormattingEnabled = true;
-            this.cbCottageCapacity.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6+"});
-            this.cbCottageCapacity.Location = new System.Drawing.Point(98, 162);
-            this.cbCottageCapacity.Name = "cbCottageCapacity";
-            this.cbCottageCapacity.Size = new System.Drawing.Size(173, 21);
-            this.cbCottageCapacity.TabIndex = 23;
-            // 
             // cbCottageRegions
             // 
             this.cbCottageRegions.FormattingEnabled = true;
-            this.cbCottageRegions.Location = new System.Drawing.Point(98, 56);
+            this.cbCottageRegions.Location = new System.Drawing.Point(110, 56);
             this.cbCottageRegions.Name = "cbCottageRegions";
             this.cbCottageRegions.Size = new System.Drawing.Size(173, 21);
-            this.cbCottageRegions.TabIndex = 21;
+            this.cbCottageRegions.TabIndex = 1;
             // 
             // lblMokkiID
             // 
             this.lblMokkiID.AutoSize = true;
-            this.lblMokkiID.Location = new System.Drawing.Point(98, 41);
+            this.lblMokkiID.Location = new System.Drawing.Point(107, 41);
             this.lblMokkiID.Name = "lblMokkiID";
             this.lblMokkiID.Size = new System.Drawing.Size(31, 13);
             this.lblMokkiID.TabIndex = 20;
@@ -1049,32 +1050,32 @@
             // 
             // tbCottageDescription
             // 
-            this.tbCottageDescription.Location = new System.Drawing.Point(98, 215);
+            this.tbCottageDescription.Location = new System.Drawing.Point(110, 215);
             this.tbCottageDescription.Multiline = true;
             this.tbCottageDescription.Name = "tbCottageDescription";
             this.tbCottageDescription.Size = new System.Drawing.Size(173, 90);
-            this.tbCottageDescription.TabIndex = 19;
+            this.tbCottageDescription.TabIndex = 7;
             // 
             // tbCottageEqupment
             // 
-            this.tbCottageEqupment.Location = new System.Drawing.Point(98, 189);
+            this.tbCottageEqupment.Location = new System.Drawing.Point(110, 189);
             this.tbCottageEqupment.Name = "tbCottageEqupment";
             this.tbCottageEqupment.Size = new System.Drawing.Size(173, 20);
-            this.tbCottageEqupment.TabIndex = 18;
+            this.tbCottageEqupment.TabIndex = 6;
             // 
             // tbCottageStreetAddress
             // 
-            this.tbCottageStreetAddress.Location = new System.Drawing.Point(98, 136);
+            this.tbCottageStreetAddress.Location = new System.Drawing.Point(110, 136);
             this.tbCottageStreetAddress.Name = "tbCottageStreetAddress";
             this.tbCottageStreetAddress.Size = new System.Drawing.Size(173, 20);
-            this.tbCottageStreetAddress.TabIndex = 16;
+            this.tbCottageStreetAddress.TabIndex = 4;
             // 
             // tbCottageName
             // 
-            this.tbCottageName.Location = new System.Drawing.Point(98, 110);
+            this.tbCottageName.Location = new System.Drawing.Point(110, 110);
             this.tbCottageName.Name = "tbCottageName";
             this.tbCottageName.Size = new System.Drawing.Size(173, 20);
-            this.tbCottageName.TabIndex = 15;
+            this.tbCottageName.TabIndex = 3;
             // 
             // btnCottageDelete
             // 
@@ -1088,10 +1089,10 @@
             // 
             // btnCottageAdd
             // 
-            this.btnCottageAdd.Location = new System.Drawing.Point(164, 384);
+            this.btnCottageAdd.Location = new System.Drawing.Point(164, 436);
             this.btnCottageAdd.Name = "btnCottageAdd";
             this.btnCottageAdd.Size = new System.Drawing.Size(105, 46);
-            this.btnCottageAdd.TabIndex = 10;
+            this.btnCottageAdd.TabIndex = 12;
             this.btnCottageAdd.Text = "Lisää uusi mökki";
             this.btnCottageAdd.UseVisualStyleBackColor = true;
             this.btnCottageAdd.Click += new System.EventHandler(this.btnCottageAdd_Click);
@@ -1125,12 +1126,13 @@
             this.dgvCottage.RowHeadersWidth = 51;
             this.dgvCottage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCottage.Size = new System.Drawing.Size(1036, 676);
-            this.dgvCottage.TabIndex = 8;
+            this.dgvCottage.TabIndex = 0;
+            this.dgvCottage.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 192);
+            this.label6.Location = new System.Drawing.Point(50, 192);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 7;
@@ -1139,16 +1141,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 165);
+            this.label7.Location = new System.Drawing.Point(4, 165);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.Size = new System.Drawing.Size(100, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Henkilömäärä:";
+            this.label7.Text = "Henkilömäärä (min):";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(45, 218);
+            this.label8.Location = new System.Drawing.Point(58, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 5;
@@ -1157,7 +1159,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 139);
+            this.label9.Location = new System.Drawing.Point(38, 139);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 4;
@@ -1166,7 +1168,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 113);
+            this.label4.Location = new System.Drawing.Point(38, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 3;
@@ -1175,7 +1177,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 86);
+            this.label5.Location = new System.Drawing.Point(30, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 2;
@@ -1184,7 +1186,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 59);
+            this.label3.Location = new System.Drawing.Point(25, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 1;
@@ -1193,7 +1195,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 41);
+            this.label2.Location = new System.Drawing.Point(45, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 0;
@@ -1697,15 +1699,31 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
-            // lblSearchEuro
+            // nudCottageCapacity
             // 
-            this.lblSearchEuro.AutoSize = true;
-            this.lblSearchEuro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchEuro.Location = new System.Drawing.Point(179, 136);
-            this.lblSearchEuro.Name = "lblSearchEuro";
-            this.lblSearchEuro.Size = new System.Drawing.Size(15, 16);
-            this.lblSearchEuro.TabIndex = 44;
-            this.lblSearchEuro.Text = "€";
+            this.nudCottageCapacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudCottageCapacity.DecimalPlaces = 2;
+            this.nudCottageCapacity.Location = new System.Drawing.Point(110, 163);
+            this.nudCottageCapacity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudCottageCapacity.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudCottageCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCottageCapacity.Name = "nudCottageCapacity";
+            this.nudCottageCapacity.Size = new System.Drawing.Size(173, 20);
+            this.nudCottageCapacity.TabIndex = 5;
+            this.nudCottageCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // RentCottage
             // 
@@ -1745,6 +1763,7 @@
             this.tBilling.ResumeLayout(false);
             this.tBilling.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCottageCapacity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1767,7 +1786,6 @@
         private System.Windows.Forms.Button btnRegionDelete;
         private System.Windows.Forms.Label lblRegionID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbCottageCapacity;
         private System.Windows.Forms.ComboBox cbCottageRegions;
         private System.Windows.Forms.Label lblMokkiID;
         private System.Windows.Forms.TextBox tbCottageDescription;
@@ -1884,6 +1902,7 @@
         private System.Windows.Forms.Button btnServiceModify;
         private System.Windows.Forms.Button btnServiceShowAll;
         private System.Windows.Forms.Label lblSearchEuro;
+        private System.Windows.Forms.NumericUpDown nudCottageCapacity;
     }
 }
 

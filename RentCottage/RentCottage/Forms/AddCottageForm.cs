@@ -34,9 +34,9 @@ namespace RentCottage.Forms
                     tbAddCottageName.Text + "','" +
                     tbAddCottageStreet.Text + "','" +
                     tbAddCottageDescription.Text + "'," +
-                    cbAddCottageCapacity.Text + ",'" +
+                    (int)nudAddCottageCapacity.Value + ",'" +
                     tbAddCottageEquipment.Text + "'," +
-                    Convert.ToInt32(tbAddCottagePrice.Text) + "); " +
+                    (double)nudAddCottagePrice.Value + "); " +
                     "COMMIT;";
                 try
                 {

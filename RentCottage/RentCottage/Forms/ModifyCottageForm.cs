@@ -33,9 +33,9 @@ namespace RentCottage.Forms
             tbModifyCottagePostNum.Text = c.Postal;
             tbModifyCottageName.Text = c.Name;
             tbModifyCottageStreet.Text = c.Address;
-            cbModifyCottageCapacity.Text = c.Capacity.ToString();
+            nudModifyCottageCapacity.Value = c.Capacity;
             tbModifyCottageEquipment.Text = c.Equipment;
-            tbModifyCottagePrice.Text = c.Price.ToString();
+            nudModifyCottagePrice.Value = (int)c.Price;
             tbModifyCottageDescription.Text = c.Description;
         }
 
@@ -54,8 +54,8 @@ namespace RentCottage.Forms
                     "UPDATE mokki " +
                     "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
                     "',mokkinimi='" + tbModifyCottageName.Text + "',katuosoite='" + tbModifyCottageStreet.Text + "'," +
-                    "kuvaus='" + tbModifyCottageDescription.Text + "',henkilomaara=" + Convert.ToInt32(cbModifyCottageCapacity.Text) +
-                    " ,varustelu='" + tbModifyCottageEquipment.Text + "', hinta=" + Convert.ToDouble(tbModifyCottagePrice.Text) + " " +
+                    "kuvaus='" + tbModifyCottageDescription.Text + "',henkilomaara=" + nudModifyCottageCapacity.Value +
+                    " ,varustelu='" + tbModifyCottageEquipment.Text + "', hinta=" + Convert.ToDouble(nudModifyCottagePrice.Value) + " " +
                     "WHERE mokki_id=" + Convert.ToInt32(lblModifyCottageID.Text) + "; " +
                     "COMMIT;";
                     try

@@ -37,8 +37,8 @@ namespace RentCottage.Forms
                 tbAddServiceName.Text + "'," +
                 Convert.ToInt32(tbAddServiceType.Text) + ",'" +
                 tbAddServiceDescription.Text + "'," +
-                Convert.ToDouble(tbAddServicePrice.Text) + "," +
-                Convert.ToDouble(tbAddServiceVAT.Text) + "); " +
+                (double)nudAddServicePrice.Value + "," +
+                (double)nudAddServiceVAT.Value + "); " +
                 "COMMIT;";
 
                 try

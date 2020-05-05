@@ -41,13 +41,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbAddCottageDescription = new System.Windows.Forms.TextBox();
-            this.cbAddCottageCapacity = new System.Windows.Forms.ComboBox();
             this.btnAddCottageAdd = new System.Windows.Forms.Button();
             this.btnAddCottageCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tbAddCottagePostRegion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbAddCottagePrice = new System.Windows.Forms.TextBox();
+            this.nudAddCottagePrice = new System.Windows.Forms.NumericUpDown();
+            this.nudAddCottageCapacity = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddCottagePrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddCottageCapacity)).BeginInit();
             this.SuspendLayout();
             // 
             // cbAddCottageRegion
@@ -157,21 +159,6 @@
             this.tbAddCottageDescription.Size = new System.Drawing.Size(209, 94);
             this.tbAddCottageDescription.TabIndex = 9;
             // 
-            // cbAddCottageCapacity
-            // 
-            this.cbAddCottageCapacity.FormattingEnabled = true;
-            this.cbAddCottageCapacity.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6+"});
-            this.cbAddCottageCapacity.Location = new System.Drawing.Point(91, 148);
-            this.cbAddCottageCapacity.Name = "cbAddCottageCapacity";
-            this.cbAddCottageCapacity.Size = new System.Drawing.Size(209, 21);
-            this.cbAddCottageCapacity.TabIndex = 6;
-            // 
             // btnAddCottageAdd
             // 
             this.btnAddCottageAdd.Location = new System.Drawing.Point(225, 326);
@@ -217,25 +204,62 @@
             this.label9.TabIndex = 32;
             this.label9.Text = "Hinta:";
             // 
-            // tbAddCottagePrice
+            // nudAddCottagePrice
             // 
-            this.tbAddCottagePrice.Location = new System.Drawing.Point(91, 200);
-            this.tbAddCottagePrice.Name = "tbAddCottagePrice";
-            this.tbAddCottagePrice.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottagePrice.TabIndex = 8;
+            this.nudAddCottagePrice.Location = new System.Drawing.Point(91, 201);
+            this.nudAddCottagePrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudAddCottagePrice.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudAddCottagePrice.Name = "nudAddCottagePrice";
+            this.nudAddCottagePrice.Size = new System.Drawing.Size(209, 20);
+            this.nudAddCottagePrice.TabIndex = 59;
+            this.nudAddCottagePrice.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            // 
+            // nudAddCottageCapacity
+            // 
+            this.nudAddCottageCapacity.Location = new System.Drawing.Point(91, 149);
+            this.nudAddCottageCapacity.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudAddCottageCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudAddCottageCapacity.Name = "nudAddCottageCapacity";
+            this.nudAddCottageCapacity.Size = new System.Drawing.Size(209, 20);
+            this.nudAddCottageCapacity.TabIndex = 58;
+            this.nudAddCottageCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AddCottageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 360);
-            this.Controls.Add(this.tbAddCottagePrice);
+            this.Controls.Add(this.nudAddCottagePrice);
+            this.Controls.Add(this.nudAddCottageCapacity);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbAddCottagePostRegion);
             this.Controls.Add(this.btnAddCottageCancel);
             this.Controls.Add(this.btnAddCottageAdd);
-            this.Controls.Add(this.cbAddCottageCapacity);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbAddCottageDescription);
             this.Controls.Add(this.cbAddCottageRegion);
@@ -251,6 +275,8 @@
             this.Controls.Add(this.label1);
             this.Name = "AddCottageForm";
             this.Text = "Lisää mökki";
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddCottagePrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddCottageCapacity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,12 +297,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbAddCottageDescription;
-        private System.Windows.Forms.ComboBox cbAddCottageCapacity;
         private System.Windows.Forms.Button btnAddCottageAdd;
         private System.Windows.Forms.Button btnAddCottageCancel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbAddCottagePostRegion;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbAddCottagePrice;
+        private System.Windows.Forms.NumericUpDown nudAddCottagePrice;
+        private System.Windows.Forms.NumericUpDown nudAddCottageCapacity;
     }
 }

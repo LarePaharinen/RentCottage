@@ -31,8 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddServiceName = new System.Windows.Forms.TextBox();
             this.tbAddServiceType = new System.Windows.Forms.TextBox();
-            this.tbAddServicePrice = new System.Windows.Forms.TextBox();
-            this.tbAddServiceVAT = new System.Windows.Forms.TextBox();
             this.tbAddServiceDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +40,10 @@
             this.cbAddServiceRegion = new System.Windows.Forms.ComboBox();
             this.btnAddServiceAdd = new System.Windows.Forms.Button();
             this.btnAddServiceCancel = new System.Windows.Forms.Button();
+            this.nudAddServiceVAT = new System.Windows.Forms.NumericUpDown();
+            this.nudAddServicePrice = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddServiceVAT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddServicePrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,20 +68,6 @@
             this.tbAddServiceType.Name = "tbAddServiceType";
             this.tbAddServiceType.Size = new System.Drawing.Size(209, 20);
             this.tbAddServiceType.TabIndex = 3;
-            // 
-            // tbAddServicePrice
-            // 
-            this.tbAddServicePrice.Location = new System.Drawing.Point(91, 101);
-            this.tbAddServicePrice.Name = "tbAddServicePrice";
-            this.tbAddServicePrice.Size = new System.Drawing.Size(209, 20);
-            this.tbAddServicePrice.TabIndex = 4;
-            // 
-            // tbAddServiceVAT
-            // 
-            this.tbAddServiceVAT.Location = new System.Drawing.Point(91, 127);
-            this.tbAddServiceVAT.Name = "tbAddServiceVAT";
-            this.tbAddServiceVAT.Size = new System.Drawing.Size(209, 20);
-            this.tbAddServiceVAT.TabIndex = 5;
             // 
             // tbAddServiceDescription
             // 
@@ -162,11 +150,37 @@
             this.btnAddServiceCancel.UseVisualStyleBackColor = true;
             this.btnAddServiceCancel.Click += new System.EventHandler(this.btnAddServiceCancel_Click);
             // 
+            // nudAddServiceVAT
+            // 
+            this.nudAddServiceVAT.Location = new System.Drawing.Point(92, 128);
+            this.nudAddServiceVAT.Name = "nudAddServiceVAT";
+            this.nudAddServiceVAT.Size = new System.Drawing.Size(209, 20);
+            this.nudAddServiceVAT.TabIndex = 39;
+            this.nudAddServiceVAT.Value = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            // 
+            // nudAddServicePrice
+            // 
+            this.nudAddServicePrice.Location = new System.Drawing.Point(92, 102);
+            this.nudAddServicePrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudAddServicePrice.Name = "nudAddServicePrice";
+            this.nudAddServicePrice.Size = new System.Drawing.Size(208, 20);
+            this.nudAddServicePrice.TabIndex = 38;
+            // 
             // AddServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 288);
+            this.Controls.Add(this.nudAddServiceVAT);
+            this.Controls.Add(this.nudAddServicePrice);
             this.Controls.Add(this.btnAddServiceCancel);
             this.Controls.Add(this.btnAddServiceAdd);
             this.Controls.Add(this.cbAddServiceRegion);
@@ -176,8 +190,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbAddServiceDescription);
-            this.Controls.Add(this.tbAddServiceVAT);
-            this.Controls.Add(this.tbAddServicePrice);
             this.Controls.Add(this.tbAddServiceType);
             this.Controls.Add(this.tbAddServiceName);
             this.Controls.Add(this.label1);
@@ -186,6 +198,8 @@
             this.Name = "AddServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lisää palvelu";
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddServiceVAT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAddServicePrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,8 +210,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbAddServiceName;
         private System.Windows.Forms.TextBox tbAddServiceType;
-        private System.Windows.Forms.TextBox tbAddServicePrice;
-        private System.Windows.Forms.TextBox tbAddServiceVAT;
         private System.Windows.Forms.TextBox tbAddServiceDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -207,5 +219,7 @@
         private System.Windows.Forms.ComboBox cbAddServiceRegion;
         private System.Windows.Forms.Button btnAddServiceAdd;
         private System.Windows.Forms.Button btnAddServiceCancel;
+        private System.Windows.Forms.NumericUpDown nudAddServiceVAT;
+        private System.Windows.Forms.NumericUpDown nudAddServicePrice;
     }
 }

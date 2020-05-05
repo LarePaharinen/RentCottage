@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbModifyCottagePrice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.cbModifyCottageCapacity = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbModifyCottageDescription = new System.Windows.Forms.TextBox();
             this.cbModifyCottageRegion = new System.Windows.Forms.ComboBox();
@@ -48,14 +46,11 @@
             this.btnModifyCottageModify = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.lblModifyCottageID = new System.Windows.Forms.Label();
+            this.nudModifyCottageCapacity = new System.Windows.Forms.NumericUpDown();
+            this.nudModifyCottagePrice = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyCottageCapacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyCottagePrice)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbModifyCottagePrice
-            // 
-            this.tbModifyCottagePrice.Location = new System.Drawing.Point(91, 201);
-            this.tbModifyCottagePrice.Name = "tbModifyCottagePrice";
-            this.tbModifyCottagePrice.Size = new System.Drawing.Size(209, 20);
-            this.tbModifyCottagePrice.TabIndex = 7;
             // 
             // label9
             // 
@@ -65,33 +60,6 @@
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 50;
             this.label9.Text = "Hinta:";
-            // 
-            // cbModifyCottageCapacity
-            // 
-            this.cbModifyCottageCapacity.FormattingEnabled = true;
-            this.cbModifyCottageCapacity.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18"});
-            this.cbModifyCottageCapacity.Location = new System.Drawing.Point(91, 149);
-            this.cbModifyCottageCapacity.Name = "cbModifyCottageCapacity";
-            this.cbModifyCottageCapacity.Size = new System.Drawing.Size(209, 21);
-            this.cbModifyCottageCapacity.TabIndex = 5;
             // 
             // label7
             // 
@@ -238,18 +206,62 @@
             this.lblModifyCottageID.TabIndex = 55;
             this.lblModifyCottageID.Text = "0000";
             // 
+            // nudModifyCottageCapacity
+            // 
+            this.nudModifyCottageCapacity.Location = new System.Drawing.Point(91, 149);
+            this.nudModifyCottageCapacity.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudModifyCottageCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudModifyCottageCapacity.Name = "nudModifyCottageCapacity";
+            this.nudModifyCottageCapacity.Size = new System.Drawing.Size(209, 20);
+            this.nudModifyCottageCapacity.TabIndex = 56;
+            this.nudModifyCottageCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudModifyCottagePrice
+            // 
+            this.nudModifyCottagePrice.Location = new System.Drawing.Point(92, 199);
+            this.nudModifyCottagePrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudModifyCottagePrice.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudModifyCottagePrice.Name = "nudModifyCottagePrice";
+            this.nudModifyCottagePrice.Size = new System.Drawing.Size(209, 20);
+            this.nudModifyCottagePrice.TabIndex = 57;
+            this.nudModifyCottagePrice.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            // 
             // ModifyCottageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 368);
+            this.Controls.Add(this.nudModifyCottagePrice);
+            this.Controls.Add(this.nudModifyCottageCapacity);
             this.Controls.Add(this.lblModifyCottageID);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnModifyCottageCancel);
             this.Controls.Add(this.btnModifyCottageModify);
-            this.Controls.Add(this.tbModifyCottagePrice);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.cbModifyCottageCapacity);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbModifyCottageDescription);
             this.Controls.Add(this.cbModifyCottageRegion);
@@ -265,16 +277,15 @@
             this.Controls.Add(this.label1);
             this.Name = "ModifyCottageForm";
             this.Text = "Muokkaa mökkiä";
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyCottageCapacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudModifyCottagePrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbModifyCottagePrice;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbModifyCottageCapacity;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbModifyCottageDescription;
         private System.Windows.Forms.ComboBox cbModifyCottageRegion;
@@ -292,5 +303,7 @@
         private System.Windows.Forms.Button btnModifyCottageModify;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblModifyCottageID;
+        private System.Windows.Forms.NumericUpDown nudModifyCottageCapacity;
+        private System.Windows.Forms.NumericUpDown nudModifyCottagePrice;
     }
 }
