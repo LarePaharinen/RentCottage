@@ -219,7 +219,7 @@
             0});
             this.nudAddCottagePrice.Name = "nudAddCottagePrice";
             this.nudAddCottagePrice.Size = new System.Drawing.Size(209, 20);
-            this.nudAddCottagePrice.TabIndex = 59;
+            this.nudAddCottagePrice.TabIndex = 8;
             this.nudAddCottagePrice.Value = new decimal(new int[] {
             150,
             0,
@@ -241,7 +241,7 @@
             0});
             this.nudAddCottageCapacity.Name = "nudAddCottageCapacity";
             this.nudAddCottageCapacity.Size = new System.Drawing.Size(209, 20);
-            this.nudAddCottageCapacity.TabIndex = 58;
+            this.nudAddCottageCapacity.TabIndex = 6;
             this.nudAddCottageCapacity.Value = new decimal(new int[] {
             1,
             0,

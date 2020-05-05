@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.lblSearchEuro = new System.Windows.Forms.Label();
@@ -98,7 +98,6 @@
             this.tbCottagePostNum = new System.Windows.Forms.TextBox();
             this.btnModifyCottage = new System.Windows.Forms.Button();
             this.cbCottageRegions = new System.Windows.Forms.ComboBox();
-            this.lblMokkiID = new System.Windows.Forms.Label();
             this.tbCottageDescription = new System.Windows.Forms.TextBox();
             this.tbCottageEqupment = new System.Windows.Forms.TextBox();
             this.tbCottageStreetAddress = new System.Windows.Forms.TextBox();
@@ -114,7 +113,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.stService = new System.Windows.Forms.TabPage();
             this.btnServiceModify = new System.Windows.Forms.Button();
             this.btnServiceShowAll = new System.Windows.Forms.Button();
@@ -125,17 +123,13 @@
             this.tbServiceDescription = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.tbServicePrice = new System.Windows.Forms.TextBox();
-            this.tbServiceVAT = new System.Windows.Forms.TextBox();
             this.tbServiceType = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbServiceName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbServiceRegion = new System.Windows.Forms.ComboBox();
-            this.lblServiceID = new System.Windows.Forms.Label();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.tBilling = new System.Windows.Forms.TabPage();
             this.lblBillingVarausID = new System.Windows.Forms.Label();
             this.txtboxBillingVarausID = new System.Windows.Forms.TextBox();
@@ -164,6 +158,8 @@
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
             this.nudCottageCapacity = new System.Windows.Forms.NumericUpDown();
+            this.nudServicePrice = new System.Windows.Forms.NumericUpDown();
+            this.nudServiceVAT = new System.Windows.Forms.NumericUpDown();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -186,6 +182,8 @@
             this.tBilling.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCottageCapacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudServicePrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudServiceVAT)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -616,7 +614,7 @@
             this.tbRegionName.Location = new System.Drawing.Point(115, 74);
             this.tbRegionName.Name = "tbRegionName";
             this.tbRegionName.Size = new System.Drawing.Size(160, 20);
-            this.tbRegionName.TabIndex = 10;
+            this.tbRegionName.TabIndex = 1;
             this.tbRegionName.Enter += new System.EventHandler(this.tbRegionName_Enter);
             // 
             // btnRegionDelete
@@ -624,7 +622,7 @@
             this.btnRegionDelete.Location = new System.Drawing.Point(62, 117);
             this.btnRegionDelete.Name = "btnRegionDelete";
             this.btnRegionDelete.Size = new System.Drawing.Size(96, 41);
-            this.btnRegionDelete.TabIndex = 9;
+            this.btnRegionDelete.TabIndex = 3;
             this.btnRegionDelete.Text = "Poista valittu alue";
             this.btnRegionDelete.UseVisualStyleBackColor = true;
             this.btnRegionDelete.Click += new System.EventHandler(this.DeleteSelectedRegion);
@@ -656,42 +654,43 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(300, 5);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegion.Size = new System.Drawing.Size(1040, 696);
             this.dgvRegion.TabIndex = 6;
+            this.dgvRegion.TabStop = false;
             this.dgvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegionSelectionChanged);
             // 
             // btnRegionAdd
@@ -699,7 +698,7 @@
             this.btnRegionAdd.Location = new System.Drawing.Point(165, 117);
             this.btnRegionAdd.Name = "btnRegionAdd";
             this.btnRegionAdd.Size = new System.Drawing.Size(96, 41);
-            this.btnRegionAdd.TabIndex = 5;
+            this.btnRegionAdd.TabIndex = 2;
             this.btnRegionAdd.Text = "Lisää uusi alue";
             this.btnRegionAdd.UseVisualStyleBackColor = true;
             this.btnRegionAdd.Click += new System.EventHandler(this.AddRegion);
@@ -950,7 +949,6 @@
             this.stCottageControl.Controls.Add(this.tbCottagePostNum);
             this.stCottageControl.Controls.Add(this.btnModifyCottage);
             this.stCottageControl.Controls.Add(this.cbCottageRegions);
-            this.stCottageControl.Controls.Add(this.lblMokkiID);
             this.stCottageControl.Controls.Add(this.tbCottageDescription);
             this.stCottageControl.Controls.Add(this.tbCottageEqupment);
             this.stCottageControl.Controls.Add(this.tbCottageStreetAddress);
@@ -966,7 +964,6 @@
             this.stCottageControl.Controls.Add(this.label4);
             this.stCottageControl.Controls.Add(this.label5);
             this.stCottageControl.Controls.Add(this.label3);
-            this.stCottageControl.Controls.Add(this.label2);
             this.stCottageControl.Location = new System.Drawing.Point(4, 22);
             this.stCottageControl.Name = "stCottageControl";
             this.stCottageControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -979,7 +976,7 @@
             this.nudCottagePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.nudCottagePrice.DecimalPlaces = 2;
-            this.nudCottagePrice.Location = new System.Drawing.Point(110, 312);
+            this.nudCottagePrice.Location = new System.Drawing.Point(121, 287);
             this.nudCottagePrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudCottagePrice.Maximum = new decimal(new int[] {
             99999,
@@ -998,7 +995,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(45, 314);
+            this.label25.Location = new System.Drawing.Point(56, 289);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(63, 13);
             this.label25.TabIndex = 27;
@@ -1006,24 +1003,24 @@
             // 
             // btnCottageShowAll
             // 
-            this.btnCottageShowAll.Location = new System.Drawing.Point(53, 348);
+            this.btnCottageShowAll.Location = new System.Drawing.Point(64, 323);
             this.btnCottageShowAll.Name = "btnCottageShowAll";
             this.btnCottageShowAll.Size = new System.Drawing.Size(105, 23);
-            this.btnCottageShowAll.TabIndex = 13;
+            this.btnCottageShowAll.TabIndex = 12;
             this.btnCottageShowAll.Text = "Näytä kaikki";
             this.btnCottageShowAll.UseVisualStyleBackColor = true;
             this.btnCottageShowAll.Click += new System.EventHandler(this.btnRefereshCottages_Click);
             // 
             // tbCottagePostNum
             // 
-            this.tbCottagePostNum.Location = new System.Drawing.Point(110, 83);
+            this.tbCottagePostNum.Location = new System.Drawing.Point(121, 58);
             this.tbCottagePostNum.Name = "tbCottagePostNum";
             this.tbCottagePostNum.Size = new System.Drawing.Size(173, 20);
             this.tbCottagePostNum.TabIndex = 2;
             // 
             // btnModifyCottage
             // 
-            this.btnModifyCottage.Location = new System.Drawing.Point(164, 384);
+            this.btnModifyCottage.Location = new System.Drawing.Point(175, 359);
             this.btnModifyCottage.Name = "btnModifyCottage";
             this.btnModifyCottage.Size = new System.Drawing.Size(105, 46);
             this.btnModifyCottage.TabIndex = 10;
@@ -1034,23 +1031,14 @@
             // cbCottageRegions
             // 
             this.cbCottageRegions.FormattingEnabled = true;
-            this.cbCottageRegions.Location = new System.Drawing.Point(110, 56);
+            this.cbCottageRegions.Location = new System.Drawing.Point(121, 31);
             this.cbCottageRegions.Name = "cbCottageRegions";
             this.cbCottageRegions.Size = new System.Drawing.Size(173, 21);
             this.cbCottageRegions.TabIndex = 1;
             // 
-            // lblMokkiID
-            // 
-            this.lblMokkiID.AutoSize = true;
-            this.lblMokkiID.Location = new System.Drawing.Point(107, 41);
-            this.lblMokkiID.Name = "lblMokkiID";
-            this.lblMokkiID.Size = new System.Drawing.Size(31, 13);
-            this.lblMokkiID.TabIndex = 20;
-            this.lblMokkiID.Text = "0000";
-            // 
             // tbCottageDescription
             // 
-            this.tbCottageDescription.Location = new System.Drawing.Point(110, 215);
+            this.tbCottageDescription.Location = new System.Drawing.Point(121, 190);
             this.tbCottageDescription.Multiline = true;
             this.tbCottageDescription.Name = "tbCottageDescription";
             this.tbCottageDescription.Size = new System.Drawing.Size(173, 90);
@@ -1058,48 +1046,48 @@
             // 
             // tbCottageEqupment
             // 
-            this.tbCottageEqupment.Location = new System.Drawing.Point(110, 189);
+            this.tbCottageEqupment.Location = new System.Drawing.Point(121, 164);
             this.tbCottageEqupment.Name = "tbCottageEqupment";
             this.tbCottageEqupment.Size = new System.Drawing.Size(173, 20);
             this.tbCottageEqupment.TabIndex = 6;
             // 
             // tbCottageStreetAddress
             // 
-            this.tbCottageStreetAddress.Location = new System.Drawing.Point(110, 136);
+            this.tbCottageStreetAddress.Location = new System.Drawing.Point(121, 111);
             this.tbCottageStreetAddress.Name = "tbCottageStreetAddress";
             this.tbCottageStreetAddress.Size = new System.Drawing.Size(173, 20);
             this.tbCottageStreetAddress.TabIndex = 4;
             // 
             // tbCottageName
             // 
-            this.tbCottageName.Location = new System.Drawing.Point(110, 110);
+            this.tbCottageName.Location = new System.Drawing.Point(121, 85);
             this.tbCottageName.Name = "tbCottageName";
             this.tbCottageName.Size = new System.Drawing.Size(173, 20);
             this.tbCottageName.TabIndex = 3;
             // 
             // btnCottageDelete
             // 
-            this.btnCottageDelete.Location = new System.Drawing.Point(53, 384);
+            this.btnCottageDelete.Location = new System.Drawing.Point(64, 359);
             this.btnCottageDelete.Name = "btnCottageDelete";
             this.btnCottageDelete.Size = new System.Drawing.Size(105, 46);
-            this.btnCottageDelete.TabIndex = 11;
+            this.btnCottageDelete.TabIndex = 13;
             this.btnCottageDelete.Text = "Poista valittu mökki";
             this.btnCottageDelete.UseVisualStyleBackColor = true;
             this.btnCottageDelete.Click += new System.EventHandler(this.btnCottageDelete_Click);
             // 
             // btnCottageAdd
             // 
-            this.btnCottageAdd.Location = new System.Drawing.Point(164, 436);
+            this.btnCottageAdd.Location = new System.Drawing.Point(175, 411);
             this.btnCottageAdd.Name = "btnCottageAdd";
             this.btnCottageAdd.Size = new System.Drawing.Size(105, 46);
-            this.btnCottageAdd.TabIndex = 12;
+            this.btnCottageAdd.TabIndex = 11;
             this.btnCottageAdd.Text = "Lisää uusi mökki";
             this.btnCottageAdd.UseVisualStyleBackColor = true;
             this.btnCottageAdd.Click += new System.EventHandler(this.btnCottageAdd_Click);
             // 
             // btnCottageSearch
             // 
-            this.btnCottageSearch.Location = new System.Drawing.Point(164, 348);
+            this.btnCottageSearch.Location = new System.Drawing.Point(175, 323);
             this.btnCottageSearch.Name = "btnCottageSearch";
             this.btnCottageSearch.Size = new System.Drawing.Size(105, 23);
             this.btnCottageSearch.TabIndex = 9;
@@ -1132,7 +1120,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 192);
+            this.label6.Location = new System.Drawing.Point(61, 167);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 7;
@@ -1141,7 +1129,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 165);
+            this.label7.Location = new System.Drawing.Point(15, 140);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 13);
             this.label7.TabIndex = 6;
@@ -1150,7 +1138,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(58, 218);
+            this.label8.Location = new System.Drawing.Point(69, 193);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 5;
@@ -1159,7 +1147,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(38, 139);
+            this.label9.Location = new System.Drawing.Point(49, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 4;
@@ -1168,7 +1156,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 113);
+            this.label4.Location = new System.Drawing.Point(49, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 3;
@@ -1177,7 +1165,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 86);
+            this.label5.Location = new System.Drawing.Point(41, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 2;
@@ -1186,24 +1174,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 59);
+            this.label3.Location = new System.Drawing.Point(36, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Toiminta-alue:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Mökki-ID:";
-            // 
             // stService
             // 
             this.stService.BackColor = System.Drawing.Color.Transparent;
+            this.stService.Controls.Add(this.nudServiceVAT);
+            this.stService.Controls.Add(this.nudServicePrice);
             this.stService.Controls.Add(this.btnServiceModify);
             this.stService.Controls.Add(this.btnServiceShowAll);
             this.stService.Controls.Add(this.btnServiceDelete);
@@ -1213,17 +1194,13 @@
             this.stService.Controls.Add(this.tbServiceDescription);
             this.stService.Controls.Add(this.label13);
             this.stService.Controls.Add(this.label12);
-            this.stService.Controls.Add(this.tbServicePrice);
-            this.stService.Controls.Add(this.tbServiceVAT);
             this.stService.Controls.Add(this.tbServiceType);
             this.stService.Controls.Add(this.label11);
             this.stService.Controls.Add(this.tbServiceName);
             this.stService.Controls.Add(this.label10);
             this.stService.Controls.Add(this.cbServiceRegion);
-            this.stService.Controls.Add(this.lblServiceID);
             this.stService.Controls.Add(this.dgvService);
             this.stService.Controls.Add(this.label17);
-            this.stService.Controls.Add(this.label18);
             this.stService.Location = new System.Drawing.Point(4, 22);
             this.stService.Name = "stService";
             this.stService.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1233,55 +1210,58 @@
             // 
             // btnServiceModify
             // 
-            this.btnServiceModify.Location = new System.Drawing.Point(171, 318);
+            this.btnServiceModify.Location = new System.Drawing.Point(176, 283);
             this.btnServiceModify.Name = "btnServiceModify";
             this.btnServiceModify.Size = new System.Drawing.Size(105, 46);
-            this.btnServiceModify.TabIndex = 56;
+            this.btnServiceModify.TabIndex = 8;
             this.btnServiceModify.Text = "Muokkaa valittua palvelua";
             this.btnServiceModify.UseVisualStyleBackColor = true;
             this.btnServiceModify.Click += new System.EventHandler(this.btnServiceModify_Click);
             // 
             // btnServiceShowAll
             // 
-            this.btnServiceShowAll.Location = new System.Drawing.Point(60, 289);
+            this.btnServiceShowAll.Location = new System.Drawing.Point(65, 254);
             this.btnServiceShowAll.Name = "btnServiceShowAll";
             this.btnServiceShowAll.Size = new System.Drawing.Size(105, 23);
-            this.btnServiceShowAll.TabIndex = 55;
+            this.btnServiceShowAll.TabIndex = 10;
             this.btnServiceShowAll.Text = "Näytä kaikki";
             this.btnServiceShowAll.UseVisualStyleBackColor = true;
+            this.btnServiceShowAll.Click += new System.EventHandler(this.btnServiceShowAll_Click);
             // 
             // btnServiceDelete
             // 
-            this.btnServiceDelete.Location = new System.Drawing.Point(60, 318);
+            this.btnServiceDelete.Location = new System.Drawing.Point(65, 283);
             this.btnServiceDelete.Name = "btnServiceDelete";
             this.btnServiceDelete.Size = new System.Drawing.Size(105, 46);
-            this.btnServiceDelete.TabIndex = 54;
+            this.btnServiceDelete.TabIndex = 11;
             this.btnServiceDelete.Text = "Poista valittu palvelu";
             this.btnServiceDelete.UseVisualStyleBackColor = true;
+            this.btnServiceDelete.Click += new System.EventHandler(this.btnServiceDelete_Click);
             // 
             // btnServiceAdd
             // 
-            this.btnServiceAdd.Location = new System.Drawing.Point(171, 370);
+            this.btnServiceAdd.Location = new System.Drawing.Point(176, 335);
             this.btnServiceAdd.Name = "btnServiceAdd";
             this.btnServiceAdd.Size = new System.Drawing.Size(105, 46);
-            this.btnServiceAdd.TabIndex = 53;
+            this.btnServiceAdd.TabIndex = 9;
             this.btnServiceAdd.Text = "Lisää uusi palvelu";
             this.btnServiceAdd.UseVisualStyleBackColor = true;
             this.btnServiceAdd.Click += new System.EventHandler(this.btnServiceAdd_Click);
             // 
             // btnServiceSearch
             // 
-            this.btnServiceSearch.Location = new System.Drawing.Point(171, 289);
+            this.btnServiceSearch.Location = new System.Drawing.Point(176, 254);
             this.btnServiceSearch.Name = "btnServiceSearch";
             this.btnServiceSearch.Size = new System.Drawing.Size(105, 23);
-            this.btnServiceSearch.TabIndex = 52;
+            this.btnServiceSearch.TabIndex = 7;
             this.btnServiceSearch.Text = "Etsi palvelu";
             this.btnServiceSearch.UseVisualStyleBackColor = true;
+            this.btnServiceSearch.Click += new System.EventHandler(this.btnServiceSearch_Click);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(29, 161);
+            this.label14.Location = new System.Drawing.Point(34, 135);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(46, 13);
             this.label14.TabIndex = 51;
@@ -1289,55 +1269,41 @@
             // 
             // tbServiceDescription
             // 
-            this.tbServiceDescription.Location = new System.Drawing.Point(81, 158);
+            this.tbServiceDescription.Location = new System.Drawing.Point(86, 132);
             this.tbServiceDescription.Multiline = true;
             this.tbServiceDescription.Name = "tbServiceDescription";
             this.tbServiceDescription.Size = new System.Drawing.Size(196, 116);
-            this.tbServiceDescription.TabIndex = 50;
+            this.tbServiceDescription.TabIndex = 6;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(40, 139);
+            this.label13.Location = new System.Drawing.Point(18, 108);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 13);
+            this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 49;
-            this.label13.Text = "Hinta:";
+            this.label13.Text = "Hinta (max):";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(161, 139);
+            this.label12.Location = new System.Drawing.Point(166, 108);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(25, 13);
             this.label12.TabIndex = 48;
             this.label12.Text = "Alv:";
             // 
-            // tbServicePrice
-            // 
-            this.tbServicePrice.Location = new System.Drawing.Point(81, 136);
-            this.tbServicePrice.Name = "tbServicePrice";
-            this.tbServicePrice.Size = new System.Drawing.Size(76, 20);
-            this.tbServicePrice.TabIndex = 47;
-            // 
-            // tbServiceVAT
-            // 
-            this.tbServiceVAT.Location = new System.Drawing.Point(193, 136);
-            this.tbServiceVAT.Name = "tbServiceVAT";
-            this.tbServiceVAT.Size = new System.Drawing.Size(83, 20);
-            this.tbServiceVAT.TabIndex = 46;
-            // 
             // tbServiceType
             // 
-            this.tbServiceType.Location = new System.Drawing.Point(81, 110);
+            this.tbServiceType.Location = new System.Drawing.Point(86, 83);
             this.tbServiceType.Name = "tbServiceType";
             this.tbServiceType.Size = new System.Drawing.Size(195, 20);
-            this.tbServiceType.TabIndex = 45;
+            this.tbServiceType.TabIndex = 3;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(34, 113);
+            this.label11.Location = new System.Drawing.Point(39, 87);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 44;
@@ -1345,15 +1311,15 @@
             // 
             // tbServiceName
             // 
-            this.tbServiceName.Location = new System.Drawing.Point(81, 83);
+            this.tbServiceName.Location = new System.Drawing.Point(86, 57);
             this.tbServiceName.Name = "tbServiceName";
             this.tbServiceName.Size = new System.Drawing.Size(195, 20);
-            this.tbServiceName.TabIndex = 43;
+            this.tbServiceName.TabIndex = 2;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 86);
+            this.label10.Location = new System.Drawing.Point(51, 60);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 42;
@@ -1362,19 +1328,10 @@
             // cbServiceRegion
             // 
             this.cbServiceRegion.FormattingEnabled = true;
-            this.cbServiceRegion.Location = new System.Drawing.Point(81, 59);
+            this.cbServiceRegion.Location = new System.Drawing.Point(86, 33);
             this.cbServiceRegion.Name = "cbServiceRegion";
             this.cbServiceRegion.Size = new System.Drawing.Size(195, 21);
-            this.cbServiceRegion.TabIndex = 41;
-            // 
-            // lblServiceID
-            // 
-            this.lblServiceID.AutoSize = true;
-            this.lblServiceID.Location = new System.Drawing.Point(81, 41);
-            this.lblServiceID.Name = "lblServiceID";
-            this.lblServiceID.Size = new System.Drawing.Size(31, 13);
-            this.lblServiceID.TabIndex = 40;
-            this.lblServiceID.Text = "0000";
+            this.cbServiceRegion.TabIndex = 1;
             // 
             // dgvService
             // 
@@ -1396,24 +1353,16 @@
             this.dgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvService.Size = new System.Drawing.Size(1036, 676);
             this.dgvService.TabIndex = 32;
+            this.dgvService.TabStop = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(2, 59);
+            this.label17.Location = new System.Drawing.Point(7, 33);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(73, 13);
             this.label17.TabIndex = 25;
             this.label17.Text = "Toiminta-alue:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(16, 41);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(59, 13);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "Palvelu-ID:";
             // 
             // tBilling
             // 
@@ -1704,7 +1653,7 @@
             this.nudCottageCapacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.nudCottageCapacity.DecimalPlaces = 2;
-            this.nudCottageCapacity.Location = new System.Drawing.Point(110, 163);
+            this.nudCottageCapacity.Location = new System.Drawing.Point(121, 138);
             this.nudCottageCapacity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudCottageCapacity.Maximum = new decimal(new int[] {
             200,
@@ -1721,6 +1670,35 @@
             this.nudCottageCapacity.TabIndex = 5;
             this.nudCottageCapacity.Value = new decimal(new int[] {
             1,
+            0,
+            0,
+            0});
+            // 
+            // nudServicePrice
+            // 
+            this.nudServicePrice.Location = new System.Drawing.Point(86, 106);
+            this.nudServicePrice.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudServicePrice.Name = "nudServicePrice";
+            this.nudServicePrice.Size = new System.Drawing.Size(74, 20);
+            this.nudServicePrice.TabIndex = 4;
+            this.nudServicePrice.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            // 
+            // nudServiceVAT
+            // 
+            this.nudServiceVAT.Location = new System.Drawing.Point(197, 106);
+            this.nudServiceVAT.Name = "nudServiceVAT";
+            this.nudServiceVAT.Size = new System.Drawing.Size(85, 20);
+            this.nudServiceVAT.TabIndex = 5;
+            this.nudServiceVAT.Value = new decimal(new int[] {
+            24,
             0,
             0,
             0});
@@ -1764,6 +1742,8 @@
             this.tBilling.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCottageCapacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudServicePrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudServiceVAT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1787,7 +1767,6 @@
         private System.Windows.Forms.Label lblRegionID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCottageRegions;
-        private System.Windows.Forms.Label lblMokkiID;
         private System.Windows.Forms.TextBox tbCottageDescription;
         private System.Windows.Forms.TextBox tbCottageEqupment;
         private System.Windows.Forms.TextBox tbCottageStreetAddress;
@@ -1803,20 +1782,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tbServicePrice;
-        private System.Windows.Forms.TextBox tbServiceVAT;
         private System.Windows.Forms.TextBox tbServiceType;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbServiceName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbServiceRegion;
-        private System.Windows.Forms.Label lblServiceID;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbServiceDescription;
         private System.Windows.Forms.Button btnServiceDelete;
@@ -1903,6 +1877,8 @@
         private System.Windows.Forms.Button btnServiceShowAll;
         private System.Windows.Forms.Label lblSearchEuro;
         private System.Windows.Forms.NumericUpDown nudCottageCapacity;
+        private System.Windows.Forms.NumericUpDown nudServiceVAT;
+        private System.Windows.Forms.NumericUpDown nudServicePrice;
     }
 }
 

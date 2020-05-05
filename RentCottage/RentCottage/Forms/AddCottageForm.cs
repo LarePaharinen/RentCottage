@@ -29,8 +29,8 @@ namespace RentCottage.Forms
                 string query = "START TRANSACTION; " +
                     "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
                     "VALUES(default," +
-                    RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + "," +
-                    Convert.ToInt32(tbAddCottagePostNum.Text) + ",'" +
+                    RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + ",'" +
+                    tbAddCottagePostNum.Text + "','" +
                     tbAddCottageName.Text + "','" +
                     tbAddCottageStreet.Text + "','" +
                     tbAddCottageDescription.Text + "'," +

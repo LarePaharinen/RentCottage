@@ -641,37 +641,54 @@ namespace RentCottage
 
         private void btnModifyCottage_Click(object sender, EventArgs e)
         {
-            Cottage cottage = new Cottage(Convert.ToInt32(dgvCottage.CurrentRow.Cells[0].Value), Convert.ToInt32(dgvCottage.CurrentRow.Cells[1].Value), 
+            try
+            {
+                Cottage cottage = new Cottage(Convert.ToInt32(dgvCottage.CurrentRow.Cells[0].Value), Convert.ToInt32(dgvCottage.CurrentRow.Cells[1].Value),
                 dgvCottage.CurrentRow.Cells[2].Value.ToString(), dgvCottage.CurrentRow.Cells[3].Value.ToString(), dgvCottage.CurrentRow.Cells[4].Value.ToString(),
-                dgvCottage.CurrentRow.Cells[5].Value.ToString(), Convert.ToInt32(dgvCottage.CurrentRow.Cells[6].Value),Convert.ToDouble(dgvCottage.CurrentRow.Cells[8].Value),
+                dgvCottage.CurrentRow.Cells[5].Value.ToString(), Convert.ToInt32(dgvCottage.CurrentRow.Cells[6].Value), Convert.ToDouble(dgvCottage.CurrentRow.Cells[8].Value),
                 dgvCottage.CurrentRow.Cells[7].Value.ToString());
-            ModifyCottageForm MCF = new ModifyCottageForm(cottage);
-            MCF.ShowDialog();
-            PopulateDGVCottage();
+                ModifyCottageForm MCF = new ModifyCottageForm(cottage);
+                MCF.ShowDialog();
+                PopulateDGVCottage();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Mökin valinta epäonnistui. Yritä kohta uudelleen. Lisätietoja: " + ex.Message);
+            }
+            
         }
 
         private void btnCottageDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun mökin tiedot?", "Poista mökin tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            try
             {
-                string query = "START TRANSACTION; " +
-                    "DELETE FROM mokki " +
-                    "WHERE mokki_id=" + dgvCottage.CurrentRow.Cells[0].Value.ToString() + "; " +
-                    "COMMIT;";
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                PopulateDGVCottage();
+                DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun mökin tiedot?", "Poista mökin tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string query = "START TRANSACTION; " +
+                        "DELETE FROM mokki " +
+                        "WHERE mokki_id=" + dgvCottage.CurrentRow.Cells[0].Value.ToString() + "; " +
+                        "COMMIT;";
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    PopulateDGVCottage();
+                }
             }
+            catch (Exception ex)
+            {
+                ConnectionUtils.closeConnection();
+                MessageBox.Show("Tietojen poisto ei onnistunut. Yritä uudelleen myöhemmin. Lisätietoja: " + ex.Message);
+            }
+            
         }
 
         private void btnCottageSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                //Get's data from form components, and does a query to the DB. Updates CottageDataGridView-component so show search results
+                //Get's data from form components, and does a query to the DB. Updates CottageDataGridView-component to show search results
                 string query = "SELECT * FROM mokki " +
                 "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + " " +
                 "AND postinro LIKE '%" + tbCottagePostNum.Text + "%' " +
@@ -703,12 +720,81 @@ namespace RentCottage
 
         private void btnServiceModify_Click(object sender, EventArgs e)
         {
-            Service service = new Service(Convert.ToInt32(dgvService.CurrentRow.Cells[0].Value),Convert.ToInt32(dgvService.CurrentRow.Cells[1].Value),
-                dgvService.CurrentRow.Cells[2].Value.ToString(), Convert.ToInt32(dgvService.CurrentRow.Cells[3].Value), dgvService.CurrentRow.Cells[4].Value.ToString(),
-                Convert.ToDouble(dgvService.CurrentRow.Cells[5].Value), Convert.ToDouble(dgvService.CurrentRow.Cells[6].Value));
-            ModifyServiceForm MSF = new ModifyServiceForm(service);
-            MSF.ShowDialog();
+            try
+            {
+                Service service = new Service(Convert.ToInt32(dgvService.CurrentRow.Cells[0].Value), Convert.ToInt32(dgvService.CurrentRow.Cells[1].Value),
+                                dgvService.CurrentRow.Cells[2].Value.ToString(), Convert.ToInt32(dgvService.CurrentRow.Cells[3].Value), dgvService.CurrentRow.Cells[4].Value.ToString(),
+                                Convert.ToDouble(dgvService.CurrentRow.Cells[5].Value), Convert.ToDouble(dgvService.CurrentRow.Cells[6].Value));
+                ModifyServiceForm MSF = new ModifyServiceForm(service);
+                MSF.ShowDialog();
+                PopulateDGVService();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Palvelun valinta epäonnistui. Yritä kohta uudelleen. Lisätietoja: " + ex.Message);
+            }
+            
+        }
+
+        private void btnServiceShowAll_Click(object sender, EventArgs e)
+        {
             PopulateDGVService();
+        }
+
+        private void btnServiceDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun palvelun tiedot?", "Poista palvelun tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "START TRANSACTION; " +
+                                        "DELETE FROM palvelu " +
+                                        "WHERE palvelu_id=" + dgvService.CurrentRow.Cells[0].Value.ToString() + "; " +
+                                        "COMMIT;";
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    PopulateDGVService();
+                }
+                catch (Exception ex)
+                {
+                    ConnectionUtils.closeConnection();
+                    MessageBox.Show("Tietojen poisto ei onnistunut. Yritä uudelleen myöhemmin. Lisätietoja: " + ex.Message);
+                }
+                
+            }
+        }
+
+        private void btnServiceSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Get's data from form components, and does a query to the DB. Updates ServiceDataGridView-component to show search results
+                string query = "SELECT * FROM palvelu " +
+                "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbServiceRegion.Text) + " " +
+                "AND nimi LIKE '%" + tbServiceName.Text + "%' " +
+                "AND tyyppi LIKE '%" + tbServiceType.Text + "%' " +
+                "AND kuvaus LIKE '%" + tbServiceDescription.Text + "%' " +
+                "AND hinta <(" + (nudServicePrice.Value + 1) + ");";
+                try
+                {
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                    adapter.Fill(table);
+                    dgvService.DataSource = table;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Virhe tietojen hakemisessa. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+            }
         }
     }
 }
