@@ -47,20 +47,41 @@ namespace RentCottage.Forms
 
             if (result == DialogResult.Yes)
             {
-                //Modifies the data
-                string query = "START TRANSACTION; " +
-                "UPDATE mokki " +
-                "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
-                "',mokkinimi='" + tbModifyCottageName.Text + "',katuosoite='" + tbModifyCottageStreet.Text + "'," +
-                "kuvaus='" + tbModifyCottageDescription.Text + "',henkilomaara=" + Convert.ToInt32(cbModifyCottageCapacity.Text) +
-                " ,varustelu='"+ tbModifyCottageEquipment.Text + "', hinta=" + Convert.ToDouble(tbModifyCottagePrice.Text) + " " +
-                "WHERE mokki_id=" + Convert.ToInt32(lblModifyCottageID.Text) + "; " +
-                "COMMIT;";
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                this.Close();
+                try
+                {
+                    //Updates cottages information in the database. Gets data from form components, cottage is uniquely identified by cottageID, which can't be modified
+                    string query = "START TRANSACTION; " +
+                    "UPDATE mokki " +
+                    "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyCottageRegion.Text) + ",postinro='" + tbModifyCottagePostNum.Text +
+                    "',mokkinimi='" + tbModifyCottageName.Text + "',katuosoite='" + tbModifyCottageStreet.Text + "'," +
+                    "kuvaus='" + tbModifyCottageDescription.Text + "',henkilomaara=" + Convert.ToInt32(cbModifyCottageCapacity.Text) +
+                    " ,varustelu='" + tbModifyCottageEquipment.Text + "', hinta=" + Convert.ToDouble(tbModifyCottagePrice.Text) + " " +
+                    "WHERE mokki_id=" + Convert.ToInt32(lblModifyCottageID.Text) + "; " +
+                    "COMMIT;";
+                    try
+                    {
+                        ConnectionUtils.openConnection();
+                        MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                        command.ExecuteNonQuery();
+                        ConnectionUtils.closeConnection();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        //Incase of database-connection problems
+                        ConnectionUtils.closeConnection();
+                        MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot, ja yritä uudelleen myöhemmin. Lisätietoja virheestä: "
+                            + ex.Message.ToString());
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    //Incase of variable conversion problems
+                    ConnectionUtils.closeConnection();
+                    MessageBox.Show("Virhe tietojen muuntamisessa. Onhan kaikkien kenttien syötteet oikein? Lisätietoja virheestä: " + ex.Message.ToString());
+                }
+                
             }
         }
 

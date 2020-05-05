@@ -64,6 +64,7 @@
             this.btnModifyServiceModify.TabIndex = 20;
             this.btnModifyServiceModify.Text = "Muokkaa palvelun tietoja";
             this.btnModifyServiceModify.UseVisualStyleBackColor = true;
+            this.btnModifyServiceModify.Click += new System.EventHandler(this.btnModifyServiceModify_Click);
             // 
             // label6
             // 

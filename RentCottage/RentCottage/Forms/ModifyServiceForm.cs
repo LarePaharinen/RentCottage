@@ -1,4 +1,5 @@
-﻿using RentCottage.Code;
+﻿using MySql.Data.MySqlClient;
+using RentCottage.Code;
 using RentCottage.Forms;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,51 @@ namespace RentCottage.Forms
         private void btnModifyServiceCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnModifyServiceModify_Click(object sender, EventArgs e)
+        {
+            //Make sure the data should be modified
+            DialogResult result = MessageBox.Show("Haluatko varmasti muuttaa valitun palvelun tietoja?", "Muuta palvelun tietoja",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    //Updates services information in the database. Gets data from form components, service is uniquely identified by serviceID, which can't be modified
+                    string query = "START TRANSACTION; " +
+                    "UPDATE palvelu " +
+                    "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyServiceRegion.Text) + ",nimi='" + tbModifyServiceName.Text +
+                    "',tyyppi=" + Convert.ToInt32(tbModifyServiceType.Text) + ",kuvaus='" + tbModifyServiceDescription.Text + "'," +
+                    "hinta=" + Convert.ToDouble(tbModifyServicePrice.Text) + ",alv=" + Convert.ToDouble(tbModifyServiceVAT.Text) + " " +
+                    "WHERE palvelu_id=" + Convert.ToInt32(lblModifyServiceID.Text) + "; " +
+                    "COMMIT;";
+                    try
+                    {
+                        ConnectionUtils.openConnection();
+                        MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                        command.ExecuteNonQuery();
+                        ConnectionUtils.closeConnection();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        //Incase of database-connection problems
+                        ConnectionUtils.closeConnection();
+                        MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot, ja yritä uudelleen myöhemmin. Lisätietoja virheestä: "
+                            + ex.Message.ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Incase of variable conversion problems
+                    ConnectionUtils.closeConnection();
+                    MessageBox.Show("Virhe tietojen muuntamisessa. Onhan kaikkien kenttien syötteet oikein? Lisätietoja virheestä: " + ex.Message.ToString());
+                }
+                
+                
+            }
         }
     }
 }

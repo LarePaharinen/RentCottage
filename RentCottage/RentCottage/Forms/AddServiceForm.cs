@@ -27,8 +27,10 @@ namespace RentCottage.Forms
 
         private void btnAddServiceAdd_Click(object sender, EventArgs e)
         {
-            
-            string query = "START TRANSACTION; " +
+            try
+            {
+                //Add a service to the database, gets data from form components
+                string query = "START TRANSACTION; " +
                 "INSERT INTO palvelu(palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv) " +
                 "VALUES(default," +
                 RegionUtils.RegionNameToIndex(cbAddServiceRegion.Text) + ",'" +
@@ -38,19 +40,29 @@ namespace RentCottage.Forms
                 Convert.ToDouble(tbAddServicePrice.Text) + "," +
                 Convert.ToDouble(tbAddServiceVAT.Text) + "); " +
                 "COMMIT;";
-            try
-            {
-                //Adds service to the DB
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                this.Close();
+
+                try
+                {
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    //Incase of database-connection problems
+                    ConnectionUtils.closeConnection();
+                    MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //Incase of variable conversion problems
+                ConnectionUtils.closeConnection();
+                MessageBox.Show("Virhe tietojen muuntamisessa. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
             }
+            
         }
     }
 }

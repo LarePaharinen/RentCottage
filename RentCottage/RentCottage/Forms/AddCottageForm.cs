@@ -20,34 +20,46 @@ namespace RentCottage.Forms
             RegionUtils.PopulateCBRegion(cbAddCottageRegion);
         }
 
-        //Add cottage to the database
         private void btnAddCottageAdd_Click(object sender, EventArgs e)
-        {   
-            PostUtils.checkPostal(tbAddCottagePostNum.Text, tbAddCottagePostRegion.Text);
-            string query = "START TRANSACTION; " +
-                "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
-                "VALUES(default," + 
-                RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + "," + 
-                int.Parse(tbAddCottagePostNum.Text) +",'" + 
-                tbAddCottageName.Text + "','" + 
-                tbAddCottageStreet.Text + "','" + 
-                tbAddCottageDescription.Text + "'," + 
-                cbAddCottageCapacity.Text + ",'" + 
-                tbAddCottageEquipment.Text + "'," + 
-                int.Parse(tbAddCottagePrice.Text) + "); " +
-                "COMMIT;";
+        {
+            //Add a cottage to the database, gets data from form components
             try
             {
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                this.Close();
+                PostUtils.checkPostal(tbAddCottagePostNum.Text, tbAddCottagePostRegion.Text);
+                string query = "START TRANSACTION; " +
+                    "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
+                    "VALUES(default," +
+                    RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + "," +
+                    Convert.ToInt32(tbAddCottagePostNum.Text) + ",'" +
+                    tbAddCottageName.Text + "','" +
+                    tbAddCottageStreet.Text + "','" +
+                    tbAddCottageDescription.Text + "'," +
+                    cbAddCottageCapacity.Text + ",'" +
+                    tbAddCottageEquipment.Text + "'," +
+                    Convert.ToInt32(tbAddCottagePrice.Text) + "); " +
+                    "COMMIT;";
+                try
+                {
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    //Incase of connction problems
+                    ConnectionUtils.closeConnection();
+                    MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //Incase of exceptions in variable conversion
+                ConnectionUtils.closeConnection();
+                MessageBox.Show("Virhe tietojen muuntamisessa. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
             }
+            
             
             
         }
