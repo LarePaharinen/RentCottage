@@ -221,15 +221,6 @@ namespace RentCottage
 
         public void PopulateDGVCustomer() //get all data from asiakas-table to datagridview
         {
-            string query = "SELECT * FROM asiakas";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
-            adapter.Fill(table);
-            dgvCustomer.DataSource = table;
-        }
-
-        private void btnCustomerSearch_Click(object sender, EventArgs e) //
-        {
             string query = "SELECT * FROM asiakas " +
                 "WHERE postinro LIKE '%" + tbCustomerPostal.Text + "%' " +
                 "AND etunimi LIKE '%" + tbCustomerFName.Text + "%' " +
@@ -243,10 +234,16 @@ namespace RentCottage
             dgvCustomer.DataSource = table;
         }
 
+        private void btnCustomerSearch_Click(object sender, EventArgs e) //
+        {
+            PopulateDGVCustomer();            
+        }
+
         private void btnCustomerAdd_Click(object sender, EventArgs e)
         {
             AddCustomerForm ACF = new AddCustomerForm();
             ACF.ShowDialog();
+            PopulateDGVCustomer();
         }
 
         private void btnCustomerDeleteInfo_Click(object sender, EventArgs e)
@@ -264,21 +261,11 @@ namespace RentCottage
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
                 ConnectionUtils.closeConnection();
+                PopulateDGVCustomer();
             }
         }
 
-        //private void btnCustomerModify_Click(object sender, EventArgs e)
-        //{
-        //    Customer customer = new Customer(Convert.ToInt32(dgvCustomer.CurrentRow.Cells[0].Value), dgvCustomer.CurrentRow.Cells[1].Value.ToString(),
-        //        dgvCustomer.CurrentRow.Cells[2].Value.ToString(), dgvCustomer.CurrentRow.Cells[3].Value.ToString(),
-        //        dgvCustomer.CurrentRow.Cells[4].Value.ToString(), dgvCustomer.CurrentRow.Cells[5].Value.ToString(),
-        //        dgvCustomer.CurrentRow.Cells[6].Value.ToString());
-        //    ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
-        //    MCF.ShowDialog();
-        //}
-        //^^ EIKÖS TÄMÄN VOI POISTAA? SITTEN VOISI VAIKKA UUDELLEEN NIMETÄ TUON ALEMMAN TAKAISIN _Click()
-
-        private void btnCustomerModify_Click_1(object sender, EventArgs e)
+        private void btnCustomerModify_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer(Convert.ToInt32(dgvCustomer.CurrentRow.Cells[0].Value), dgvCustomer.CurrentRow.Cells[1].Value.ToString(),
                 dgvCustomer.CurrentRow.Cells[2].Value.ToString(), dgvCustomer.CurrentRow.Cells[3].Value.ToString(),
@@ -286,6 +273,7 @@ namespace RentCottage
                 dgvCustomer.CurrentRow.Cells[6].Value.ToString());
             ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
             MCF.ShowDialog();
+            PopulateDGVCustomer();
         }
 
 
@@ -807,6 +795,38 @@ namespace RentCottage
             {
                 MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
             }
+        }
+
+
+        //The following Leave-events check that there are no "illegal" apostrophes in textboxes
+        private void tbCustomerFName_Leave(object sender, EventArgs e)
+        {
+            tbCustomerFName.Text = TextBoxUtils.modifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength);
+        }
+
+        private void tbCustomerLName_Leave(object sender, EventArgs e)
+        {
+            tbCustomerLName.Text = TextBoxUtils.modifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength);
+        }
+
+        private void tbCustomerAddress_Leave(object sender, EventArgs e)
+        {
+            tbCustomerAddress.Text = TextBoxUtils.modifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength);
+        }
+
+        private void tbCustomerPostal_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPostal.Text = TextBoxUtils.modifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength);
+        }
+
+        private void tbCustomerEmail_Leave(object sender, EventArgs e)
+        {
+            tbCustomerEmail.Text = TextBoxUtils.modifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength);
+        }
+
+        private void tbCustomerPhone_Leave(object sender, EventArgs e)
+        {
+            tbCustomerPhone.Text = TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength);
         }
     }
 }
