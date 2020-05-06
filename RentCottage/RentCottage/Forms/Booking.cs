@@ -250,6 +250,7 @@ namespace RentCottage
                         " \nSiirrytäänkö laskuun?", "Prosessi onnistui", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                         BillingUtils.goToCreatedInvoice(varausid);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

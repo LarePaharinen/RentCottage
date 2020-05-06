@@ -24,6 +24,7 @@ namespace RentCottage
             InitializeComponent();
             dtpSearchFROM.Value = DateTime.Now;
             cmbListOrder.Text = "VARAUS ID";
+           
         }
 
         private void RentCottage_Load(object sender, EventArgs e)
@@ -333,7 +334,8 @@ namespace RentCottage
 
             DataTable data = new DataTable();
 
-            string query = "SELECT m.mokki_id, t.nimi as toimintaalue, m.postinro, m.mokkinimi, m.katuosoite, m.kuvaus, m.henkilomaara, m.hinta " +
+            string query = "SELECT m.mokki_id, t.nimi as Toimintaalue, m.postinro as Postinumero, m.mokkinimi as 'Nimi', m.katuosoite, " +
+                "m.kuvaus as 'Kuvaus', m.henkilomaara, m.hinta " +
                 "FROM mokki m INNER JOIN toimintaalue t " +
                 "ON m.toimintaalue_id = t.toimintaalue_id ";
 
@@ -366,8 +368,14 @@ namespace RentCottage
             try
             {
                 ConnectionUtils.openConnection();
+                dgSearchTable.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgSearchTable.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
                 sda.Fill(data);
                 dgSearchTable.DataSource = data;
+                dgSearchTable.Columns[0].HeaderText = "Mökki ID";
+                dgSearchTable.Columns[4].HeaderText = "Lähiosoite";
+                dgSearchTable.Columns[6].HeaderText = "Henkilömäärä(max)";
+                dgSearchTable.Columns[7].HeaderText = "Hinta (€)";
                 ConnectionUtils.closeConnection();
             }
             catch(Exception ex)
@@ -520,9 +528,9 @@ namespace RentCottage
         {
             ConnectionUtils.openConnection();
             string query = "SELECT l.lasku_id AS LaskuID, v.varaus_id, a.asiakas_id AS AsiakasID, CONCAT(a.etunimi, ' '," +
-                            " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite AS Lähiosoite, a.puhelinnro AS Puhelinnumero, " +
-                            "a.email AS 'Sähköposti', " +
-                            "l.summa as 'Summa (€)', l.maksettu AS 'maksu suoritettu' " +
+                            " a.sukunimi) AS 'Asiakkaan nimi', a.lahiosoite, a.puhelinnro AS Puhelinnumero, " +
+                            "a.email, " +
+                            "l.summa, l.maksettu AS 'maksu suoritettu' " +
                             "FROM lasku l " +
                             "JOIN varaus v ON l.varaus_id = v.varaus_id " +
                             "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
@@ -533,6 +541,7 @@ namespace RentCottage
                             "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
                             "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
                             "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
+
             if (cbBillingPaid.SelectedIndex == 0)
                 query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
             else if (cbBillingPaid.SelectedIndex == 1)
@@ -543,6 +552,9 @@ namespace RentCottage
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvBilling.DataSource = table;
+            dgvBilling.Columns[4].HeaderText = "Lähiosoite";
+            dgvBilling.Columns[6].HeaderText = "Sähköposti";
+            dgvBilling.Columns[7].HeaderText = "Summa (€)";
             BillingUtils.latestQuery = query;
             ConnectionUtils.closeConnection();
         }
