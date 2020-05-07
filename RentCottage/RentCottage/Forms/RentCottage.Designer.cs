@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.lblSearchEuro = new System.Windows.Forms.Label();
@@ -201,7 +201,7 @@
             this.tcMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(2031, 1126);
+            this.tcMain.Size = new System.Drawing.Size(1350, 716);
             this.tcMain.TabIndex = 0;
             this.tcMain.SelectedIndexChanged += new System.EventHandler(this.tcMain_SelectedIndexChanged);
             // 
@@ -230,7 +230,7 @@
             this.tSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tSearch.Name = "tSearch";
             this.tSearch.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tSearch.Size = new System.Drawing.Size(2023, 1093);
+            this.tSearch.Size = new System.Drawing.Size(1342, 683);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
             // 
@@ -273,7 +273,7 @@
             this.dgSearchTable.RowHeadersVisible = false;
             this.dgSearchTable.RowHeadersWidth = 62;
             this.dgSearchTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSearchTable.Size = new System.Drawing.Size(1560, 997);
+            this.dgSearchTable.Size = new System.Drawing.Size(879, 656);
             this.dgSearchTable.TabIndex = 42;
             this.dgSearchTable.SelectionChanged += new System.EventHandler(this.dgSearchTable_SelectionChanged);
             // 
@@ -485,7 +485,7 @@
             this.tRentControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tRentControl.Name = "tRentControl";
             this.tRentControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tRentControl.Size = new System.Drawing.Size(2023, 1093);
+            this.tRentControl.Size = new System.Drawing.Size(1342, 683);
             this.tRentControl.TabIndex = 1;
             this.tRentControl.Text = "Varausten hallinta";
             // 
@@ -519,7 +519,7 @@
             this.dgOrder.RowHeadersWidth = 62;
             this.dgOrder.RowTemplate.Height = 28;
             this.dgOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgOrder.Size = new System.Drawing.Size(1560, 1003);
+            this.dgOrder.Size = new System.Drawing.Size(886, 662);
             this.dgOrder.TabIndex = 8;
             this.dgOrder.SelectionChanged += new System.EventHandler(this.dgOrder_SelectionChanged);
             // 
@@ -623,7 +623,7 @@
             this.tAreaControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tAreaControl.Name = "tAreaControl";
             this.tAreaControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tAreaControl.Size = new System.Drawing.Size(2023, 1093);
+            this.tAreaControl.Size = new System.Drawing.Size(1342, 683);
             this.tAreaControl.TabIndex = 2;
             this.tAreaControl.Text = "Toiminta-alueiden hallinta";
             // 
@@ -676,41 +676,41 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(450, 12);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegion.Size = new System.Drawing.Size(1560, 994);
+            this.dgvRegion.Size = new System.Drawing.Size(879, 659);
             this.dgvRegion.TabIndex = 6;
             this.dgvRegion.TabStop = false;
             this.dgvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegionSelectionChanged);
@@ -762,7 +762,7 @@
             this.tCustomerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tCustomerControl.Name = "tCustomerControl";
             this.tCustomerControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tCustomerControl.Size = new System.Drawing.Size(2023, 1093);
+            this.tCustomerControl.Size = new System.Drawing.Size(1342, 683);
             this.tCustomerControl.TabIndex = 4;
             this.tCustomerControl.Text = "Asiakkaiden hallinta";
             // 
@@ -795,7 +795,7 @@
             this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 51;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomer.Size = new System.Drawing.Size(1560, 997);
+            this.dgvCustomer.Size = new System.Drawing.Size(879, 661);
             this.dgvCustomer.TabIndex = 56;
             // 
             // btnCustomerDeleteInfo
@@ -972,7 +972,7 @@
             this.tServiceControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tServiceControl.Name = "tServiceControl";
             this.tServiceControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tServiceControl.Size = new System.Drawing.Size(2023, 1093);
+            this.tServiceControl.Size = new System.Drawing.Size(1342, 683);
             this.tServiceControl.TabIndex = 3;
             this.tServiceControl.Text = "Palveluiden hallinta";
             this.tServiceControl.UseVisualStyleBackColor = true;
@@ -988,7 +988,7 @@
             this.tcServiceSub.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcServiceSub.Name = "tcServiceSub";
             this.tcServiceSub.SelectedIndex = 0;
-            this.tcServiceSub.Size = new System.Drawing.Size(2025, 1092);
+            this.tcServiceSub.Size = new System.Drawing.Size(1344, 682);
             this.tcServiceSub.TabIndex = 0;
             // 
             // stCottageControl
@@ -1020,7 +1020,7 @@
             this.stCottageControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stCottageControl.Name = "stCottageControl";
             this.stCottageControl.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.stCottageControl.Size = new System.Drawing.Size(2017, 1059);
+            this.stCottageControl.Size = new System.Drawing.Size(1336, 649);
             this.stCottageControl.TabIndex = 0;
             this.stCottageControl.Text = "Mökkien hallinta";
             // 
@@ -1204,7 +1204,7 @@
             this.dgvCottage.RowHeadersVisible = false;
             this.dgvCottage.RowHeadersWidth = 51;
             this.dgvCottage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCottage.Size = new System.Drawing.Size(1540, 952);
+            this.dgvCottage.Size = new System.Drawing.Size(869, 627);
             this.dgvCottage.TabIndex = 0;
             this.dgvCottage.TabStop = false;
             // 
@@ -1303,7 +1303,7 @@
             this.stService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stService.Name = "stService";
             this.stService.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.stService.Size = new System.Drawing.Size(2017, 1059);
+            this.stService.Size = new System.Drawing.Size(1336, 649);
             this.stService.TabIndex = 1;
             this.stService.Text = "Palveluiden hallinta";
             // 
@@ -1496,7 +1496,7 @@
             this.dgvService.RowHeadersVisible = false;
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvService.Size = new System.Drawing.Size(1554, 952);
+            this.dgvService.Size = new System.Drawing.Size(873, 627);
             this.dgvService.TabIndex = 32;
             this.dgvService.TabStop = false;
             // 
@@ -1543,7 +1543,7 @@
             this.tBilling.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tBilling.Name = "tBilling";
             this.tBilling.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tBilling.Size = new System.Drawing.Size(2023, 1093);
+            this.tBilling.Size = new System.Drawing.Size(1342, 683);
             this.tBilling.TabIndex = 5;
             this.tBilling.Text = "Laskut";
             // 
@@ -1686,7 +1686,7 @@
             this.dgvBilling.RowHeadersVisible = false;
             this.dgvBilling.RowHeadersWidth = 62;
             this.dgvBilling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBilling.Size = new System.Drawing.Size(1560, 997);
+            this.dgvBilling.Size = new System.Drawing.Size(879, 661);
             this.dgvBilling.TabIndex = 14;
             this.dgvBilling.SelectionChanged += new System.EventHandler(this.dgvBilling_SelectionChanged);
             // 
@@ -1825,7 +1825,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2025, 1062);
+            this.ClientSize = new System.Drawing.Size(1344, 712);
             this.Controls.Add(this.tcMain);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RentCottage";
