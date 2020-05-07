@@ -563,7 +563,7 @@ namespace RentCottage
             ConnectionUtils.closeConnection();
             PopulateDGVRegion();
             lblRegionID.Text = "0000";
-            tbRegionName.Text = "";
+            tbRegionName.Text = "";            
         }
 
         //Deletes selected region from database
@@ -827,6 +827,16 @@ namespace RentCottage
         private void tbCustomerPhone_Leave(object sender, EventArgs e)
         {
             tbCustomerPhone.Text = TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength);
+        }
+
+        private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateDGVCottage();
+            PopulateDGVCustomer();
+            PopulateDGVOrder();
+            PopulateDGVRegion();
+            PopulateDGVService();
+            billingSearch();
         }
     }
 }

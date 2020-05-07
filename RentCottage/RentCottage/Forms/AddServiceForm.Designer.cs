@@ -155,7 +155,7 @@
             this.nudAddServiceVAT.Location = new System.Drawing.Point(92, 128);
             this.nudAddServiceVAT.Name = "nudAddServiceVAT";
             this.nudAddServiceVAT.Size = new System.Drawing.Size(209, 20);
-            this.nudAddServiceVAT.TabIndex = 39;
+            this.nudAddServiceVAT.TabIndex = 5;
             this.nudAddServiceVAT.Value = new decimal(new int[] {
             24,
             0,
@@ -172,7 +172,7 @@
             0});
             this.nudAddServicePrice.Name = "nudAddServicePrice";
             this.nudAddServicePrice.Size = new System.Drawing.Size(208, 20);
-            this.nudAddServicePrice.TabIndex = 38;
+            this.nudAddServicePrice.TabIndex = 4;
             // 
             // AddServiceForm
             // 

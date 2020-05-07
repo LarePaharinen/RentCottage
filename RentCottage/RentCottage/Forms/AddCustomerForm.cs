@@ -29,7 +29,7 @@ namespace RentCottage
                 "VALUES(default,'" + tbCustomerPostalAdd.Text + "','" + tbCustomerFNameAdd.Text + 
                 "','" + tbCustomerLNameAdd.Text + "','" + tbCustomerAddressAdd.Text +
                 "','" + tbCustomerEmailAdd.Text + "','" + tbCustomerPhoneAdd.Text + "'); " +
-                "COMMIT;";            
+                "COMMIT;";
             MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
             command3.ExecuteNonQuery();
             ConnectionUtils.closeConnection();
