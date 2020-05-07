@@ -10,7 +10,7 @@ namespace RentCottage.Code
 {
     public class OrderUtils
     {
-        public static bool ChechCottageBookDate(int mokki_id, string dateFrom, string DateTo)
+        public static bool CheckCottageBookDate(int mokki_id, string dateFrom, string DateTo)
         {
             ConnectionUtils.openConnection(); // Check is cottage free at the indicated time
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +

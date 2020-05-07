@@ -45,6 +45,7 @@
             this.dtpOrder_ModifyStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpOrder_ModifyEndDate = new System.Windows.Forms.DateTimePicker();
             this.dgvOrderServices = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderServices)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,7 +122,7 @@
             // btmOrder_OrderModify
             // 
             this.btmOrder_OrderModify.Location = new System.Drawing.Point(160, 313);
-            this.btmOrder_OrderModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btmOrder_OrderModify.Margin = new System.Windows.Forms.Padding(2);
             this.btmOrder_OrderModify.Name = "btmOrder_OrderModify";
             this.btmOrder_OrderModify.Size = new System.Drawing.Size(109, 23);
             this.btmOrder_OrderModify.TabIndex = 7;
@@ -132,7 +133,7 @@
             // btmOrder_OrderModifyCancel
             // 
             this.btmOrder_OrderModifyCancel.Location = new System.Drawing.Point(283, 313);
-            this.btmOrder_OrderModifyCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btmOrder_OrderModifyCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btmOrder_OrderModifyCancel.Name = "btmOrder_OrderModifyCancel";
             this.btmOrder_OrderModifyCancel.Size = new System.Drawing.Size(109, 23);
             this.btmOrder_OrderModifyCancel.TabIndex = 8;
@@ -195,7 +196,7 @@
             this.dtpOrder_ModifyStartDate.CustomFormat = "yyyy-MM-dd";
             this.dtpOrder_ModifyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(134, 108);
-            this.dtpOrder_ModifyStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpOrder_ModifyStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpOrder_ModifyStartDate.Name = "dtpOrder_ModifyStartDate";
             this.dtpOrder_ModifyStartDate.Size = new System.Drawing.Size(118, 20);
             this.dtpOrder_ModifyStartDate.TabIndex = 14;
@@ -205,7 +206,7 @@
             this.dtpOrder_ModifyEndDate.CustomFormat = "yyyyy-MM-dd";
             this.dtpOrder_ModifyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(383, 102);
-            this.dtpOrder_ModifyEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpOrder_ModifyEndDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpOrder_ModifyEndDate.Name = "dtpOrder_ModifyEndDate";
             this.dtpOrder_ModifyEndDate.Size = new System.Drawing.Size(117, 20);
             this.dtpOrder_ModifyEndDate.TabIndex = 15;
@@ -216,19 +217,28 @@
             this.dgvOrderServices.AllowUserToAddRows = false;
             this.dgvOrderServices.AllowUserToDeleteRows = false;
             this.dgvOrderServices.AllowUserToResizeRows = false;
-            this.dgvOrderServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrderServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrderServices.Location = new System.Drawing.Point(25, 139);
+            this.dgvOrderServices.Location = new System.Drawing.Point(12, 160);
             this.dgvOrderServices.Name = "dgvOrderServices";
             this.dgvOrderServices.RowHeadersVisible = false;
-            this.dgvOrderServices.Size = new System.Drawing.Size(488, 169);
+            this.dgvOrderServices.Size = new System.Drawing.Size(500, 142);
             this.dgvOrderServices.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 141);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Lisäpalvelut";
             // 
             // ModifyOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 347);
+            this.ClientSize = new System.Drawing.Size(524, 347);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvOrderServices);
             this.Controls.Add(this.dtpOrder_ModifyEndDate);
             this.Controls.Add(this.dtpOrder_ModifyStartDate);
@@ -247,7 +257,7 @@
             this.Controls.Add(this.lbOrder_CustomerD);
             this.Controls.Add(this.lbOrder_OrderId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifyOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa varaus";
@@ -276,5 +286,6 @@
         private System.Windows.Forms.DateTimePicker dtpOrder_ModifyStartDate;
         private System.Windows.Forms.DateTimePicker dtpOrder_ModifyEndDate;
         private System.Windows.Forms.DataGridView dgvOrderServices;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -394,7 +394,7 @@ namespace RentCottage
         private void btmSearchVarata_Click(object sender, EventArgs e) // New order
         {
             // Check date again, if user change data, and no do search
-            if (!OrderUtils.ChechCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text)) 
+            if (!OrderUtils.CheckCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text)) 
             {
                 btnSearchHae_Click(sender, e);
                 return;

@@ -26,36 +26,91 @@ namespace RentCottage
             dtpOrder_ModifyEndDate.Text = o.End_date;
             fill_dgvOrderServices();
         }
-
+        int alue_id;
         private void fill_dgvOrderServices()
         {
             ConnectionUtils.openConnection();
             MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM mokki WHERE mokki_id = '" + lbOrder_ModifyCottageID.Text + "'", ConnectionUtils.connection);
-            int alue_id = Convert.ToInt32(command.ExecuteScalar());
+            alue_id = Convert.ToInt32(command.ExecuteScalar());
             ConnectionUtils.closeConnection();
 
             string query = "SELECT p.palvelu_id as 'ID', p.nimi as 'Nimi', p.kuvaus as 'Kuvaus', p.hinta as 'hinta/kpl', " +
                 "coalesce(lkm, 0) AS kpl FROM palvelu p LEFT outer JOIN varauksen_palvelut vp ON p.palvelu_id = vp.palvelu_id " + 
                 "AND varaus_id = '" + lbOrder_ModifyOrderID.Text + "' " +
                 "WHERE toimintaalue_id = '" + alue_id + "'";
-            ConnectionUtils.openConnection();
+
             MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
             DataTable data = new DataTable();
             sda.Fill(data);
             dgvOrderServices.DataSource = data;
-            ConnectionUtils.closeConnection();
-
+            dgvOrderServices.Columns[0].Width = 30;
+            dgvOrderServices.Columns[1].Width = 137;
+            dgvOrderServices.Columns[2].Width = 240;
+            dgvOrderServices.Columns[3].Width = 55;
+            dgvOrderServices.Columns[4].Width = 35;
+            foreach (DataGridViewColumn dgvc in dgvOrderServices.Columns) // Make all rows non editable
+            {
+                dgvc.ReadOnly = true;
+                dgvOrderServices.Columns[4].DefaultCellStyle.BackColor = Color.PaleGreen;
+            }
+            dgvOrderServices.Columns[4].ReadOnly = false; // Make editable only "kpl" row
 
         }
         private void btmOrder_OrderModify_Click(object sender, EventArgs e)
         {
-            if (!OrderUtils.ChechCottageBookDate(Convert.ToInt32(lbOrder_ModifyCottageID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
+            if (!OrderUtils.CheckCottageBookDate(Convert.ToInt32(lbOrder_ModifyCottageID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
             {
                 return;
             }
+
             DialogResult res = MessageBox.Show("Haluatko varmasti tallentaa muokatut tiedot?", "Muokkaa varaus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
+
+                string queryServices = "START TRANSACTION; ";
+                foreach (DataGridViewRow row in dgvOrderServices.Rows)  // Services modify
+                {
+                    ConnectionUtils.openConnection();
+                    MySqlCommand checkRow = new MySqlCommand("SELECT * FROM varauksen_palvelut WHERE varaus_id =  '" +
+                        lbOrder_ModifyOrderID.Text + "' AND palvelu_id = '" + row.Cells[0].Value.ToString() + "'", ConnectionUtils.connection);
+                    MySqlDataReader reader = checkRow.ExecuteReader();
+                    if (reader.HasRows && Convert.ToInt32(row.Cells["kpl"].Value) != 0) // If service already in database
+                    {
+                        reader.Read();
+                        if (Convert.ToInt32(reader["lkm"]) != Convert.ToInt32(row.Cells["kpl"].Value))
+                        {
+                            queryServices += "UPDATE varauksen_palvelut SET lkm='" + row.Cells["kpl"].Value.ToString() + "' " +
+                                "WHERE varaus_id =  '" + lbOrder_ModifyOrderID.Text + "' AND palvelu_id = '" + row.Cells[0].Value.ToString() + "'; ";
+                        }
+                    }
+                    else if (!reader.HasRows && Convert.ToInt32(row.Cells["kpl"].Value) != 0) // If new service
+                    {
+                        queryServices += "INSERT INTO vn.varauksen_palvelut(varaus_id, palvelu_id, lkm) " +
+                            "VALUES(" + lbOrder_ModifyOrderID.Text + ", " + row.Cells["ID"].Value.ToString() + ", " + row.Cells["kpl"].Value.ToString() + "); ";
+                    }
+
+                    else if (reader.HasRows && Convert.ToInt32(row.Cells["kpl"].Value) == 0) // if service set to 0
+                    {
+                        queryServices += "DELETE FROM varauksen_palvelut WHERE varaus_id =  '" +
+                        lbOrder_ModifyOrderID.Text + "' AND palvelu_id = '" + row.Cells[0].Value.ToString() + "'; ";
+                    }
+                    ConnectionUtils.closeConnection();
+                }
+                queryServices += "COMMIT;";
+                if (queryServices != "START TRANSACTION; COMMIT;") // check if services not changet
+                {
+                    try
+                    {
+                        ConnectionUtils.openConnection();
+                        MySqlCommand command1 = new MySqlCommand(queryServices, ConnectionUtils.connection);
+                        command1.ExecuteNonQuery(); // Add/EDIT/REMOVE services
+                        ConnectionUtils.closeConnection();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(queryServices);
+                    }
+                }
                 string query = "START TRANSACTION; " +
                 "UPDATE varaus " +
                 "SET varattu_alkupvm='" + dtpOrder_ModifyStartDate.Text + " 16:00:00',varattu_loppupvm='" 
@@ -63,8 +118,8 @@ namespace RentCottage
                 "WHERE varaus_id=" + lbOrder_ModifyOrderID.Text + "; " +
                 "COMMIT;";
                 ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
+                MySqlCommand command2 = new MySqlCommand(query, ConnectionUtils.connection);
+                command2.ExecuteNonQuery();
                 ConnectionUtils.closeConnection();
                 Close();
             }
