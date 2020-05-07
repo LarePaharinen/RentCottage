@@ -24,8 +24,29 @@ namespace RentCottage
             lbOrder_ModifyPaymentDate.Text = o.Payment_date;
             dtpOrder_ModifyStartDate.Text = o.Start_date;
             dtpOrder_ModifyEndDate.Text = o.End_date;
+            fill_dgvOrderServices();
         }
 
+        private void fill_dgvOrderServices()
+        {
+            ConnectionUtils.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM mokki WHERE mokki_id = '" + lbOrder_ModifyCottageID.Text + "'", ConnectionUtils.connection);
+            int alue_id = Convert.ToInt32(command.ExecuteScalar());
+            ConnectionUtils.closeConnection();
+
+            string query = "SELECT p.palvelu_id as 'ID', p.nimi as 'Nimi', p.kuvaus as 'Kuvaus', p.hinta as 'hinta/kpl', " +
+                "coalesce(lkm, 0) AS kpl FROM palvelu p LEFT outer JOIN varauksen_palvelut vp ON p.palvelu_id = vp.palvelu_id " + 
+                "AND varaus_id = '" + lbOrder_ModifyOrderID.Text + "' " +
+                "WHERE toimintaalue_id = '" + alue_id + "'";
+            ConnectionUtils.openConnection();
+            MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            DataTable data = new DataTable();
+            sda.Fill(data);
+            dgvOrderServices.DataSource = data;
+            ConnectionUtils.closeConnection();
+
+
+        }
         private void btmOrder_OrderModify_Click(object sender, EventArgs e)
         {
             if (!OrderUtils.ChechCottageBookDate(Convert.ToInt32(lbOrder_ModifyCottageID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
