@@ -92,9 +92,12 @@ namespace RentCottage
             List<ItemRow> itemsList = generateItemsList(lasku_id);
             double totalPrice = calculateTotalPrice(varaus_id);
             string totalPriceString = String.Format("{0:0.00}", totalPrice);
-            double AlvPercentage = 10.00;
-            double AlvPortionAmount = totalPrice * (AlvPercentage / 100);
-            double subTotal = totalPrice - AlvPortionAmount;
+            double totalAlvAmount = 0;
+            foreach (ItemRow item in itemsList)
+            {
+                totalAlvAmount += (Convert.ToDouble(item.Total) * (Convert.ToDouble(item.VAT)/100));
+            }
+            double subTotal = totalPrice - totalAlvAmount;
 
             //Creating the PDF document
             new InvoicerApi(SizeOption.A4, OrientationOption.Portrait, "€")
@@ -108,7 +111,7 @@ namespace RentCottage
             .Items(itemsList)
             .Totals(new List<TotalRow> {
             TotalRow.Make("Välisumma", (decimal)subTotal),
-            TotalRow.Make("ALV 10%", (decimal)AlvPortionAmount),
+            TotalRow.Make("ALV", (decimal)totalAlvAmount),
             TotalRow.Make("Kokonaishinta", (decimal)totalPrice, true),
             })
             .Details(new List<DetailRow> {

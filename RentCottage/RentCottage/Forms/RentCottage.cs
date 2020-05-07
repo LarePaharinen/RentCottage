@@ -436,8 +436,7 @@ namespace RentCottage
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("Antamaasi varausID:tä ei löytynyt.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Antamaasi varausID:tä ei löytynyt.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
