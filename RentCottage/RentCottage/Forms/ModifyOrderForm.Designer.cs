@@ -191,6 +191,7 @@
             this.dtpOrder_ModifyEndDate.Name = "dtpOrder_ModifyEndDate";
             this.dtpOrder_ModifyEndDate.Size = new System.Drawing.Size(174, 26);
             this.dtpOrder_ModifyEndDate.TabIndex = 15;
+            this.dtpOrder_ModifyEndDate.ValueChanged += new System.EventHandler(this.dtpOrder_ModifyEndDate_ValueChanged);
             // 
             // ModifyOrderForm
             // 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using RentCottage.Code;
 
 namespace RentCottage
 {
@@ -27,6 +28,10 @@ namespace RentCottage
 
         private void btmOrder_OrderModify_Click(object sender, EventArgs e)
         {
+            if (!OrderUtils.ChechCottageBookDate(Convert.ToInt32(lbOrder_ModifyCottageID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
+            {
+                return;
+            }
             DialogResult res = MessageBox.Show("Haluatko varmasti tallentaa muokatut tiedot?", "Muokkaa varaus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
@@ -47,6 +52,15 @@ namespace RentCottage
         private void btmOrder_OrderModifyCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void dtpOrder_ModifyEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpOrder_ModifyEndDate.Value.Date <= dtpOrder_ModifyStartDate.Value.Date) // Date check
+            {
+                MessageBox.Show("Majoituksen loppupäivä ei voi olla samaa tai aiemmin kun majoituksen alkupäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }
