@@ -66,11 +66,15 @@ namespace RentCottage
 
         public void PopulateDGVRegion()
         {
+            //Fills the DGVRegion-component with data from the DB
             string query = "SELECT * FROM toimintaalue";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvRegion.DataSource = table;
+            dgvRegion.Columns[0].HeaderText = "Toiminta-AlueID";
+            dgvRegion.Columns[1].HeaderText = "Toiminta-alueen nimi";
+
         }
 
         public void PopulateDGVOrder()
@@ -616,20 +620,39 @@ namespace RentCottage
 
         public void PopulateDGVService()
         {
+            //Fills the DGVService-component with data from DB
             string query = "SELECT * FROM palvelu";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvService.DataSource = table;
+            dgvService.Columns[0].HeaderText = "PalveluID";
+            dgvService.Columns[1].HeaderText = "Toiminta-alueID";
+            dgvService.Columns[2].HeaderText = "Nimi";
+            dgvService.Columns[3].HeaderText = "Tyyppi";
+            dgvService.Columns[4].HeaderText = "Kuvaus";
+            dgvService.Columns[5].HeaderText = "Hinta (€)";
+            dgvService.Columns[6].HeaderText = "Alv (%)";
+
         }
 
         public void PopulateDGVCottage()
         {
+            //Fills the DGVCottage-component with data from DB
             string query = "SELECT * FROM mokki";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvCottage.DataSource = table;
+            dgvCottage.Columns[0].HeaderText = "MökkiID";
+            dgvCottage.Columns[1].HeaderText = "Toiminta-alueID";
+            dgvCottage.Columns[2].HeaderText = "Postinumero";
+            dgvCottage.Columns[3].HeaderText = "Mökkinimi";
+            dgvCottage.Columns[4].HeaderText = "Katuosoite";
+            dgvCottage.Columns[5].HeaderText = "Kuvaus";
+            dgvCottage.Columns[6].HeaderText = "Henkilömäärä (max)";
+            dgvCottage.Columns[7].HeaderText = "Varustelu";
+            dgvCottage.Columns[8].HeaderText = "Hinta";
         }
 
         private void btnServiceAdd_Click(object sender, EventArgs e)
