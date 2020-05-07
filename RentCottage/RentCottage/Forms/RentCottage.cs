@@ -845,12 +845,33 @@ namespace RentCottage
 
         private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulateDGVCottage();
-            PopulateDGVCustomer();
-            PopulateDGVOrder();
-            PopulateDGVRegion();
-            PopulateDGVService();
-            billingSearch();
+            //Update each tabs components when switching to the tab
+            if(tcMain.SelectedTab.Name == "tSearch")
+            {
+                RegionUtils.PopulateCBRegion(cbSearchAluet);
+            }else if (tcMain.SelectedTab.Name == "tRentControl")
+            {
+                PopulateDGVOrder();
+            }
+            else if (tcMain.SelectedTab.Name == "tAreaControl")
+            {
+                PopulateDGVRegion();
+            }
+            else if (tcMain.SelectedTab.Name == "tCustomerControl")
+            {
+                PopulateDGVCustomer();
+            }
+            else if(tcMain.SelectedTab.Name == "tServiceControl")
+            {
+                PopulateDGVService();
+                RegionUtils.PopulateCBRegion(cbCottageRegions);
+                RegionUtils.PopulateCBRegion(cbServiceRegion);
+            }
+            else if(tcMain.SelectedTab.Name == "tBilling")
+            {
+                billingSearch();
+            }            
+            
         }
     }
 }
