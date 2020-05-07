@@ -44,76 +44,86 @@
             this.lbOrder_ModifyPaymentDate = new System.Windows.Forms.Label();
             this.dtpOrder_ModifyStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpOrder_ModifyEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dgvOrderServices = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderServices)).BeginInit();
             this.SuspendLayout();
             // 
             // lbOrder_OrderId
             // 
             this.lbOrder_OrderId.AutoSize = true;
-            this.lbOrder_OrderId.Location = new System.Drawing.Point(81, 24);
+            this.lbOrder_OrderId.Location = new System.Drawing.Point(54, 16);
+            this.lbOrder_OrderId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_OrderId.Name = "lbOrder_OrderId";
-            this.lbOrder_OrderId.Size = new System.Drawing.Size(77, 20);
+            this.lbOrder_OrderId.Size = new System.Drawing.Size(51, 13);
             this.lbOrder_OrderId.TabIndex = 0;
             this.lbOrder_OrderId.Text = "VarausID";
             // 
             // lbOrder_CustomerD
             // 
             this.lbOrder_CustomerD.AutoSize = true;
-            this.lbOrder_CustomerD.Location = new System.Drawing.Point(76, 78);
+            this.lbOrder_CustomerD.Location = new System.Drawing.Point(51, 46);
+            this.lbOrder_CustomerD.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_CustomerD.Name = "lbOrder_CustomerD";
-            this.lbOrder_CustomerD.Size = new System.Drawing.Size(82, 20);
+            this.lbOrder_CustomerD.Size = new System.Drawing.Size(55, 13);
             this.lbOrder_CustomerD.TabIndex = 1;
             this.lbOrder_CustomerD.Text = "AsiakasID";
             // 
             // lbOrder_CottageID
             // 
             this.lbOrder_CottageID.AutoSize = true;
-            this.lbOrder_CottageID.Location = new System.Drawing.Point(91, 132);
+            this.lbOrder_CottageID.Location = new System.Drawing.Point(58, 72);
+            this.lbOrder_CottageID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_CottageID.Name = "lbOrder_CottageID";
-            this.lbOrder_CottageID.Size = new System.Drawing.Size(67, 20);
+            this.lbOrder_CottageID.Size = new System.Drawing.Size(47, 13);
             this.lbOrder_CottageID.TabIndex = 2;
             this.lbOrder_CottageID.Text = "MökkiID";
             // 
             // lbOrder_OrderDate
             // 
             this.lbOrder_OrderDate.AutoSize = true;
-            this.lbOrder_OrderDate.Location = new System.Drawing.Point(63, 186);
+            this.lbOrder_OrderDate.Location = new System.Drawing.Point(305, 46);
+            this.lbOrder_OrderDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_OrderDate.Name = "lbOrder_OrderDate";
-            this.lbOrder_OrderDate.Size = new System.Drawing.Size(95, 20);
+            this.lbOrder_OrderDate.Size = new System.Drawing.Size(64, 13);
             this.lbOrder_OrderDate.TabIndex = 3;
             this.lbOrder_OrderDate.Text = "Varattu pvm";
             // 
             // lbOrder_PaymentDate
             // 
             this.lbOrder_PaymentDate.AutoSize = true;
-            this.lbOrder_PaymentDate.Location = new System.Drawing.Point(47, 240);
+            this.lbOrder_PaymentDate.Location = new System.Drawing.Point(293, 72);
+            this.lbOrder_PaymentDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_PaymentDate.Name = "lbOrder_PaymentDate";
-            this.lbOrder_PaymentDate.Size = new System.Drawing.Size(111, 20);
+            this.lbOrder_PaymentDate.Size = new System.Drawing.Size(76, 13);
             this.lbOrder_PaymentDate.TabIndex = 4;
             this.lbOrder_PaymentDate.Text = "Vahvistus pvm";
             // 
             // lbOrder_StartDate
             // 
             this.lbOrder_StartDate.AutoSize = true;
-            this.lbOrder_StartDate.Location = new System.Drawing.Point(34, 294);
+            this.lbOrder_StartDate.Location = new System.Drawing.Point(22, 108);
+            this.lbOrder_StartDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_StartDate.Name = "lbOrder_StartDate";
-            this.lbOrder_StartDate.Size = new System.Drawing.Size(124, 20);
+            this.lbOrder_StartDate.Size = new System.Drawing.Size(84, 13);
             this.lbOrder_StartDate.TabIndex = 5;
             this.lbOrder_StartDate.Text = "Varattu alkupvm";
             // 
             // lbOrder_EndDate
             // 
             this.lbOrder_EndDate.AutoSize = true;
-            this.lbOrder_EndDate.Location = new System.Drawing.Point(24, 348);
+            this.lbOrder_EndDate.Location = new System.Drawing.Point(279, 108);
+            this.lbOrder_EndDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_EndDate.Name = "lbOrder_EndDate";
-            this.lbOrder_EndDate.Size = new System.Drawing.Size(134, 20);
+            this.lbOrder_EndDate.Size = new System.Drawing.Size(90, 13);
             this.lbOrder_EndDate.TabIndex = 6;
             this.lbOrder_EndDate.Text = "Varattu loppupvm";
             // 
             // btmOrder_OrderModify
             // 
-            this.btmOrder_OrderModify.Location = new System.Drawing.Point(25, 395);
+            this.btmOrder_OrderModify.Location = new System.Drawing.Point(160, 313);
+            this.btmOrder_OrderModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btmOrder_OrderModify.Name = "btmOrder_OrderModify";
-            this.btmOrder_OrderModify.Size = new System.Drawing.Size(164, 35);
+            this.btmOrder_OrderModify.Size = new System.Drawing.Size(109, 23);
             this.btmOrder_OrderModify.TabIndex = 7;
             this.btmOrder_OrderModify.Text = "Talenna";
             this.btmOrder_OrderModify.UseVisualStyleBackColor = true;
@@ -121,9 +131,10 @@
             // 
             // btmOrder_OrderModifyCancel
             // 
-            this.btmOrder_OrderModifyCancel.Location = new System.Drawing.Point(210, 395);
+            this.btmOrder_OrderModifyCancel.Location = new System.Drawing.Point(283, 313);
+            this.btmOrder_OrderModifyCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btmOrder_OrderModifyCancel.Name = "btmOrder_OrderModifyCancel";
-            this.btmOrder_OrderModifyCancel.Size = new System.Drawing.Size(164, 35);
+            this.btmOrder_OrderModifyCancel.Size = new System.Drawing.Size(109, 23);
             this.btmOrder_OrderModifyCancel.TabIndex = 8;
             this.btmOrder_OrderModifyCancel.Text = "Peruuta";
             this.btmOrder_OrderModifyCancel.UseVisualStyleBackColor = true;
@@ -132,45 +143,50 @@
             // lbOrder_ModifyOrderID
             // 
             this.lbOrder_ModifyOrderID.AutoSize = true;
-            this.lbOrder_ModifyOrderID.Location = new System.Drawing.Point(196, 24);
+            this.lbOrder_ModifyOrderID.Location = new System.Drawing.Point(131, 16);
+            this.lbOrder_ModifyOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_ModifyOrderID.Name = "lbOrder_ModifyOrderID";
-            this.lbOrder_ModifyOrderID.Size = new System.Drawing.Size(51, 20);
+            this.lbOrder_ModifyOrderID.Size = new System.Drawing.Size(35, 13);
             this.lbOrder_ModifyOrderID.TabIndex = 9;
             this.lbOrder_ModifyOrderID.Text = "label1";
             // 
             // lbOrder_ModifyCustomerID
             // 
             this.lbOrder_ModifyCustomerID.AutoSize = true;
-            this.lbOrder_ModifyCustomerID.Location = new System.Drawing.Point(196, 78);
+            this.lbOrder_ModifyCustomerID.Location = new System.Drawing.Point(131, 46);
+            this.lbOrder_ModifyCustomerID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_ModifyCustomerID.Name = "lbOrder_ModifyCustomerID";
-            this.lbOrder_ModifyCustomerID.Size = new System.Drawing.Size(51, 20);
+            this.lbOrder_ModifyCustomerID.Size = new System.Drawing.Size(35, 13);
             this.lbOrder_ModifyCustomerID.TabIndex = 10;
             this.lbOrder_ModifyCustomerID.Text = "label2";
             // 
             // lbOrder_ModifyCottageID
             // 
             this.lbOrder_ModifyCottageID.AutoSize = true;
-            this.lbOrder_ModifyCottageID.Location = new System.Drawing.Point(196, 132);
+            this.lbOrder_ModifyCottageID.Location = new System.Drawing.Point(131, 72);
+            this.lbOrder_ModifyCottageID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_ModifyCottageID.Name = "lbOrder_ModifyCottageID";
-            this.lbOrder_ModifyCottageID.Size = new System.Drawing.Size(51, 20);
+            this.lbOrder_ModifyCottageID.Size = new System.Drawing.Size(35, 13);
             this.lbOrder_ModifyCottageID.TabIndex = 11;
             this.lbOrder_ModifyCottageID.Text = "label3";
             // 
             // lbOrder_ModifyOrderDate
             // 
             this.lbOrder_ModifyOrderDate.AutoSize = true;
-            this.lbOrder_ModifyOrderDate.Location = new System.Drawing.Point(196, 186);
+            this.lbOrder_ModifyOrderDate.Location = new System.Drawing.Point(393, 46);
+            this.lbOrder_ModifyOrderDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_ModifyOrderDate.Name = "lbOrder_ModifyOrderDate";
-            this.lbOrder_ModifyOrderDate.Size = new System.Drawing.Size(51, 20);
+            this.lbOrder_ModifyOrderDate.Size = new System.Drawing.Size(35, 13);
             this.lbOrder_ModifyOrderDate.TabIndex = 12;
             this.lbOrder_ModifyOrderDate.Text = "label4";
             // 
             // lbOrder_ModifyPaymentDate
             // 
             this.lbOrder_ModifyPaymentDate.AutoSize = true;
-            this.lbOrder_ModifyPaymentDate.Location = new System.Drawing.Point(196, 240);
+            this.lbOrder_ModifyPaymentDate.Location = new System.Drawing.Point(393, 72);
+            this.lbOrder_ModifyPaymentDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbOrder_ModifyPaymentDate.Name = "lbOrder_ModifyPaymentDate";
-            this.lbOrder_ModifyPaymentDate.Size = new System.Drawing.Size(51, 20);
+            this.lbOrder_ModifyPaymentDate.Size = new System.Drawing.Size(35, 13);
             this.lbOrder_ModifyPaymentDate.TabIndex = 13;
             this.lbOrder_ModifyPaymentDate.Text = "label5";
             // 
@@ -178,26 +194,42 @@
             // 
             this.dtpOrder_ModifyStartDate.CustomFormat = "yyyy-MM-dd";
             this.dtpOrder_ModifyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(199, 288);
+            this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(134, 108);
+            this.dtpOrder_ModifyStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpOrder_ModifyStartDate.Name = "dtpOrder_ModifyStartDate";
-            this.dtpOrder_ModifyStartDate.Size = new System.Drawing.Size(175, 26);
+            this.dtpOrder_ModifyStartDate.Size = new System.Drawing.Size(118, 20);
             this.dtpOrder_ModifyStartDate.TabIndex = 14;
             // 
             // dtpOrder_ModifyEndDate
             // 
             this.dtpOrder_ModifyEndDate.CustomFormat = "yyyyy-MM-dd";
             this.dtpOrder_ModifyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(199, 343);
+            this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(383, 102);
+            this.dtpOrder_ModifyEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpOrder_ModifyEndDate.Name = "dtpOrder_ModifyEndDate";
-            this.dtpOrder_ModifyEndDate.Size = new System.Drawing.Size(174, 26);
+            this.dtpOrder_ModifyEndDate.Size = new System.Drawing.Size(117, 20);
             this.dtpOrder_ModifyEndDate.TabIndex = 15;
             this.dtpOrder_ModifyEndDate.ValueChanged += new System.EventHandler(this.dtpOrder_ModifyEndDate_ValueChanged);
             // 
+            // dgvOrderServices
+            // 
+            this.dgvOrderServices.AllowUserToAddRows = false;
+            this.dgvOrderServices.AllowUserToDeleteRows = false;
+            this.dgvOrderServices.AllowUserToResizeRows = false;
+            this.dgvOrderServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrderServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderServices.Location = new System.Drawing.Point(25, 139);
+            this.dgvOrderServices.Name = "dgvOrderServices";
+            this.dgvOrderServices.RowHeadersVisible = false;
+            this.dgvOrderServices.Size = new System.Drawing.Size(488, 169);
+            this.dgvOrderServices.TabIndex = 16;
+            // 
             // ModifyOrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 442);
+            this.ClientSize = new System.Drawing.Size(539, 347);
+            this.Controls.Add(this.dgvOrderServices);
             this.Controls.Add(this.dtpOrder_ModifyEndDate);
             this.Controls.Add(this.dtpOrder_ModifyStartDate);
             this.Controls.Add(this.lbOrder_ModifyPaymentDate);
@@ -214,9 +246,12 @@
             this.Controls.Add(this.lbOrder_CottageID);
             this.Controls.Add(this.lbOrder_CustomerD);
             this.Controls.Add(this.lbOrder_OrderId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModifyOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa varaus";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderServices)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +275,6 @@
         private System.Windows.Forms.Label lbOrder_ModifyPaymentDate;
         private System.Windows.Forms.DateTimePicker dtpOrder_ModifyStartDate;
         private System.Windows.Forms.DateTimePicker dtpOrder_ModifyEndDate;
+        private System.Windows.Forms.DataGridView dgvOrderServices;
     }
 }

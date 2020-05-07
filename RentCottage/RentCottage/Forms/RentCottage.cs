@@ -168,6 +168,21 @@ namespace RentCottage
         {
             PopulateDGVOrder();
         }
+        private void dgOrder_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int varaus_id = Convert.ToInt32(dgOrder.SelectedCells[0].Value);
+                btmOrderChange.Enabled = true;
+                btmOrderRemove.Enabled = true;
+
+            }
+            catch
+            {
+                btmOrderChange.Enabled = false;
+                btmOrderRemove.Enabled = false;
+            }
+        }
 
         private void tbOrderSearch_TextChanged(object sender, EventArgs e)
         {

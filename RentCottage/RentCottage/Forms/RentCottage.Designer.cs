@@ -200,7 +200,7 @@
             this.tcMain.Location = new System.Drawing.Point(0, 1);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(1354, 732);
+            this.tcMain.Size = new System.Drawing.Size(1354, 731);
             this.tcMain.TabIndex = 0;
             this.tcMain.SelectedIndexChanged += new System.EventHandler(this.tcMain_SelectedIndexChanged);
             // 
@@ -228,7 +228,7 @@
             this.tSearch.Location = new System.Drawing.Point(4, 22);
             this.tSearch.Name = "tSearch";
             this.tSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tSearch.Size = new System.Drawing.Size(1346, 706);
+            this.tSearch.Size = new System.Drawing.Size(1346, 705);
             this.tSearch.TabIndex = 0;
             this.tSearch.Text = "Uusi varaus";
             // 
@@ -261,14 +261,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgSearchTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSearchTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSearchTable.Location = new System.Drawing.Point(300, 7);
+            this.dgSearchTable.Location = new System.Drawing.Point(300, 5);
             this.dgSearchTable.MultiSelect = false;
             this.dgSearchTable.Name = "dgSearchTable";
             this.dgSearchTable.ReadOnly = true;
             this.dgSearchTable.RowHeadersVisible = false;
             this.dgSearchTable.RowHeadersWidth = 62;
             this.dgSearchTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSearchTable.Size = new System.Drawing.Size(1040, 648);
+            this.dgSearchTable.Size = new System.Drawing.Size(1040, 695);
             this.dgSearchTable.TabIndex = 42;
             this.dgSearchTable.SelectionChanged += new System.EventHandler(this.dgSearchTable_SelectionChanged);
             // 
@@ -473,7 +473,7 @@
             this.tRentControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tRentControl.Name = "tRentControl";
             this.tRentControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tRentControl.Size = new System.Drawing.Size(1346, 706);
+            this.tRentControl.Size = new System.Drawing.Size(1346, 705);
             this.tRentControl.TabIndex = 1;
             this.tRentControl.Text = "Varausten hallinta";
             // 
@@ -499,7 +499,7 @@
             this.dgOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgOrder.EnableHeadersVisualStyles = false;
-            this.dgOrder.Location = new System.Drawing.Point(295, 5);
+            this.dgOrder.Location = new System.Drawing.Point(300, 5);
             this.dgOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dgOrder.MultiSelect = false;
             this.dgOrder.Name = "dgOrder";
@@ -507,8 +507,9 @@
             this.dgOrder.RowHeadersWidth = 62;
             this.dgOrder.RowTemplate.Height = 28;
             this.dgOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgOrder.Size = new System.Drawing.Size(1040, 652);
+            this.dgOrder.Size = new System.Drawing.Size(1040, 695);
             this.dgOrder.TabIndex = 8;
+            this.dgOrder.SelectionChanged += new System.EventHandler(this.dgOrder_SelectionChanged);
             // 
             // pictureBox1
             // 
@@ -522,6 +523,7 @@
             // 
             // btmOrderRemove
             // 
+            this.btmOrderRemove.Enabled = false;
             this.btmOrderRemove.Location = new System.Drawing.Point(82, 491);
             this.btmOrderRemove.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btmOrderRemove.Name = "btmOrderRemove";
@@ -533,6 +535,7 @@
             // 
             // btmOrderChange
             // 
+            this.btmOrderChange.Enabled = false;
             this.btmOrderChange.Location = new System.Drawing.Point(82, 400);
             this.btmOrderChange.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btmOrderChange.Name = "btmOrderChange";
@@ -607,7 +610,7 @@
             this.tAreaControl.Location = new System.Drawing.Point(4, 22);
             this.tAreaControl.Name = "tAreaControl";
             this.tAreaControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tAreaControl.Size = new System.Drawing.Size(1346, 706);
+            this.tAreaControl.Size = new System.Drawing.Size(1346, 705);
             this.tAreaControl.TabIndex = 2;
             this.tAreaControl.Text = "Toiminta-alueiden hallinta";
             // 
@@ -674,7 +677,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvRegion.Location = new System.Drawing.Point(300, 8);
+            this.dgvRegion.Location = new System.Drawing.Point(300, 5);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
@@ -690,7 +693,7 @@
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegion.Size = new System.Drawing.Size(1040, 646);
+            this.dgvRegion.Size = new System.Drawing.Size(1040, 695);
             this.dgvRegion.TabIndex = 6;
             this.dgvRegion.TabStop = false;
             this.dgvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegionSelectionChanged);
@@ -739,7 +742,7 @@
             this.tCustomerControl.Location = new System.Drawing.Point(4, 22);
             this.tCustomerControl.Name = "tCustomerControl";
             this.tCustomerControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tCustomerControl.Size = new System.Drawing.Size(1346, 706);
+            this.tCustomerControl.Size = new System.Drawing.Size(1346, 705);
             this.tCustomerControl.TabIndex = 4;
             this.tCustomerControl.Text = "Asiakkaiden hallinta";
             // 
@@ -763,14 +766,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomer.Location = new System.Drawing.Point(300, 7);
+            this.dgvCustomer.Location = new System.Drawing.Point(300, 5);
             this.dgvCustomer.MultiSelect = false;
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.ReadOnly = true;
             this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 51;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomer.Size = new System.Drawing.Size(1040, 648);
+            this.dgvCustomer.Size = new System.Drawing.Size(1040, 695);
             this.dgvCustomer.TabIndex = 56;
             // 
             // btnCustomerDeleteInfo
@@ -929,7 +932,7 @@
             this.tServiceControl.Location = new System.Drawing.Point(4, 22);
             this.tServiceControl.Name = "tServiceControl";
             this.tServiceControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tServiceControl.Size = new System.Drawing.Size(1346, 706);
+            this.tServiceControl.Size = new System.Drawing.Size(1346, 705);
             this.tServiceControl.TabIndex = 3;
             this.tServiceControl.Text = "Palveluiden hallinta";
             this.tServiceControl.UseVisualStyleBackColor = true;
@@ -944,7 +947,7 @@
             this.tcServiceSub.Location = new System.Drawing.Point(0, 0);
             this.tcServiceSub.Name = "tcServiceSub";
             this.tcServiceSub.SelectedIndex = 0;
-            this.tcServiceSub.Size = new System.Drawing.Size(1350, 710);
+            this.tcServiceSub.Size = new System.Drawing.Size(1350, 709);
             this.tcServiceSub.TabIndex = 0;
             // 
             // stCottageControl
@@ -975,7 +978,7 @@
             this.stCottageControl.Location = new System.Drawing.Point(4, 22);
             this.stCottageControl.Name = "stCottageControl";
             this.stCottageControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.stCottageControl.Size = new System.Drawing.Size(1342, 684);
+            this.stCottageControl.Size = new System.Drawing.Size(1342, 683);
             this.stCottageControl.TabIndex = 0;
             this.stCottageControl.Text = "Mökkien hallinta";
             // 
@@ -1139,14 +1142,14 @@
             this.dgvCottage.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCottage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCottage.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCottage.Location = new System.Drawing.Point(303, 7);
+            this.dgvCottage.Location = new System.Drawing.Point(300, 5);
             this.dgvCottage.MultiSelect = false;
             this.dgvCottage.Name = "dgvCottage";
             this.dgvCottage.ReadOnly = true;
             this.dgvCottage.RowHeadersVisible = false;
             this.dgvCottage.RowHeadersWidth = 51;
             this.dgvCottage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCottage.Size = new System.Drawing.Size(1027, 626);
+            this.dgvCottage.Size = new System.Drawing.Size(1035, 670);
             this.dgvCottage.TabIndex = 0;
             this.dgvCottage.TabStop = false;
             // 
@@ -1237,7 +1240,7 @@
             this.stService.Location = new System.Drawing.Point(4, 22);
             this.stService.Name = "stService";
             this.stService.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.stService.Size = new System.Drawing.Size(1342, 684);
+            this.stService.Size = new System.Drawing.Size(1342, 683);
             this.stService.TabIndex = 1;
             this.stService.Text = "Palveluiden hallinta";
             // 
@@ -1406,14 +1409,14 @@
             this.dgvService.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvService.Location = new System.Drawing.Point(300, 7);
+            this.dgvService.Location = new System.Drawing.Point(300, 5);
             this.dgvService.MultiSelect = false;
             this.dgvService.Name = "dgvService";
             this.dgvService.ReadOnly = true;
             this.dgvService.RowHeadersVisible = false;
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvService.Size = new System.Drawing.Size(1036, 626);
+            this.dgvService.Size = new System.Drawing.Size(1035, 670);
             this.dgvService.TabIndex = 32;
             this.dgvService.TabStop = false;
             // 
@@ -1458,7 +1461,7 @@
             this.tBilling.Location = new System.Drawing.Point(4, 22);
             this.tBilling.Name = "tBilling";
             this.tBilling.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tBilling.Size = new System.Drawing.Size(1346, 706);
+            this.tBilling.Size = new System.Drawing.Size(1346, 705);
             this.tBilling.TabIndex = 5;
             this.tBilling.Text = "Laskut";
             // 
@@ -1582,14 +1585,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBilling.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBilling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBilling.Location = new System.Drawing.Point(300, 7);
+            this.dgvBilling.Location = new System.Drawing.Point(300, 5);
             this.dgvBilling.MultiSelect = false;
             this.dgvBilling.Name = "dgvBilling";
             this.dgvBilling.ReadOnly = true;
             this.dgvBilling.RowHeadersVisible = false;
             this.dgvBilling.RowHeadersWidth = 62;
             this.dgvBilling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBilling.Size = new System.Drawing.Size(1040, 648);
+            this.dgvBilling.Size = new System.Drawing.Size(1040, 695);
             this.dgvBilling.TabIndex = 14;
             this.dgvBilling.SelectionChanged += new System.EventHandler(this.dgvBilling_SelectionChanged);
             // 
@@ -1714,7 +1717,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 690);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.tcMain);
             this.Name = "RentCottage";
             this.Text = "RentCottage";
