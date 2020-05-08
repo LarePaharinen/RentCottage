@@ -19,7 +19,7 @@ namespace RentCottage
             InitializeComponent();
             lbOrder_ModifyOrderID.Text = o.OrderID.ToString();
             lbOrder_ModifyCustomerID.Text = o.CustomerID.ToString();
-            lbOrder_ModifyCottageID.Text = o.CottageID.ToString();
+            tbOrder_ModifyCottageID.Text = o.CottageID.ToString();
             lbOrder_ModifyOrderDate.Text = o.Order_date;
             lbOrder_ModifyPaymentDate.Text = o.Payment_date;
             dtpOrder_ModifyStartDate.Text = o.Start_date;
@@ -30,7 +30,7 @@ namespace RentCottage
         private void fill_dgvOrderServices()
         {
             ConnectionUtils.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM mokki WHERE mokki_id = '" + lbOrder_ModifyCottageID.Text + "'", ConnectionUtils.connection);
+            MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM mokki WHERE mokki_id = '" + tbOrder_ModifyCottageID.Text + "'", ConnectionUtils.connection);
             alue_id = Convert.ToInt32(command.ExecuteScalar());
             ConnectionUtils.closeConnection();
 
@@ -56,9 +56,27 @@ namespace RentCottage
             dgvOrderServices.Columns[4].ReadOnly = false; // Make editable only "kpl" row
 
         }
-        private void btmOrder_OrderModify_Click(object sender, EventArgs e)
+        private void tbOrder_ModifyCottageID_Leave(object sender, EventArgs e)
         {
-            if (!OrderUtils.CheckCottageBookDate(Convert.ToInt32(lbOrder_ModifyCottageID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
+            if (!OrderUtils.CheckCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text)))
+            {
+                return;
+            }
+            else
+            {
+                string query2 = "START TRANSACTION; " +
+                "UPDATE varaus " +
+                "SET mokki_mokki_id='" + tbOrder_ModifyCottageID.Text + "' " + "WHERE varaus_id=" + lbOrder_ModifyOrderID.Text + "; " +
+                "COMMIT;";
+                ConnectionUtils.openConnection();
+                MySqlCommand command3 = new MySqlCommand(query2, ConnectionUtils.connection);
+                command3.ExecuteNonQuery();
+                ConnectionUtils.closeConnection();
+            }
+        }
+        private void btmOrder_OrderModify_Click(object sender, EventArgs e)
+        {                   
+            if (!OrderUtils.CheckCottageBookDateTest(Convert.ToInt32(tbOrder_ModifyCottageID.Text), Convert.ToInt32(lbOrder_ModifyOrderID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
             {
                 return;
             }
@@ -137,6 +155,6 @@ namespace RentCottage
                 MessageBox.Show("Majoituksen loppupäivä ei voi olla samaa tai aiemmin kun majoituksen alkupäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }
+        }      
     }
 }
