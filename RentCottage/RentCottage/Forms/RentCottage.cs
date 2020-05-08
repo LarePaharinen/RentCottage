@@ -38,7 +38,8 @@ namespace RentCottage
             Search_alue_Combobox_update();
             RegionUtils.PopulateCBRegion(cbCottageRegions);
             RegionUtils.PopulateCBRegion(cbServiceRegion);
-            cbSearchAluet.SelectedIndex = 1;
+            cbSearchAluet.SelectedIndex = 0;
+            cbSearchVarustelu.SelectedIndex = 0;
             cbBillingPaid.SelectedIndex = 2;
             tbOrderSearch.Tag = tbOrderSearch.Text = "Kirjoita hakusana...";
             tbOrderSearch.ForeColor = Color.Gray;
@@ -342,7 +343,7 @@ namespace RentCottage
             DataTable data = new DataTable();
 
             string query = "SELECT m.mokki_id, t.nimi as Toimintaalue, m.postinro as Postinumero, m.mokkinimi as 'Nimi', m.katuosoite, " +
-                "m.kuvaus as 'Kuvaus', m.henkilomaara, m.hinta " +
+                "m.kuvaus as 'Kuvaus', m.henkilomaara, m.varustelu as 'Varustelu', m.hinta " +
                 "FROM mokki m INNER JOIN toimintaalue t " +
                 "ON m.toimintaalue_id = t.toimintaalue_id ";
 
@@ -368,6 +369,16 @@ namespace RentCottage
                     query += "WHERE ";
                 query += "m.henkilomaara >= '" + nudSearchMaxhlo.Value + "' ";
             }
+            if (cbSearchVarustelu.Text != "Kaikki") {
+                if (nudSearchHintaraja.Value == 0 && cbSearchAlueKaikki.Checked == true && nudSearchMaxhlo.Value == 0)
+                {
+                    query += "WHERE varustelu = '" + cbSearchVarustelu.Text + "' ";
+                }
+                else
+                {
+                    query += "AND varustelu = '" + cbSearchVarustelu.Text + "' ";
+                }
+            }
             query += "AND m.mokki_id not IN " + // Check is cottage free on dates
                      "(SELECT mokki_mokki_id FROM varaus v " +
                      "WHERE '" + dtpSearchFROM.Text + " 16:00:00' <= v.varattu_loppupvm and '" + dtpSearchTO.Text + " 12:00:00' >= v.varattu_alkupvm)";
@@ -382,7 +393,7 @@ namespace RentCottage
                 dgSearchTable.Columns[0].HeaderText = "Mökki ID";
                 dgSearchTable.Columns[4].HeaderText = "Lähiosoite";
                 dgSearchTable.Columns[6].HeaderText = "Henkilömäärä(max)";
-                dgSearchTable.Columns[7].HeaderText = "Hinta (€)";
+                dgSearchTable.Columns[8].HeaderText = "Hinta (€)";
                 ConnectionUtils.closeConnection();
             }
             catch(Exception ex)
@@ -407,7 +418,7 @@ namespace RentCottage
             Cottage cottage = new Cottage(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), toimintaalueid,
                 dgSearchTable.CurrentRow.Cells[2].Value.ToString(), dgSearchTable.CurrentRow.Cells[3].Value.ToString(),
                 dgSearchTable.CurrentRow.Cells[4].Value.ToString(), dgSearchTable.CurrentRow.Cells[5].Value.ToString(),
-                Convert.ToInt32(dgSearchTable.CurrentRow.Cells[6].Value.ToString()), Convert.ToDouble(dgSearchTable.CurrentRow.Cells[7].Value.ToString()));
+                Convert.ToInt32(dgSearchTable.CurrentRow.Cells[6].Value.ToString()), dgSearchTable.CurrentRow.Cells[7].Value.ToString(), Convert.ToDouble(dgSearchTable.CurrentRow.Cells[8].Value.ToString()));
             ConnectionUtils.closeConnection();
             NewBook newbook = new NewBook(cottage, dtpSearchFROM.Value.Date, dtpSearchTO.Value.Date);
             Booking booking = new Booking(newbook);
@@ -818,8 +829,9 @@ namespace RentCottage
                 "AND katuosoite LIKE '%" + TextBoxUtils.modifyInput(tbCottageStreetAddress.Text, 45) + "%' " +
                 "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbCottageDescription.Text, 500) + "%' " +
                 "AND henkilomaara > '" + (nudCottageCapacity.Value-1) + "' " +
-                "AND varustelu LIKE '%" + TextBoxUtils.modifyInput(tbCottageEqupment.Text, 100) + "%' " +
-                "AND hinta <(" + (nudCottagePrice.Value + 1) + ");";
+                "AND varustelu LIKE '%" + cbCottageEqupment.Text + "%' " +
+                "AND hinta <(" + Convert.ToDouble(nudCottagePrice.Value + 1) + ");";
+                MessageBox.Show(query);
                 try
                 {
                     DataTable table = new DataTable();

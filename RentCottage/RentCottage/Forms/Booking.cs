@@ -37,6 +37,7 @@ namespace RentCottage
             ConnectionUtils.closeConnection();
             // Fill cottage data and book date
             lblBookCottageId.Text = b.Cottage.CottageID.ToString();
+            lblBookEquipment.Text = "(Varustelu: " + b.Cottage.Equipment + ")";
             lblBookCottageName.Text = b.Cottage.Name.ToString();
             lblBookCottageAddress.Text = b.Cottage.Address.ToString() + ", " + b.Cottage.Postal.ToString();
             lblBookAlue.Text = region;

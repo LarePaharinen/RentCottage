@@ -77,6 +77,7 @@
             this.lblBookPriceFullHead = new System.Windows.Forms.Label();
             this.lblBookPriceFull = new System.Windows.Forms.Label();
             this.btnBookAddResirvation = new System.Windows.Forms.Button();
+            this.lblBookEquipment = new System.Windows.Forms.Label();
             this.gbBookCottageData.SuspendLayout();
             this.gbBookCustomerData.SuspendLayout();
             this.gbBookServices.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // gbBookCottageData
             // 
+            this.gbBookCottageData.Controls.Add(this.lblBookEquipment);
             this.gbBookCottageData.Controls.Add(this.lblBookDays);
             this.gbBookCottageData.Controls.Add(this.lblBookAlue);
             this.gbBookCottageData.Controls.Add(this.lblBookAlueHead);
@@ -594,6 +596,15 @@
             this.btnBookAddResirvation.UseVisualStyleBackColor = true;
             this.btnBookAddResirvation.Click += new System.EventHandler(this.btnBookAddResirvation_Click);
             // 
+            // lblBookEquipment
+            // 
+            this.lblBookEquipment.AutoSize = true;
+            this.lblBookEquipment.Location = new System.Drawing.Point(160, 25);
+            this.lblBookEquipment.Name = "lblBookEquipment";
+            this.lblBookEquipment.Size = new System.Drawing.Size(91, 13);
+            this.lblBookEquipment.TabIndex = 19;
+            this.lblBookEquipment.Text = "(Varustelu: kaikki)";
+            // 
             // Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -672,5 +683,6 @@
         private System.Windows.Forms.TextBox tbBookCustomerPostOffice;
         private System.Windows.Forms.Label lblBookCustomerPostOfficeHead;
         private System.Windows.Forms.Label lblBookDays;
+        private System.Windows.Forms.Label lblBookEquipment;
     }
 }

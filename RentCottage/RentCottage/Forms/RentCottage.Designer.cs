@@ -101,7 +101,6 @@
             this.btnModifyCottage = new System.Windows.Forms.Button();
             this.cbCottageRegions = new System.Windows.Forms.ComboBox();
             this.tbCottageDescription = new System.Windows.Forms.TextBox();
-            this.tbCottageEqupment = new System.Windows.Forms.TextBox();
             this.tbCottageStreetAddress = new System.Windows.Forms.TextBox();
             this.tbCottageName = new System.Windows.Forms.TextBox();
             this.btnCottageDelete = new System.Windows.Forms.Button();
@@ -161,6 +160,7 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
+            this.cbCottageEqupment = new System.Windows.Forms.ComboBox();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -288,7 +288,7 @@
             // 
             this.cbSearchAluet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbSearchAluet.FormattingEnabled = true;
+            this.cbSearchAluet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSearchAluet.Location = new System.Drawing.Point(83, 21);
             this.cbSearchAluet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSearchAluet.Name = "cbSearchAluet";
@@ -324,14 +324,17 @@
             // 
             this.cbSearchVarustelu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbSearchVarustelu.Enabled = false;
-            this.cbSearchVarustelu.FormattingEnabled = true;
+            this.cbSearchVarustelu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchVarustelu.Items.AddRange(new object[] {
+            "Kaikki",
+            "Hyvä",
+            "Keskiverto",
+            "Huono"});
             this.cbSearchVarustelu.Location = new System.Drawing.Point(83, 178);
             this.cbSearchVarustelu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbSearchVarustelu.Name = "cbSearchVarustelu";
-            this.cbSearchVarustelu.Size = new System.Drawing.Size(209, 21);
+            this.cbSearchVarustelu.Size = new System.Drawing.Size(92, 21);
             this.cbSearchVarustelu.TabIndex = 33;
-            this.cbSearchVarustelu.Text = "sauna, jääkappi, mikro...";
             // 
             // lblSearchVarustelu
             // 
@@ -967,6 +970,7 @@
             // stCottageControl
             // 
             this.stCottageControl.BackColor = System.Drawing.Color.Transparent;
+            this.stCottageControl.Controls.Add(this.cbCottageEqupment);
             this.stCottageControl.Controls.Add(this.nudCottageCapacity);
             this.stCottageControl.Controls.Add(this.nudCottagePrice);
             this.stCottageControl.Controls.Add(this.label25);
@@ -975,7 +979,6 @@
             this.stCottageControl.Controls.Add(this.btnModifyCottage);
             this.stCottageControl.Controls.Add(this.cbCottageRegions);
             this.stCottageControl.Controls.Add(this.tbCottageDescription);
-            this.stCottageControl.Controls.Add(this.tbCottageEqupment);
             this.stCottageControl.Controls.Add(this.tbCottageStreetAddress);
             this.stCottageControl.Controls.Add(this.tbCottageName);
             this.stCottageControl.Controls.Add(this.btnCottageDelete);
@@ -1095,14 +1098,6 @@
             this.tbCottageDescription.Name = "tbCottageDescription";
             this.tbCottageDescription.Size = new System.Drawing.Size(173, 90);
             this.tbCottageDescription.TabIndex = 7;
-            // 
-            // tbCottageEqupment
-            // 
-            this.tbCottageEqupment.Location = new System.Drawing.Point(121, 164);
-            this.tbCottageEqupment.MaxLength = 100;
-            this.tbCottageEqupment.Name = "tbCottageEqupment";
-            this.tbCottageEqupment.Size = new System.Drawing.Size(173, 20);
-            this.tbCottageEqupment.TabIndex = 6;
             // 
             // tbCottageStreetAddress
             // 
@@ -1737,6 +1732,20 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
+            // cbCottageEqupment
+            // 
+            this.cbCottageEqupment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCottageEqupment.FormattingEnabled = true;
+            this.cbCottageEqupment.Items.AddRange(new object[] {
+            "",
+            "Hyvä",
+            "Keskiverto",
+            "Huono"});
+            this.cbCottageEqupment.Location = new System.Drawing.Point(122, 163);
+            this.cbCottageEqupment.Name = "cbCottageEqupment";
+            this.cbCottageEqupment.Size = new System.Drawing.Size(172, 21);
+            this.cbCottageEqupment.TabIndex = 28;
+            // 
             // RentCottage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1800,7 +1809,6 @@
         private System.Windows.Forms.Button btnRegionDelete;
         private System.Windows.Forms.ComboBox cbCottageRegions;
         private System.Windows.Forms.TextBox tbCottageDescription;
-        private System.Windows.Forms.TextBox tbCottageEqupment;
         private System.Windows.Forms.TextBox tbCottageStreetAddress;
         private System.Windows.Forms.TextBox tbCottageName;
         private System.Windows.Forms.Button btnCottageDelete;
@@ -1914,6 +1922,7 @@
         private System.Windows.Forms.Button btnRegionModify;
         private System.Windows.Forms.Button btnRegionSearch;
         private System.Windows.Forms.Button btnRegionReferesh;
+        private System.Windows.Forms.ComboBox cbCottageEqupment;
     }
 }
 
