@@ -567,6 +567,21 @@ namespace RentCottage
 
 
 
+        private void dgvRegion_SelectionChanged(object sender, EventArgs e)
+        {
+            //Disable buttons if there are no rows in dgvRegion
+            try
+            {
+                int region_id = Convert.ToInt32(dgvRegion.SelectedCells[0].Value);
+                btnRegionModify.Enabled = true;
+                btnRegionDelete.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnRegionModify.Enabled = false;
+                btnRegionDelete.Enabled = false;
+            }
+        }
 
         private void AddRegion(object sender, EventArgs e)
         {
@@ -674,6 +689,22 @@ namespace RentCottage
 
         }
 
+        private void dgvService_SelectionChanged(object sender, EventArgs e)
+        {
+            //Disable buttons if there are no rows in dgvService
+            try
+            {
+                int service_id = Convert.ToInt32(dgvService.SelectedCells[0].Value);
+                btnServiceModify.Enabled = true;
+                btnServiceDelete.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnServiceModify.Enabled = false;
+                btnServiceDelete.Enabled = false;
+            }
+        }
+
         public void PopulateDGVCottage()
         {
             //Fills the DGVCottage-component with data from DB
@@ -691,6 +722,22 @@ namespace RentCottage
             dgvCottage.Columns[6].HeaderText = "Henkilömäärä (max)";
             dgvCottage.Columns[7].HeaderText = "Varustelu";
             dgvCottage.Columns[8].HeaderText = "Hinta";
+        }
+
+        private void dgvCottage_SelectionChanged(object sender, EventArgs e)
+        {
+            //Disable buttons if there are no rows in dgvCottage
+            try
+            {
+                int cottage_id = Convert.ToInt32(dgvCottage.SelectedCells[0].Value);
+                btnModifyCottage.Enabled = true;
+                btnCottageDelete.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnModifyCottage.Enabled = false;
+                btnCottageDelete.Enabled = false;
+            }
         }
 
         private void btnServiceAdd_Click(object sender, EventArgs e)
@@ -770,7 +817,7 @@ namespace RentCottage
                 "AND mokkinimi LIKE '%" + TextBoxUtils.modifyInput(tbCottageName.Text, 45) + "%' " +
                 "AND katuosoite LIKE '%" + TextBoxUtils.modifyInput(tbCottageStreetAddress.Text, 45) + "%' " +
                 "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbCottageDescription.Text, 500) + "%' " +
-                "AND henkilomaara > '" + nudCottageCapacity.Value + "' " +
+                "AND henkilomaara > '" + (nudCottageCapacity.Value-1) + "' " +
                 "AND varustelu LIKE '%" + TextBoxUtils.modifyInput(tbCottageEqupment.Text, 100) + "%' " +
                 "AND hinta <(" + (nudCottagePrice.Value + 1) + ");";
                 try
