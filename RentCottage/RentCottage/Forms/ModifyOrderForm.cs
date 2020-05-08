@@ -14,7 +14,7 @@ namespace RentCottage
 {
     public partial class ModifyOrderForm : Form
     {
-        public ModifyOrderForm(Order o)
+        public ModifyOrderForm(Order o) //Fill ModifyOrderForm with selected data from database
         {
             InitializeComponent();
             lbOrder_ModifyOrderID.Text = o.OrderID.ToString();

@@ -20,7 +20,7 @@ namespace RentCottage
         {
 
         }
-
+        
         public Order(int orderID, int customerID, int cottageID, string order_date, string payment_date, string start_date, string end_date)
         {
             this.orderID = orderID;
