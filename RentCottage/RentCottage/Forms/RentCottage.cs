@@ -831,7 +831,6 @@ namespace RentCottage
                 "AND henkilomaara > '" + (nudCottageCapacity.Value-1) + "' " +
                 "AND varustelu LIKE '%" + cbCottageEqupment.Text + "%' " +
                 "AND hinta <(" + Convert.ToDouble(nudCottagePrice.Value + 1) + ");";
-                MessageBox.Show(query);
                 try
                 {
                     DataTable table = new DataTable();
