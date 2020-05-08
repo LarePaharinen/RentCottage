@@ -766,12 +766,12 @@ namespace RentCottage
                 //Get's data from form components, and does a query to the DB. Updates CottageDataGridView-component to show search results
                 string query = "SELECT * FROM mokki " +
                 "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + " " +
-                "AND postinro LIKE '%" + tbCottagePostNum.Text + "%' " +
-                "AND mokkinimi LIKE '%" + tbCottageName.Text + "%' " +
-                "AND katuosoite LIKE '%" + tbCottageStreetAddress.Text + "%' " +
-                "AND kuvaus LIKE '%" + tbCottageDescription.Text + "%' " +
+                "AND postinro LIKE '%" + TextBoxUtils.modifyInput(tbCottagePostNum.Text, 5) + "%' " +
+                "AND mokkinimi LIKE '%" + TextBoxUtils.modifyInput(tbCottageName.Text, 45) + "%' " +
+                "AND katuosoite LIKE '%" + TextBoxUtils.modifyInput(tbCottageStreetAddress.Text, 45) + "%' " +
+                "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbCottageDescription.Text, 500) + "%' " +
                 "AND henkilomaara > '" + nudCottageCapacity.Value + "' " +
-                "AND varustelu LIKE '%" + tbCottageEqupment.Text + "%' " +
+                "AND varustelu LIKE '%" + TextBoxUtils.modifyInput(tbCottageEqupment.Text, 100) + "%' " +
                 "AND hinta <(" + (nudCottagePrice.Value + 1) + ");";
                 try
                 {
@@ -849,9 +849,9 @@ namespace RentCottage
                 //Get's data from form components, and does a query to the DB. Updates ServiceDataGridView-component to show search results
                 string query = "SELECT * FROM palvelu " +
                 "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbServiceRegion.Text) + " " +
-                "AND nimi LIKE '%" + tbServiceName.Text + "%' " +
+                "AND nimi LIKE '%" + TextBoxUtils.modifyInput(tbServiceName.Text, 40) + "%' " +
                 "AND tyyppi LIKE '%" + tbServiceType.Text + "%' " +
-                "AND kuvaus LIKE '%" + tbServiceDescription.Text + "%' " +
+                "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbServiceDescription.Text, 500) + "%' " +
                 "AND hinta <(" + (nudServicePrice.Value + 1) + ");";
                 try
                 {

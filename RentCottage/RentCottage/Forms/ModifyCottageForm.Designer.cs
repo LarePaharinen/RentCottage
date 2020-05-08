@@ -73,6 +73,7 @@
             // tbModifyCottageDescription
             // 
             this.tbModifyCottageDescription.Location = new System.Drawing.Point(91, 227);
+            this.tbModifyCottageDescription.MaxLength = 500;
             this.tbModifyCottageDescription.Multiline = true;
             this.tbModifyCottageDescription.Name = "tbModifyCottageDescription";
             this.tbModifyCottageDescription.Size = new System.Drawing.Size(209, 94);
@@ -134,6 +135,7 @@
             // tbModifyCottageEquipment
             // 
             this.tbModifyCottageEquipment.Location = new System.Drawing.Point(91, 175);
+            this.tbModifyCottageEquipment.MaxLength = 100;
             this.tbModifyCottageEquipment.Name = "tbModifyCottageEquipment";
             this.tbModifyCottageEquipment.Size = new System.Drawing.Size(209, 20);
             this.tbModifyCottageEquipment.TabIndex = 6;
@@ -141,6 +143,7 @@
             // tbModifyCottageStreet
             // 
             this.tbModifyCottageStreet.Location = new System.Drawing.Point(91, 123);
+            this.tbModifyCottageStreet.MaxLength = 45;
             this.tbModifyCottageStreet.Name = "tbModifyCottageStreet";
             this.tbModifyCottageStreet.Size = new System.Drawing.Size(209, 20);
             this.tbModifyCottageStreet.TabIndex = 4;
@@ -148,6 +151,7 @@
             // tbModifyCottageName
             // 
             this.tbModifyCottageName.Location = new System.Drawing.Point(91, 97);
+            this.tbModifyCottageName.MaxLength = 45;
             this.tbModifyCottageName.Name = "tbModifyCottageName";
             this.tbModifyCottageName.Size = new System.Drawing.Size(209, 20);
             this.tbModifyCottageName.TabIndex = 3;
@@ -155,6 +159,7 @@
             // tbModifyCottagePostNum
             // 
             this.tbModifyCottagePostNum.Location = new System.Drawing.Point(91, 72);
+            this.tbModifyCottagePostNum.MaxLength = 5;
             this.tbModifyCottagePostNum.Name = "tbModifyCottagePostNum";
             this.tbModifyCottagePostNum.Size = new System.Drawing.Size(209, 20);
             this.tbModifyCottagePostNum.TabIndex = 2;

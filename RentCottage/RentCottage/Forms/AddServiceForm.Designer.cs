@@ -58,6 +58,7 @@
             // tbAddServiceName
             // 
             this.tbAddServiceName.Location = new System.Drawing.Point(91, 49);
+            this.tbAddServiceName.MaxLength = 40;
             this.tbAddServiceName.Name = "tbAddServiceName";
             this.tbAddServiceName.Size = new System.Drawing.Size(209, 20);
             this.tbAddServiceName.TabIndex = 2;
@@ -65,6 +66,7 @@
             // tbAddServiceType
             // 
             this.tbAddServiceType.Location = new System.Drawing.Point(91, 75);
+            this.tbAddServiceType.MaxLength = 11;
             this.tbAddServiceType.Name = "tbAddServiceType";
             this.tbAddServiceType.Size = new System.Drawing.Size(209, 20);
             this.tbAddServiceType.TabIndex = 3;
@@ -72,6 +74,7 @@
             // tbAddServiceDescription
             // 
             this.tbAddServiceDescription.Location = new System.Drawing.Point(91, 153);
+            this.tbAddServiceDescription.MaxLength = 500;
             this.tbAddServiceDescription.Multiline = true;
             this.tbAddServiceDescription.Name = "tbAddServiceDescription";
             this.tbAddServiceDescription.Size = new System.Drawing.Size(209, 94);

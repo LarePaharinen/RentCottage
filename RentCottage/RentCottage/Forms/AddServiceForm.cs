@@ -34,9 +34,9 @@ namespace RentCottage.Forms
                 "INSERT INTO palvelu(palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv) " +
                 "VALUES(default," +
                 RegionUtils.RegionNameToIndex(cbAddServiceRegion.Text) + ",'" +
-                tbAddServiceName.Text + "'," +
+                TextBoxUtils.modifyInput(tbAddServiceName.Text, 40) + "'," +
                 Convert.ToInt32(tbAddServiceType.Text) + ",'" +
-                tbAddServiceDescription.Text + "'," +
+                TextBoxUtils.modifyInput(tbAddServiceDescription.Text, 500) + "'," +
                 (double)nudAddServicePrice.Value + "," +
                 (double)nudAddServiceVAT.Value + "); " +
                 "COMMIT;";

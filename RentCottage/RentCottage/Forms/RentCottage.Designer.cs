@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.lblSearchEuro = new System.Windows.Forms.Label();
@@ -619,6 +619,7 @@
             // tbRegionName
             // 
             this.tbRegionName.Location = new System.Drawing.Point(115, 33);
+            this.tbRegionName.MaxLength = 40;
             this.tbRegionName.Name = "tbRegionName";
             this.tbRegionName.Size = new System.Drawing.Size(160, 20);
             this.tbRegionName.TabIndex = 1;
@@ -642,37 +643,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(300, 5);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1032,6 +1033,7 @@
             // tbCottagePostNum
             // 
             this.tbCottagePostNum.Location = new System.Drawing.Point(121, 58);
+            this.tbCottagePostNum.MaxLength = 5;
             this.tbCottagePostNum.Name = "tbCottagePostNum";
             this.tbCottagePostNum.Size = new System.Drawing.Size(173, 20);
             this.tbCottagePostNum.TabIndex = 2;
@@ -1057,6 +1059,7 @@
             // tbCottageDescription
             // 
             this.tbCottageDescription.Location = new System.Drawing.Point(121, 190);
+            this.tbCottageDescription.MaxLength = 500;
             this.tbCottageDescription.Multiline = true;
             this.tbCottageDescription.Name = "tbCottageDescription";
             this.tbCottageDescription.Size = new System.Drawing.Size(173, 90);
@@ -1065,6 +1068,7 @@
             // tbCottageEqupment
             // 
             this.tbCottageEqupment.Location = new System.Drawing.Point(121, 164);
+            this.tbCottageEqupment.MaxLength = 100;
             this.tbCottageEqupment.Name = "tbCottageEqupment";
             this.tbCottageEqupment.Size = new System.Drawing.Size(173, 20);
             this.tbCottageEqupment.TabIndex = 6;
@@ -1072,6 +1076,7 @@
             // tbCottageStreetAddress
             // 
             this.tbCottageStreetAddress.Location = new System.Drawing.Point(121, 111);
+            this.tbCottageStreetAddress.MaxLength = 45;
             this.tbCottageStreetAddress.Name = "tbCottageStreetAddress";
             this.tbCottageStreetAddress.Size = new System.Drawing.Size(173, 20);
             this.tbCottageStreetAddress.TabIndex = 4;
@@ -1079,6 +1084,7 @@
             // tbCottageName
             // 
             this.tbCottageName.Location = new System.Drawing.Point(121, 85);
+            this.tbCottageName.MaxLength = 45;
             this.tbCottageName.Name = "tbCottageName";
             this.tbCottageName.Size = new System.Drawing.Size(173, 20);
             this.tbCottageName.TabIndex = 3;
@@ -1317,6 +1323,7 @@
             // tbServiceDescription
             // 
             this.tbServiceDescription.Location = new System.Drawing.Point(86, 131);
+            this.tbServiceDescription.MaxLength = 500;
             this.tbServiceDescription.Multiline = true;
             this.tbServiceDescription.Name = "tbServiceDescription";
             this.tbServiceDescription.Size = new System.Drawing.Size(196, 116);
@@ -1343,6 +1350,7 @@
             // tbServiceType
             // 
             this.tbServiceType.Location = new System.Drawing.Point(86, 83);
+            this.tbServiceType.MaxLength = 11;
             this.tbServiceType.Name = "tbServiceType";
             this.tbServiceType.Size = new System.Drawing.Size(195, 20);
             this.tbServiceType.TabIndex = 3;
@@ -1359,6 +1367,7 @@
             // tbServiceName
             // 
             this.tbServiceName.Location = new System.Drawing.Point(86, 57);
+            this.tbServiceName.MaxLength = 40;
             this.tbServiceName.Name = "tbServiceName";
             this.tbServiceName.Size = new System.Drawing.Size(195, 20);
             this.tbServiceName.TabIndex = 2;

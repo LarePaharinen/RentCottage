@@ -151,6 +151,7 @@
             // tbModifyServiceName
             // 
             this.tbModifyServiceName.Location = new System.Drawing.Point(87, 71);
+            this.tbModifyServiceName.MaxLength = 40;
             this.tbModifyServiceName.Name = "tbModifyServiceName";
             this.tbModifyServiceName.Size = new System.Drawing.Size(209, 20);
             this.tbModifyServiceName.TabIndex = 31;
@@ -158,6 +159,7 @@
             // tbModifyServiceType
             // 
             this.tbModifyServiceType.Location = new System.Drawing.Point(87, 97);
+            this.tbModifyServiceType.MaxLength = 11;
             this.tbModifyServiceType.Name = "tbModifyServiceType";
             this.tbModifyServiceType.Size = new System.Drawing.Size(209, 20);
             this.tbModifyServiceType.TabIndex = 32;
@@ -165,6 +167,7 @@
             // tbModifyServiceDescription
             // 
             this.tbModifyServiceDescription.Location = new System.Drawing.Point(87, 175);
+            this.tbModifyServiceDescription.MaxLength = 500;
             this.tbModifyServiceDescription.Multiline = true;
             this.tbModifyServiceDescription.Name = "tbModifyServiceDescription";
             this.tbModifyServiceDescription.Size = new System.Drawing.Size(209, 94);
