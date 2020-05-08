@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tSearch = new System.Windows.Forms.TabPage();
             this.lblSearchEuro = new System.Windows.Forms.Label();
@@ -64,8 +64,6 @@
             this.tAreaControl = new System.Windows.Forms.TabPage();
             this.tbRegionName = new System.Windows.Forms.TextBox();
             this.btnRegionDelete = new System.Windows.Forms.Button();
-            this.lblRegionID = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvRegion = new System.Windows.Forms.DataGridView();
             this.btnRegionAdd = new System.Windows.Forms.Button();
             this.lblRegion = new System.Windows.Forms.Label();
@@ -160,6 +158,9 @@
             this.labelBillingSurname = new System.Windows.Forms.Label();
             this.labelBillingCustomerID = new System.Windows.Forms.Label();
             this.labelBillingInvoiceID = new System.Windows.Forms.Label();
+            this.btnRegionReferesh = new System.Windows.Forms.Button();
+            this.btnRegionSearch = new System.Windows.Forms.Button();
+            this.btnRegionModify = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSearchTable)).BeginInit();
@@ -600,10 +601,11 @@
             // tAreaControl
             // 
             this.tAreaControl.BackColor = System.Drawing.Color.Transparent;
+            this.tAreaControl.Controls.Add(this.btnRegionModify);
+            this.tAreaControl.Controls.Add(this.btnRegionSearch);
+            this.tAreaControl.Controls.Add(this.btnRegionReferesh);
             this.tAreaControl.Controls.Add(this.tbRegionName);
             this.tAreaControl.Controls.Add(this.btnRegionDelete);
-            this.tAreaControl.Controls.Add(this.lblRegionID);
-            this.tAreaControl.Controls.Add(this.label1);
             this.tAreaControl.Controls.Add(this.dgvRegion);
             this.tAreaControl.Controls.Add(this.btnRegionAdd);
             this.tAreaControl.Controls.Add(this.lblRegion);
@@ -616,39 +618,20 @@
             // 
             // tbRegionName
             // 
-            this.tbRegionName.Location = new System.Drawing.Point(115, 74);
+            this.tbRegionName.Location = new System.Drawing.Point(115, 33);
             this.tbRegionName.Name = "tbRegionName";
             this.tbRegionName.Size = new System.Drawing.Size(160, 20);
             this.tbRegionName.TabIndex = 1;
-            this.tbRegionName.Enter += new System.EventHandler(this.tbRegionName_Enter);
             // 
             // btnRegionDelete
             // 
-            this.btnRegionDelete.Location = new System.Drawing.Point(62, 117);
+            this.btnRegionDelete.Location = new System.Drawing.Point(77, 97);
             this.btnRegionDelete.Name = "btnRegionDelete";
             this.btnRegionDelete.Size = new System.Drawing.Size(96, 40);
             this.btnRegionDelete.TabIndex = 3;
             this.btnRegionDelete.Text = "Poista valittu alue";
             this.btnRegionDelete.UseVisualStyleBackColor = true;
             this.btnRegionDelete.Click += new System.EventHandler(this.DeleteSelectedRegion);
-            // 
-            // lblRegionID
-            // 
-            this.lblRegionID.AutoSize = true;
-            this.lblRegionID.Location = new System.Drawing.Point(115, 58);
-            this.lblRegionID.Name = "lblRegionID";
-            this.lblRegionID.Size = new System.Drawing.Size(31, 13);
-            this.lblRegionID.TabIndex = 8;
-            this.lblRegionID.Text = "0000";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Toiminta-alueID:";
             // 
             // dgvRegion
             // 
@@ -659,48 +642,47 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRegion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegion.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvRegion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRegion.Location = new System.Drawing.Point(300, 5);
             this.dgvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvRegion.MultiSelect = false;
             this.dgvRegion.Name = "dgvRegion";
             this.dgvRegion.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegion.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvRegion.RowHeadersVisible = false;
             this.dgvRegion.RowHeadersWidth = 51;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegion.Size = new System.Drawing.Size(1040, 695);
             this.dgvRegion.TabIndex = 6;
             this.dgvRegion.TabStop = false;
-            this.dgvRegion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegionSelectionChanged);
             // 
             // btnRegionAdd
             // 
-            this.btnRegionAdd.Location = new System.Drawing.Point(165, 117);
+            this.btnRegionAdd.Location = new System.Drawing.Point(179, 143);
             this.btnRegionAdd.Name = "btnRegionAdd";
             this.btnRegionAdd.Size = new System.Drawing.Size(96, 40);
             this.btnRegionAdd.TabIndex = 2;
@@ -711,7 +693,7 @@
             // lblRegion
             // 
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(35, 77);
+            this.lblRegion.Location = new System.Drawing.Point(35, 36);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(73, 13);
             this.lblRegion.TabIndex = 0;
@@ -1713,6 +1695,36 @@
             this.labelBillingInvoiceID.TabIndex = 0;
             this.labelBillingInvoiceID.Text = "LaskuID";
             // 
+            // btnRegionReferesh
+            // 
+            this.btnRegionReferesh.Location = new System.Drawing.Point(77, 71);
+            this.btnRegionReferesh.Name = "btnRegionReferesh";
+            this.btnRegionReferesh.Size = new System.Drawing.Size(96, 20);
+            this.btnRegionReferesh.TabIndex = 9;
+            this.btnRegionReferesh.Text = "Näytä kaikki";
+            this.btnRegionReferesh.UseVisualStyleBackColor = true;
+            this.btnRegionReferesh.Click += new System.EventHandler(this.btnRegionReferesh_Click);
+            // 
+            // btnRegionSearch
+            // 
+            this.btnRegionSearch.Location = new System.Drawing.Point(179, 71);
+            this.btnRegionSearch.Name = "btnRegionSearch";
+            this.btnRegionSearch.Size = new System.Drawing.Size(96, 20);
+            this.btnRegionSearch.TabIndex = 10;
+            this.btnRegionSearch.Text = "Etsi alue";
+            this.btnRegionSearch.UseVisualStyleBackColor = true;
+            this.btnRegionSearch.Click += new System.EventHandler(this.btnRegionSearch_Click);
+            // 
+            // btnRegionModify
+            // 
+            this.btnRegionModify.Location = new System.Drawing.Point(179, 97);
+            this.btnRegionModify.Name = "btnRegionModify";
+            this.btnRegionModify.Size = new System.Drawing.Size(96, 40);
+            this.btnRegionModify.TabIndex = 11;
+            this.btnRegionModify.Text = "Muokkaa valittua aluetta";
+            this.btnRegionModify.UseVisualStyleBackColor = true;
+            this.btnRegionModify.Click += new System.EventHandler(this.btnRegionModify_Click);
+            // 
             // RentCottage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1774,8 +1786,6 @@
         private System.Windows.Forms.Label lblRegion;
         private System.Windows.Forms.DataGridView dgvRegion;
         private System.Windows.Forms.Button btnRegionDelete;
-        private System.Windows.Forms.Label lblRegionID;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCottageRegions;
         private System.Windows.Forms.TextBox tbCottageDescription;
         private System.Windows.Forms.TextBox tbCottageEqupment;
@@ -1889,6 +1899,9 @@
         private System.Windows.Forms.NumericUpDown nudCottageCapacity;
         private System.Windows.Forms.NumericUpDown nudServiceVAT;
         private System.Windows.Forms.NumericUpDown nudServicePrice;
+        private System.Windows.Forms.Button btnRegionModify;
+        private System.Windows.Forms.Button btnRegionSearch;
+        private System.Windows.Forms.Button btnRegionReferesh;
     }
 }
 

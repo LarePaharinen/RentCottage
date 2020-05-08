@@ -568,55 +568,93 @@ namespace RentCottage
 
 
 
-        //Adds region to the database
         private void AddRegion(object sender, EventArgs e)
         {
-            ConnectionUtils.openConnection();
-            string query3 = "START TRANSACTION; " +
-                "INSERT INTO toimintaalue(toimintaalue_id,nimi) " +
-                "VALUES(default,'" + tbRegionName.Text + "'); " +
-                "COMMIT;";
-            MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
-            command3.ExecuteNonQuery();
-            ConnectionUtils.closeConnection();
-            PopulateDGVRegion();
-            lblRegionID.Text = "0000";
-            tbRegionName.Text = "";            
+            //Open form for adding a region to the database
+            AddRegionForm ARF = new AddRegionForm();
+            ARF.ShowDialog();
+            PopulateDGVRegion();    
         }
 
-        //Deletes selected region from database
+        
         private void DeleteSelectedRegion(object sender, EventArgs e)
         {
+            //Deletes selected region from database
+
             DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun toiminta-alueen?", "Poista toimialue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                string query = "START TRANSACTION; " +
+                try
+                {
+                    string query = "START TRANSACTION; " +
                     "DELETE FROM toimintaalue " +
                     "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
                     "COMMIT;";
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                PopulateDGVRegion();
-                lblRegionID.Text = "0000";
-                tbRegionName.Text = "";
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    PopulateDGVRegion();
+                    tbRegionName.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Alueen poisto epäonnistui. Varmista, ettei alueeseen ole liitetty palveluita tai mökkejä, ja yritä uudelleen.","Poisto epäonnistui"
+                        ,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                
             }
         }
 
-        //Updates components on the screen to highlight current row selection
-        private void dgvRegionSelectionChanged(object sender, DataGridViewCellEventArgs e)
+        private void btnRegionReferesh_Click(object sender, EventArgs e)
         {
-            lblRegionID.Text = dgvRegion.CurrentRow.Cells[0].Value.ToString();
-            tbRegionName.Text = dgvRegion.CurrentRow.Cells[1].Value.ToString();
+            //Referesh DGVRegion-component
+            PopulateDGVRegion();
         }
 
-        //Clears textbox and RegionID-label when entering the tbRegionName-component
-        private void tbRegionName_Enter(object sender, EventArgs e)
+        private void btnRegionModify_Click(object sender, EventArgs e)
         {
-            lblRegionID.Text = "0000";
-            tbRegionName.Text = "";
+            try
+            {
+                Code.Region region = new Code.Region(Convert.ToInt32(dgvRegion.CurrentRow.Cells[0].Value), dgvRegion.CurrentRow.Cells[1].Value.ToString());
+                ModifyRegionForm MRF = new ModifyRegionForm(region);
+                MRF.ShowDialog();
+                PopulateDGVRegion();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tietojen muunnossa tapahtui virhe. Yritä myöhemmin uudelleen.", "Virhe"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
+
+        private void btnRegionSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Get's data from tbRegionName, and does a query to the DB. Updates dgvRegion-component to show search results
+                string query = "SELECT * FROM toimintaalue " +
+                "WHERE nimi LIKE '%" + TextBoxUtils.modifyInput(tbRegionName.Text, 40) +"%';";
+                try
+                {
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                    adapter.Fill(table);
+                    dgvRegion.DataSource = table;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Virhe tietojen hakemisessa. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+            }
+        }
+
 
         public void PopulateDGVService()
         {
@@ -896,5 +934,7 @@ namespace RentCottage
             }            
             
         }
+
+        
     }
 }
