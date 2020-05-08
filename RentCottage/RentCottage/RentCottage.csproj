@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\OrderUtils.cs" />
+    <Compile Include="Code\Region.cs" />
     <Compile Include="Code\RegionUtils.cs" />
     <Compile Include="Forms\AddCottageForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +92,12 @@
     <Compile Include="Code\NewBook.cs" />
     <Compile Include="Code\ConnectionUtils.cs" />
     <Compile Include="Code\Customer.cs" />
+    <Compile Include="Forms\AddRegionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddRegionForm.Designer.cs">
+      <DependentUpon>AddRegionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +130,12 @@
     </Compile>
     <Compile Include="Code\Order.cs" />
     <Compile Include="Code\PostUtils.cs" />
+    <Compile Include="Forms\ModifyRegionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModifyRegionForm.Designer.cs">
+      <DependentUpon>ModifyRegionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ModifyServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +167,9 @@
     <EmbeddedResource Include="Forms\AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddRegionForm.resx">
+      <DependentUpon>AddRegionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModifyOrderForm.resx">
       <DependentUpon>ModifyOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModifyRegionForm.resx">
+      <DependentUpon>ModifyRegionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModifyServiceForm.resx">
       <DependentUpon>ModifyServiceForm.cs</DependentUpon>

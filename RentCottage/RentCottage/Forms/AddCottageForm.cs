@@ -30,12 +30,12 @@ namespace RentCottage.Forms
                     "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
                     "VALUES(default," +
                     RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + ",'" +
-                    tbAddCottagePostNum.Text + "','" +
-                    tbAddCottageName.Text + "','" +
-                    tbAddCottageStreet.Text + "','" +
-                    tbAddCottageDescription.Text + "'," +
+                    TextBoxUtils.modifyInput(tbAddCottagePostNum.Text, 5) + "','" +
+                    TextBoxUtils.modifyInput(tbAddCottageName.Text, 45) + "','" +
+                    TextBoxUtils.modifyInput(tbAddCottageStreet.Text, 45) + "','" +
+                    TextBoxUtils.modifyInput(tbAddCottageDescription.Text, 500) + "'," +
                     (int)nudAddCottageCapacity.Value + ",'" +
-                    tbAddCottageEquipment.Text + "'," +
+                    TextBoxUtils.modifyInput(tbAddCottageEquipment.Text, 100) + "'," +
                     (double)nudAddCottagePrice.Value + "); " +
                     "COMMIT;";
                 try

@@ -27,7 +27,7 @@ namespace RentCottage.Forms
             InitializeComponent();
             RegionUtils.PopulateCBRegion(cbModifyServiceRegion);
             lblModifyServiceID.Text = s.ServiceID.ToString();
-            cbModifyServiceRegion.SelectedItem = RegionUtils.RegionIndexToName(s.RegionID);
+            cbModifyServiceRegion.Text = RegionUtils.RegionIndexToName(s.RegionID);
             tbModifyServiceName.Text = s.Name;
             tbModifyServiceType.Text = s.Type.ToString();
             nudModifyServicePrice.Value = (int)s.Price;
@@ -54,9 +54,12 @@ namespace RentCottage.Forms
                     //Updates services information in the database. Gets data from form components, service is uniquely identified by serviceID, which can't be modified
                     string query = "START TRANSACTION; " +
                     "UPDATE palvelu " +
-                    "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyServiceRegion.Text) + ",nimi='" + tbModifyServiceName.Text +
-                    "',tyyppi=" + Convert.ToInt32(tbModifyServiceType.Text) + ",kuvaus='" + tbModifyServiceDescription.Text + "'," +
-                    "hinta=" + Convert.ToDouble(nudModifyServicePrice.Value) + ",alv=" + Convert.ToDouble(nudModifyServiceVAT.Value) + " " +
+                    "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyServiceRegion.Text) +
+                    ",nimi='" + TextBoxUtils.modifyInput(tbModifyServiceName.Text, 40) +
+                    "',tyyppi=" + Convert.ToInt32(tbModifyServiceType.Text) +
+                    ",kuvaus='" + TextBoxUtils.modifyInput(tbModifyServiceDescription.Text, 40) + "'," +
+                    "hinta=" + Convert.ToDouble(nudModifyServicePrice.Value) +
+                    ",alv=" + Convert.ToDouble(nudModifyServiceVAT.Value) + " " +
                     "WHERE palvelu_id=" + Convert.ToInt32(lblModifyServiceID.Text) + "; " +
                     "COMMIT;";
                     try

@@ -108,6 +108,7 @@
             // tbAddCottageEquipment
             // 
             this.tbAddCottageEquipment.Location = new System.Drawing.Point(91, 174);
+            this.tbAddCottageEquipment.MaxLength = 100;
             this.tbAddCottageEquipment.Name = "tbAddCottageEquipment";
             this.tbAddCottageEquipment.Size = new System.Drawing.Size(209, 20);
             this.tbAddCottageEquipment.TabIndex = 7;
@@ -115,6 +116,7 @@
             // tbAddCottageStreet
             // 
             this.tbAddCottageStreet.Location = new System.Drawing.Point(91, 122);
+            this.tbAddCottageStreet.MaxLength = 45;
             this.tbAddCottageStreet.Name = "tbAddCottageStreet";
             this.tbAddCottageStreet.Size = new System.Drawing.Size(209, 20);
             this.tbAddCottageStreet.TabIndex = 5;
@@ -122,6 +124,7 @@
             // tbAddCottageName
             // 
             this.tbAddCottageName.Location = new System.Drawing.Point(91, 96);
+            this.tbAddCottageName.MaxLength = 45;
             this.tbAddCottageName.Name = "tbAddCottageName";
             this.tbAddCottageName.Size = new System.Drawing.Size(209, 20);
             this.tbAddCottageName.TabIndex = 4;
@@ -129,6 +132,7 @@
             // tbAddCottagePostNum
             // 
             this.tbAddCottagePostNum.Location = new System.Drawing.Point(91, 44);
+            this.tbAddCottagePostNum.MaxLength = 5;
             this.tbAddCottagePostNum.Name = "tbAddCottagePostNum";
             this.tbAddCottagePostNum.Size = new System.Drawing.Size(209, 20);
             this.tbAddCottagePostNum.TabIndex = 2;
@@ -154,6 +158,7 @@
             // tbAddCottageDescription
             // 
             this.tbAddCottageDescription.Location = new System.Drawing.Point(91, 226);
+            this.tbAddCottageDescription.MaxLength = 500;
             this.tbAddCottageDescription.Multiline = true;
             this.tbAddCottageDescription.Name = "tbAddCottageDescription";
             this.tbAddCottageDescription.Size = new System.Drawing.Size(209, 94);
@@ -191,6 +196,7 @@
             // tbAddCottagePostRegion
             // 
             this.tbAddCottagePostRegion.Location = new System.Drawing.Point(91, 70);
+            this.tbAddCottagePostRegion.MaxLength = 40;
             this.tbAddCottagePostRegion.Name = "tbAddCottagePostRegion";
             this.tbAddCottagePostRegion.Size = new System.Drawing.Size(209, 20);
             this.tbAddCottagePostRegion.TabIndex = 3;

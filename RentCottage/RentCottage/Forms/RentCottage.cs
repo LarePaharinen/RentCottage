@@ -567,56 +567,109 @@ namespace RentCottage
 
 
 
-
-        //Adds region to the database
-        private void AddRegion(object sender, EventArgs e)
+        private void dgvRegion_SelectionChanged(object sender, EventArgs e)
         {
-            ConnectionUtils.openConnection();
-            string query3 = "START TRANSACTION; " +
-                "INSERT INTO toimintaalue(toimintaalue_id,nimi) " +
-                "VALUES(default,'" + tbRegionName.Text + "'); " +
-                "COMMIT;";
-            MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
-            command3.ExecuteNonQuery();
-            ConnectionUtils.closeConnection();
-            PopulateDGVRegion();
-            lblRegionID.Text = "0000";
-            tbRegionName.Text = "";            
-        }
-
-        //Deletes selected region from database
-        private void DeleteSelectedRegion(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun toiminta-alueen?", "Poista toimialue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            //Disable buttons if there are no rows in dgvRegion
+            try
             {
-                string query = "START TRANSACTION; " +
-                    "DELETE FROM toimintaalue " +
-                    "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
-                    "COMMIT;";
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                PopulateDGVRegion();
-                lblRegionID.Text = "0000";
-                tbRegionName.Text = "";
+                int region_id = Convert.ToInt32(dgvRegion.SelectedCells[0].Value);
+                btnRegionModify.Enabled = true;
+                btnRegionDelete.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnRegionModify.Enabled = false;
+                btnRegionDelete.Enabled = false;
             }
         }
 
-        //Updates components on the screen to highlight current row selection
-        private void dgvRegionSelectionChanged(object sender, DataGridViewCellEventArgs e)
+        private void AddRegion(object sender, EventArgs e)
         {
-            lblRegionID.Text = dgvRegion.CurrentRow.Cells[0].Value.ToString();
-            tbRegionName.Text = dgvRegion.CurrentRow.Cells[1].Value.ToString();
+            //Open form for adding a region to the database
+            AddRegionForm ARF = new AddRegionForm();
+            ARF.ShowDialog();
+            PopulateDGVRegion();    
         }
 
-        //Clears textbox and RegionID-label when entering the tbRegionName-component
-        private void tbRegionName_Enter(object sender, EventArgs e)
+        
+        private void DeleteSelectedRegion(object sender, EventArgs e)
         {
-            lblRegionID.Text = "0000";
-            tbRegionName.Text = "";
+            //Deletes selected region from database
+
+            DialogResult result = MessageBox.Show("Haluatko varmasti poistaa valitun toiminta-alueen?", "Poista toimialue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "START TRANSACTION; " +
+                    "DELETE FROM toimintaalue " +
+                    "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
+                    "COMMIT;";
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    PopulateDGVRegion();
+                    tbRegionName.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Alueen poisto epäonnistui. Varmista, ettei alueeseen ole liitetty palveluita tai mökkejä, ja yritä uudelleen.","Poisto epäonnistui"
+                        ,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                
+            }
         }
+
+        private void btnRegionReferesh_Click(object sender, EventArgs e)
+        {
+            //Referesh DGVRegion-component
+            PopulateDGVRegion();
+        }
+
+        private void btnRegionModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Code.Region region = new Code.Region(Convert.ToInt32(dgvRegion.CurrentRow.Cells[0].Value), dgvRegion.CurrentRow.Cells[1].Value.ToString());
+                ModifyRegionForm MRF = new ModifyRegionForm(region);
+                MRF.ShowDialog();
+                PopulateDGVRegion();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tietojen muunnossa tapahtui virhe. Yritä myöhemmin uudelleen.", "Virhe"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+
+        private void btnRegionSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Get's data from tbRegionName, and does a query to the DB. Updates dgvRegion-component to show search results
+                string query = "SELECT * FROM toimintaalue " +
+                "WHERE nimi LIKE '%" + TextBoxUtils.modifyInput(tbRegionName.Text, 40) +"%';";
+                try
+                {
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+                    adapter.Fill(table);
+                    dgvRegion.DataSource = table;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Virhe tietojen hakemisessa. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
+            }
+        }
+
 
         public void PopulateDGVService()
         {
@@ -636,6 +689,22 @@ namespace RentCottage
 
         }
 
+        private void dgvService_SelectionChanged(object sender, EventArgs e)
+        {
+            //Disable buttons if there are no rows in dgvService
+            try
+            {
+                int service_id = Convert.ToInt32(dgvService.SelectedCells[0].Value);
+                btnServiceModify.Enabled = true;
+                btnServiceDelete.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnServiceModify.Enabled = false;
+                btnServiceDelete.Enabled = false;
+            }
+        }
+
         public void PopulateDGVCottage()
         {
             //Fills the DGVCottage-component with data from DB
@@ -653,6 +722,22 @@ namespace RentCottage
             dgvCottage.Columns[6].HeaderText = "Henkilömäärä (max)";
             dgvCottage.Columns[7].HeaderText = "Varustelu";
             dgvCottage.Columns[8].HeaderText = "Hinta";
+        }
+
+        private void dgvCottage_SelectionChanged(object sender, EventArgs e)
+        {
+            //Disable buttons if there are no rows in dgvCottage
+            try
+            {
+                int cottage_id = Convert.ToInt32(dgvCottage.SelectedCells[0].Value);
+                btnModifyCottage.Enabled = true;
+                btnCottageDelete.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnModifyCottage.Enabled = false;
+                btnCottageDelete.Enabled = false;
+            }
         }
 
         private void btnServiceAdd_Click(object sender, EventArgs e)
@@ -728,12 +813,12 @@ namespace RentCottage
                 //Get's data from form components, and does a query to the DB. Updates CottageDataGridView-component to show search results
                 string query = "SELECT * FROM mokki " +
                 "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + " " +
-                "AND postinro LIKE '%" + tbCottagePostNum.Text + "%' " +
-                "AND mokkinimi LIKE '%" + tbCottageName.Text + "%' " +
-                "AND katuosoite LIKE '%" + tbCottageStreetAddress.Text + "%' " +
-                "AND kuvaus LIKE '%" + tbCottageDescription.Text + "%' " +
-                "AND henkilomaara > '" + nudCottageCapacity.Value + "' " +
-                "AND varustelu LIKE '%" + tbCottageEqupment.Text + "%' " +
+                "AND postinro LIKE '%" + TextBoxUtils.modifyInput(tbCottagePostNum.Text, 5) + "%' " +
+                "AND mokkinimi LIKE '%" + TextBoxUtils.modifyInput(tbCottageName.Text, 45) + "%' " +
+                "AND katuosoite LIKE '%" + TextBoxUtils.modifyInput(tbCottageStreetAddress.Text, 45) + "%' " +
+                "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbCottageDescription.Text, 500) + "%' " +
+                "AND henkilomaara > '" + (nudCottageCapacity.Value-1) + "' " +
+                "AND varustelu LIKE '%" + TextBoxUtils.modifyInput(tbCottageEqupment.Text, 100) + "%' " +
                 "AND hinta <(" + (nudCottagePrice.Value + 1) + ");";
                 try
                 {
@@ -811,9 +896,9 @@ namespace RentCottage
                 //Get's data from form components, and does a query to the DB. Updates ServiceDataGridView-component to show search results
                 string query = "SELECT * FROM palvelu " +
                 "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbServiceRegion.Text) + " " +
-                "AND nimi LIKE '%" + tbServiceName.Text + "%' " +
+                "AND nimi LIKE '%" + TextBoxUtils.modifyInput(tbServiceName.Text, 40) + "%' " +
                 "AND tyyppi LIKE '%" + tbServiceType.Text + "%' " +
-                "AND kuvaus LIKE '%" + tbServiceDescription.Text + "%' " +
+                "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbServiceDescription.Text, 500) + "%' " +
                 "AND hinta <(" + (nudServicePrice.Value + 1) + ");";
                 try
                 {
@@ -896,5 +981,7 @@ namespace RentCottage
             }            
             
         }
+
+        
     }
 }
