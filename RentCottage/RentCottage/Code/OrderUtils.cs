@@ -33,7 +33,7 @@ namespace RentCottage.Code
             }
         }
 
-        public static bool CheckCottageID(int mokki_id)
+        public static bool CheckCottageID(int mokki_id) //Check is database contains selected cottage
         {
             ConnectionUtils.openConnection();
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki WHERE MOKKI_ID = '" + mokki_id + "'", ConnectionUtils.connection);

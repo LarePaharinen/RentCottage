@@ -24,9 +24,10 @@ namespace RentCottage
             lbOrder_ModifyPaymentDate.Text = o.Payment_date;
             dtpOrder_ModifyStartDate.Text = o.Start_date;
             dtpOrder_ModifyEndDate.Text = o.End_date;
-            fill_dgvOrderServices();
+            fill_dgvOrderServices();           
         }
         int alue_id;
+        
         private void fill_dgvOrderServices()
         {
             ConnectionUtils.openConnection();
@@ -58,12 +59,12 @@ namespace RentCottage
         }
         private void tbOrder_ModifyCottageID_Leave(object sender, EventArgs e)
         {
-            if (!OrderUtils.CheckCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text)))
+            if (!OrderUtils.CheckCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text))) //Check is database contains selected cottage
             {
                 return;
             }
             else
-            {
+            {   //Update order's id in database
                 string query2 = "START TRANSACTION; " +
                 "UPDATE varaus " +
                 "SET mokki_mokki_id='" + tbOrder_ModifyCottageID.Text + "' " + "WHERE varaus_id=" + lbOrder_ModifyOrderID.Text + "; " +
@@ -75,8 +76,10 @@ namespace RentCottage
             }
         }
         private void btmOrder_OrderModify_Click(object sender, EventArgs e)
-        {                   
-            if (!OrderUtils.CheckCottageBookDateTest(Convert.ToInt32(tbOrder_ModifyCottageID.Text), Convert.ToInt32(lbOrder_ModifyOrderID.Text), dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text))
+        {   
+            if (!OrderUtils.CheckCottageBookDateTest(Convert.ToInt32(tbOrder_ModifyCottageID.Text), 
+                Convert.ToInt32(lbOrder_ModifyOrderID.Text), 
+                dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text)) //Check is cottage free on selected dates
             {
                 return;
             }
@@ -129,6 +132,7 @@ namespace RentCottage
                         MessageBox.Show(queryServices);
                     }
                 }
+                //Update order's start- and(or) enddate
                 string query = "START TRANSACTION; " +
                 "UPDATE varaus " +
                 "SET varattu_alkupvm='" + dtpOrder_ModifyStartDate.Text + " 16:00:00',varattu_loppupvm='" 
@@ -155,6 +159,6 @@ namespace RentCottage
                 MessageBox.Show("Majoituksen loppupäivä ei voi olla samaa tai aiemmin kun majoituksen alkupäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }      
+        }
     }
 }

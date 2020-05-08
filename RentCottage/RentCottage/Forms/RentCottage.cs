@@ -114,7 +114,7 @@ namespace RentCottage
             }
         }
 
-        private void btmOrderSearch_Click(object sender, EventArgs e)
+        private void btmOrderSearch_Click(object sender, EventArgs e) //Make a search by input
         {
 
             if (cmbListOrder.Text == "VARAUS ID")
@@ -172,7 +172,7 @@ namespace RentCottage
         {
             PopulateDGVOrder();
         }
-        private void dgOrder_SelectionChanged(object sender, EventArgs e)
+        private void dgOrder_SelectionChanged(object sender, EventArgs e) //If no row was selected can't make a changes
         {
             try
             {
@@ -194,7 +194,7 @@ namespace RentCottage
             tbOrderSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
-        private void btmOrderChange_Click(object sender, EventArgs e)
+        private void btmOrderChange_Click(object sender, EventArgs e) //Order form appear with selected data
         {
             Order order = new Order(Convert.ToInt32(dgOrder.CurrentRow.Cells[0].Value), Convert.ToInt32(dgOrder.CurrentRow.Cells[1].Value),
                 Convert.ToInt32(dgOrder.CurrentRow.Cells[2].Value),
@@ -217,7 +217,7 @@ namespace RentCottage
                 dtpOrder.Visible = false;
         }
 
-        private void btmOrderRemove_Click(object sender, EventArgs e)
+        private void btmOrderRemove_Click(object sender, EventArgs e) //Delete order from database
         {
             DialogResult res = MessageBox.Show("Haluatko varmasti poistaa varauksen?", "Poista varaus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)

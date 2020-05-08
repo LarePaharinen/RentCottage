@@ -114,6 +114,7 @@
             // 
             // btmOrder_OrderModify
             // 
+            this.btmOrder_OrderModify.Enabled = false;
             this.btmOrder_OrderModify.Location = new System.Drawing.Point(240, 482);
             this.btmOrder_OrderModify.Name = "btmOrder_OrderModify";
             this.btmOrder_OrderModify.Size = new System.Drawing.Size(164, 35);
@@ -172,7 +173,7 @@
             // 
             this.dtpOrder_ModifyStartDate.CustomFormat = "yyyy-MM-dd";
             this.dtpOrder_ModifyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(201, 166);
+            this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(200, 160);
             this.dtpOrder_ModifyStartDate.Name = "dtpOrder_ModifyStartDate";
             this.dtpOrder_ModifyStartDate.Size = new System.Drawing.Size(175, 26);
             this.dtpOrder_ModifyStartDate.TabIndex = 14;
@@ -181,7 +182,7 @@
             // 
             this.dtpOrder_ModifyEndDate.CustomFormat = "yyyyy-MM-dd";
             this.dtpOrder_ModifyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(574, 157);
+            this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(594, 160);
             this.dtpOrder_ModifyEndDate.Name = "dtpOrder_ModifyEndDate";
             this.dtpOrder_ModifyEndDate.Size = new System.Drawing.Size(174, 26);
             this.dtpOrder_ModifyEndDate.TabIndex = 15;
@@ -214,8 +215,9 @@
             // tbOrder_ModifyCottageID
             // 
             this.tbOrder_ModifyCottageID.Location = new System.Drawing.Point(200, 111);
+            this.tbOrder_ModifyCottageID.MaxLength = 6;
             this.tbOrder_ModifyCottageID.Name = "tbOrder_ModifyCottageID";
-            this.tbOrder_ModifyCottageID.Size = new System.Drawing.Size(47, 26);
+            this.tbOrder_ModifyCottageID.Size = new System.Drawing.Size(94, 26);
             this.tbOrder_ModifyCottageID.TabIndex = 18;
             this.tbOrder_ModifyCottageID.Leave += new System.EventHandler(this.tbOrder_ModifyCottageID_Leave);
             // 
