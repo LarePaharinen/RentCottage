@@ -490,10 +490,14 @@ namespace RentCottage
             //Delete a selected invoice
             else if (btn == btnBillingDelete)
             {
-                int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
-                BillingUtils.deleteSelectedInvoice(lasku_id);
-                BillingUtils.refreshDataGridView(dgvBilling);
-                dgvBilling.ClearSelection();
+                DialogResult result = MessageBox.Show("Halutko varmasti poistaa valitun laskun?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
+                    BillingUtils.deleteSelectedInvoice(lasku_id);
+                    BillingUtils.refreshDataGridView(dgvBilling);
+                    dgvBilling.ClearSelection();
+                }
             }
 
             //Create a PDF document of a selected bill
