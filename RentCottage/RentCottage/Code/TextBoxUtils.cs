@@ -15,6 +15,10 @@ namespace RentCottage
             if (output1.Length > maxLength)
             {
                 output1 = output1.Substring(0, maxLength);
+                if (output1.Substring(maxLength - 1, 1).Equals("\\"))
+                {
+                    output1 = output1.Substring(0, maxLength - 1);
+                }
             }
             return output1;
         }

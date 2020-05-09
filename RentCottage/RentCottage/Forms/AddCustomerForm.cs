@@ -26,9 +26,9 @@ namespace RentCottage
             ConnectionUtils.openConnection();
             string query3 = "START TRANSACTION; " +
                 "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
-                "VALUES(default,'" + tbCustomerPostalAdd.Text + "','" + tbCustomerFNameAdd.Text + 
-                "','" + tbCustomerLNameAdd.Text + "','" + tbCustomerAddressAdd.Text +
-                "','" + tbCustomerEmailAdd.Text + "','" + tbCustomerPhoneAdd.Text + "'); " +
+                "VALUES(default,'" + TextBoxUtils.modifyInput(tbCustomerPostalAdd.Text,tbCustomerPostalAdd.MaxLength) + "','" + TextBoxUtils.modifyInput(tbCustomerFNameAdd.Text,tbCustomerFNameAdd.MaxLength) + 
+                "','" + TextBoxUtils.modifyInput(tbCustomerLNameAdd.Text,tbCustomerLNameAdd.MaxLength) + "','" + TextBoxUtils.modifyInput(tbCustomerAddressAdd.Text,tbCustomerAddressAdd.MaxLength) +
+                "','" + TextBoxUtils.modifyInput(tbCustomerEmailAdd.Text,tbCustomerEmailAdd.MaxLength) + "','" + TextBoxUtils.modifyInput(tbCustomerPhoneAdd.Text,tbCustomerPhoneAdd.MaxLength) + "'); " +
                 "COMMIT;";
             MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
             command3.ExecuteNonQuery();
@@ -43,37 +43,37 @@ namespace RentCottage
 
         private void tbCustomerFNameAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerFNameAdd.Text = TextBoxUtils.modifyInput(tbCustomerFNameAdd.Text, tbCustomerFNameAdd.MaxLength);
+            //tbCustomerFNameAdd.Text = TextBoxUtils.modifyInput(tbCustomerFNameAdd.Text, tbCustomerFNameAdd.MaxLength);
         }
 
         private void tbCustomerLNameAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerLNameAdd.Text = TextBoxUtils.modifyInput(tbCustomerLNameAdd.Text, tbCustomerLNameAdd.MaxLength);
+            //tbCustomerLNameAdd.Text = TextBoxUtils.modifyInput(tbCustomerLNameAdd.Text, tbCustomerLNameAdd.MaxLength);
         }
 
         private void tbCustomerAddressAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerAddressAdd.Text = TextBoxUtils.modifyInput(tbCustomerAddressAdd.Text, tbCustomerAddressAdd.MaxLength);
+            //tbCustomerAddressAdd.Text = TextBoxUtils.modifyInput(tbCustomerAddressAdd.Text, tbCustomerAddressAdd.MaxLength);
         }
 
         private void tbCustomerPostalAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerPostalAdd.Text = TextBoxUtils.modifyInput(tbCustomerPostalAdd.Text, tbCustomerPostalAdd.MaxLength);
+            //tbCustomerPostalAdd.Text = TextBoxUtils.modifyInput(tbCustomerPostalAdd.Text, tbCustomerPostalAdd.MaxLength);
         }
 
         private void tbCustomerPostOfficeAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerPostOfficeAdd.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeAdd.Text, tbCustomerPostOfficeAdd.MaxLength);
+            //tbCustomerPostOfficeAdd.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeAdd.Text, tbCustomerPostOfficeAdd.MaxLength);
         }
 
         private void tbCustomerEmailAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerEmailAdd.Text = TextBoxUtils.modifyInput(tbCustomerEmailAdd.Text, tbCustomerEmailAdd.MaxLength);
+            //tbCustomerEmailAdd.Text = TextBoxUtils.modifyInput(tbCustomerEmailAdd.Text, tbCustomerEmailAdd.MaxLength);
         }
 
         private void tbCustomerPhoneAdd_Leave(object sender, EventArgs e)
         {
-            tbCustomerPhoneAdd.Text = TextBoxUtils.modifyInput(tbCustomerPhoneAdd.Text, tbCustomerPhoneAdd.MaxLength);
+            //tbCustomerPhoneAdd.Text = TextBoxUtils.modifyInput(tbCustomerPhoneAdd.Text, tbCustomerPhoneAdd.MaxLength);
         }
     }
 }

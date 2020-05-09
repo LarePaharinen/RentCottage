@@ -229,15 +229,15 @@ namespace RentCottage
         //codes related to Asiakashallinta
 
 
-        public void populateDGVCustomer() //get all data from asiakas-table to datagridview
+        public void populateDGVCustomer() //get data from asiakas-table to datagridview
         {
             string query = "SELECT * FROM asiakas " +
-                "WHERE postinro LIKE '%" + tbCustomerPostal.Text + "%' " +
-                "AND etunimi LIKE '%" + tbCustomerFName.Text + "%' " +
-                "AND sukunimi LIKE '%" + tbCustomerLName.Text + "%' " +
-                "AND lahiosoite LIKE '%" + tbCustomerAddress.Text + "%' " +
-                "AND email LIKE '%" + tbCustomerEmail.Text + "%' " +
-                "AND puhelinnro LIKE '%" + tbCustomerPhone.Text + "%';";
+                "WHERE postinro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPostal.Text,tbCustomerPostal.MaxLength) + "%' " +
+                "AND etunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerFName.Text,tbCustomerFName.MaxLength) + "%' " +
+                "AND sukunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerLName.Text,tbCustomerLName.MaxLength) + "%' " +
+                "AND lahiosoite LIKE '%" + TextBoxUtils.modifyInput(tbCustomerAddress.Text,tbCustomerAddress.MaxLength) + "%' " +
+                "AND email LIKE '%" + TextBoxUtils.modifyInput(tbCustomerEmail.Text,tbCustomerEmail.MaxLength) + "%' " +
+                "AND puhelinnro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPhone.Text,tbCustomerPhone.MaxLength) + "%';";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
@@ -256,7 +256,7 @@ namespace RentCottage
             populateDGVCustomer();
         }
 
-        private void btnCustomerAdd_Click(object sender, EventArgs e)
+        private void btnCustomerAdd_Click(object sender, EventArgs e) //add a new customer
         {
             AddCustomerForm ACF = new AddCustomerForm();
             ACF.ShowDialog();
@@ -264,25 +264,57 @@ namespace RentCottage
         }
 
         private void btnCustomerDeleteInfo_Click(object sender, EventArgs e)
-        {
-            DialogResult res = MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan tiedot?", "Poista asiakkaan tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+        {   //First, we need to check whether the customer has unpaid bills
+            ConnectionUtils.openConnection();
+            string query0 = "SELECT l.maksettu " +
+                "FROM lasku l JOIN varaus v " +
+                "ON l.varaus_id = v.varaus_id " +
+                "JOIN asiakas a " +
+                "ON v.asiakas_id = a.asiakas_id " +
+                "WHERE a.asiakas_id =" + dgvCustomer.CurrentRow.Cells[0].Value.ToString() + ";";
+            MySqlCommand command0 = new MySqlCommand(query0, ConnectionUtils.connection);
+            MySqlDataReader reader = null;
+            reader = command0.ExecuteReader();
+            ArrayList billList = new ArrayList();
+            while (reader.Read())
             {
-                string query = "START TRANSACTION; " +
-                    "UPDATE asiakas " +
-                    "SET postinro='xxxxx',etunimi='',sukunimi='',lahiosoite=''," +
-                    "email='',puhelinnro='' " +
-                    "WHERE asiakas_id=" + dgvCustomer.CurrentRow.Cells[0].Value.ToString() + "; " +
-                    "COMMIT;";
-                ConnectionUtils.openConnection();
-                MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
-                command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                populateDGVCustomer();
+                billList.Add((bool)reader["maksettu"]);
+            }
+            reader.Close();
+            ConnectionUtils.closeConnection();
+            bool unpaidBills = false;
+            foreach (bool b in billList)
+            {
+                if (b.Equals(false))
+                {
+                    unpaidBills = true; //unpaid bill found
+                }
+            }
+            if (unpaidBills)
+            {
+                MessageBox.Show("Asiakkaalla on maksamattomia laskuja. Tietoja ei voida poistaa.", "Maksamattomia laskuja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else //the customer does not have unpaid bills, so we can proceed to remove his/her data
+            {
+                DialogResult res = MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan tiedot?", "Poista asiakkaan tiedot", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    string query = "START TRANSACTION; " +
+                        "UPDATE asiakas " +
+                        "SET postinro='xxxxx',etunimi='',sukunimi='',lahiosoite=''," +
+                        "email='',puhelinnro='' " +
+                        "WHERE asiakas_id=" + dgvCustomer.CurrentRow.Cells[0].Value.ToString() + "; " +
+                        "COMMIT;";
+                    ConnectionUtils.openConnection();
+                    MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+                    command.ExecuteNonQuery();
+                    ConnectionUtils.closeConnection();
+                    populateDGVCustomer();
+                }
             }
         }
 
-        private void btnCustomerModify_Click(object sender, EventArgs e)
+        private void btnCustomerModify_Click(object sender, EventArgs e) //modify the customer's data
         {
             Customer customer = new Customer(Convert.ToInt32(dgvCustomer.CurrentRow.Cells[0].Value), dgvCustomer.CurrentRow.Cells[1].Value.ToString(),
                 dgvCustomer.CurrentRow.Cells[2].Value.ToString(), dgvCustomer.CurrentRow.Cells[3].Value.ToString(),
@@ -291,6 +323,22 @@ namespace RentCottage
             ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
             MCF.ShowDialog();
             populateDGVCustomer();
+        }
+
+        private void dgvCustomer_SelectionChanged(object sender, EventArgs e)
+        {
+            //Disable buttons if there are no rows in dgvCustomer
+            try
+            {
+                int customer_id = Convert.ToInt32(dgvCustomer.SelectedCells[0].Value);
+                btnCustomerModify.Enabled = true;
+                btnCustomerDeleteInfo.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                btnCustomerModify.Enabled = false;
+                btnCustomerDeleteInfo.Enabled = false;
+            }
         }
 
 
@@ -923,32 +971,32 @@ namespace RentCottage
         //The following Leave-events check that there are no "illegal" apostrophes in textboxes
         private void tbCustomerFName_Leave(object sender, EventArgs e)
         {
-            tbCustomerFName.Text = TextBoxUtils.modifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength);
+            //tbCustomerFName.Text = TextBoxUtils.modifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength);
         }
 
         private void tbCustomerLName_Leave(object sender, EventArgs e)
         {
-            tbCustomerLName.Text = TextBoxUtils.modifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength);
+            //tbCustomerLName.Text = TextBoxUtils.modifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength);
         }
 
         private void tbCustomerAddress_Leave(object sender, EventArgs e)
         {
-            tbCustomerAddress.Text = TextBoxUtils.modifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength);
+            //tbCustomerAddress.Text = TextBoxUtils.modifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength);
         }
 
         private void tbCustomerPostal_Leave(object sender, EventArgs e)
         {
-            tbCustomerPostal.Text = TextBoxUtils.modifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength);
+            //tbCustomerPostal.Text = TextBoxUtils.modifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength);
         }
 
         private void tbCustomerEmail_Leave(object sender, EventArgs e)
         {
-            tbCustomerEmail.Text = TextBoxUtils.modifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength);
+            //tbCustomerEmail.Text = TextBoxUtils.modifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength);
         }
 
         private void tbCustomerPhone_Leave(object sender, EventArgs e)
         {
-            tbCustomerPhone.Text = TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength);
+            //tbCustomerPhone.Text = TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength);
         }
 
         private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -1001,5 +1049,7 @@ namespace RentCottage
                 MessageBox.Show("Odottamaton virhe. Laskun luonti ei onnistunut.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }

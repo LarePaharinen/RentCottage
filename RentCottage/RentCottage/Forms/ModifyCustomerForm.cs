@@ -23,13 +23,13 @@ namespace RentCottage
         {
             InitializeComponent();
             lblCustomerIDMod.Text = c.CustomerID.ToString();
-            tbCustomerFNameMod.Text = TextBoxUtils.modifyInput(c.Forename,tbCustomerFNameMod.MaxLength);
-            tbCustomerLNameMod.Text = TextBoxUtils.modifyInput(c.Surname,tbCustomerLNameMod.MaxLength);
-            tbCustomerAddressMod.Text = TextBoxUtils.modifyInput(c.Address,tbCustomerAddressMod.MaxLength);
-            tbCustomerPostalMod.Text = TextBoxUtils.modifyInput(c.Postal,tbCustomerPostalMod.MaxLength);
-            tbCustomerPostOfficeMod.Text = TextBoxUtils.modifyInput(PostUtils.getPostOffice(c.Postal),tbCustomerPostOfficeMod.MaxLength);
-            tbCustomerEmailMod.Text = TextBoxUtils.modifyInput(c.Email,tbCustomerEmailMod.MaxLength);
-            tbCustomerPhoneMod.Text = TextBoxUtils.modifyInput(c.Phone,tbCustomerPhoneMod.MaxLength);
+            tbCustomerFNameMod.Text = c.Forename;
+            tbCustomerLNameMod.Text = c.Surname;
+            tbCustomerAddressMod.Text = c.Address;
+            tbCustomerPostalMod.Text = c.Postal;
+            tbCustomerPostOfficeMod.Text = PostUtils.getPostOffice(c.Postal);
+            tbCustomerEmailMod.Text = c.Email;
+            tbCustomerPhoneMod.Text = c.Phone;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -45,9 +45,9 @@ namespace RentCottage
                 PostUtils.checkPostal(tbCustomerPostalMod.Text, tbCustomerPostOfficeMod.Text);
                 string query = "START TRANSACTION; " +
                 "UPDATE asiakas " +
-                "SET postinro='" + tbCustomerPostalMod.Text + "',etunimi='" + tbCustomerFNameMod.Text +
-                "',sukunimi='" + tbCustomerLNameMod.Text + "',lahiosoite='" + tbCustomerAddressMod.Text + "'," +
-                "email='" + tbCustomerEmailMod.Text + "',puhelinnro='" + tbCustomerPhoneMod.Text + "' " +
+                "SET postinro='" + TextBoxUtils.modifyInput(tbCustomerPostalMod.Text,tbCustomerPostalMod.MaxLength) + "',etunimi='" + TextBoxUtils.modifyInput(tbCustomerFNameMod.Text,tbCustomerFNameMod.MaxLength) +
+                "',sukunimi='" + TextBoxUtils.modifyInput(tbCustomerLNameMod.Text,tbCustomerLNameMod.MaxLength) + "',lahiosoite='" + TextBoxUtils.modifyInput(tbCustomerAddressMod.Text,tbCustomerAddressMod.MaxLength) + "'," +
+                "email='" + TextBoxUtils.modifyInput(tbCustomerEmailMod.Text,tbCustomerEmailMod.MaxLength) + "',puhelinnro='" + TextBoxUtils.modifyInput(tbCustomerPhoneMod.Text,tbCustomerPhoneMod.MaxLength) + "' " +
                 "WHERE asiakas_id=" + lblCustomerIDMod.Text + "; " +
                 "COMMIT;";
                 ConnectionUtils.openConnection();
@@ -60,37 +60,37 @@ namespace RentCottage
 
         private void tbCustomerFNameMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerFNameMod.Text = TextBoxUtils.modifyInput(tbCustomerFNameMod.Text, tbCustomerFNameMod.MaxLength);
+            //tbCustomerFNameMod.Text = TextBoxUtils.modifyInput(tbCustomerFNameMod.Text, tbCustomerFNameMod.MaxLength);
         }
 
         private void tbCustomerLNameMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerLNameMod.Text = TextBoxUtils.modifyInput(tbCustomerLNameMod.Text, tbCustomerLNameMod.MaxLength);
+            //tbCustomerLNameMod.Text = TextBoxUtils.modifyInput(tbCustomerLNameMod.Text, tbCustomerLNameMod.MaxLength);
         }
 
         private void tbCustomerAddressMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerAddressMod.Text = TextBoxUtils.modifyInput(tbCustomerAddressMod.Text, tbCustomerAddressMod.MaxLength);
+            //tbCustomerAddressMod.Text = TextBoxUtils.modifyInput(tbCustomerAddressMod.Text, tbCustomerAddressMod.MaxLength);
         }
 
         private void tbCustomerPostalMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerPostalMod.Text = TextBoxUtils.modifyInput(tbCustomerPostalMod.Text, tbCustomerPostalMod.MaxLength);
+            //tbCustomerPostalMod.Text = TextBoxUtils.modifyInput(tbCustomerPostalMod.Text, tbCustomerPostalMod.MaxLength);
         }
 
         private void tbCustomerPostOfficeMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerPostOfficeMod.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeMod.Text, tbCustomerPostOfficeMod.MaxLength);
+            //tbCustomerPostOfficeMod.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeMod.Text, tbCustomerPostOfficeMod.MaxLength);
         }
 
         private void tbCustomerEmailMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerEmailMod.Text = TextBoxUtils.modifyInput(tbCustomerEmailMod.Text, tbCustomerEmailMod.MaxLength);
+            //tbCustomerEmailMod.Text = TextBoxUtils.modifyInput(tbCustomerEmailMod.Text, tbCustomerEmailMod.MaxLength);
         }
 
         private void tbCustomerPhoneMod_Leave(object sender, EventArgs e)
         {
-            tbCustomerPhoneMod.Text = TextBoxUtils.modifyInput(tbCustomerPhoneMod.Text, tbCustomerPhoneMod.MaxLength);
+            //tbCustomerPhoneMod.Text = TextBoxUtils.modifyInput(tbCustomerPhoneMod.Text, tbCustomerPhoneMod.MaxLength);
         }
     }
 }
