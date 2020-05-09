@@ -35,7 +35,7 @@ namespace RentCottage
             populateDGVService();
             populateDGVCottage();
             populateDGVBilling();
-            search_alue_Combobox_update();
+            RegionUtils.populateCBRegion(cbSearchAluet);
             RegionUtils.populateCBRegion(cbCottageRegions);
             RegionUtils.populateCBRegion(cbServiceRegion);
             cbSearchAluet.SelectedIndex = 0;
@@ -46,24 +46,6 @@ namespace RentCottage
             tbOrderSearch.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Italic);
             BillingUtils.rentCottage = this;
         }
-
-        //MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
-
-        //public void OpenConnection()
-        //{
-        //    if (connection.State == ConnectionState.Closed)
-        //    {
-        //        connection.Open();
-        //    }
-        //}
-
-        //public void CloseConnection()
-        //{
-        //    if (connection.State == ConnectionState.Open)
-        //    {
-        //        connection.Close();
-        //    }
-        //}
 
         public void populateDGVRegion()
         {
@@ -315,18 +297,6 @@ namespace RentCottage
         //Search
 
         // Fill regions to combobox
-        private void search_alue_Combobox_update()
-        {
-            string selectQuery = "SELECT * FROM toimintaalue";
-            ConnectionUtils.openConnection();
-            MySqlCommand command = new MySqlCommand(selectQuery, ConnectionUtils.connection);
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                cbSearchAluet.Items.Add(reader.GetString("nimi"));
-            }
-            ConnectionUtils.closeConnection();
-        }
 
         private void cbSearchAlueKaikki_CheckedChanged(object sender, EventArgs e)
         {
