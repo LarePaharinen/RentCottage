@@ -329,16 +329,24 @@ namespace RentCottage
             return summa;
         }
 
-        //Updates the 'maksettu' field of lasku
-        public static void setPaymentState(int lasku_id, bool paymentState)
+        //Updates the 'vahvistus_pvm' field of varaus
+        public static void setPaymentState(int lasku_id, string paymentDate)
         {
             ConnectionUtils.openConnection();
-            string query = "START TRANSACTION; " +
-                "UPDATE lasku " +
-                "SET maksettu = " + paymentState + " " +
-                "WHERE lasku_id = " + lasku_id + "; " +
-                "COMMIT;";
+            //get varaus_id
+            string query =  "SELECT varaus_id " +
+                            "FROM lasku " +
+                            "WHERE lasku_id = " + lasku_id + ";";
             MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
+            int varaus_id = Convert.ToInt32(command.ExecuteScalar());
+
+            //Set the date of payment
+            query = "START TRANSACTION; " +
+                    "UPDATE varaus " +
+                    "SET vahvistus_pvm = " + paymentDate + " " +
+                    "WHERE varaus_id = " + varaus_id + "; " +
+                    "COMMIT;";
+            command = new MySqlCommand(query, ConnectionUtils.connection);
             command.ExecuteNonQuery();
             ConnectionUtils.closeConnection();
         }

@@ -481,8 +481,8 @@ namespace RentCottage
         private void btnBilling_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            //Search for an invoice
 
+            //Search for an invoice
             if (btn == btnBillingSearch)
             {
                 populateDGVBilling();
@@ -491,18 +491,29 @@ namespace RentCottage
             //Update the state of payment of a selected invoice
             else if (btn == btnBillingPaid || btn == btnBillingNotPaid)
             {
-                bool paymentState;
-                if (btn == btnBillingPaid)
-                    paymentState = true;
-                else
-                    paymentState = false;
+                try
+                {
+                    string paymentDate;
+                    if (btn == btnBillingPaid)
+                    {
+                        DateTime myDateTime = DateTime.Now;
+                        paymentDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                        paymentDate = "'" + paymentDate + "'";
+                    }
+                    else
+                        paymentDate = "NULL";
 
-                int selectedRow = dgvBilling.CurrentCell.RowIndex;
-                int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
-                BillingUtils.setPaymentState(lasku_id, paymentState);
-                BillingUtils.refreshDataGridView(dgvBilling);
-                dgvBilling.ClearSelection();
-                dgvBilling.CurrentCell = dgvBilling.Rows[selectedRow].Cells[0];
+                    int selectedRow = dgvBilling.CurrentCell.RowIndex;
+                    int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
+                    BillingUtils.setPaymentState(lasku_id, paymentDate);
+                    BillingUtils.refreshDataGridView(dgvBilling);
+                    dgvBilling.ClearSelection();
+                    dgvBilling.CurrentCell = dgvBilling.Rows[selectedRow].Cells[0];
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Odottamaton virhe. Laskun maksutilanteen päivitys epäonnistui.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             //Delete a selected invoice
@@ -571,7 +582,7 @@ namespace RentCottage
         {
             ConnectionUtils.openConnection();
             string query = "SELECT l.lasku_id, v.varaus_id, a.asiakas_id, CONCAT(a.etunimi, ' ', a.sukunimi) " +
-                            ", a.lahiosoite, a.puhelinnro, a.email, l.summa, l.maksettu " +
+                            ", a.lahiosoite, a.puhelinnro, a.email, l.summa, v.vahvistus_pvm " +
                             "FROM lasku l " +
                             "JOIN varaus v ON l.varaus_id = v.varaus_id " +
                             "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
@@ -582,11 +593,10 @@ namespace RentCottage
                             "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
                             "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
                             "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
-
             if (cbBillingPaid.SelectedIndex == 0)
-                query += "AND l.maksettu = TRUE ORDER BY l.lasku_id;";
+                query += "AND v.vahvistus_pvm IS NOT NULL ORDER BY l.lasku_id;";
             else if (cbBillingPaid.SelectedIndex == 1)
-                query += "AND l.maksettu = FALSE ORDER BY l.lasku_id;";
+                query += "AND v.vahvistus_pvm IS NULL ORDER BY l.lasku_id;";
             else
                 query += "ORDER BY l.lasku_id;";
             DataTable table = new DataTable();
@@ -601,7 +611,7 @@ namespace RentCottage
             dgvBilling.Columns[5].HeaderText = "Puhelinnumero";
             dgvBilling.Columns[6].HeaderText = "Sähköposti";
             dgvBilling.Columns[7].HeaderText = "Summa (€)";
-            dgvBilling.Columns[8].HeaderText = "Maksettu";
+            dgvBilling.Columns[8].HeaderText = "Maksettu (pvm)";
             BillingUtils.latestQuery = query;
             ConnectionUtils.closeConnection();
         }
