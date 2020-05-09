@@ -18,16 +18,16 @@ namespace RentCottage.Forms
         public ModifyServiceForm()
         {
             InitializeComponent();
-            RegionUtils.PopulateCBRegion(cbModifyServiceRegion);
+            RegionUtils.populateCBRegion(cbModifyServiceRegion);
         }
 
         public ModifyServiceForm(Service s)
         {
             //Used to import services data to from
             InitializeComponent();
-            RegionUtils.PopulateCBRegion(cbModifyServiceRegion);
+            RegionUtils.populateCBRegion(cbModifyServiceRegion);
             lblModifyServiceID.Text = s.ServiceID.ToString();
-            cbModifyServiceRegion.Text = RegionUtils.RegionIndexToName(s.RegionID);
+            cbModifyServiceRegion.Text = RegionUtils.regionIndexToName(s.RegionID);
             tbModifyServiceName.Text = s.Name;
             tbModifyServiceType.Text = s.Type.ToString();
             nudModifyServicePrice.Value = (int)s.Price;
@@ -54,7 +54,7 @@ namespace RentCottage.Forms
                     //Updates services information in the database. Gets data from form components, service is uniquely identified by serviceID, which can't be modified
                     string query = "START TRANSACTION; " +
                     "UPDATE palvelu " +
-                    "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyServiceRegion.Text) +
+                    "SET toimintaalue_id=" + RegionUtils.regionNameToIndex(cbModifyServiceRegion.Text) +
                     ",nimi='" + TextBoxUtils.modifyInput(tbModifyServiceName.Text, 40) +
                     "',tyyppi=" + Convert.ToInt32(tbModifyServiceType.Text) +
                     ",kuvaus='" + TextBoxUtils.modifyInput(tbModifyServiceDescription.Text, 40) + "'," +

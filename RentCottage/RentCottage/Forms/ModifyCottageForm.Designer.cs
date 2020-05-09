@@ -175,7 +175,7 @@
             // 
             // btnModifyCottageCancel
             // 
-            this.btnModifyCottageCancel.Location = new System.Drawing.Point(145, 327);
+            this.btnModifyCottageCancel.Location = new System.Drawing.Point(225, 327);
             this.btnModifyCottageCancel.Name = "btnModifyCottageCancel";
             this.btnModifyCottageCancel.Size = new System.Drawing.Size(75, 23);
             this.btnModifyCottageCancel.TabIndex = 10;
@@ -185,11 +185,11 @@
             // 
             // btnModifyCottageModify
             // 
-            this.btnModifyCottageModify.Location = new System.Drawing.Point(226, 327);
+            this.btnModifyCottageModify.Location = new System.Drawing.Point(129, 327);
             this.btnModifyCottageModify.Name = "btnModifyCottageModify";
-            this.btnModifyCottageModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModifyCottageModify.Size = new System.Drawing.Size(90, 23);
             this.btnModifyCottageModify.TabIndex = 9;
-            this.btnModifyCottageModify.Text = "Muokkaa";
+            this.btnModifyCottageModify.Text = "Tallenna";
             this.btnModifyCottageModify.UseVisualStyleBackColor = true;
             this.btnModifyCottageModify.Click += new System.EventHandler(this.btnModifyCottageModify_Click);
             // 

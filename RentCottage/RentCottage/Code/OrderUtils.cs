@@ -10,7 +10,7 @@ namespace RentCottage.Code
 {
     public class OrderUtils
     {
-        public static bool CheckCottageBookDate(int mokki_id, string dateFrom, string DateTo)
+        public static bool checkCottageBookDate(int mokki_id, string dateFrom, string DateTo)
         {
             ConnectionUtils.openConnection(); // Check is cottage free at the indicated time
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +
@@ -33,7 +33,7 @@ namespace RentCottage.Code
             }
         }
 
-        public static bool CheckCottageID(int mokki_id) //Check is database contains selected cottage
+        public static bool checkCottageID(int mokki_id) //Check is database contains selected cottage
         {
             ConnectionUtils.openConnection();
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki WHERE MOKKI_ID = '" + mokki_id + "'", ConnectionUtils.connection);
@@ -51,7 +51,7 @@ namespace RentCottage.Code
             }
         }
 
-        public static bool CheckCottageBookDateTest(int mokki_id, int varaus_id, string dateFrom, string DateTo)
+        public static bool checkCottageBookDateTest(int mokki_id, int varaus_id, string dateFrom, string DateTo)
         {
             ConnectionUtils.openConnection(); // Check is cottage free at the indicated time
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +

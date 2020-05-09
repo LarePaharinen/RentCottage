@@ -17,7 +17,7 @@ namespace RentCottage.Forms
         public AddCottageForm()
         {
             InitializeComponent();
-            RegionUtils.PopulateCBRegion(cbAddCottageRegion);
+            RegionUtils.populateCBRegion(cbAddCottageRegion);
         }
 
         private void btnAddCottageAdd_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace RentCottage.Forms
                 string query = "START TRANSACTION; " +
                     "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
                     "VALUES(default," +
-                    RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + ",'" +
+                    RegionUtils.regionNameToIndex(cbAddCottageRegion.Text) + ",'" +
                     TextBoxUtils.modifyInput(tbAddCottagePostNum.Text, 5) + "','" +
                     TextBoxUtils.modifyInput(tbAddCottageName.Text, 45) + "','" +
                     TextBoxUtils.modifyInput(tbAddCottageStreet.Text, 45) + "','" +

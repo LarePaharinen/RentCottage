@@ -52,17 +52,17 @@
             // 
             // btnRegionAddAdd
             // 
-            this.btnRegionAddAdd.Location = new System.Drawing.Point(187, 42);
+            this.btnRegionAddAdd.Location = new System.Drawing.Point(65, 42);
             this.btnRegionAddAdd.Name = "btnRegionAddAdd";
-            this.btnRegionAddAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnRegionAddAdd.Size = new System.Drawing.Size(116, 23);
             this.btnRegionAddAdd.TabIndex = 2;
-            this.btnRegionAddAdd.Text = "Lisää";
+            this.btnRegionAddAdd.Text = "Lisää toiminta-alue";
             this.btnRegionAddAdd.UseVisualStyleBackColor = true;
             this.btnRegionAddAdd.Click += new System.EventHandler(this.btnRegionAddAdd_Click);
             // 
             // btnRegionAddCancel
             // 
-            this.btnRegionAddCancel.Location = new System.Drawing.Point(106, 42);
+            this.btnRegionAddCancel.Location = new System.Drawing.Point(187, 42);
             this.btnRegionAddCancel.Name = "btnRegionAddCancel";
             this.btnRegionAddCancel.Size = new System.Drawing.Size(75, 23);
             this.btnRegionAddCancel.TabIndex = 3;

@@ -59,7 +59,7 @@ namespace RentCottage
         }
         private void tbOrder_ModifyCottageID_Leave(object sender, EventArgs e)
         {
-            if (!OrderUtils.CheckCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text))) //Check is database contains selected cottage
+            if (!OrderUtils.checkCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text))) //Check is database contains selected cottage
             {
                 return;
             }
@@ -77,7 +77,7 @@ namespace RentCottage
         }
         private void btmOrder_OrderModify_Click(object sender, EventArgs e)
         {   
-            if (!OrderUtils.CheckCottageBookDateTest(Convert.ToInt32(tbOrder_ModifyCottageID.Text), 
+            if (!OrderUtils.checkCottageBookDateTest(Convert.ToInt32(tbOrder_ModifyCottageID.Text), 
                 Convert.ToInt32(lbOrder_ModifyOrderID.Text), 
                 dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text)) //Check is cottage free on selected dates
             {

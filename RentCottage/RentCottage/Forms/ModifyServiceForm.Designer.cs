@@ -50,21 +50,21 @@
             // 
             // btnModifyServiceCancel
             // 
-            this.btnModifyServiceCancel.Location = new System.Drawing.Point(106, 275);
+            this.btnModifyServiceCancel.Location = new System.Drawing.Point(204, 281);
             this.btnModifyServiceCancel.Name = "btnModifyServiceCancel";
-            this.btnModifyServiceCancel.Size = new System.Drawing.Size(92, 35);
-            this.btnModifyServiceCancel.TabIndex = 21;
+            this.btnModifyServiceCancel.Size = new System.Drawing.Size(92, 26);
+            this.btnModifyServiceCancel.TabIndex = 7;
             this.btnModifyServiceCancel.Text = "Peruuta";
             this.btnModifyServiceCancel.UseVisualStyleBackColor = true;
             this.btnModifyServiceCancel.Click += new System.EventHandler(this.btnModifyServiceCancel_Click);
             // 
             // btnModifyServiceModify
             // 
-            this.btnModifyServiceModify.Location = new System.Drawing.Point(204, 275);
+            this.btnModifyServiceModify.Location = new System.Drawing.Point(106, 281);
             this.btnModifyServiceModify.Name = "btnModifyServiceModify";
-            this.btnModifyServiceModify.Size = new System.Drawing.Size(92, 35);
-            this.btnModifyServiceModify.TabIndex = 20;
-            this.btnModifyServiceModify.Text = "Muokkaa palvelun tietoja";
+            this.btnModifyServiceModify.Size = new System.Drawing.Size(92, 26);
+            this.btnModifyServiceModify.TabIndex = 6;
+            this.btnModifyServiceModify.Text = "Tallenna";
             this.btnModifyServiceModify.UseVisualStyleBackColor = true;
             this.btnModifyServiceModify.Click += new System.EventHandler(this.btnModifyServiceModify_Click);
             // 
@@ -146,7 +146,7 @@
             this.cbModifyServiceRegion.Location = new System.Drawing.Point(87, 44);
             this.cbModifyServiceRegion.Name = "cbModifyServiceRegion";
             this.cbModifyServiceRegion.Size = new System.Drawing.Size(209, 21);
-            this.cbModifyServiceRegion.TabIndex = 30;
+            this.cbModifyServiceRegion.TabIndex = 0;
             // 
             // tbModifyServiceName
             // 
@@ -154,7 +154,7 @@
             this.tbModifyServiceName.MaxLength = 40;
             this.tbModifyServiceName.Name = "tbModifyServiceName";
             this.tbModifyServiceName.Size = new System.Drawing.Size(209, 20);
-            this.tbModifyServiceName.TabIndex = 31;
+            this.tbModifyServiceName.TabIndex = 1;
             // 
             // tbModifyServiceType
             // 
@@ -162,7 +162,7 @@
             this.tbModifyServiceType.MaxLength = 11;
             this.tbModifyServiceType.Name = "tbModifyServiceType";
             this.tbModifyServiceType.Size = new System.Drawing.Size(209, 20);
-            this.tbModifyServiceType.TabIndex = 32;
+            this.tbModifyServiceType.TabIndex = 2;
             // 
             // tbModifyServiceDescription
             // 
@@ -171,7 +171,7 @@
             this.tbModifyServiceDescription.Multiline = true;
             this.tbModifyServiceDescription.Name = "tbModifyServiceDescription";
             this.tbModifyServiceDescription.Size = new System.Drawing.Size(209, 94);
-            this.tbModifyServiceDescription.TabIndex = 35;
+            this.tbModifyServiceDescription.TabIndex = 5;
             // 
             // nudModifyServicePrice
             // 
@@ -183,14 +183,14 @@
             0});
             this.nudModifyServicePrice.Name = "nudModifyServicePrice";
             this.nudModifyServicePrice.Size = new System.Drawing.Size(209, 20);
-            this.nudModifyServicePrice.TabIndex = 36;
+            this.nudModifyServicePrice.TabIndex = 3;
             // 
             // nudModifyServiceVAT
             // 
             this.nudModifyServiceVAT.Location = new System.Drawing.Point(87, 150);
             this.nudModifyServiceVAT.Name = "nudModifyServiceVAT";
             this.nudModifyServiceVAT.Size = new System.Drawing.Size(209, 20);
-            this.nudModifyServiceVAT.TabIndex = 37;
+            this.nudModifyServiceVAT.TabIndex = 4;
             this.nudModifyServiceVAT.Value = new decimal(new int[] {
             24,
             0,
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 322);
+            this.ClientSize = new System.Drawing.Size(315, 319);
             this.Controls.Add(this.nudModifyServiceVAT);
             this.Controls.Add(this.nudModifyServicePrice);
             this.Controls.Add(this.tbModifyServiceDescription);

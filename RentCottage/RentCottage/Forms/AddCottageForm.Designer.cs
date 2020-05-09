@@ -166,17 +166,17 @@
             // 
             // btnAddCottageAdd
             // 
-            this.btnAddCottageAdd.Location = new System.Drawing.Point(225, 326);
+            this.btnAddCottageAdd.Location = new System.Drawing.Point(130, 326);
             this.btnAddCottageAdd.Name = "btnAddCottageAdd";
-            this.btnAddCottageAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCottageAdd.Size = new System.Drawing.Size(89, 23);
             this.btnAddCottageAdd.TabIndex = 10;
-            this.btnAddCottageAdd.Text = "Lisää";
+            this.btnAddCottageAdd.Text = "Lisää mökki";
             this.btnAddCottageAdd.UseVisualStyleBackColor = true;
             this.btnAddCottageAdd.Click += new System.EventHandler(this.btnAddCottageAdd_Click);
             // 
             // btnAddCottageCancel
             // 
-            this.btnAddCottageCancel.Location = new System.Drawing.Point(144, 326);
+            this.btnAddCottageCancel.Location = new System.Drawing.Point(225, 326);
             this.btnAddCottageCancel.Name = "btnAddCottageCancel";
             this.btnAddCottageCancel.Size = new System.Drawing.Size(75, 23);
             this.btnAddCottageCancel.TabIndex = 11;

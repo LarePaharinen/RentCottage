@@ -251,10 +251,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(213, 280);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(170, 221);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Peruuta";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -262,180 +261,163 @@
             // 
             // tbCustomerPhoneMod
             // 
-            this.tbCustomerPhoneMod.Location = new System.Drawing.Point(139, 233);
-            this.tbCustomerPhoneMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPhoneMod.Location = new System.Drawing.Point(114, 182);
             this.tbCustomerPhoneMod.MaxLength = 15;
             this.tbCustomerPhoneMod.Name = "tbCustomerPhoneMod";
-            this.tbCustomerPhoneMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerPhoneMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPhoneMod.TabIndex = 7;
             this.tbCustomerPhoneMod.Leave += new System.EventHandler(this.tbCustomerPhoneMod_Leave);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(25, 236);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(29, 185);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(107, 17);
+            this.label23.Size = new System.Drawing.Size(80, 13);
             this.label23.TabIndex = 52;
             this.label23.Text = "Puhelinnumero:";
             // 
             // tbCustomerEmailMod
             // 
-            this.tbCustomerEmailMod.Location = new System.Drawing.Point(139, 202);
-            this.tbCustomerEmailMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerEmailMod.Location = new System.Drawing.Point(114, 157);
             this.tbCustomerEmailMod.MaxLength = 50;
             this.tbCustomerEmailMod.Name = "tbCustomerEmailMod";
-            this.tbCustomerEmailMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerEmailMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerEmailMod.TabIndex = 6;
             this.tbCustomerEmailMod.Leave += new System.EventHandler(this.tbCustomerEmailMod_Leave);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(48, 205);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(46, 160);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(82, 17);
+            this.label22.Size = new System.Drawing.Size(63, 13);
             this.label22.TabIndex = 51;
             this.label22.Text = "Sähköposti:";
             // 
             // tbCustomerAddressMod
             // 
-            this.tbCustomerAddressMod.Location = new System.Drawing.Point(139, 109);
-            this.tbCustomerAddressMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerAddressMod.Location = new System.Drawing.Point(114, 82);
             this.tbCustomerAddressMod.MaxLength = 40;
             this.tbCustomerAddressMod.Name = "tbCustomerAddressMod";
-            this.tbCustomerAddressMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerAddressMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerAddressMod.TabIndex = 3;
             this.tbCustomerAddressMod.Leave += new System.EventHandler(this.tbCustomerAddressMod_Leave);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(55, 112);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(51, 84);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(77, 17);
+            this.label21.Size = new System.Drawing.Size(58, 13);
             this.label21.TabIndex = 50;
             this.label21.Text = "Lähiosoite:";
             // 
             // tbCustomerLNameMod
             // 
-            this.tbCustomerLNameMod.Location = new System.Drawing.Point(139, 78);
-            this.tbCustomerLNameMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerLNameMod.Location = new System.Drawing.Point(114, 56);
             this.tbCustomerLNameMod.MaxLength = 40;
             this.tbCustomerLNameMod.Name = "tbCustomerLNameMod";
-            this.tbCustomerLNameMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerLNameMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerLNameMod.TabIndex = 2;
             this.tbCustomerLNameMod.Leave += new System.EventHandler(this.tbCustomerLNameMod_Leave);
             // 
             // tbCustomerFNameMod
             // 
-            this.tbCustomerFNameMod.Location = new System.Drawing.Point(139, 47);
-            this.tbCustomerFNameMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerFNameMod.Location = new System.Drawing.Point(114, 31);
             this.tbCustomerFNameMod.MaxLength = 20;
             this.tbCustomerFNameMod.Name = "tbCustomerFNameMod";
-            this.tbCustomerFNameMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerFNameMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerFNameMod.TabIndex = 1;
             this.tbCustomerFNameMod.Leave += new System.EventHandler(this.tbCustomerFNameMod_Leave);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(61, 81);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(56, 59);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(69, 17);
+            this.label20.Size = new System.Drawing.Size(53, 13);
             this.label20.TabIndex = 49;
             this.label20.Text = "Sukunimi:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(73, 50);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(65, 34);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 17);
+            this.label19.Size = new System.Drawing.Size(44, 13);
             this.label19.TabIndex = 48;
             this.label19.Text = "Etunimi:";
             // 
             // tbCustomerPostalMod
             // 
-            this.tbCustomerPostalMod.Location = new System.Drawing.Point(139, 140);
-            this.tbCustomerPostalMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPostalMod.Location = new System.Drawing.Point(114, 107);
             this.tbCustomerPostalMod.MaxLength = 5;
             this.tbCustomerPostalMod.Name = "tbCustomerPostalMod";
-            this.tbCustomerPostalMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerPostalMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPostalMod.TabIndex = 4;
             this.tbCustomerPostalMod.Leave += new System.EventHandler(this.tbCustomerPostalMod_Leave);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(41, 143);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(41, 109);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 17);
+            this.label16.Size = new System.Drawing.Size(68, 13);
             this.label16.TabIndex = 47;
             this.label16.Text = "Postinumero:";
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(76, 280);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModify.Location = new System.Drawing.Point(80, 221);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(100, 28);
+            this.btnModify.Size = new System.Drawing.Size(84, 23);
             this.btnModify.TabIndex = 8;
-            this.btnModify.Text = "Muokkaa";
+            this.btnModify.Text = "Tallenna";
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(58, 23);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(54, 12);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 17);
+            this.label15.Size = new System.Drawing.Size(58, 13);
             this.label15.TabIndex = 54;
             this.label15.Text = "AsiakasID:";
             // 
             // lblCustomerIDMod
             // 
             this.lblCustomerIDMod.AutoSize = true;
-            this.lblCustomerIDMod.Location = new System.Drawing.Point(139, 23);
-            this.lblCustomerIDMod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCustomerIDMod.Location = new System.Drawing.Point(114, 12);
             this.lblCustomerIDMod.Name = "lblCustomerIDMod";
-            this.lblCustomerIDMod.Size = new System.Drawing.Size(40, 17);
+            this.lblCustomerIDMod.Size = new System.Drawing.Size(31, 13);
             this.lblCustomerIDMod.TabIndex = 53;
             this.lblCustomerIDMod.Text = "0000";
             // 
             // tbCustomerPostOfficeMod
             // 
-            this.tbCustomerPostOfficeMod.Location = new System.Drawing.Point(139, 171);
-            this.tbCustomerPostOfficeMod.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerPostOfficeMod.Location = new System.Drawing.Point(114, 132);
             this.tbCustomerPostOfficeMod.MaxLength = 45;
             this.tbCustomerPostOfficeMod.Name = "tbCustomerPostOfficeMod";
-            this.tbCustomerPostOfficeMod.Size = new System.Drawing.Size(173, 22);
+            this.tbCustomerPostOfficeMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPostOfficeMod.TabIndex = 5;
             this.tbCustomerPostOfficeMod.Leave += new System.EventHandler(this.tbCustomerPostOfficeMod_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 174);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(23, 134);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 56;
             this.label1.Text = "Postitoimipaikka:";
             // 
             // ModifyCustomerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 321);
+            this.ClientSize = new System.Drawing.Size(266, 261);
             this.Controls.Add(this.tbCustomerPostOfficeMod);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label15);
@@ -454,6 +436,7 @@
             this.Controls.Add(this.tbCustomerPostalMod);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnModify);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModifyCustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa asiakkaan tietoja";

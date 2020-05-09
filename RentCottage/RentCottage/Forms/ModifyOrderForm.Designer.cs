@@ -121,22 +121,22 @@
             // 
             // btmOrder_OrderModify
             // 
-            this.btmOrder_OrderModify.Location = new System.Drawing.Point(160, 313);
-            this.btmOrder_OrderModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btmOrder_OrderModify.Location = new System.Drawing.Point(170, 313);
+            this.btmOrder_OrderModify.Margin = new System.Windows.Forms.Padding(2);
             this.btmOrder_OrderModify.Name = "btmOrder_OrderModify";
-            this.btmOrder_OrderModify.Size = new System.Drawing.Size(109, 23);
-            this.btmOrder_OrderModify.TabIndex = 7;
-            this.btmOrder_OrderModify.Text = "Talenna";
+            this.btmOrder_OrderModify.Size = new System.Drawing.Size(96, 23);
+            this.btmOrder_OrderModify.TabIndex = 4;
+            this.btmOrder_OrderModify.Text = "Tallenna";
             this.btmOrder_OrderModify.UseVisualStyleBackColor = true;
             this.btmOrder_OrderModify.Click += new System.EventHandler(this.btmOrder_OrderModify_Click);
             // 
             // btmOrder_OrderModifyCancel
             // 
-            this.btmOrder_OrderModifyCancel.Location = new System.Drawing.Point(283, 313);
-            this.btmOrder_OrderModifyCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btmOrder_OrderModifyCancel.Location = new System.Drawing.Point(270, 313);
+            this.btmOrder_OrderModifyCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btmOrder_OrderModifyCancel.Name = "btmOrder_OrderModifyCancel";
-            this.btmOrder_OrderModifyCancel.Size = new System.Drawing.Size(109, 23);
-            this.btmOrder_OrderModifyCancel.TabIndex = 8;
+            this.btmOrder_OrderModifyCancel.Size = new System.Drawing.Size(86, 23);
+            this.btmOrder_OrderModifyCancel.TabIndex = 5;
             this.btmOrder_OrderModifyCancel.Text = "Peruuta";
             this.btmOrder_OrderModifyCancel.UseVisualStyleBackColor = true;
             this.btmOrder_OrderModifyCancel.Click += new System.EventHandler(this.btmOrder_OrderModifyCancel_Click);
@@ -186,20 +186,20 @@
             this.dtpOrder_ModifyStartDate.CustomFormat = "yyyy-MM-dd";
             this.dtpOrder_ModifyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrder_ModifyStartDate.Location = new System.Drawing.Point(133, 104);
-            this.dtpOrder_ModifyStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpOrder_ModifyStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpOrder_ModifyStartDate.Name = "dtpOrder_ModifyStartDate";
             this.dtpOrder_ModifyStartDate.Size = new System.Drawing.Size(118, 20);
-            this.dtpOrder_ModifyStartDate.TabIndex = 14;
+            this.dtpOrder_ModifyStartDate.TabIndex = 1;
             // 
             // dtpOrder_ModifyEndDate
             // 
             this.dtpOrder_ModifyEndDate.CustomFormat = "yyyyy-MM-dd";
             this.dtpOrder_ModifyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrder_ModifyEndDate.Location = new System.Drawing.Point(396, 104);
-            this.dtpOrder_ModifyEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpOrder_ModifyEndDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpOrder_ModifyEndDate.Name = "dtpOrder_ModifyEndDate";
             this.dtpOrder_ModifyEndDate.Size = new System.Drawing.Size(117, 20);
-            this.dtpOrder_ModifyEndDate.TabIndex = 15;
+            this.dtpOrder_ModifyEndDate.TabIndex = 2;
             this.dtpOrder_ModifyEndDate.ValueChanged += new System.EventHandler(this.dtpOrder_ModifyEndDate_ValueChanged);
             // 
             // dgvOrderServices
@@ -213,7 +213,7 @@
             this.dgvOrderServices.RowHeadersVisible = false;
             this.dgvOrderServices.RowHeadersWidth = 62;
             this.dgvOrderServices.Size = new System.Drawing.Size(500, 142);
-            this.dgvOrderServices.TabIndex = 16;
+            this.dgvOrderServices.TabIndex = 3;
             // 
             // label1
             // 
@@ -227,11 +227,11 @@
             // tbOrder_ModifyCottageID
             // 
             this.tbOrder_ModifyCottageID.Location = new System.Drawing.Point(133, 72);
-            this.tbOrder_ModifyCottageID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbOrder_ModifyCottageID.Margin = new System.Windows.Forms.Padding(2);
             this.tbOrder_ModifyCottageID.MaxLength = 6;
             this.tbOrder_ModifyCottageID.Name = "tbOrder_ModifyCottageID";
             this.tbOrder_ModifyCottageID.Size = new System.Drawing.Size(64, 20);
-            this.tbOrder_ModifyCottageID.TabIndex = 18;
+            this.tbOrder_ModifyCottageID.TabIndex = 0;
             this.tbOrder_ModifyCottageID.Leave += new System.EventHandler(this.tbOrder_ModifyCottageID_Leave);
             // 
             // ModifyOrderForm
@@ -258,7 +258,7 @@
             this.Controls.Add(this.lbOrder_CustomerD);
             this.Controls.Add(this.lbOrder_OrderId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifyOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa varaus";

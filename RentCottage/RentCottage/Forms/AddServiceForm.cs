@@ -17,7 +17,7 @@ namespace RentCottage.Forms
         public AddServiceForm()
         {
             InitializeComponent();
-            RegionUtils.PopulateCBRegion(cbAddServiceRegion);
+            RegionUtils.populateCBRegion(cbAddServiceRegion);
         }
 
         private void btnAddServiceCancel_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace RentCottage.Forms
                 string query = "START TRANSACTION; " +
                 "INSERT INTO palvelu(palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv) " +
                 "VALUES(default," +
-                RegionUtils.RegionNameToIndex(cbAddServiceRegion.Text) + ",'" +
+                RegionUtils.regionNameToIndex(cbAddServiceRegion.Text) + ",'" +
                 TextBoxUtils.modifyInput(tbAddServiceName.Text, 40) + "'," +
                 Convert.ToInt32(tbAddServiceType.Text) + ",'" +
                 TextBoxUtils.modifyInput(tbAddServiceDescription.Text, 500) + "'," +

@@ -135,9 +135,9 @@
             // 
             // btnAddServiceAdd
             // 
-            this.btnAddServiceAdd.Location = new System.Drawing.Point(225, 253);
+            this.btnAddServiceAdd.Location = new System.Drawing.Point(121, 253);
             this.btnAddServiceAdd.Name = "btnAddServiceAdd";
-            this.btnAddServiceAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAddServiceAdd.Size = new System.Drawing.Size(98, 23);
             this.btnAddServiceAdd.TabIndex = 7;
             this.btnAddServiceAdd.Text = "Lisää palvelu";
             this.btnAddServiceAdd.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             // 
             // btnAddServiceCancel
             // 
-            this.btnAddServiceCancel.Location = new System.Drawing.Point(144, 253);
+            this.btnAddServiceCancel.Location = new System.Drawing.Point(225, 253);
             this.btnAddServiceCancel.Name = "btnAddServiceCancel";
             this.btnAddServiceCancel.Size = new System.Drawing.Size(75, 23);
             this.btnAddServiceCancel.TabIndex = 8;

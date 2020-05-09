@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbBookCottageData = new System.Windows.Forms.GroupBox();
+            this.lblBookEquipment = new System.Windows.Forms.Label();
             this.lblBookDays = new System.Windows.Forms.Label();
             this.lblBookAlue = new System.Windows.Forms.Label();
             this.lblBookAlueHead = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.lblBookPriceFullHead = new System.Windows.Forms.Label();
             this.lblBookPriceFull = new System.Windows.Forms.Label();
             this.btnBookAddResirvation = new System.Windows.Forms.Button();
-            this.lblBookEquipment = new System.Windows.Forms.Label();
             this.gbBookCottageData.SuspendLayout();
             this.gbBookCustomerData.SuspendLayout();
             this.gbBookServices.SuspendLayout();
@@ -112,6 +112,15 @@
             this.gbBookCottageData.TabIndex = 0;
             this.gbBookCottageData.TabStop = false;
             this.gbBookCottageData.Text = "Mökki tiedot";
+            // 
+            // lblBookEquipment
+            // 
+            this.lblBookEquipment.AutoSize = true;
+            this.lblBookEquipment.Location = new System.Drawing.Point(160, 25);
+            this.lblBookEquipment.Name = "lblBookEquipment";
+            this.lblBookEquipment.Size = new System.Drawing.Size(91, 13);
+            this.lblBookEquipment.TabIndex = 19;
+            this.lblBookEquipment.Text = "(Varustelu: kaikki)";
             // 
             // lblBookDays
             // 
@@ -324,7 +333,7 @@
             this.tbBookCustomerPostOffice.MaxLength = 45;
             this.tbBookCustomerPostOffice.Name = "tbBookCustomerPostOffice";
             this.tbBookCustomerPostOffice.Size = new System.Drawing.Size(116, 20);
-            this.tbBookCustomerPostOffice.TabIndex = 16;
+            this.tbBookCustomerPostOffice.TabIndex = 10;
             this.tbBookCustomerPostOffice.Leave += new System.EventHandler(this.tbBookCustomerPostOffice_Leave);
             // 
             // lblBookCustomerPostOfficeHead
@@ -351,7 +360,7 @@
             this.btnBookSearch.Location = new System.Drawing.Point(541, 20);
             this.btnBookSearch.Name = "btnBookSearch";
             this.btnBookSearch.Size = new System.Drawing.Size(90, 23);
-            this.btnBookSearch.TabIndex = 50;
+            this.btnBookSearch.TabIndex = 3;
             this.btnBookSearch.Text = "Hae";
             this.btnBookSearch.UseVisualStyleBackColor = true;
             this.btnBookSearch.Click += new System.EventHandler(this.btnBookSearch_Click);
@@ -373,7 +382,7 @@
             this.btnBookNext.Location = new System.Drawing.Point(585, 64);
             this.btnBookNext.Name = "btnBookNext";
             this.btnBookNext.Size = new System.Drawing.Size(46, 23);
-            this.btnBookNext.TabIndex = 29;
+            this.btnBookNext.TabIndex = 5;
             this.btnBookNext.Text = ">";
             this.btnBookNext.UseVisualStyleBackColor = true;
             this.btnBookNext.Visible = false;
@@ -385,7 +394,7 @@
             this.tbBookCustomerPhone.MaxLength = 15;
             this.tbBookCustomerPhone.Name = "tbBookCustomerPhone";
             this.tbBookCustomerPhone.Size = new System.Drawing.Size(148, 20);
-            this.tbBookCustomerPhone.TabIndex = 10;
+            this.tbBookCustomerPhone.TabIndex = 2;
             this.tbBookCustomerPhone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbBookCustomerEmail_KeyDown);
             this.tbBookCustomerPhone.Leave += new System.EventHandler(this.tbBookCustomerPhone_Leave);
             // 
@@ -395,7 +404,7 @@
             this.tbBookCustomerPostnumber.MaxLength = 5;
             this.tbBookCustomerPostnumber.Name = "tbBookCustomerPostnumber";
             this.tbBookCustomerPostnumber.Size = new System.Drawing.Size(66, 20);
-            this.tbBookCustomerPostnumber.TabIndex = 15;
+            this.tbBookCustomerPostnumber.TabIndex = 9;
             this.tbBookCustomerPostnumber.Leave += new System.EventHandler(this.tbBookCustomerPostnumber_Leave);
             // 
             // btnBookPrev
@@ -403,7 +412,7 @@
             this.btnBookPrev.Location = new System.Drawing.Point(503, 64);
             this.btnBookPrev.Name = "btnBookPrev";
             this.btnBookPrev.Size = new System.Drawing.Size(46, 23);
-            this.btnBookPrev.TabIndex = 28;
+            this.btnBookPrev.TabIndex = 4;
             this.btnBookPrev.Text = "<";
             this.btnBookPrev.UseVisualStyleBackColor = true;
             this.btnBookPrev.Visible = false;
@@ -415,7 +424,7 @@
             this.tbBookCustomerAddress.MaxLength = 40;
             this.tbBookCustomerAddress.Name = "tbBookCustomerAddress";
             this.tbBookCustomerAddress.Size = new System.Drawing.Size(221, 20);
-            this.tbBookCustomerAddress.TabIndex = 14;
+            this.tbBookCustomerAddress.TabIndex = 8;
             this.tbBookCustomerAddress.Leave += new System.EventHandler(this.tbBookCustomerAddress_Leave);
             // 
             // tbBookCustomerEmail
@@ -424,7 +433,7 @@
             this.tbBookCustomerEmail.MaxLength = 50;
             this.tbBookCustomerEmail.Name = "tbBookCustomerEmail";
             this.tbBookCustomerEmail.Size = new System.Drawing.Size(221, 20);
-            this.tbBookCustomerEmail.TabIndex = 9;
+            this.tbBookCustomerEmail.TabIndex = 1;
             this.tbBookCustomerEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbBookCustomerEmail_KeyDown);
             this.tbBookCustomerEmail.Leave += new System.EventHandler(this.tbBookCustomerEmail_Leave);
             // 
@@ -455,7 +464,7 @@
             this.tbBookCustomerLastname.MaxLength = 40;
             this.tbBookCustomerLastname.Name = "tbBookCustomerLastname";
             this.tbBookCustomerLastname.Size = new System.Drawing.Size(258, 20);
-            this.tbBookCustomerLastname.TabIndex = 13;
+            this.tbBookCustomerLastname.TabIndex = 7;
             this.tbBookCustomerLastname.Leave += new System.EventHandler(this.tbBookCustomerLastname_Leave);
             // 
             // tbBookCustomerName
@@ -464,7 +473,7 @@
             this.tbBookCustomerName.MaxLength = 20;
             this.tbBookCustomerName.Name = "tbBookCustomerName";
             this.tbBookCustomerName.Size = new System.Drawing.Size(221, 20);
-            this.tbBookCustomerName.TabIndex = 12;
+            this.tbBookCustomerName.TabIndex = 6;
             this.tbBookCustomerName.Leave += new System.EventHandler(this.tbBookCustomerName_Leave);
             // 
             // lblBookCustomerPostnumber
@@ -543,7 +552,7 @@
             this.dgvBookServices.Name = "dgvBookServices";
             this.dgvBookServices.RowHeadersVisible = false;
             this.dgvBookServices.Size = new System.Drawing.Size(636, 159);
-            this.dgvBookServices.TabIndex = 14;
+            this.dgvBookServices.TabIndex = 11;
             this.dgvBookServices.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookServices_CellEndEdit);
             // 
             // lblBookServicePrice
@@ -591,19 +600,10 @@
             this.btnBookAddResirvation.Location = new System.Drawing.Point(501, 520);
             this.btnBookAddResirvation.Name = "btnBookAddResirvation";
             this.btnBookAddResirvation.Size = new System.Drawing.Size(161, 54);
-            this.btnBookAddResirvation.TabIndex = 5;
+            this.btnBookAddResirvation.TabIndex = 12;
             this.btnBookAddResirvation.Text = "Tee Varaus";
             this.btnBookAddResirvation.UseVisualStyleBackColor = true;
             this.btnBookAddResirvation.Click += new System.EventHandler(this.btnBookAddResirvation_Click);
-            // 
-            // lblBookEquipment
-            // 
-            this.lblBookEquipment.AutoSize = true;
-            this.lblBookEquipment.Location = new System.Drawing.Point(160, 25);
-            this.lblBookEquipment.Name = "lblBookEquipment";
-            this.lblBookEquipment.Size = new System.Drawing.Size(91, 13);
-            this.lblBookEquipment.TabIndex = 19;
-            this.lblBookEquipment.Text = "(Varustelu: kaikki)";
             // 
             // Booking
             // 

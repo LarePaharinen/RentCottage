@@ -68,24 +68,24 @@
             this.tbRegionModifyRegionName.Location = new System.Drawing.Point(124, 29);
             this.tbRegionModifyRegionName.Name = "tbRegionModifyRegionName";
             this.tbRegionModifyRegionName.Size = new System.Drawing.Size(130, 20);
-            this.tbRegionModifyRegionName.TabIndex = 3;
+            this.tbRegionModifyRegionName.TabIndex = 0;
             // 
             // btnRegionModifyModify
             // 
-            this.btnRegionModifyModify.Location = new System.Drawing.Point(179, 64);
+            this.btnRegionModifyModify.Location = new System.Drawing.Point(90, 64);
             this.btnRegionModifyModify.Name = "btnRegionModifyModify";
-            this.btnRegionModifyModify.Size = new System.Drawing.Size(75, 23);
-            this.btnRegionModifyModify.TabIndex = 4;
-            this.btnRegionModifyModify.Text = "Muokkaa";
+            this.btnRegionModifyModify.Size = new System.Drawing.Size(83, 23);
+            this.btnRegionModifyModify.TabIndex = 1;
+            this.btnRegionModifyModify.Text = "Tallenna";
             this.btnRegionModifyModify.UseVisualStyleBackColor = true;
             this.btnRegionModifyModify.Click += new System.EventHandler(this.btnRegionModifyModify_Click);
             // 
             // btnRegionModifyCancel
             // 
-            this.btnRegionModifyCancel.Location = new System.Drawing.Point(98, 64);
+            this.btnRegionModifyCancel.Location = new System.Drawing.Point(179, 64);
             this.btnRegionModifyCancel.Name = "btnRegionModifyCancel";
             this.btnRegionModifyCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnRegionModifyCancel.TabIndex = 5;
+            this.btnRegionModifyCancel.TabIndex = 2;
             this.btnRegionModifyCancel.Text = "Peruuta";
             this.btnRegionModifyCancel.UseVisualStyleBackColor = true;
             this.btnRegionModifyCancel.Click += new System.EventHandler(this.btnRegionModifyCancel_Click);

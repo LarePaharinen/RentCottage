@@ -11,7 +11,7 @@ namespace RentCottage.Code
 {
     public class RegionUtils
     {
-        public static void PopulateCBRegion(ComboBox comboBox)
+        public static void populateCBRegion(ComboBox comboBox)
         {
             string query = "SELECT * FROM toimintaalue";
             DataTable table = new DataTable();
@@ -22,7 +22,7 @@ namespace RentCottage.Code
         }
 
         //Query database on a region name, and return it's index
-        public static int RegionNameToIndex(string region)
+        public static int regionNameToIndex(string region)
         {
             int index = 0;
             try
@@ -50,7 +50,7 @@ namespace RentCottage.Code
 
 
         //Query databe on a region index, return it's name in string
-        public static string RegionIndexToName(int index)
+        public static string regionIndexToName(int index)
         {
             string region = "Haku ei onnistunut";
             try
