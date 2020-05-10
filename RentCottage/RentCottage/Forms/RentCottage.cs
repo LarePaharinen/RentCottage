@@ -601,17 +601,17 @@ namespace RentCottage
         {
             ConnectionUtils.openConnection();
             string query = "SELECT l.lasku_id, v.varaus_id, a.asiakas_id, CONCAT(a.etunimi, ' ', a.sukunimi) " +
-                            ", a.lahiosoite, a.puhelinnro, a.email, l.summa, v.vahvistus_pvm " +
-                            "FROM lasku l " +
-                            "JOIN varaus v ON l.varaus_id = v.varaus_id " +
-                            "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
-                            "WHERE l.lasku_id LIKE '%" + txtboxBillingInvoiceID.Text + "%' " +
-                            "AND v.varaus_id LIKE '%" + txtboxBillingOrderID.Text + "%' " +
-                            "AND a.asiakas_id LIKE '%" + txtboxBillingCustomerID.Text + "%' " +
-                            "AND a.etunimi LIKE '%" + txtboxBillingSurname.Text + "%' " +
-                            "AND a.sukunimi LIKE '%" + txtboxBillingLastname.Text + "%' " +
-                            "AND a.email LIKE '%" + txtboxBillingEmail.Text + "%' " +
-                            "AND a.puhelinnro LIKE '%" + txtboxBillingPhone.Text + "%' ";
+                ", a.lahiosoite, a.puhelinnro, a.email, l.summa, v.vahvistus_pvm " +
+                "FROM lasku l " +
+                "JOIN varaus v ON l.varaus_id = v.varaus_id " +
+                "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
+                "WHERE l.lasku_id LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingInvoiceID.Text, 11) + "%' " +
+                "AND v.varaus_id LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingOrderID.Text, 11) + "%' " +
+                "AND a.asiakas_id LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingCustomerID.Text, 11) + "%' " +
+                "AND a.etunimi LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingSurname.Text, 20) + "%' " +
+                "AND a.sukunimi LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingLastname.Text, 40) + "%' " +
+                "AND a.email LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingEmail.Text, 50) + "%' " +
+                "AND a.puhelinnro LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingPhone.Text, 15) + "%' ";
             if (cbBillingPaid.SelectedIndex == 0)
                 query += "AND v.vahvistus_pvm IS NOT NULL ORDER BY l.lasku_id;";
             else if (cbBillingPaid.SelectedIndex == 1)

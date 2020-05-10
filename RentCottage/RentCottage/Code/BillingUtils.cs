@@ -43,13 +43,6 @@ namespace RentCottage
             ConnectionUtils.openConnection();
             string fileSaveLocation = Path.GetDirectoryName(Application.ExecutablePath) + "\\invoice.pdf"; //Next to .exe file
 
-            ////varaus_id for simplifying queries
-            //string query = "SELECT varaus_id " +
-            //        "FROM lasku " +
-            //        "WHERE lasku_id = " + lasku_id + ";";
-            //MySqlCommand cmd = new MySqlCommand(query, ConnectionUtils.connection);
-            //int varaus_id = Convert.ToInt32(cmd.ExecuteScalar());
-
             //Customer name
             string query = "SELECT CONCAT(a.etunimi, ' ', a.sukunimi) AS nimi " +
                 "FROM lasku l " +
@@ -329,7 +322,7 @@ namespace RentCottage
             return summa;
         }
 
-        //Updates the 'vahvistus_pvm' field of varaus
+        //Updates the 'vahvistus_pvm' field of varaus and 'maksettu' field of lasku
         public static void setPaymentState(int lasku_id, string paymentDate)
         {
             ConnectionUtils.openConnection();
@@ -344,6 +337,22 @@ namespace RentCottage
             query = "START TRANSACTION; " +
                     "UPDATE varaus " +
                     "SET vahvistus_pvm = " + paymentDate + " " +
+                    "WHERE varaus_id = " + varaus_id + "; " +
+                    "COMMIT;";
+            command = new MySqlCommand(query, ConnectionUtils.connection);
+            command.ExecuteNonQuery();
+
+            //Update the state of payment
+            bool isPaid;
+            if (paymentDate.Equals("NULL"))
+            {
+                isPaid = false;
+            }
+            else
+                isPaid = true;
+            query = "START TRANSACTION; " +
+                    "UPDATE lasku " +
+                    "SET maksettu = " + isPaid + " " +
                     "WHERE varaus_id = " + varaus_id + "; " +
                     "COMMIT;";
             command = new MySqlCommand(query, ConnectionUtils.connection);
