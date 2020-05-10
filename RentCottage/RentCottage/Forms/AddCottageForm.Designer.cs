@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbAddCottageEquipment = new System.Windows.Forms.TextBox();
             this.tbAddCottageStreet = new System.Windows.Forms.TextBox();
             this.tbAddCottageName = new System.Windows.Forms.TextBox();
             this.tbAddCottagePostNum = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.nudAddCottagePrice = new System.Windows.Forms.NumericUpDown();
             this.nudAddCottageCapacity = new System.Windows.Forms.NumericUpDown();
+            this.cbAddCottageEquipment = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudAddCottagePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAddCottageCapacity)).BeginInit();
             this.SuspendLayout();
@@ -104,14 +104,6 @@
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Postinumero:";
-            // 
-            // tbAddCottageEquipment
-            // 
-            this.tbAddCottageEquipment.Location = new System.Drawing.Point(91, 174);
-            this.tbAddCottageEquipment.MaxLength = 100;
-            this.tbAddCottageEquipment.Name = "tbAddCottageEquipment";
-            this.tbAddCottageEquipment.Size = new System.Drawing.Size(209, 20);
-            this.tbAddCottageEquipment.TabIndex = 7;
             // 
             // tbAddCottageStreet
             // 
@@ -254,11 +246,25 @@
             0,
             0});
             // 
+            // cbAddCottageEquipment
+            // 
+            this.cbAddCottageEquipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAddCottageEquipment.FormattingEnabled = true;
+            this.cbAddCottageEquipment.Items.AddRange(new object[] {
+            "Hyvä",
+            "Keskiverto",
+            "Huono"});
+            this.cbAddCottageEquipment.Location = new System.Drawing.Point(91, 174);
+            this.cbAddCottageEquipment.Name = "cbAddCottageEquipment";
+            this.cbAddCottageEquipment.Size = new System.Drawing.Size(209, 21);
+            this.cbAddCottageEquipment.TabIndex = 33;
+            // 
             // AddCottageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 360);
+            this.Controls.Add(this.cbAddCottageEquipment);
             this.Controls.Add(this.nudAddCottagePrice);
             this.Controls.Add(this.nudAddCottageCapacity);
             this.Controls.Add(this.label9);
@@ -274,7 +280,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbAddCottageEquipment);
             this.Controls.Add(this.tbAddCottageStreet);
             this.Controls.Add(this.tbAddCottageName);
             this.Controls.Add(this.tbAddCottagePostNum);
@@ -297,7 +302,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbAddCottageEquipment;
         private System.Windows.Forms.TextBox tbAddCottageStreet;
         private System.Windows.Forms.TextBox tbAddCottageName;
         private System.Windows.Forms.TextBox tbAddCottagePostNum;
@@ -311,5 +315,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown nudAddCottagePrice;
         private System.Windows.Forms.NumericUpDown nudAddCottageCapacity;
+        private System.Windows.Forms.ComboBox cbAddCottageEquipment;
     }
 }
