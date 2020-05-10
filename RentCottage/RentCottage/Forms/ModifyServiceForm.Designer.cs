@@ -219,6 +219,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ModifyServiceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa palvelua";
             ((System.ComponentModel.ISupportInitialize)(this.nudModifyServicePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudModifyServiceVAT)).EndInit();

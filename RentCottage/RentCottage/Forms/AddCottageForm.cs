@@ -18,6 +18,7 @@ namespace RentCottage.Forms
         {
             InitializeComponent();
             RegionUtils.populateCBRegion(cbAddCottageRegion);
+            cbAddCottageEquipment.Text = "Hyvä";
         }
 
         private void btnAddCottageAdd_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace RentCottage.Forms
                     TextBoxUtils.modifyInput(tbAddCottageStreet.Text, 45) + "','" +
                     TextBoxUtils.modifyInput(tbAddCottageDescription.Text, 500) + "'," +
                     (int)nudAddCottageCapacity.Value + ",'" +
-                    TextBoxUtils.modifyInput(tbAddCottageEquipment.Text, 100) + "'," +
+                    TextBoxUtils.modifyInput(cbAddCottageEquipment.Text, 100) + "'," +
                     (double)nudAddCottagePrice.Value + "); " +
                     "COMMIT;";
                 try

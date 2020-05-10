@@ -34,7 +34,7 @@ namespace RentCottage.Forms
             tbModifyCottageName.Text = c.Name;
             tbModifyCottageStreet.Text = c.Address;
             nudModifyCottageCapacity.Value = c.Capacity;
-            tbModifyCottageEquipment.Text = c.Equipment;
+            cbModifyCottageEquipment.Text = c.Equipment;
             nudModifyCottagePrice.Value = (int)c.Price;
             tbModifyCottageDescription.Text = c.Description;
         }
@@ -58,7 +58,7 @@ namespace RentCottage.Forms
                     "',katuosoite='" + TextBoxUtils.modifyInput(tbModifyCottageStreet.Text, 45) + "'," +
                     "kuvaus='" + TextBoxUtils.modifyInput(tbModifyCottageDescription.Text, 500) +
                     "',henkilomaara=" + nudModifyCottageCapacity.Value +
-                    " ,varustelu='" + TextBoxUtils.modifyInput(tbModifyCottageEquipment.Text, 100) +
+                    " ,varustelu='" + TextBoxUtils.modifyInput(cbModifyCottageEquipment.Text, 100) +
                     "', hinta=" + Convert.ToDouble(nudModifyCottagePrice.Value) + " " +
                     "WHERE mokki_id=" + Convert.ToInt32(lblModifyCottageID.Text) + "; " +
                     "COMMIT;";

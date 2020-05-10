@@ -199,7 +199,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddServiceForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lisää palvelu";
             ((System.ComponentModel.ISupportInitialize)(this.nudAddServiceVAT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAddServicePrice)).EndInit();

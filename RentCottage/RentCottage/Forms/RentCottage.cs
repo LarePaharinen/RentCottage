@@ -378,17 +378,6 @@ namespace RentCottage
 
         private void btnSearchHae_Click(object sender, EventArgs e)
         {
-            if (dtpSearchTO.Value.Date <= dtpSearchFROM.Value.Date) // Date check
-            {
-                MessageBox.Show("Majoituksen alkupäivä ei voi olla sama tai myöhemmin kun viimeinen majoituspäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dtpSearchTO.Value.Date < DateTime.Now.Date)
-            {
-                MessageBox.Show("Majoituksen alkupäivä ei voi olla aiemmin kun tämän hetkinen päivämäärä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             DataTable data = new DataTable();
 
             string query = "SELECT m.mokki_id, t.nimi as Toimintaalue, m.postinro as Postinumero, m.mokkinimi as 'Nimi', m.katuosoite, " +
@@ -477,7 +466,21 @@ namespace RentCottage
 
         private void dtpSearchFROM_ValueChanged(object sender, EventArgs e) // 'Date to' change close to 'date to'
         {
+            if (dtpSearchFROM.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Majoituksen alkupäivä ei voi olla aiemmin kun tämän hetkinen päivämäärä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpSearchFROM.Value = DateTime.Now.Date;
+            }
             dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
+        }
+
+        private void dtpSearchTO_ValueChanged(object sender, EventArgs e)
+        {
+            if(dtpSearchTO.Value <= dtpSearchFROM.Value)
+            {
+                MessageBox.Show("Majoituksen loppupäivä ei voi olla sama tai aiemmin kun majoituksen alkupäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
+            }
         }
 
         private void dgSearchTable_SelectionChanged(object sender, EventArgs e) // Set button active when choose cottage
@@ -1075,7 +1078,5 @@ namespace RentCottage
                 MessageBox.Show("Odottamaton virhe. Laskun luonti ei onnistunut.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }

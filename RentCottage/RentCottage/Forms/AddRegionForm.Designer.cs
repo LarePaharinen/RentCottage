@@ -80,6 +80,7 @@
             this.Controls.Add(this.tbRegionAddRegionName);
             this.Controls.Add(this.label1);
             this.Name = "AddRegionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lisää toiminta-alue";
             this.ResumeLayout(false);
             this.PerformLayout();

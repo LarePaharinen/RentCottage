@@ -102,6 +102,7 @@
             this.Controls.Add(this.lblRegionModifyRegionID);
             this.Controls.Add(this.label1);
             this.Name = "ModifyRegionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa toiminta-aluetta";
             this.ResumeLayout(false);
             this.PerformLayout();
