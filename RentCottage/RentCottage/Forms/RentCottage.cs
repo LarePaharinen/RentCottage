@@ -1078,5 +1078,7 @@ namespace RentCottage
                 MessageBox.Show("Odottamaton virhe. Laskun luonti ei onnistunut.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }
