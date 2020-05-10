@@ -280,6 +280,7 @@
             this.Controls.Add(this.tbAddCottagePostNum);
             this.Controls.Add(this.label1);
             this.Name = "AddCottageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lisää mökki";
             ((System.ComponentModel.ISupportInitialize)(this.nudAddCottagePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAddCottageCapacity)).EndInit();

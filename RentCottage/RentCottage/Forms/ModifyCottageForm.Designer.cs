@@ -281,6 +281,7 @@
             this.Controls.Add(this.tbModifyCottagePostNum);
             this.Controls.Add(this.label1);
             this.Name = "ModifyCottageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa mökkiä";
             ((System.ComponentModel.ISupportInitialize)(this.nudModifyCottageCapacity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudModifyCottagePrice)).EndInit();
