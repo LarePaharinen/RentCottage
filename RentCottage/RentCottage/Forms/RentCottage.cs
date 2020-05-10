@@ -583,6 +583,7 @@ namespace RentCottage
         //Executes a standard search query at "laskut" tab
         private void populateDGVBilling()
         {
+            //Varmuuskopiokommentti
             ConnectionUtils.openConnection();
             string query = "SELECT l.lasku_id, v.varaus_id, a.asiakas_id, CONCAT(a.etunimi, ' ', a.sukunimi) " +
                             ", a.lahiosoite, a.puhelinnro, a.email, l.summa, v.vahvistus_pvm " +
