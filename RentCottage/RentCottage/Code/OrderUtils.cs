@@ -51,9 +51,9 @@ namespace RentCottage.Code
             }
         }
 
-        public static bool checkCottageBookDateTest(int mokki_id, int varaus_id, string dateFrom, string DateTo)
+        public static bool checkOrderCottageBookDate(int mokki_id, int varaus_id, string dateFrom, string DateTo)
         {
-            ConnectionUtils.openConnection(); // Check is cottage free at the indicated time
+            ConnectionUtils.openConnection(); // Check is the same cottage in other orders free at the indicated time
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +
                 "WHERE mokki_id = " + mokki_id + " " +
                 "AND mokki_id IN " +
