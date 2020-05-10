@@ -64,7 +64,7 @@ namespace RentCottage
                         string query1 = "START TRANSACTION; " +
                             "UPDATE posti " +
                             "SET postinro='" + postalList[0] + "', toimipaikka='"
-                            + postOffice + "' WHERE postinro =" + postalList[0] + "; " +
+                            + postOffice + "' WHERE postinro ='" + postalList[0] + "'; " +
                             "COMMIT;";
                         MySqlCommand command1 = new MySqlCommand(query1, ConnectionUtils.connection);
                         command1.ExecuteNonQuery();

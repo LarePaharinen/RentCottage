@@ -75,7 +75,7 @@
             this.lblRegion = new System.Windows.Forms.Label();
             this.tCustomerControl = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCustomerShowAll = new System.Windows.Forms.Button();
             this.btnCustomerModify = new System.Windows.Forms.Button();
             this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.btnCustomerDeleteInfo = new System.Windows.Forms.Button();
@@ -93,8 +93,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tbCustomerPostal = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblCustomerID = new System.Windows.Forms.Label();
             this.tServiceControl = new System.Windows.Forms.TabPage();
             this.tcServiceSub = new System.Windows.Forms.TabControl();
             this.stCottageControl = new System.Windows.Forms.TabPage();
@@ -803,7 +801,7 @@
             // 
             this.tCustomerControl.BackColor = System.Drawing.Color.Transparent;
             this.tCustomerControl.Controls.Add(this.label18);
-            this.tCustomerControl.Controls.Add(this.button1);
+            this.tCustomerControl.Controls.Add(this.btnCustomerShowAll);
             this.tCustomerControl.Controls.Add(this.btnCustomerModify);
             this.tCustomerControl.Controls.Add(this.dgvCustomer);
             this.tCustomerControl.Controls.Add(this.btnCustomerDeleteInfo);
@@ -821,8 +819,6 @@
             this.tCustomerControl.Controls.Add(this.label19);
             this.tCustomerControl.Controls.Add(this.tbCustomerPostal);
             this.tCustomerControl.Controls.Add(this.label16);
-            this.tCustomerControl.Controls.Add(this.label15);
-            this.tCustomerControl.Controls.Add(this.lblCustomerID);
             this.tCustomerControl.Location = new System.Drawing.Point(4, 25);
             this.tCustomerControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tCustomerControl.Name = "tCustomerControl";
@@ -843,15 +839,16 @@
             this.label18.Size = new System.Drawing.Size(393, 1);
             this.label18.TabIndex = 59;
             // 
-            // button1
+            // btnCustomerShowAll
             // 
-            this.button1.Location = new System.Drawing.Point(85, 268);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 37);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Näytä kaikki";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCustomerShowAll.Location = new System.Drawing.Point(85, 268);
+            this.btnCustomerShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCustomerShowAll.Name = "btnCustomerShowAll";
+            this.btnCustomerShowAll.Size = new System.Drawing.Size(133, 37);
+            this.btnCustomerShowAll.TabIndex = 7;
+            this.btnCustomerShowAll.Text = "Näytä kaikki";
+            this.btnCustomerShowAll.UseVisualStyleBackColor = true;
+            this.btnCustomerShowAll.Click += new System.EventHandler(this.btnCustomerShowAll_Click);
             // 
             // btnCustomerModify
             // 
@@ -1033,26 +1030,6 @@
             this.label16.Size = new System.Drawing.Size(86, 16);
             this.label16.TabIndex = 2;
             this.label16.Text = "Postinumero:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(69, 38);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 16);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Asiakas ID:";
-            // 
-            // lblCustomerID
-            // 
-            this.lblCustomerID.AutoSize = true;
-            this.lblCustomerID.Location = new System.Drawing.Point(159, 38);
-            this.lblCustomerID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.Size = new System.Drawing.Size(36, 16);
-            this.lblCustomerID.TabIndex = 0;
-            this.lblCustomerID.Text = "0000";
             // 
             // tServiceControl
             // 
@@ -2036,8 +2013,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tbCustomerPostal;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lblCustomerID;
         private System.Windows.Forms.DataGridView dgvCustomer;
         private System.Windows.Forms.Button btnCustomerDeleteInfo;
         private System.Windows.Forms.Button btnCustomerAdd;
@@ -2108,7 +2083,7 @@
         private System.Windows.Forms.Button btnBillingShowAll;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCustomerShowAll;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnOrderCreateInvoice;
         private System.Windows.Forms.Label label1;

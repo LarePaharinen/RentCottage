@@ -231,13 +231,7 @@ namespace RentCottage
 
         public void populateDGVCustomer() //get data from asiakas-table to datagridview
         {
-            string query = "SELECT * FROM asiakas " +
-                "WHERE postinro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPostal.Text,tbCustomerPostal.MaxLength) + "%' " +
-                "AND etunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerFName.Text,tbCustomerFName.MaxLength) + "%' " +
-                "AND sukunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerLName.Text,tbCustomerLName.MaxLength) + "%' " +
-                "AND lahiosoite LIKE '%" + TextBoxUtils.modifyInput(tbCustomerAddress.Text,tbCustomerAddress.MaxLength) + "%' " +
-                "AND email LIKE '%" + TextBoxUtils.modifyInput(tbCustomerEmail.Text,tbCustomerEmail.MaxLength) + "%' " +
-                "AND puhelinnro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPhone.Text,tbCustomerPhone.MaxLength) + "%';";
+            string query = "SELECT * FROM asiakas;";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
@@ -252,6 +246,28 @@ namespace RentCottage
         }
 
         private void btnCustomerSearch_Click(object sender, EventArgs e) //
+        {
+            string query = "SELECT * FROM asiakas " +
+                "WHERE postinro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength) + "%' " +
+                "AND etunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength) + "%' " +
+                "AND sukunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength) + "%' " +
+                "AND lahiosoite LIKE '%" + TextBoxUtils.modifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength) + "%' " +
+                "AND email LIKE '%" + TextBoxUtils.modifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength) + "%' " +
+                "AND puhelinnro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength) + "%';";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
+            adapter.Fill(table);
+            dgvCustomer.DataSource = table;
+            dgvCustomer.Columns[0].HeaderText = "Asiakas ID";
+            dgvCustomer.Columns[1].HeaderText = "Postinumero";
+            dgvCustomer.Columns[2].HeaderText = "Etunimi";
+            dgvCustomer.Columns[3].HeaderText = "Sukunimi";
+            dgvCustomer.Columns[4].HeaderText = "Lähiosoite";
+            dgvCustomer.Columns[5].HeaderText = "Sähköposti";
+            dgvCustomer.Columns[6].HeaderText = "Puhelinnumero";
+        }
+
+        private void btnCustomerShowAll_Click(object sender, EventArgs e)
         {
             populateDGVCustomer();
         }
