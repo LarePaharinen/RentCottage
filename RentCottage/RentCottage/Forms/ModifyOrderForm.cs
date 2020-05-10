@@ -157,6 +157,7 @@ namespace RentCottage
             if (dtpOrder_ModifyEndDate.Value.Date <= dtpOrder_ModifyStartDate.Value.Date) // Date check
             {
                 MessageBox.Show("Majoituksen loppupäivä ei voi olla samaa tai aiemmin kun majoituksen alkupäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpOrder_ModifyEndDate.Value = dtpOrder_ModifyStartDate.Value.AddDays(1);
                 return;
             }
         }
