@@ -57,6 +57,7 @@ namespace RentCottage
             dgvRegion.DataSource = table;
             dgvRegion.Columns[0].HeaderText = "Toiminta-Alue ID";
             dgvRegion.Columns[1].HeaderText = "Toiminta-alueen nimi";
+            dgvRegion.Sort(dgvRegion.Columns[0],ListSortDirection.Ascending);
 
         }
 
@@ -1049,6 +1050,7 @@ namespace RentCottage
             }
             else if (tcMain.SelectedTab.Name == "tServiceControl")
             {
+                populateDGVCottage();
                 populateDGVService();
                 RegionUtils.populateCBRegion(cbCottageRegions);
                 RegionUtils.populateCBRegion(cbServiceRegion);

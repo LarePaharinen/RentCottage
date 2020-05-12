@@ -13,6 +13,7 @@ namespace RentCottage.Code
     {
         public static void populateCBRegion(ComboBox comboBox)
         {
+            //Fills a combobox-component with all availeable regions
             string query = "SELECT * FROM toimintaalue";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
