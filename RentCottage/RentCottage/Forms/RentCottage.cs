@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using MySql.Data;
-using System.Globalization;
 using RentCottage.Forms;
 using RentCottage.Code;
-using Renci.SshNet.Messages;
 
 namespace RentCottage
 {
@@ -681,7 +674,6 @@ namespace RentCottage
             PopulateDGVRegion();
         }
 
-
         private void DeleteSelectedRegion(object sender, EventArgs e)
         {
             //Deletes selected region from database
@@ -759,7 +751,6 @@ namespace RentCottage
                 MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
             }
         }
-
 
         public void PopulateDGVService()
         {
@@ -1015,9 +1006,6 @@ namespace RentCottage
                 MessageBox.Show("Virhe haun tekemisessä. Tarkista tiedot ja yritä uudelleen. Lisätietoja: " + ex.Message);
             }
         }
-
-
-        
 
         private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
