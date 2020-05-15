@@ -19,7 +19,7 @@ namespace RentCottage
             InitializeComponent();
         }
 
-        public ModifyCustomerForm(Customer c)
+        public ModifyCustomerForm(Customer c) //initialize the inputs for textboxes using existing data
         {
             InitializeComponent();
             lblCustomerIDMod.Text = c.CustomerID.ToString();
@@ -37,7 +37,7 @@ namespace RentCottage
             this.Close();
         }
 
-        private void btnModify_Click(object sender, EventArgs e)
+        private void btnModify_Click(object sender, EventArgs e) //modifies the customer's data according to the textbox inputs
         {
             DialogResult res = MessageBox.Show("Haluatko varmasti muuttaa valitun asiakkaan tietoja?", "Muuta asiakkaan tietoja", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
@@ -56,41 +56,6 @@ namespace RentCottage
                 ConnectionUtils.CloseConnection();
                 this.Close();
             }
-        }
-
-        private void tbCustomerFNameMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerFNameMod.Text = TextBoxUtils.modifyInput(tbCustomerFNameMod.Text, tbCustomerFNameMod.MaxLength);
-        }
-
-        private void tbCustomerLNameMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerLNameMod.Text = TextBoxUtils.modifyInput(tbCustomerLNameMod.Text, tbCustomerLNameMod.MaxLength);
-        }
-
-        private void tbCustomerAddressMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerAddressMod.Text = TextBoxUtils.modifyInput(tbCustomerAddressMod.Text, tbCustomerAddressMod.MaxLength);
-        }
-
-        private void tbCustomerPostalMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerPostalMod.Text = TextBoxUtils.modifyInput(tbCustomerPostalMod.Text, tbCustomerPostalMod.MaxLength);
-        }
-
-        private void tbCustomerPostOfficeMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerPostOfficeMod.Text = TextBoxUtils.modifyInput(tbCustomerPostOfficeMod.Text, tbCustomerPostOfficeMod.MaxLength);
-        }
-
-        private void tbCustomerEmailMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerEmailMod.Text = TextBoxUtils.modifyInput(tbCustomerEmailMod.Text, tbCustomerEmailMod.MaxLength);
-        }
-
-        private void tbCustomerPhoneMod_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerPhoneMod.Text = TextBoxUtils.modifyInput(tbCustomerPhoneMod.Text, tbCustomerPhoneMod.MaxLength);
         }
     }
 }

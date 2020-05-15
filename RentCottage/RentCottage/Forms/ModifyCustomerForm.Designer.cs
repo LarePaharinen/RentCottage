@@ -266,7 +266,6 @@
             this.tbCustomerPhoneMod.Name = "tbCustomerPhoneMod";
             this.tbCustomerPhoneMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPhoneMod.TabIndex = 7;
-            this.tbCustomerPhoneMod.Leave += new System.EventHandler(this.tbCustomerPhoneMod_Leave);
             // 
             // label23
             // 
@@ -284,7 +283,6 @@
             this.tbCustomerEmailMod.Name = "tbCustomerEmailMod";
             this.tbCustomerEmailMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerEmailMod.TabIndex = 6;
-            this.tbCustomerEmailMod.Leave += new System.EventHandler(this.tbCustomerEmailMod_Leave);
             // 
             // label22
             // 
@@ -302,7 +300,6 @@
             this.tbCustomerAddressMod.Name = "tbCustomerAddressMod";
             this.tbCustomerAddressMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerAddressMod.TabIndex = 3;
-            this.tbCustomerAddressMod.Leave += new System.EventHandler(this.tbCustomerAddressMod_Leave);
             // 
             // label21
             // 
@@ -320,7 +317,6 @@
             this.tbCustomerLNameMod.Name = "tbCustomerLNameMod";
             this.tbCustomerLNameMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerLNameMod.TabIndex = 2;
-            this.tbCustomerLNameMod.Leave += new System.EventHandler(this.tbCustomerLNameMod_Leave);
             // 
             // tbCustomerFNameMod
             // 
@@ -329,7 +325,6 @@
             this.tbCustomerFNameMod.Name = "tbCustomerFNameMod";
             this.tbCustomerFNameMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerFNameMod.TabIndex = 1;
-            this.tbCustomerFNameMod.Leave += new System.EventHandler(this.tbCustomerFNameMod_Leave);
             // 
             // label20
             // 
@@ -356,7 +351,6 @@
             this.tbCustomerPostalMod.Name = "tbCustomerPostalMod";
             this.tbCustomerPostalMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPostalMod.TabIndex = 4;
-            this.tbCustomerPostalMod.Leave += new System.EventHandler(this.tbCustomerPostalMod_Leave);
             // 
             // label16
             // 
@@ -402,7 +396,6 @@
             this.tbCustomerPostOfficeMod.Name = "tbCustomerPostOfficeMod";
             this.tbCustomerPostOfficeMod.Size = new System.Drawing.Size(131, 20);
             this.tbCustomerPostOfficeMod.TabIndex = 5;
-            this.tbCustomerPostOfficeMod.Leave += new System.EventHandler(this.tbCustomerPostOfficeMod_Leave);
             // 
             // label1
             // 
@@ -436,7 +429,7 @@
             this.Controls.Add(this.tbCustomerPostalMod);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnModify);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifyCustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Muokkaa asiakkaan tietoja";

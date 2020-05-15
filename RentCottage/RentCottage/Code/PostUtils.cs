@@ -14,7 +14,7 @@ namespace RentCottage
     public class PostUtils
     {
 
-        public static string GetPostOffice(string postalCode)
+        public static string GetPostOffice(string postalCode) //returns the post office of the corresponding postal code
         {
             string postOffice = "";
             ConnectionUtils.OpenConnection();
@@ -32,7 +32,7 @@ namespace RentCottage
             return postOffice;
         }
 
-        public static void CheckPostal(string postalCode, string postOffice)
+        public static void CheckPostal(string postalCode, string postOffice) //function for handling posti-table -related details
         {
             //first we'll check whether the postal code already exists in the database
             ConnectionUtils.OpenConnection();

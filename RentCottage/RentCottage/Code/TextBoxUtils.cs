@@ -8,7 +8,7 @@ namespace RentCottage
 {
     public class TextBoxUtils
     {
-        public static string ModifyInput(string input, int maxLength)
+        public static string ModifyInput(string input, int maxLength) //modifies the textbox input in case it contains backslashes or apostrophes
         {
             string output0 = input.Replace("\\","");
             string output1 = output0.Replace("\'", "\\'");

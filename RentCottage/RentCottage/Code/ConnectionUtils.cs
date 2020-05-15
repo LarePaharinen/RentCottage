@@ -9,7 +9,7 @@ using System.Data;
 
 namespace RentCottage
 {
-    public class ConnectionUtils
+    public class ConnectionUtils //tools for opening/closing the connection to database
     {
         public static MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
 
