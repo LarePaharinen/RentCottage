@@ -24,7 +24,6 @@ namespace RentCottage
             InitializeComponent();
             dtpSearchFROM.Value = DateTime.Now;
             cmbListOrder.Text = "VARAUS ID";
-
         }
 
         private void RentCottage_Load(object sender, EventArgs e)
@@ -57,8 +56,7 @@ namespace RentCottage
             dgvRegion.DataSource = table;
             dgvRegion.Columns[0].HeaderText = "Toiminta-Alue ID";
             dgvRegion.Columns[1].HeaderText = "Toiminta-alueen nimi";
-            dgvRegion.Sort(dgvRegion.Columns[0],ListSortDirection.Ascending);
-
+            dgvRegion.Sort(dgvRegion.Columns[0], ListSortDirection.Ascending);
         }
 
         public void PopulateDGVOrder()
@@ -162,6 +160,7 @@ namespace RentCottage
         {
             PopulateDGVOrder();
         }
+
         private void dgOrder_SelectionChanged(object sender, EventArgs e) //If no row was selected can't make a changes
         {
             try
@@ -452,13 +451,15 @@ namespace RentCottage
             }
 
             ConnectionUtils.OpenConnection();
-            MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + dgSearchTable.CurrentRow.Cells[1].Value.ToString() + "'", ConnectionUtils.connection);
+            MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" +
+                dgSearchTable.CurrentRow.Cells[1].Value.ToString() + "'", ConnectionUtils.connection);
             int toimintaalueid = Convert.ToInt32(command.ExecuteScalar().ToString());
             // Make object to send on Booking window
             Cottage cottage = new Cottage(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), toimintaalueid,
                 dgSearchTable.CurrentRow.Cells[2].Value.ToString(), dgSearchTable.CurrentRow.Cells[3].Value.ToString(),
                 dgSearchTable.CurrentRow.Cells[4].Value.ToString(), dgSearchTable.CurrentRow.Cells[5].Value.ToString(),
-                Convert.ToInt32(dgSearchTable.CurrentRow.Cells[6].Value.ToString()), dgSearchTable.CurrentRow.Cells[7].Value.ToString(), Convert.ToDouble(dgSearchTable.CurrentRow.Cells[8].Value.ToString()));
+                Convert.ToInt32(dgSearchTable.CurrentRow.Cells[6].Value.ToString()), dgSearchTable.CurrentRow.Cells[7].Value.ToString(),
+                Convert.ToDouble(dgSearchTable.CurrentRow.Cells[8].Value.ToString()));
             ConnectionUtils.CloseConnection();
             NewBook newbook = new NewBook(cottage, dtpSearchFROM.Value.Date, dtpSearchTO.Value.Date);
             Booking booking = new Booking(newbook);
@@ -477,7 +478,7 @@ namespace RentCottage
 
         private void dtpSearchTO_ValueChanged(object sender, EventArgs e)
         {
-            if(dtpSearchTO.Value <= dtpSearchFROM.Value)
+            if (dtpSearchTO.Value <= dtpSearchFROM.Value)
             {
                 MessageBox.Show("Majoituksen loppupäivä ei voi olla sama tai aiemmin kun majoituksen alkupäivä.", "Väärä päivämäärä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dtpSearchTO.Value = dtpSearchFROM.Value.AddDays(+1);
@@ -497,7 +498,7 @@ namespace RentCottage
             }
         }
 
-        //All button events occurring on the "Laskut" tab.
+        ///<summary>All button events occurring on the "Laskut" tab.</summary>
         private void btnBilling_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -530,7 +531,7 @@ namespace RentCottage
                     dgvBilling.ClearSelection();
                     dgvBilling.CurrentCell = dgvBilling.Rows[selectedRow].Cells[0];
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Odottamaton virhe. Laskun maksutilanteen päivitys epäonnistui.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -563,6 +564,7 @@ namespace RentCottage
                 }
             }
 
+            //Show all invoices
             else if (btn == btnBillingShowAll)
             {
                 txtboxBillingCustomerID.Text = "";
@@ -577,7 +579,7 @@ namespace RentCottage
             }
         }
 
-        //Checks if the information of a selected row in Datagridview is available on "Laskut" tab. Restricts button press if not available
+        ///<summary>Checks if the information of a selected row in Datagridview is available on "Laskut" tab. Restricts button press if not available</summary>
         private void dgvBilling_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -597,7 +599,7 @@ namespace RentCottage
             }
         }
 
-        //Executes a standard search query at "laskut" tab
+        ///<summary>Executes a standard search query at "laskut" tab</summary>
         private void PopulateDGVBilling()
         {
             ConnectionUtils.OpenConnection();
@@ -636,7 +638,24 @@ namespace RentCottage
             ConnectionUtils.CloseConnection();
         }
 
-
+        ///<summary>Create a new bill for a reservation</summary>
+        private void btnOrderCreateInvoice_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Luodaanko valitulle varaukselle lasku?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    int varaus_id = Convert.ToInt32(dgOrder.SelectedCells[0].Value);
+                    BillingUtils.CreateInvoice(varaus_id);
+                    BillingUtils.RefreshDataGridView(dgvBilling);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Odottamaton virhe. Laskun luonti ei onnistunut.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void dgvRegion_SelectionChanged(object sender, EventArgs e)
         {
@@ -1061,26 +1080,5 @@ namespace RentCottage
             }
 
         }
-
-        //Create a new bill for a reservation
-        private void btnOrderCreateInvoice_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult result = MessageBox.Show("Luodaanko valitulle varaukselle lasku?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    int varaus_id = Convert.ToInt32(dgOrder.SelectedCells[0].Value);
-                    BillingUtils.CreateInvoice(varaus_id);
-                    BillingUtils.RefreshDataGridView(dgvBilling);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Odottamaton virhe. Laskun luonti ei onnistunut.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
     }
 }

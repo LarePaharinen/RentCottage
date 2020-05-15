@@ -1,10 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿//Tomi Heikkala
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Invoicer.Models;
 using Invoicer.Services;
@@ -17,7 +15,7 @@ namespace RentCottage
         public static string latestQuery;
         public static RentCottage rentCottage;
 
-        //Changes the tab to "laskut" and selects the row which has the parameter (varaus_id) reservation
+        ///<summary>Changes the tab to "laskut" and selects the row which has the parameter (varaus_id) reservation</summary>
         public static void GoToCreatedInvoice(int varaus_id)
         {
             rentCottage.tcMain.SelectedIndex = 5;
@@ -37,7 +35,7 @@ namespace RentCottage
             rentCottage.dgvBilling.CurrentCell = rentCottage.dgvBilling.Rows[rowIndex].Cells[0];
         }
 
-        //Creates invoice.pdf file with reservation details, saves it and opens it
+        ///<summary>Creates invoice.pdf file with reservation details, saves it and opens it</summary>
         public static void CreatePdfDocument(int lasku_id)
         {
             ConnectionUtils.OpenConnection();
@@ -123,7 +121,7 @@ namespace RentCottage
             ConnectionUtils.CloseConnection();
         }
 
-        //Returns a list containing names and prices of all reservation cottages and additional services
+        ///<summary>Returns a list containing names and prices of all reservation cottages and additional services</summary>
         private static List<ItemRow> GenerateItemsList(int lasku_id)
         {
             //Cottage name
@@ -227,7 +225,7 @@ namespace RentCottage
             return itemList;
         }
 
-        //Uses the latest search query to update the datagridview
+        ///<summary>Uses the latest search query to update the datagridview</summary>
         public static void RefreshDataGridView(DataGridView dgvBilling)
         {
             ConnectionUtils.OpenConnection();
@@ -238,7 +236,7 @@ namespace RentCottage
             ConnectionUtils.CloseConnection();
         }
 
-        //Creates a bill for a reservation and checks if there are existing bills for this reservation
+        ///<summary>Creates a bill for a reservation and checks if there are existing bills for this reservation</summary>
         public static void CreateInvoice(int varaus_id)
         {
             ConnectionUtils.OpenConnection();
@@ -286,7 +284,7 @@ namespace RentCottage
             ConnectionUtils.CloseConnection();
         }
 
-        //Calculates the total price for a reservation including additional services
+        ///<summary>Calculates the total price for a reservation including additional services</summary>
         private static double CalculateTotalPrice(int varaus_id)
         {
             //Let's check if there's additional services for the reservation
@@ -322,7 +320,7 @@ namespace RentCottage
             return summa;
         }
 
-        //Updates the 'vahvistus_pvm' field of varaus and 'maksettu' field of lasku
+        ///<summary>Updates the 'vahvistus_pvm' field of varaus and 'maksettu' field of lasku</summary>
         public static void SetPaymentState(int lasku_id, string paymentDate)
         {
             ConnectionUtils.OpenConnection();
@@ -360,7 +358,7 @@ namespace RentCottage
             ConnectionUtils.CloseConnection();
         }
 
-        //Deletes a bill
+        ///<summary>Deletes a bill</summary>
         public static void DeleteSelectedInvoice(int lasku_id)
         {
             ConnectionUtils.OpenConnection();
