@@ -246,7 +246,7 @@ namespace RentCottage
             dgvCustomer.Columns[6].HeaderText = "Puhelinnumero";
         }
 
-        private void btnCustomerSearch_Click(object sender, EventArgs e) //
+        private void btnCustomerSearch_Click(object sender, EventArgs e) //get data from asiakas-table to datagridview according to the search criteria
         {
             string query = "SELECT * FROM asiakas " +
                 "WHERE postinro LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength) + "%' " +
@@ -268,7 +268,7 @@ namespace RentCottage
             dgvCustomer.Columns[6].HeaderText = "Puhelinnumero";
         }
 
-        private void btnCustomerShowAll_Click(object sender, EventArgs e)
+        private void btnCustomerShowAll_Click(object sender, EventArgs e) //show all customers on datagridview
         {
             PopulateDGVCustomer();
         }
@@ -280,7 +280,7 @@ namespace RentCottage
             PopulateDGVCustomer();
         }
 
-        private void btnCustomerDeleteInfo_Click(object sender, EventArgs e)
+        private void btnCustomerDeleteInfo_Click(object sender, EventArgs e) //delete customer's identifying data from database
         {   //First, we need to check whether the customer has unpaid bills
             ConnectionUtils.OpenConnection();
             string query0 = "SELECT l.maksettu " +
@@ -998,36 +998,7 @@ namespace RentCottage
         }
 
 
-        //The following Leave-events check that there are no "illegal" apostrophes in textboxes
-        private void tbCustomerFName_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerFName.Text = TextBoxUtils.modifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength);
-        }
-
-        private void tbCustomerLName_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerLName.Text = TextBoxUtils.modifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength);
-        }
-
-        private void tbCustomerAddress_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerAddress.Text = TextBoxUtils.modifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength);
-        }
-
-        private void tbCustomerPostal_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerPostal.Text = TextBoxUtils.modifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength);
-        }
-
-        private void tbCustomerEmail_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerEmail.Text = TextBoxUtils.modifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength);
-        }
-
-        private void tbCustomerPhone_Leave(object sender, EventArgs e)
-        {
-            //tbCustomerPhone.Text = TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength);
-        }
+        
 
         private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
         {
