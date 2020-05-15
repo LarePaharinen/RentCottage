@@ -40,21 +40,21 @@ namespace RentCottage.Forms
                     //Updates regions information in the database. Gets data from form components, region is uniquely identified by regionID, which can't be modified
                     string query = "START TRANSACTION; " +
                     "UPDATE toimintaalue " +
-                    "SET nimi='" + TextBoxUtils.modifyInput(tbRegionModifyRegionName.Text, 40) + "' " +
-                    "WHERE toimintaalue_id=" + Convert.ToInt32(TextBoxUtils.modifyInput(lblRegionModifyRegionID.Text, 11)) + "; " +
+                    "SET nimi='" + TextBoxUtils.ModifyInput(tbRegionModifyRegionName.Text, 40) + "' " +
+                    "WHERE toimintaalue_id=" + Convert.ToInt32(TextBoxUtils.ModifyInput(lblRegionModifyRegionID.Text, 11)) + "; " +
                     "COMMIT;";
                     try
                     {
-                        ConnectionUtils.openConnection();
+                        ConnectionUtils.OpenConnection();
                         MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                         command.ExecuteNonQuery();
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                         this.Close();
                     }
                     catch (Exception ex)
                     {
                         //Incase of database-connection problems
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                         MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Yritä uudelleen myöhemmin. Lisätietoja virheestä: "
                             + ex.Message.ToString());
                     }
@@ -62,7 +62,7 @@ namespace RentCottage.Forms
                 catch (Exception ex)
                 {
                     //Incase of variable conversion problems
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     MessageBox.Show("Virhe tietojen muuntamisessa. Onhan kaikkien kenttien syötteet oikein? Lisätietoja virheestä: " + ex.Message.ToString());
                 }
             }

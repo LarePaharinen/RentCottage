@@ -26,28 +26,28 @@ namespace RentCottage.Forms
                 string query = "START TRANSACTION; " +
                 "INSERT INTO toimintaalue(toimintaalue_id,nimi) " +
                 "VALUES(default,'" +
-                TextBoxUtils.modifyInput(tbRegionAddRegionName.Text,40) +"');"+
+                TextBoxUtils.ModifyInput(tbRegionAddRegionName.Text,40) +"');"+
                 "COMMIT;";
 
                 try
                 {
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     this.Close();
                 }
                 catch (Exception ex)
                 {
                     //Incase of database-connection problems
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
                 }
             }
             catch (Exception ex)
             {
                 //Incase of variable conversion problems
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Virhe tietojen muuntamisessa. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
             }
         }

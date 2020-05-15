@@ -22,17 +22,17 @@ namespace RentCottage
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PostUtils.checkPostal(tbCustomerPostalAdd.Text, tbCustomerPostOfficeAdd.Text);
-            ConnectionUtils.openConnection();
+            PostUtils.CheckPostal(tbCustomerPostalAdd.Text, tbCustomerPostOfficeAdd.Text);
+            ConnectionUtils.OpenConnection();
             string query3 = "START TRANSACTION; " +
                 "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
-                "VALUES(default,'" + TextBoxUtils.modifyInput(tbCustomerPostalAdd.Text,tbCustomerPostalAdd.MaxLength) + "','" + TextBoxUtils.modifyInput(tbCustomerFNameAdd.Text,tbCustomerFNameAdd.MaxLength) + 
-                "','" + TextBoxUtils.modifyInput(tbCustomerLNameAdd.Text,tbCustomerLNameAdd.MaxLength) + "','" + TextBoxUtils.modifyInput(tbCustomerAddressAdd.Text,tbCustomerAddressAdd.MaxLength) +
-                "','" + TextBoxUtils.modifyInput(tbCustomerEmailAdd.Text,tbCustomerEmailAdd.MaxLength) + "','" + TextBoxUtils.modifyInput(tbCustomerPhoneAdd.Text,tbCustomerPhoneAdd.MaxLength) + "'); " +
+                "VALUES(default,'" + TextBoxUtils.ModifyInput(tbCustomerPostalAdd.Text,tbCustomerPostalAdd.MaxLength) + "','" + TextBoxUtils.ModifyInput(tbCustomerFNameAdd.Text,tbCustomerFNameAdd.MaxLength) + 
+                "','" + TextBoxUtils.ModifyInput(tbCustomerLNameAdd.Text,tbCustomerLNameAdd.MaxLength) + "','" + TextBoxUtils.ModifyInput(tbCustomerAddressAdd.Text,tbCustomerAddressAdd.MaxLength) +
+                "','" + TextBoxUtils.ModifyInput(tbCustomerEmailAdd.Text,tbCustomerEmailAdd.MaxLength) + "','" + TextBoxUtils.ModifyInput(tbCustomerPhoneAdd.Text,tbCustomerPhoneAdd.MaxLength) + "'); " +
                 "COMMIT;";
             MySqlCommand command3 = new MySqlCommand(query3, ConnectionUtils.connection);
             command3.ExecuteNonQuery();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
             this.Close();
         }
 

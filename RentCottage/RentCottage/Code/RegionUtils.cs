@@ -11,7 +11,7 @@ namespace RentCottage.Code
 {
     public class RegionUtils
     {
-        public static void populateCBRegion(ComboBox comboBox)
+        public static void PopulateCBRegion(ComboBox comboBox)
         {
             //Fills a combobox-component with all availeable regions
             string query = "SELECT * FROM toimintaalue";
@@ -23,12 +23,12 @@ namespace RentCottage.Code
         }
 
         //Query database on a region name, and return it's index
-        public static int regionNameToIndex(string region)
+        public static int RegionNameToIndex(string region)
         {
             int index = 0;
             try
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlDataReader reader = null;
                 string query = "SELECT * FROM toimintaalue " +
                     "WHERE nimi = '" + region + "';";
@@ -39,7 +39,7 @@ namespace RentCottage.Code
                     index = reader.GetInt32(0);
                 }
                 reader.Close();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
             catch (Exception ex)
             {
@@ -51,12 +51,12 @@ namespace RentCottage.Code
 
 
         //Query databe on a region index, return it's name in string
-        public static string regionIndexToName(int index)
+        public static string RegionIndexToName(int index)
         {
             string region = "Haku ei onnistunut";
             try
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlDataReader reader = null;
                 string query = "SELECT * FROM toimintaalue " +
                     "WHERE toimintaalue_id = " + index + ";";
@@ -67,7 +67,7 @@ namespace RentCottage.Code
                     region = (string)reader["nimi"];
                 }
                 reader.Close();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 return region;
             }
             catch (Exception ex)

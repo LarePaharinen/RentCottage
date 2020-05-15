@@ -27,7 +27,7 @@ namespace RentCottage
             tbCustomerLNameMod.Text = c.Surname;
             tbCustomerAddressMod.Text = c.Address;
             tbCustomerPostalMod.Text = c.Postal;
-            tbCustomerPostOfficeMod.Text = PostUtils.getPostOffice(c.Postal);
+            tbCustomerPostOfficeMod.Text = PostUtils.GetPostOffice(c.Postal);
             tbCustomerEmailMod.Text = c.Email;
             tbCustomerPhoneMod.Text = c.Phone;
         }
@@ -42,18 +42,18 @@ namespace RentCottage
             DialogResult res = MessageBox.Show("Haluatko varmasti muuttaa valitun asiakkaan tietoja?", "Muuta asiakkaan tietoja", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
-                PostUtils.checkPostal(tbCustomerPostalMod.Text, tbCustomerPostOfficeMod.Text);
+                PostUtils.CheckPostal(tbCustomerPostalMod.Text, tbCustomerPostOfficeMod.Text);
                 string query = "START TRANSACTION; " +
                 "UPDATE asiakas " +
-                "SET postinro='" + TextBoxUtils.modifyInput(tbCustomerPostalMod.Text,tbCustomerPostalMod.MaxLength) + "',etunimi='" + TextBoxUtils.modifyInput(tbCustomerFNameMod.Text,tbCustomerFNameMod.MaxLength) +
-                "',sukunimi='" + TextBoxUtils.modifyInput(tbCustomerLNameMod.Text,tbCustomerLNameMod.MaxLength) + "',lahiosoite='" + TextBoxUtils.modifyInput(tbCustomerAddressMod.Text,tbCustomerAddressMod.MaxLength) + "'," +
-                "email='" + TextBoxUtils.modifyInput(tbCustomerEmailMod.Text,tbCustomerEmailMod.MaxLength) + "',puhelinnro='" + TextBoxUtils.modifyInput(tbCustomerPhoneMod.Text,tbCustomerPhoneMod.MaxLength) + "' " +
+                "SET postinro='" + TextBoxUtils.ModifyInput(tbCustomerPostalMod.Text,tbCustomerPostalMod.MaxLength) + "',etunimi='" + TextBoxUtils.ModifyInput(tbCustomerFNameMod.Text,tbCustomerFNameMod.MaxLength) +
+                "',sukunimi='" + TextBoxUtils.ModifyInput(tbCustomerLNameMod.Text,tbCustomerLNameMod.MaxLength) + "',lahiosoite='" + TextBoxUtils.ModifyInput(tbCustomerAddressMod.Text,tbCustomerAddressMod.MaxLength) + "'," +
+                "email='" + TextBoxUtils.ModifyInput(tbCustomerEmailMod.Text,tbCustomerEmailMod.MaxLength) + "',puhelinnro='" + TextBoxUtils.ModifyInput(tbCustomerPhoneMod.Text,tbCustomerPhoneMod.MaxLength) + "' " +
                 "WHERE asiakas_id=" + lblCustomerIDMod.Text + "; " +
                 "COMMIT;";
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 this.Close();
             }
         }

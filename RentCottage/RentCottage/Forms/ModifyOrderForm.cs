@@ -24,16 +24,16 @@ namespace RentCottage
             lbOrder_ModifyPaymentDate.Text = o.Payment_date;
             dtpOrder_ModifyStartDate.Text = o.Start_date;
             dtpOrder_ModifyEndDate.Text = o.End_date;
-            fill_dgvOrderServices();           
+            Fill_dgvOrderServices();           
         }
         int alue_id;
         
-        private void fill_dgvOrderServices()
+        private void Fill_dgvOrderServices()
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM mokki WHERE mokki_id = '" + tbOrder_ModifyCottageID.Text + "'", ConnectionUtils.connection);
             alue_id = Convert.ToInt32(command.ExecuteScalar());
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
 
             string query = "SELECT p.palvelu_id as 'ID', p.nimi as 'Nimi', p.kuvaus as 'Kuvaus', p.hinta as 'hinta/kpl', " +
                 "coalesce(lkm, 0) AS kpl FROM palvelu p LEFT outer JOIN varauksen_palvelut vp ON p.palvelu_id = vp.palvelu_id " + 
@@ -59,7 +59,7 @@ namespace RentCottage
         }
         private void tbOrder_ModifyCottageID_Leave(object sender, EventArgs e)
         {
-            if (!OrderUtils.checkCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text))) //Check is database contains selected cottage
+            if (!OrderUtils.CheckCottageID(Convert.ToInt32(tbOrder_ModifyCottageID.Text))) //Check is database contains selected cottage
             {
                 return;
             }
@@ -69,15 +69,15 @@ namespace RentCottage
                 "UPDATE varaus " +
                 "SET mokki_mokki_id='" + tbOrder_ModifyCottageID.Text + "' " + "WHERE varaus_id=" + lbOrder_ModifyOrderID.Text + "; " +
                 "COMMIT;";
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command3 = new MySqlCommand(query2, ConnectionUtils.connection);
                 command3.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
         }
         private void btmOrder_OrderModify_Click(object sender, EventArgs e)
         {   
-            if (!OrderUtils.checkOrderCottageBookDate(Convert.ToInt32(tbOrder_ModifyCottageID.Text), 
+            if (!OrderUtils.CheckOrderCottageBookDate(Convert.ToInt32(tbOrder_ModifyCottageID.Text), 
                 Convert.ToInt32(lbOrder_ModifyOrderID.Text), 
                 dtpOrder_ModifyStartDate.Text, dtpOrder_ModifyEndDate.Text)) //Check is cottage free on selected dates
             {
@@ -91,7 +91,7 @@ namespace RentCottage
                 string queryServices = "START TRANSACTION; ";
                 foreach (DataGridViewRow row in dgvOrderServices.Rows)  // Services modify
                 {
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand checkRow = new MySqlCommand("SELECT * FROM varauksen_palvelut WHERE varaus_id =  '" +
                         lbOrder_ModifyOrderID.Text + "' AND palvelu_id = '" + row.Cells[0].Value.ToString() + "'", ConnectionUtils.connection);
                     MySqlDataReader reader = checkRow.ExecuteReader();
@@ -115,17 +115,17 @@ namespace RentCottage
                         queryServices += "DELETE FROM varauksen_palvelut WHERE varaus_id =  '" +
                         lbOrder_ModifyOrderID.Text + "' AND palvelu_id = '" + row.Cells[0].Value.ToString() + "'; ";
                     }
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                 }
                 queryServices += "COMMIT;";
                 if (queryServices != "START TRANSACTION; COMMIT;") // check if services not changet
                 {
                     try
                     {
-                        ConnectionUtils.openConnection();
+                        ConnectionUtils.OpenConnection();
                         MySqlCommand command1 = new MySqlCommand(queryServices, ConnectionUtils.connection);
                         command1.ExecuteNonQuery(); // Add/EDIT/REMOVE services
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                     }
                     catch
                     {
@@ -139,10 +139,10 @@ namespace RentCottage
                 + dtpOrder_ModifyEndDate.Text + " 12:00:00'" +
                 "WHERE varaus_id=" + lbOrder_ModifyOrderID.Text + "; " +
                 "COMMIT;";
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command2 = new MySqlCommand(query, ConnectionUtils.connection);
                 command2.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 Close();
             }
         }

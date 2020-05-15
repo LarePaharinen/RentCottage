@@ -31,11 +31,11 @@ namespace RentCottage
         {
             InitializeComponent();
 
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             MySqlCommand command = new MySqlCommand("SELECT nimi FROM toimintaalue WHERE toimintaalue_id Like '" +
                 b.Cottage.RegionID.ToString() + "'", ConnectionUtils.connection);
             string region = command.ExecuteScalar().ToString();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
             // Fill cottage data and book date
             lblBookCottageId.Text = b.Cottage.CottageID.ToString();
             lblBookEquipment.Text = "(Varustelu: " + b.Cottage.Equipment + ")";
@@ -76,14 +76,14 @@ namespace RentCottage
             currentcustomer = 0;
             if (tbBookCustomerEmail.Text != "") // Search customer by email
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand ckech_is_user_exists = new MySqlCommand("SELECT * FROM asiakas WHERE email like '" +
                     tbBookCustomerEmail.Text + "'", ConnectionUtils.connection);
                 MySqlDataReader reader = ckech_is_user_exists.ExecuteReader();
                 dt.Load(reader);
                 if (dt.Rows.Count == 1) // Fill data if finded one record
                 {
-                    fill_customer_values();
+                    Fill_customer_values();
                     lblBookCustomerExists.Text = "Sähköpostilla löydetty 1 asiakas";
                     btnBookNext.Visible = false;
                     btnBookPrev.Visible = false;
@@ -94,7 +94,7 @@ namespace RentCottage
                 else if (dt.Rows.Count > 1) // If finded more than 1 record
                 {
                     lblBookCustomerExists.Text = "Sähköpostiosoitella löytyy " + dt.Rows.Count.ToString() + " asiakasta";
-                    fill_customer_values();
+                    Fill_customer_values();
                     lblCustomerOnSame.Text = "1/" + dt.Rows.Count.ToString();
                     btnBookNext.Visible = true;
                     btnBookPrev.Visible = true;
@@ -104,16 +104,16 @@ namespace RentCottage
                 }
                 else
                 {
-                    erase_customer_values();
+                    Erase_customer_values();
                     lblBookCustomerExists.Text = "Asiakasta ei löydy, syötä uuden asiakkaan tiedot.";
                     tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
                     tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
                 }
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
             else if (tbBookCustomerPhone.Text != "") //Search customer by phonenumber
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand ckech_is_user_exists = new MySqlCommand("SELECT * FROM asiakas WHERE puhelinnro like '" +
                     tbBookCustomerPhone.Text + "'", ConnectionUtils.connection);
                 MySqlDataReader reader = ckech_is_user_exists.ExecuteReader();
@@ -121,7 +121,7 @@ namespace RentCottage
                 lblBookCustomerExists.Visible = true;
                 if (dt.Rows.Count == 1)
                 {
-                    fill_customer_values();
+                    Fill_customer_values();
                     lblBookCustomerExists.Text = "Puhelinnumerolla löydetty 1 asiakas";
                     btnBookNext.Visible = false;
                     btnBookPrev.Visible = false;
@@ -132,7 +132,7 @@ namespace RentCottage
                 else if (dt.Rows.Count > 1)
                 {
                     lblBookCustomerExists.Text = "Puhelinnumerolla löytyy " + dt.Rows.Count.ToString() + " asiakasta";
-                    fill_customer_values();
+                    Fill_customer_values();
                     lblCustomerOnSame.Text = "1/" + dt.Rows.Count.ToString();
                     btnBookNext.Visible = true;
                     btnBookPrev.Visible = true;
@@ -142,17 +142,17 @@ namespace RentCottage
                 }
                 else
                 {
-                    erase_customer_values();
+                    Erase_customer_values();
                     lblBookCustomerExists.Text = "Asiakasta ei löydy, syötä uuden asiakkaan tiedot.";
                     tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
                     tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
                 }
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
             else
             {
                 lblBookCustomerExists.Text = "Hae asiakasta sähköpostilla tai puhelinnumerolla";
-                erase_customer_values();
+                Erase_customer_values();
                 tbBookCustomerPhone.Font = new Font(tbBookCustomerPhone.Font, FontStyle.Regular);
                 tbBookCustomerEmail.Font = new Font(tbBookCustomerEmail.Font, FontStyle.Regular);
             }
@@ -170,13 +170,13 @@ namespace RentCottage
             string queryCustomer, services = "\n\nLisäpalvelut:\n";
             if (customerid != 0) //If customer finded, update it
             {
-                PostUtils.checkPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
+                PostUtils.CheckPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
 
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command = new MySqlCommand("SELECT toimipaikka FROM posti WHERE postinro='" +
                     tbBookCustomerPostnumber.Text + "'", ConnectionUtils.connection);
                 tbBookCustomerPostOffice.Text = command.ExecuteScalar().ToString();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
 
                 queryCustomer = "START TRANSACTION; " +
                     "UPDATE asiakas SET etunimi='" + tbBookCustomerName.Text + "', sukunimi='" + tbBookCustomerLastname.Text + "', " +
@@ -187,7 +187,7 @@ namespace RentCottage
             }
             else // if customer not finded, add new
             {
-                PostUtils.checkPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
+                PostUtils.CheckPostal(tbBookCustomerPostnumber.Text, tbBookCustomerPostOffice.Text);
                 queryCustomer = "START TRANSACTION; " +
                 "INSERT INTO asiakas(asiakas_id,postinro,etunimi,sukunimi,lahiosoite,email,puhelinnro) " +
                 "VALUES(default,'" + tbBookCustomerPostnumber.Text + "','" + tbBookCustomerName.Text +
@@ -221,37 +221,37 @@ namespace RentCottage
             {
                 try
                 {
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command1 = new MySqlCommand(queryCustomer, ConnectionUtils.connection);
                     command1.ExecuteNonQuery(); // 1. add/update customer
-                    string queryBook = makeQueryBook();
+                    string queryBook = MakeQueryBook();
 
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command2 = new MySqlCommand(queryBook, ConnectionUtils.connection);
                     command2.ExecuteNonQuery(); // 2. get added/updated customer ID and make book
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
 
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand("SELECT varaus_id FROM varaus WHERE asiakas_id LIKE '" +
                         customerid + "' AND mokki_mokki_id LIKE '" + lblBookCottageId.Text + "' AND varattu_alkupvm LIKE '" +
                         lblBookBookingDateFrom.Text + "%' AND varattu_loppupvm LIKE '" + lblBookBookingDateTo.Text + "%' ", ConnectionUtils.connection);
                     varausid = Convert.ToInt32(command.ExecuteScalar()); // get just added order ID
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
 
                     if (services != "") // if services exists
                     {
-                        string queryServices = makeQueryServices();
-                        ConnectionUtils.openConnection();
+                        string queryServices = MakeQueryServices();
+                        ConnectionUtils.OpenConnection();
                         MySqlCommand command3 = new MySqlCommand(queryServices, ConnectionUtils.connection);
                         command3.ExecuteNonQuery(); // 3. get added order ID and add services to data table
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                         this.Close();
                     }
-                    BillingUtils.createInvoice(varausid); // Make new billing
+                    BillingUtils.CreateInvoice(varausid); // Make new billing
                     DialogResult result = MessageBox.Show("Varaus lisätty. Uusi lasku lisätty järjestelmään. Varaus id: " + varausid + 
                         " \nSiirrytäänkö laskuun?", "Prosessi onnistui", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
-                        BillingUtils.goToCreatedInvoice(varausid);
+                        BillingUtils.GoToCreatedInvoice(varausid);
                     this.Close();
                 }
                 catch (Exception ex)
@@ -262,17 +262,17 @@ namespace RentCottage
             else if (res == DialogResult.Cancel) { }
         }
 
-        private string makeQueryBook()
+        private string MakeQueryBook()
         {
             if (customerid == 0) // If created new customer, get added cutomer_id
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command = new MySqlCommand("SELECT asiakas_id FROM asiakas WHERE etunimi LIKE '" +
                     tbBookCustomerName.Text + "' AND sukunimi LIKE '" + tbBookCustomerLastname.Text + "' AND lahiosoite LIKE '" +
                     tbBookCustomerAddress.Text + "' AND postinro LIKE '" + tbBookCustomerPostnumber.Text + "' AND email LIKE '" +
                     tbBookCustomerEmail.Text + "' AND puhelinnro LIKE '" + tbBookCustomerPhone.Text + "'", ConnectionUtils.connection);
                 customerid = Convert.ToInt32(command.ExecuteScalar());
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
             string queryBook = "START TRANSACTION; " +
                 "INSERT INTO varaus(asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) " +
@@ -283,7 +283,7 @@ namespace RentCottage
             return queryBook;
         }
 
-        private string makeQueryServices() // Design query string from services
+        private string MakeQueryServices() // Design query string from services
         {
             string query = "START TRANSACTION; ";
             foreach (DataGridViewRow row in dgvBookServices.Rows)
@@ -305,7 +305,7 @@ namespace RentCottage
                 currentcustomer++;
                 lblCustomerOnSame.Text = (currentcustomer + 1).ToString() + "/" + dt.Rows.Count.ToString();
                 tbBookCustomerEmail.Text = "";
-                fill_customer_values();
+                Fill_customer_values();
             }
         }
 
@@ -316,27 +316,27 @@ namespace RentCottage
                 currentcustomer--;
                 lblCustomerOnSame.Text = (currentcustomer + 1).ToString() + "/" + dt.Rows.Count.ToString();
                 tbBookCustomerEmail.Text = "";
-                fill_customer_values();
+                Fill_customer_values();
             }
         }
 
-        private void fill_customer_values() // Fill customer data function
+        private void Fill_customer_values() // Fill customer data function
         {
             if (tbBookCustomerEmail.Text == "")
-                tbBookCustomerEmail.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("email").ToString(), tbBookCustomerEmail.MaxLength);
+                tbBookCustomerEmail.Text = TextBoxUtils.ModifyInput(dt.Rows[currentcustomer].Field<string>("email").ToString(), tbBookCustomerEmail.MaxLength);
             else if (tbBookCustomerPhone.Text == "")
-                tbBookCustomerPhone.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("puhelinnro"), tbBookCustomerPhone.MaxLength);
+                tbBookCustomerPhone.Text = TextBoxUtils.ModifyInput(dt.Rows[currentcustomer].Field<string>("puhelinnro"), tbBookCustomerPhone.MaxLength);
 
-            tbBookCustomerName.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("etunimi").ToString(), tbBookCustomerName.MaxLength);
-            tbBookCustomerLastname.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("sukunimi").ToString(), tbBookCustomerLastname.MaxLength);
-            tbBookCustomerAddress.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("lahiosoite").ToString(), tbBookCustomerAddress.MaxLength);
-            tbBookCustomerPostnumber.Text = TextBoxUtils.modifyInput(dt.Rows[currentcustomer].Field<string>("postinro").ToString(), tbBookCustomerPostnumber.MaxLength);
-            tbBookCustomerPostOffice.Text = TextBoxUtils.modifyInput(PostUtils.getPostOffice(dt.Rows[currentcustomer].Field<string>("postinro").ToString()), tbBookCustomerPostOffice.MaxLength);
+            tbBookCustomerName.Text = TextBoxUtils.ModifyInput(dt.Rows[currentcustomer].Field<string>("etunimi").ToString(), tbBookCustomerName.MaxLength);
+            tbBookCustomerLastname.Text = TextBoxUtils.ModifyInput(dt.Rows[currentcustomer].Field<string>("sukunimi").ToString(), tbBookCustomerLastname.MaxLength);
+            tbBookCustomerAddress.Text = TextBoxUtils.ModifyInput(dt.Rows[currentcustomer].Field<string>("lahiosoite").ToString(), tbBookCustomerAddress.MaxLength);
+            tbBookCustomerPostnumber.Text = TextBoxUtils.ModifyInput(dt.Rows[currentcustomer].Field<string>("postinro").ToString(), tbBookCustomerPostnumber.MaxLength);
+            tbBookCustomerPostOffice.Text = TextBoxUtils.ModifyInput(PostUtils.GetPostOffice(dt.Rows[currentcustomer].Field<string>("postinro").ToString()), tbBookCustomerPostOffice.MaxLength);
             customerid = dt.Rows[currentcustomer].Field<int>("asiakas_id");
             lblBookCustomerID.Visible = true;
             lblBookCustomerID.Text = "Asiakas ID: " + customerid.ToString();
         }
-        private void erase_customer_values() // Erase customer data function
+        private void Erase_customer_values() // Erase customer data function
         {
             tbBookCustomerName.Text = "";
             tbBookCustomerLastname.Text = "";
@@ -379,37 +379,37 @@ namespace RentCottage
 
         private void tbBookCustomerEmail_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerEmail.Text = TextBoxUtils.modifyInput(tbBookCustomerEmail.Text, tbBookCustomerEmail.MaxLength);
+            tbBookCustomerEmail.Text = TextBoxUtils.ModifyInput(tbBookCustomerEmail.Text, tbBookCustomerEmail.MaxLength);
         }
 
         private void tbBookCustomerPhone_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerPhone.Text = TextBoxUtils.modifyInput(tbBookCustomerPhone.Text, tbBookCustomerPhone.MaxLength);
+            tbBookCustomerPhone.Text = TextBoxUtils.ModifyInput(tbBookCustomerPhone.Text, tbBookCustomerPhone.MaxLength);
         }
 
         private void tbBookCustomerName_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerName.Text = TextBoxUtils.modifyInput(tbBookCustomerName.Text, tbBookCustomerName.MaxLength);
+            tbBookCustomerName.Text = TextBoxUtils.ModifyInput(tbBookCustomerName.Text, tbBookCustomerName.MaxLength);
         }
 
         private void tbBookCustomerLastname_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerLastname.Text = TextBoxUtils.modifyInput(tbBookCustomerLastname.Text, tbBookCustomerLastname.MaxLength);
+            tbBookCustomerLastname.Text = TextBoxUtils.ModifyInput(tbBookCustomerLastname.Text, tbBookCustomerLastname.MaxLength);
         }
 
         private void tbBookCustomerAddress_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerAddress.Text = TextBoxUtils.modifyInput(tbBookCustomerAddress.Text, tbBookCustomerAddress.MaxLength);
+            tbBookCustomerAddress.Text = TextBoxUtils.ModifyInput(tbBookCustomerAddress.Text, tbBookCustomerAddress.MaxLength);
         }
 
         private void tbBookCustomerPostnumber_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerPostnumber.Text = TextBoxUtils.modifyInput(tbBookCustomerPostnumber.Text, tbBookCustomerPostnumber.MaxLength);
+            tbBookCustomerPostnumber.Text = TextBoxUtils.ModifyInput(tbBookCustomerPostnumber.Text, tbBookCustomerPostnumber.MaxLength);
         }
 
         private void tbBookCustomerPostOffice_Leave(object sender, EventArgs e)
         {
-            tbBookCustomerPostOffice.Text = TextBoxUtils.modifyInput(tbBookCustomerPostOffice.Text, tbBookCustomerPostOffice.MaxLength);
+            tbBookCustomerPostOffice.Text = TextBoxUtils.ModifyInput(tbBookCustomerPostOffice.Text, tbBookCustomerPostOffice.MaxLength);
         }
     }
 }

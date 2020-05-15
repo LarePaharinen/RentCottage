@@ -18,16 +18,16 @@ namespace RentCottage.Forms
         public ModifyServiceForm()
         {
             InitializeComponent();
-            RegionUtils.populateCBRegion(cbModifyServiceRegion);
+            RegionUtils.PopulateCBRegion(cbModifyServiceRegion);
         }
 
         public ModifyServiceForm(Service s)
         {
             //Used to import services data to from
             InitializeComponent();
-            RegionUtils.populateCBRegion(cbModifyServiceRegion);
+            RegionUtils.PopulateCBRegion(cbModifyServiceRegion);
             lblModifyServiceID.Text = s.ServiceID.ToString();
-            cbModifyServiceRegion.Text = RegionUtils.regionIndexToName(s.RegionID);
+            cbModifyServiceRegion.Text = RegionUtils.RegionIndexToName(s.RegionID);
             tbModifyServiceName.Text = s.Name;
             tbModifyServiceType.Text = s.Type.ToString();
             nudModifyServicePrice.Value = (int)s.Price;
@@ -54,26 +54,26 @@ namespace RentCottage.Forms
                     //Updates services information in the database. Gets data from form components, service is uniquely identified by serviceID, which can't be modified
                     string query = "START TRANSACTION; " +
                     "UPDATE palvelu " +
-                    "SET toimintaalue_id=" + RegionUtils.regionNameToIndex(cbModifyServiceRegion.Text) +
-                    ",nimi='" + TextBoxUtils.modifyInput(tbModifyServiceName.Text, 40) +
+                    "SET toimintaalue_id=" + RegionUtils.RegionNameToIndex(cbModifyServiceRegion.Text) +
+                    ",nimi='" + TextBoxUtils.ModifyInput(tbModifyServiceName.Text, 40) +
                     "',tyyppi=" + Convert.ToInt32(tbModifyServiceType.Text) +
-                    ",kuvaus='" + TextBoxUtils.modifyInput(tbModifyServiceDescription.Text, 40) + "'," +
+                    ",kuvaus='" + TextBoxUtils.ModifyInput(tbModifyServiceDescription.Text, 40) + "'," +
                     "hinta=" + Convert.ToDouble(nudModifyServicePrice.Value) +
                     ",alv=" + Convert.ToDouble(nudModifyServiceVAT.Value) + " " +
                     "WHERE palvelu_id=" + Convert.ToInt32(lblModifyServiceID.Text) + "; " +
                     "COMMIT;";
                     try
                     {
-                        ConnectionUtils.openConnection();
+                        ConnectionUtils.OpenConnection();
                         MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                         command.ExecuteNonQuery();
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                         this.Close();
                     }
                     catch (Exception ex)
                     {
                         //Incase of database-connection problems
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                         MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot, ja yritä uudelleen myöhemmin. Lisätietoja virheestä: "
                             + ex.Message.ToString());
                     }
@@ -81,7 +81,7 @@ namespace RentCottage.Forms
                 catch (Exception ex)
                 {
                     //Incase of variable conversion problems
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     MessageBox.Show("Virhe tietojen muuntamisessa. Onhan kaikkien kenttien syötteet oikein? Lisätietoja virheestä: " + ex.Message.ToString());
                 }
                 

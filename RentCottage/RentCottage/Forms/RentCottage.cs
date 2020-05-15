@@ -29,15 +29,15 @@ namespace RentCottage
 
         private void RentCottage_Load(object sender, EventArgs e)
         {
-            populateDGVRegion();
-            populateDGVOrder();
-            populateDGVCustomer();
-            populateDGVService();
-            populateDGVCottage();
-            populateDGVBilling();
-            RegionUtils.populateCBRegion(cbSearchAluet);
-            RegionUtils.populateCBRegion(cbCottageRegions);
-            RegionUtils.populateCBRegion(cbServiceRegion);
+            PopulateDGVRegion();
+            PopulateDGVOrder();
+            PopulateDGVCustomer();
+            PopulateDGVService();
+            PopulateDGVCottage();
+            PopulateDGVBilling();
+            RegionUtils.PopulateCBRegion(cbSearchAluet);
+            RegionUtils.PopulateCBRegion(cbCottageRegions);
+            RegionUtils.PopulateCBRegion(cbServiceRegion);
             cbSearchAluet.SelectedIndex = 0;
             cbSearchVarustelu.SelectedIndex = 0;
             cbBillingPaid.SelectedIndex = 2;
@@ -47,7 +47,7 @@ namespace RentCottage
             BillingUtils.rentCottage = this;
         }
 
-        public void populateDGVRegion()
+        public void PopulateDGVRegion()
         {
             //Fills the DGVRegion-component with data from the DB
             string query = "SELECT * FROM toimintaalue";
@@ -61,7 +61,7 @@ namespace RentCottage
 
         }
 
-        public void populateDGVOrder()
+        public void PopulateDGVOrder()
         {
             string query = "SELECT * FROM varaus";
             DataTable table = new DataTable();
@@ -160,7 +160,7 @@ namespace RentCottage
 
         private void btnOrderShowAll_Click(object sender, EventArgs e)
         {
-            populateDGVOrder();
+            PopulateDGVOrder();
         }
         private void dgOrder_SelectionChanged(object sender, EventArgs e) //If no row was selected can't make a changes
         {
@@ -194,7 +194,7 @@ namespace RentCottage
                 dgOrder.CurrentRow.Cells[5].Value.ToString(), dgOrder.CurrentRow.Cells[6].Value.ToString());
             ModifyOrderForm MOF = new ModifyOrderForm(order);
             MOF.ShowDialog();
-            populateDGVOrder();
+            PopulateDGVOrder();
         }
 
         private void cmbListOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,11 +218,11 @@ namespace RentCottage
                     "DELETE FROM varaus " +
                     "WHERE varaus_id=" + dgOrder.CurrentRow.Cells[0].Value.ToString() + "; " +
                     "COMMIT;";
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                 command.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
-                populateDGVOrder();
+                ConnectionUtils.CloseConnection();
+                PopulateDGVOrder();
             }
         }
 
@@ -230,7 +230,7 @@ namespace RentCottage
         //codes related to Asiakashallinta
 
 
-        public void populateDGVCustomer() //get data from asiakas-table to datagridview
+        public void PopulateDGVCustomer() //get data from asiakas-table to datagridview
         {
             string query = "SELECT * FROM asiakas;";
             DataTable table = new DataTable();
@@ -249,12 +249,12 @@ namespace RentCottage
         private void btnCustomerSearch_Click(object sender, EventArgs e) //
         {
             string query = "SELECT * FROM asiakas " +
-                "WHERE postinro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength) + "%' " +
-                "AND etunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength) + "%' " +
-                "AND sukunimi LIKE '%" + TextBoxUtils.modifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength) + "%' " +
-                "AND lahiosoite LIKE '%" + TextBoxUtils.modifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength) + "%' " +
-                "AND email LIKE '%" + TextBoxUtils.modifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength) + "%' " +
-                "AND puhelinnro LIKE '%" + TextBoxUtils.modifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength) + "%';";
+                "WHERE postinro LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerPostal.Text, tbCustomerPostal.MaxLength) + "%' " +
+                "AND etunimi LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerFName.Text, tbCustomerFName.MaxLength) + "%' " +
+                "AND sukunimi LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerLName.Text, tbCustomerLName.MaxLength) + "%' " +
+                "AND lahiosoite LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerAddress.Text, tbCustomerAddress.MaxLength) + "%' " +
+                "AND email LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerEmail.Text, tbCustomerEmail.MaxLength) + "%' " +
+                "AND puhelinnro LIKE '%" + TextBoxUtils.ModifyInput(tbCustomerPhone.Text, tbCustomerPhone.MaxLength) + "%';";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, ConnectionUtils.connection);
             adapter.Fill(table);
@@ -270,19 +270,19 @@ namespace RentCottage
 
         private void btnCustomerShowAll_Click(object sender, EventArgs e)
         {
-            populateDGVCustomer();
+            PopulateDGVCustomer();
         }
 
         private void btnCustomerAdd_Click(object sender, EventArgs e) //add a new customer
         {
             AddCustomerForm ACF = new AddCustomerForm();
             ACF.ShowDialog();
-            populateDGVCustomer();
+            PopulateDGVCustomer();
         }
 
         private void btnCustomerDeleteInfo_Click(object sender, EventArgs e)
         {   //First, we need to check whether the customer has unpaid bills
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             string query0 = "SELECT l.maksettu " +
                 "FROM lasku l JOIN varaus v " +
                 "ON l.varaus_id = v.varaus_id " +
@@ -298,7 +298,7 @@ namespace RentCottage
                 billList.Add((bool)reader["maksettu"]);
             }
             reader.Close();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
             bool unpaidBills = false;
             foreach (bool b in billList)
             {
@@ -322,11 +322,11 @@ namespace RentCottage
                         "email='',puhelinnro='' " +
                         "WHERE asiakas_id=" + dgvCustomer.CurrentRow.Cells[0].Value.ToString() + "; " +
                         "COMMIT;";
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
-                    populateDGVCustomer();
+                    ConnectionUtils.CloseConnection();
+                    PopulateDGVCustomer();
                 }
             }
         }
@@ -339,7 +339,7 @@ namespace RentCottage
                 dgvCustomer.CurrentRow.Cells[6].Value.ToString());
             ModifyCustomerForm MCF = new ModifyCustomerForm(customer);
             MCF.ShowDialog();
-            populateDGVCustomer();
+            PopulateDGVCustomer();
         }
 
         private void dgvCustomer_SelectionChanged(object sender, EventArgs e)
@@ -388,10 +388,10 @@ namespace RentCottage
 
             if (cbSearchAlueKaikki.Checked == false) // Get alue_id
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + cbSearchAluet.Text + "'", ConnectionUtils.connection);
                 string alue_id = command.ExecuteScalar().ToString();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 query += "WHERE m.toimintaalue_id LIKE '" + alue_id + "' ";
             }
             if (nudSearchHintaraja.Value != 0 && cbSearchAlueKaikki.Checked == true) // Set price limit
@@ -425,7 +425,7 @@ namespace RentCottage
             MySqlDataAdapter sda = new MySqlDataAdapter(query, ConnectionUtils.connection);
             try
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 dgSearchTable.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgSearchTable.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
                 sda.Fill(data);
@@ -434,7 +434,7 @@ namespace RentCottage
                 dgSearchTable.Columns[4].HeaderText = "Lähiosoite";
                 dgSearchTable.Columns[6].HeaderText = "Henkilömäärä(max)";
                 dgSearchTable.Columns[8].HeaderText = "Hinta (€)";
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
             catch (Exception ex)
             {
@@ -445,13 +445,13 @@ namespace RentCottage
         private void btmSearchVarata_Click(object sender, EventArgs e) // New order
         {
             // Check date again, if user change data, and no do search
-            if (!OrderUtils.checkCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text))
+            if (!OrderUtils.CheckCottageBookDate(Convert.ToInt32(dgSearchTable.CurrentRow.Cells[0].Value), dtpSearchFROM.Text, dtpSearchTO.Text))
             {
                 btnSearchHae_Click(sender, e);
                 return;
             }
 
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             MySqlCommand command = new MySqlCommand("SELECT toimintaalue_id FROM toimintaalue WHERE nimi Like '" + dgSearchTable.CurrentRow.Cells[1].Value.ToString() + "'", ConnectionUtils.connection);
             int toimintaalueid = Convert.ToInt32(command.ExecuteScalar().ToString());
             // Make object to send on Booking window
@@ -459,7 +459,7 @@ namespace RentCottage
                 dgSearchTable.CurrentRow.Cells[2].Value.ToString(), dgSearchTable.CurrentRow.Cells[3].Value.ToString(),
                 dgSearchTable.CurrentRow.Cells[4].Value.ToString(), dgSearchTable.CurrentRow.Cells[5].Value.ToString(),
                 Convert.ToInt32(dgSearchTable.CurrentRow.Cells[6].Value.ToString()), dgSearchTable.CurrentRow.Cells[7].Value.ToString(), Convert.ToDouble(dgSearchTable.CurrentRow.Cells[8].Value.ToString()));
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
             NewBook newbook = new NewBook(cottage, dtpSearchFROM.Value.Date, dtpSearchTO.Value.Date);
             Booking booking = new Booking(newbook);
             booking.ShowDialog();
@@ -505,7 +505,7 @@ namespace RentCottage
             //Search for an invoice
             if (btn == btnBillingSearch)
             {
-                populateDGVBilling();
+                PopulateDGVBilling();
             }
 
             //Update the state of payment of a selected invoice
@@ -525,8 +525,8 @@ namespace RentCottage
 
                     int selectedRow = dgvBilling.CurrentCell.RowIndex;
                     int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
-                    BillingUtils.setPaymentState(lasku_id, paymentDate);
-                    BillingUtils.refreshDataGridView(dgvBilling);
+                    BillingUtils.SetPaymentState(lasku_id, paymentDate);
+                    BillingUtils.RefreshDataGridView(dgvBilling);
                     dgvBilling.ClearSelection();
                     dgvBilling.CurrentCell = dgvBilling.Rows[selectedRow].Cells[0];
                 }
@@ -543,8 +543,8 @@ namespace RentCottage
                 if (result == DialogResult.Yes)
                 {
                     int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
-                    BillingUtils.deleteSelectedInvoice(lasku_id);
-                    BillingUtils.refreshDataGridView(dgvBilling);
+                    BillingUtils.DeleteSelectedInvoice(lasku_id);
+                    BillingUtils.RefreshDataGridView(dgvBilling);
                     dgvBilling.ClearSelection();
                 }
             }
@@ -555,7 +555,7 @@ namespace RentCottage
                 try
                 {
                     int lasku_id = Convert.ToInt32(dgvBilling.SelectedCells[0].Value);
-                    BillingUtils.createPdfDocument(lasku_id);
+                    BillingUtils.CreatePdfDocument(lasku_id);
                 }
                 catch (Exception ex)
                 {
@@ -573,7 +573,7 @@ namespace RentCottage
                 txtboxBillingPhone.Text = "";
                 txtboxBillingSurname.Text = "";
                 cbBillingPaid.SelectedIndex = 2;
-                populateDGVBilling();
+                PopulateDGVBilling();
             }
         }
 
@@ -598,21 +598,21 @@ namespace RentCottage
         }
 
         //Executes a standard search query at "laskut" tab
-        private void populateDGVBilling()
+        private void PopulateDGVBilling()
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             string query = "SELECT l.lasku_id, v.varaus_id, a.asiakas_id, CONCAT(a.etunimi, ' ', a.sukunimi) " +
                 ", a.lahiosoite, a.puhelinnro, a.email, l.summa, v.vahvistus_pvm " +
                 "FROM lasku l " +
                 "JOIN varaus v ON l.varaus_id = v.varaus_id " +
                 "JOIN asiakas a ON v.asiakas_id = a.asiakas_id " +
-                "WHERE l.lasku_id LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingInvoiceID.Text, 11) + "%' " +
-                "AND v.varaus_id LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingOrderID.Text, 11) + "%' " +
-                "AND a.asiakas_id LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingCustomerID.Text, 11) + "%' " +
-                "AND a.etunimi LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingSurname.Text, 20) + "%' " +
-                "AND a.sukunimi LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingLastname.Text, 40) + "%' " +
-                "AND a.email LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingEmail.Text, 50) + "%' " +
-                "AND a.puhelinnro LIKE '%" + TextBoxUtils.modifyInput(txtboxBillingPhone.Text, 15) + "%' ";
+                "WHERE l.lasku_id LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingInvoiceID.Text, 11) + "%' " +
+                "AND v.varaus_id LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingOrderID.Text, 11) + "%' " +
+                "AND a.asiakas_id LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingCustomerID.Text, 11) + "%' " +
+                "AND a.etunimi LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingSurname.Text, 20) + "%' " +
+                "AND a.sukunimi LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingLastname.Text, 40) + "%' " +
+                "AND a.email LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingEmail.Text, 50) + "%' " +
+                "AND a.puhelinnro LIKE '%" + TextBoxUtils.ModifyInput(txtboxBillingPhone.Text, 15) + "%' ";
             if (cbBillingPaid.SelectedIndex == 0)
                 query += "AND v.vahvistus_pvm IS NOT NULL ORDER BY l.lasku_id;";
             else if (cbBillingPaid.SelectedIndex == 1)
@@ -633,7 +633,7 @@ namespace RentCottage
             dgvBilling.Columns[7].HeaderText = "Summa (€)";
             dgvBilling.Columns[8].HeaderText = "Maksettu (pvm)";
             BillingUtils.latestQuery = query;
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
         }
 
 
@@ -654,16 +654,16 @@ namespace RentCottage
             }
         }
 
-        private void addRegion(object sender, EventArgs e)
+        private void AddRegion(object sender, EventArgs e)
         {
             //Open form for adding a region to the database
             AddRegionForm ARF = new AddRegionForm();
             ARF.ShowDialog();
-            populateDGVRegion();
+            PopulateDGVRegion();
         }
 
 
-        private void deleteSelectedRegion(object sender, EventArgs e)
+        private void DeleteSelectedRegion(object sender, EventArgs e)
         {
             //Deletes selected region from database
 
@@ -676,11 +676,11 @@ namespace RentCottage
                     "DELETE FROM toimintaalue " +
                     "WHERE toimintaalue_id=" + dgvRegion.CurrentRow.Cells[0].Value.ToString() + "; " +
                     "COMMIT;";
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
-                    populateDGVRegion();
+                    ConnectionUtils.CloseConnection();
+                    PopulateDGVRegion();
                     tbRegionName.Text = "";
                 }
                 catch (Exception ex)
@@ -695,7 +695,7 @@ namespace RentCottage
         private void btnRegionReferesh_Click(object sender, EventArgs e)
         {
             //Referesh DGVRegion-component
-            populateDGVRegion();
+            PopulateDGVRegion();
         }
 
         private void btnRegionModify_Click(object sender, EventArgs e)
@@ -705,7 +705,7 @@ namespace RentCottage
                 Code.Region region = new Code.Region(Convert.ToInt32(dgvRegion.CurrentRow.Cells[0].Value), dgvRegion.CurrentRow.Cells[1].Value.ToString());
                 ModifyRegionForm MRF = new ModifyRegionForm(region);
                 MRF.ShowDialog();
-                populateDGVRegion();
+                PopulateDGVRegion();
             }
             catch (Exception ex)
             {
@@ -721,7 +721,7 @@ namespace RentCottage
             {
                 //Get's data from tbRegionName, and does a query to the DB. Updates dgvRegion-component to show search results
                 string query = "SELECT * FROM toimintaalue " +
-                "WHERE nimi LIKE '%" + TextBoxUtils.modifyInput(tbRegionName.Text, 40) + "%';";
+                "WHERE nimi LIKE '%" + TextBoxUtils.ModifyInput(tbRegionName.Text, 40) + "%';";
                 try
                 {
                     DataTable table = new DataTable();
@@ -742,7 +742,7 @@ namespace RentCottage
         }
 
 
-        public void populateDGVService()
+        public void PopulateDGVService()
         {
             //Fills the DGVService-component with data from DB
             string query = "SELECT * FROM palvelu";
@@ -776,7 +776,7 @@ namespace RentCottage
             }
         }
 
-        public void populateDGVCottage()
+        public void PopulateDGVCottage()
         {
             //Fills the DGVCottage-component with data from DB
             string query = "SELECT * FROM mokki";
@@ -816,7 +816,7 @@ namespace RentCottage
             //Opens a form for adding service to the database
             AddServiceForm ASF = new AddServiceForm();
             ASF.ShowDialog();
-            populateDGVService();
+            PopulateDGVService();
         }
 
         private void btnCottageAdd_Click(object sender, EventArgs e)
@@ -824,12 +824,12 @@ namespace RentCottage
             //Opens a form for adding a cottage to the database
             AddCottageForm ACF = new AddCottageForm();
             ACF.ShowDialog();
-            populateDGVCottage();
+            PopulateDGVCottage();
         }
 
         private void btnRefereshCottages_Click(object sender, EventArgs e)
         {
-            populateDGVCottage();
+            PopulateDGVCottage();
         }
 
         private void btnModifyCottage_Click(object sender, EventArgs e)
@@ -842,7 +842,7 @@ namespace RentCottage
                 dgvCottage.CurrentRow.Cells[7].Value.ToString());
                 ModifyCottageForm MCF = new ModifyCottageForm(cottage);
                 MCF.ShowDialog();
-                populateDGVCottage();
+                PopulateDGVCottage();
             }
             catch (Exception ex)
             {
@@ -862,16 +862,16 @@ namespace RentCottage
                         "DELETE FROM mokki " +
                         "WHERE mokki_id=" + dgvCottage.CurrentRow.Cells[0].Value.ToString() + "; " +
                         "COMMIT;";
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
-                    populateDGVCottage();
+                    ConnectionUtils.CloseConnection();
+                    PopulateDGVCottage();
                 }
             }
             catch (Exception ex)
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Tietojen poisto ei onnistunut. Yritä uudelleen myöhemmin. Lisätietoja: " + ex.Message);
             }
 
@@ -883,11 +883,11 @@ namespace RentCottage
             {
                 //Get's data from form components, and does a query to the DB. Updates CottageDataGridView-component to show search results
                 string query = "SELECT * FROM mokki " +
-                "WHERE toimintaalue_id = " + RegionUtils.regionNameToIndex(cbCottageRegions.Text) + " " +
-                "AND postinro LIKE '%" + TextBoxUtils.modifyInput(tbCottagePostNum.Text, 5) + "%' " +
-                "AND mokkinimi LIKE '%" + TextBoxUtils.modifyInput(tbCottageName.Text, 45) + "%' " +
-                "AND katuosoite LIKE '%" + TextBoxUtils.modifyInput(tbCottageStreetAddress.Text, 45) + "%' " +
-                "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbCottageDescription.Text, 500) + "%' " +
+                "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbCottageRegions.Text) + " " +
+                "AND postinro LIKE '%" + TextBoxUtils.ModifyInput(tbCottagePostNum.Text, 5) + "%' " +
+                "AND mokkinimi LIKE '%" + TextBoxUtils.ModifyInput(tbCottageName.Text, 45) + "%' " +
+                "AND katuosoite LIKE '%" + TextBoxUtils.ModifyInput(tbCottageStreetAddress.Text, 45) + "%' " +
+                "AND kuvaus LIKE '%" + TextBoxUtils.ModifyInput(tbCottageDescription.Text, 500) + "%' " +
                 "AND henkilomaara > '" + (nudCottageCapacity.Value - 1) + "' " +
                 "AND varustelu LIKE '%" + cbCottageEqupment.Text + "%' " +
                 "AND hinta <(" + Convert.ToDouble(nudCottagePrice.Value + 1) + ");";
@@ -920,7 +920,7 @@ namespace RentCottage
                                 Convert.ToDouble(dgvService.CurrentRow.Cells[5].Value), Convert.ToDouble(dgvService.CurrentRow.Cells[6].Value));
                 ModifyServiceForm MSF = new ModifyServiceForm(service);
                 MSF.ShowDialog();
-                populateDGVService();
+                PopulateDGVService();
             }
             catch (Exception ex)
             {
@@ -931,7 +931,7 @@ namespace RentCottage
 
         private void btnServiceShowAll_Click(object sender, EventArgs e)
         {
-            populateDGVService();
+            PopulateDGVService();
         }
 
         private void btnServiceDelete_Click(object sender, EventArgs e)
@@ -945,15 +945,15 @@ namespace RentCottage
                                         "DELETE FROM palvelu " +
                                         "WHERE palvelu_id=" + dgvService.CurrentRow.Cells[0].Value.ToString() + "; " +
                                         "COMMIT;";
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
-                    populateDGVService();
+                    ConnectionUtils.CloseConnection();
+                    PopulateDGVService();
                 }
                 catch (Exception ex)
                 {
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     MessageBox.Show("Tietojen poisto ei onnistunut. Yritä uudelleen myöhemmin. Lisätietoja: " + ex.Message);
                 }
 
@@ -966,10 +966,10 @@ namespace RentCottage
             {
                 //Get's data from form components, and does a query to the DB. Updates ServiceDataGridView-component to show search results
                 string query = "SELECT * FROM palvelu " +
-                "WHERE toimintaalue_id = " + RegionUtils.regionNameToIndex(cbServiceRegion.Text) + " " +
-                "AND nimi LIKE '%" + TextBoxUtils.modifyInput(tbServiceName.Text, 40) + "%' " +
+                "WHERE toimintaalue_id = " + RegionUtils.RegionNameToIndex(cbServiceRegion.Text) + " " +
+                "AND nimi LIKE '%" + TextBoxUtils.ModifyInput(tbServiceName.Text, 40) + "%' " +
                 "AND tyyppi LIKE '%" + tbServiceType.Text + "%' " +
-                "AND kuvaus LIKE '%" + TextBoxUtils.modifyInput(tbServiceDescription.Text, 500) + "%' " +
+                "AND kuvaus LIKE '%" + TextBoxUtils.ModifyInput(tbServiceDescription.Text, 500) + "%' " +
                 "AND hinta <(" + (nudServicePrice.Value + 1) + ");";
                 try
                 {
@@ -1034,30 +1034,30 @@ namespace RentCottage
             //Update each tabs components when switching to the tab
             if (tcMain.SelectedTab.Name == "tSearch")
             {
-                RegionUtils.populateCBRegion(cbSearchAluet);
+                RegionUtils.PopulateCBRegion(cbSearchAluet);
             }
             else if (tcMain.SelectedTab.Name == "tRentControl")
             {
-                populateDGVOrder();
+                PopulateDGVOrder();
             }
             else if (tcMain.SelectedTab.Name == "tAreaControl")
             {
-                populateDGVRegion();
+                PopulateDGVRegion();
             }
             else if (tcMain.SelectedTab.Name == "tCustomerControl")
             {
-                populateDGVCustomer();
+                PopulateDGVCustomer();
             }
             else if (tcMain.SelectedTab.Name == "tServiceControl")
             {
-                populateDGVCottage();
-                populateDGVService();
-                RegionUtils.populateCBRegion(cbCottageRegions);
-                RegionUtils.populateCBRegion(cbServiceRegion);
+                PopulateDGVCottage();
+                PopulateDGVService();
+                RegionUtils.PopulateCBRegion(cbCottageRegions);
+                RegionUtils.PopulateCBRegion(cbServiceRegion);
             }
             else if (tcMain.SelectedTab.Name == "tBilling")
             {
-                populateDGVBilling();
+                PopulateDGVBilling();
             }
 
         }
@@ -1071,8 +1071,8 @@ namespace RentCottage
                 if (result == DialogResult.Yes)
                 {
                     int varaus_id = Convert.ToInt32(dgOrder.SelectedCells[0].Value);
-                    BillingUtils.createInvoice(varaus_id);
-                    BillingUtils.refreshDataGridView(dgvBilling);
+                    BillingUtils.CreateInvoice(varaus_id);
+                    BillingUtils.RefreshDataGridView(dgvBilling);
                 }
             }
             catch (Exception ex)

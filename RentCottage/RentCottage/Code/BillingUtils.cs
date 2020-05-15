@@ -18,10 +18,10 @@ namespace RentCottage
         public static RentCottage rentCottage;
 
         //Changes the tab to "laskut" and selects the row which has the parameter (varaus_id) reservation
-        public static void goToCreatedInvoice(int varaus_id)
+        public static void GoToCreatedInvoice(int varaus_id)
         {
             rentCottage.tcMain.SelectedIndex = 5;
-            BillingUtils.refreshDataGridView(rentCottage.dgvBilling);
+            BillingUtils.RefreshDataGridView(rentCottage.dgvBilling);
 
             //Search for the row which has the created bill
             int rowIndex = -1;
@@ -38,9 +38,9 @@ namespace RentCottage
         }
 
         //Creates invoice.pdf file with reservation details, saves it and opens it
-        public static void createPdfDocument(int lasku_id)
+        public static void CreatePdfDocument(int lasku_id)
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             string fileSaveLocation = Path.GetDirectoryName(Application.ExecutablePath) + "\\invoice.pdf"; //Next to .exe file
 
             //Customer name
@@ -82,8 +82,8 @@ namespace RentCottage
             string dueDate = DateTime.Now.AddDays(14).ToShortDateString();
             string[] senderAddress = { "Village Newbies Oy", "Siilokatu 1", "90700 OULU" };
             string[] receiverAddress = { customerName, customerAddress, customerPostal };
-            List<ItemRow> itemsList = generateItemsList(lasku_id);
-            double totalPrice = calculateTotalPrice(varaus_id);
+            List<ItemRow> itemsList = GenerateItemsList(lasku_id);
+            double totalPrice = CalculateTotalPrice(varaus_id);
             string totalPriceString = String.Format("{0:0.00}", totalPrice);
             double totalAlvAmount = 0;
             foreach (ItemRow item in itemsList)
@@ -120,11 +120,11 @@ namespace RentCottage
 
             //Open the document using default application
             System.Diagnostics.Process.Start(fileSaveLocation);
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
         }
 
         //Returns a list containing names and prices of all reservation cottages and additional services
-        private static List<ItemRow> generateItemsList(int lasku_id)
+        private static List<ItemRow> GenerateItemsList(int lasku_id)
         {
             //Cottage name
             string query = "SELECT m.mokkinimi " +
@@ -228,20 +228,20 @@ namespace RentCottage
         }
 
         //Uses the latest search query to update the datagridview
-        public static void refreshDataGridView(DataGridView dgvBilling)
+        public static void RefreshDataGridView(DataGridView dgvBilling)
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(latestQuery, ConnectionUtils.connection);
             adapter.Fill(table);
             dgvBilling.DataSource = table;
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
         }
 
         //Creates a bill for a reservation and checks if there are existing bills for this reservation
-        public static void createInvoice(int varaus_id)
+        public static void CreateInvoice(int varaus_id)
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             //Let's check if there's an existing invoice for this varaus_id value
             string query = "SELECT COUNT(*) " +
                 "FROM lasku " +
@@ -274,7 +274,7 @@ namespace RentCottage
             }
 
             //Create new invoice
-            double summa = calculateTotalPrice(varaus_id);
+            double summa = CalculateTotalPrice(varaus_id);
             double alv = 10;
             string maksettu = "false";
             query = "START TRANSACTION; " +
@@ -283,11 +283,11 @@ namespace RentCottage
                             "COMMIT;";
             command = new MySqlCommand(query, ConnectionUtils.connection);
             command.ExecuteNonQuery();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
         }
 
         //Calculates the total price for a reservation including additional services
-        private static double calculateTotalPrice(int varaus_id)
+        private static double CalculateTotalPrice(int varaus_id)
         {
             //Let's check if there's additional services for the reservation
             string query = "SELECT COUNT(*) " +
@@ -323,9 +323,9 @@ namespace RentCottage
         }
 
         //Updates the 'vahvistus_pvm' field of varaus and 'maksettu' field of lasku
-        public static void setPaymentState(int lasku_id, string paymentDate)
+        public static void SetPaymentState(int lasku_id, string paymentDate)
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             //get varaus_id
             string query =  "SELECT varaus_id " +
                             "FROM lasku " +
@@ -357,20 +357,20 @@ namespace RentCottage
                     "COMMIT;";
             command = new MySqlCommand(query, ConnectionUtils.connection);
             command.ExecuteNonQuery();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
         }
 
         //Deletes a bill
-        public static void deleteSelectedInvoice(int lasku_id)
+        public static void DeleteSelectedInvoice(int lasku_id)
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             string query = "START TRANSACTION; " +
                 "DELETE FROM lasku " +
                 "WHERE lasku_id = " + lasku_id + "; " +
                 "COMMIT;";
             MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
             command.ExecuteNonQuery();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
         }
     }
 }

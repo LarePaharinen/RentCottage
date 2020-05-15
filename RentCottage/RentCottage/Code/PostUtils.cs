@@ -14,10 +14,10 @@ namespace RentCottage
     public class PostUtils
     {
 
-        public static string getPostOffice(string postalCode)
+        public static string GetPostOffice(string postalCode)
         {
             string postOffice = "";
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             MySqlDataReader reader = null;
             string query0 = "SELECT * FROM posti " +
                 "WHERE postinro LIKE '" + postalCode + "';";
@@ -28,14 +28,14 @@ namespace RentCottage
                 postOffice = (string)reader["toimipaikka"];
             }
             reader.Close();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
             return postOffice;
         }
 
-        public static void checkPostal(string postalCode, string postOffice)
+        public static void CheckPostal(string postalCode, string postOffice)
         {
             //first we'll check whether the postal code already exists in the database
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             MySqlDataReader reader = null;
             string query0 = "SELECT * FROM posti " +
                 "WHERE postinro LIKE '" + postalCode + "';";
@@ -49,7 +49,7 @@ namespace RentCottage
                 officeList.Add((string)reader["toimipaikka"]);
             }
             reader.Close();
-            ConnectionUtils.closeConnection();
+            ConnectionUtils.CloseConnection();
             if (postalList.Count > 0) //the postal code already exists
             {
                 if (!officeList[0].Equals(postOffice)) //the post office in textbox is different from that of database -> solve conflict
@@ -60,7 +60,7 @@ namespace RentCottage
                         "Muuta postinumeron postitoimipaikkaa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (res == DialogResult.Yes)
                     {
-                        ConnectionUtils.openConnection();
+                        ConnectionUtils.OpenConnection();
                         string query1 = "START TRANSACTION; " +
                             "UPDATE posti " +
                             "SET postinro='" + postalList[0] + "', toimipaikka='"
@@ -68,7 +68,7 @@ namespace RentCottage
                             "COMMIT;";
                         MySqlCommand command1 = new MySqlCommand(query1, ConnectionUtils.connection);
                         command1.ExecuteNonQuery();
-                        ConnectionUtils.closeConnection();
+                        ConnectionUtils.CloseConnection();
                     }
                     else //res == DialogResult.No
                     {
@@ -78,14 +78,14 @@ namespace RentCottage
             }
             else //the postal code does not exist, so we create it
             {
-                ConnectionUtils.openConnection();
+                ConnectionUtils.OpenConnection();
                 string query2 = "START TRANSACTION; " +
                     "INSERT INTO posti(postinro,toimipaikka) " +
                     "VALUES('" + postalCode + "','" + postOffice + "');" +
                     "COMMIT;";
                 MySqlCommand command2 = new MySqlCommand(query2, ConnectionUtils.connection);
                 command2.ExecuteNonQuery();
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
             }
         }
 

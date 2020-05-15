@@ -727,7 +727,7 @@
             this.btnRegionDelete.TabIndex = 5;
             this.btnRegionDelete.Text = "Poista valittu alue";
             this.btnRegionDelete.UseVisualStyleBackColor = true;
-            this.btnRegionDelete.Click += new System.EventHandler(this.deleteSelectedRegion);
+            this.btnRegionDelete.Click += new System.EventHandler(this.DeleteSelectedRegion);
             // 
             // dgvRegion
             // 
@@ -786,7 +786,7 @@
             this.btnRegionAdd.TabIndex = 6;
             this.btnRegionAdd.Text = "Lisää uusi alue";
             this.btnRegionAdd.UseVisualStyleBackColor = true;
-            this.btnRegionAdd.Click += new System.EventHandler(this.addRegion);
+            this.btnRegionAdd.Click += new System.EventHandler(this.AddRegion);
             // 
             // lblRegion
             // 

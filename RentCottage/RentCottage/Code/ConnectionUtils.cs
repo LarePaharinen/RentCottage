@@ -13,7 +13,7 @@ namespace RentCottage
     {
         public static MySqlConnection connection = new MySqlConnection("server=127.0.0.1;user id=testi;password=testi;persistsecurityinfo=True;database=vn");
 
-        public static void openConnection()
+        public static void OpenConnection()
         {
             if (connection.State == ConnectionState.Closed)
             {
@@ -21,7 +21,7 @@ namespace RentCottage
             }
         }
 
-        public static void closeConnection()
+        public static void CloseConnection()
         {
             if (connection.State == ConnectionState.Open)
             {

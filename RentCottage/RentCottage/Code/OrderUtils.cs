@@ -10,9 +10,9 @@ namespace RentCottage.Code
 {
     public class OrderUtils
     {
-        public static bool checkCottageBookDate(int mokki_id, string dateFrom, string dateTo)
+        public static bool CheckCottageBookDate(int mokki_id, string dateFrom, string dateTo)
         {
-            ConnectionUtils.openConnection(); // Check is cottage free at the indicated time
+            ConnectionUtils.OpenConnection(); // Check is cottage free at the indicated time
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +
                 "WHERE mokki_id = " + mokki_id + " " +
                 "AND mokki_id IN " +
@@ -21,38 +21,38 @@ namespace RentCottage.Code
             MySqlDataReader reader = msc.ExecuteReader();
             if (reader.HasRows)
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Valitsemasi mökki on varattu annetuna ajalla", "Mökki varattu annetuna ajalla", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 return true;
             }
         }
 
-        public static bool checkCottageID(int mokki_id) //Check is database contains selected cottage
+        public static bool CheckCottageID(int mokki_id) //Check is database contains selected cottage
         {
-            ConnectionUtils.openConnection();
+            ConnectionUtils.OpenConnection();
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki WHERE MOKKI_ID = '" + mokki_id + "'", ConnectionUtils.connection);
             MySqlDataReader reader = msc.ExecuteReader();
             if (!reader.HasRows)
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Antamaasi mökkiID:tä ei löytynyt.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 return true;
             }
         }
 
-        public static bool checkOrderCottageBookDate(int mokki_id, int varaus_id, string dateFrom, string DateTo)
+        public static bool CheckOrderCottageBookDate(int mokki_id, int varaus_id, string dateFrom, string DateTo)
         {
-            ConnectionUtils.openConnection(); // Check is the same cottage in other orders free at the indicated time
+            ConnectionUtils.OpenConnection(); // Check is the same cottage in other orders free at the indicated time
             MySqlCommand msc = new MySqlCommand("SELECT mokki_id FROM mokki " +
                 "WHERE mokki_id = " + mokki_id + " " +
                 "AND mokki_id IN " +
@@ -61,13 +61,13 @@ namespace RentCottage.Code
 
             if (reader.HasRows)
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Valitsemasi mökki on varattu annetuna ajalla", "Mökki varattu annetuna ajalla", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 return true;
             }
         }

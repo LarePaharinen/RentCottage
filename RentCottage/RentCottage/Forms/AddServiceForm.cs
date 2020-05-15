@@ -17,7 +17,7 @@ namespace RentCottage.Forms
         public AddServiceForm()
         {
             InitializeComponent();
-            RegionUtils.populateCBRegion(cbAddServiceRegion);
+            RegionUtils.PopulateCBRegion(cbAddServiceRegion);
         }
 
         private void btnAddServiceCancel_Click(object sender, EventArgs e)
@@ -33,33 +33,33 @@ namespace RentCottage.Forms
                 string query = "START TRANSACTION; " +
                 "INSERT INTO palvelu(palvelu_id,toimintaalue_id,nimi,tyyppi,kuvaus,hinta,alv) " +
                 "VALUES(default," +
-                RegionUtils.regionNameToIndex(cbAddServiceRegion.Text) + ",'" +
-                TextBoxUtils.modifyInput(tbAddServiceName.Text, 40) + "'," +
+                RegionUtils.RegionNameToIndex(cbAddServiceRegion.Text) + ",'" +
+                TextBoxUtils.ModifyInput(tbAddServiceName.Text, 40) + "'," +
                 Convert.ToInt32(tbAddServiceType.Text) + ",'" +
-                TextBoxUtils.modifyInput(tbAddServiceDescription.Text, 500) + "'," +
+                TextBoxUtils.ModifyInput(tbAddServiceDescription.Text, 500) + "'," +
                 (double)nudAddServicePrice.Value + "," +
                 (double)nudAddServiceVAT.Value + "); " +
                 "COMMIT;";
 
                 try
                 {
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     this.Close();
                 }
                 catch (Exception ex)
                 {
                     //Incase of database-connection problems
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
                 }
             }
             catch (Exception ex)
             {
                 //Incase of variable conversion problems
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Virhe tietojen muuntamisessa. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
             }
             

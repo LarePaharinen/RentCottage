@@ -17,7 +17,7 @@ namespace RentCottage.Forms
         public AddCottageForm()
         {
             InitializeComponent();
-            RegionUtils.populateCBRegion(cbAddCottageRegion);
+            RegionUtils.PopulateCBRegion(cbAddCottageRegion);
             cbAddCottageEquipment.Text = "Hyvä";
         }
 
@@ -26,38 +26,38 @@ namespace RentCottage.Forms
             //Add a cottage to the database, gets data from form components
             try
             {
-                PostUtils.checkPostal(tbAddCottagePostNum.Text, tbAddCottagePostRegion.Text);
+                PostUtils.CheckPostal(tbAddCottagePostNum.Text, tbAddCottagePostRegion.Text);
                 string query = "START TRANSACTION; " +
                     "INSERT INTO mokki(mokki_id,toimintaalue_id,postinro,mokkinimi,katuosoite,kuvaus,henkilomaara,varustelu,hinta) " +
                     "VALUES(default," +
-                    RegionUtils.regionNameToIndex(cbAddCottageRegion.Text) + ",'" +
-                    TextBoxUtils.modifyInput(tbAddCottagePostNum.Text, 5) + "','" +
-                    TextBoxUtils.modifyInput(tbAddCottageName.Text, 45) + "','" +
-                    TextBoxUtils.modifyInput(tbAddCottageStreet.Text, 45) + "','" +
-                    TextBoxUtils.modifyInput(tbAddCottageDescription.Text, 500) + "'," +
+                    RegionUtils.RegionNameToIndex(cbAddCottageRegion.Text) + ",'" +
+                    TextBoxUtils.ModifyInput(tbAddCottagePostNum.Text, 5) + "','" +
+                    TextBoxUtils.ModifyInput(tbAddCottageName.Text, 45) + "','" +
+                    TextBoxUtils.ModifyInput(tbAddCottageStreet.Text, 45) + "','" +
+                    TextBoxUtils.ModifyInput(tbAddCottageDescription.Text, 500) + "'," +
                     (int)nudAddCottageCapacity.Value + ",'" +
-                    TextBoxUtils.modifyInput(cbAddCottageEquipment.Text, 100) + "'," +
+                    TextBoxUtils.ModifyInput(cbAddCottageEquipment.Text, 100) + "'," +
                     (double)nudAddCottagePrice.Value + "); " +
                     "COMMIT;";
                 try
                 {
-                    ConnectionUtils.openConnection();
+                    ConnectionUtils.OpenConnection();
                     MySqlCommand command = new MySqlCommand(query, ConnectionUtils.connection);
                     command.ExecuteNonQuery();
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     this.Close();
                 }
                 catch (Exception ex)
                 {
                     //Incase of connction problems
-                    ConnectionUtils.closeConnection();
+                    ConnectionUtils.CloseConnection();
                     MessageBox.Show("Virhe tietojen syöttämisessä tietokantaan. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
                 }
             }
             catch (Exception ex)
             {
                 //Incase of exceptions in variable conversion
-                ConnectionUtils.closeConnection();
+                ConnectionUtils.CloseConnection();
                 MessageBox.Show("Virhe tietojen muuntamisessa. Tarkista kenttien tiedot. Lisätietoja: " + ex.Message.ToString());
             }
             
